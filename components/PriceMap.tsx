@@ -73,9 +73,8 @@ export default function PriceMap() {
 
       if (!mapRef.current) {
         const map = L.map(mapEl.current, { worldCopyJump: true, minZoom: 2, zoomControl: true, scrollWheelZoom: false }).setView([data.origin.lat, data.origin.lng], 3);
-        L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-          subdomains: "abcd",
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           maxZoom: 12,
         }).addTo(map);
         mapRef.current = map;
@@ -177,7 +176,7 @@ export default function PriceMap() {
         </div>
         <p className="ml-auto text-xs text-slate">{status === "loading" ? "Loading fares…" : `${data?.points.filter((p) => p.price <= maxPrice).length ?? 0} destinations`}</p>
       </div>
-      <div ref={mapEl} className="h-[520px] w-full overflow-hidden rounded-xl bg-ink" aria-label="Map of flight prices" />
+      <div ref={mapEl} className="h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label="Map of flight prices" />
     </div>
   );
 }

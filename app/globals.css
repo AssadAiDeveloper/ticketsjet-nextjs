@@ -117,15 +117,19 @@ details.faq[open] .faq-chevron { transform: rotate(180deg); }
 
 /* ---- Price map markers (Leaflet) ---- */
 .tj-pin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  box-sizing: border-box;
+  width: 54px;
+  height: 24px;
+  line-height: 20px;
+  text-align: center;
   background: #ffb703;
   color: #0b1b2b;
-  font: 700 12px/1 var(--font-mono, ui-monospace, monospace);
+  font-family: ui-monospace, "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-size: 12px;
   border-radius: 999px;
   border: 2px solid #0b1b2b;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 0.4);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.35);
 }
 .tj-pin:hover { background: #fff; z-index: 1000 !important; }
 .tj-origin span { display: block; width: 14px; height: 14px; margin: 2px; border-radius: 50%; background: #17b26a; box-shadow: 0 0 0 5px rgb(23 178 106 / 0.3); }
