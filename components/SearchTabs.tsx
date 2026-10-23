@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import TpWidget from "@/components/TpWidget";
-import { WlSearchForm } from "@/components/WhiteLabel";
+import HeroFlightForm from "@/components/HeroFlightForm";
 import { WIDGETS } from "@/lib/config";
 
 const tabs = [
@@ -43,10 +43,7 @@ export default function SearchTabs() {
       </div>
 
       <div className="px-5 pb-2 pt-4 sm:px-7">
-        {/* نموذج الوايت ليبل يبقى مركّبًا دائمًا (يُخفى فقط) حتى لا يفقد السكربت الحاوية */}
-        <div className={active === "flights" ? "" : "hidden"}>
-          <WlSearchForm />
-        </div>
+        {active === "flights" && <HeroFlightForm />}
         {active === "cars" && (
           <>
             <TpWidget src={WIDGETS.carsSearch} minHeight={150} />

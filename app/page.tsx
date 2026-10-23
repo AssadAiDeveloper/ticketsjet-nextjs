@@ -1,6 +1,5 @@
 import Link from "next/link";
 import SearchTabs from "@/components/SearchTabs";
-import { WlResults } from "@/components/WhiteLabel";
 import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
 import { CARS_LINK } from "@/lib/config";
@@ -60,11 +59,6 @@ export default function HomePage() {
             <span>✓ Book directly with the provider</span>
           </div>
         </div>
-      </section>
-
-      {/* نتائج البحث تظهر هنا — في نفس الصفحة */}
-      <section className="mx-auto max-w-6xl px-4">
-        <WlResults />
       </section>
 
       <AdSlot slot="1111111111" className="mt-10" />
