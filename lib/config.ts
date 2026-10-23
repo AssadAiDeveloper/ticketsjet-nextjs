@@ -33,7 +33,7 @@ export const WIDGETS = {
   // تأجير السيارات — Localrent White Label Widget (promo 2466): البحث والنتائج داخل الصفحة. بداية: إسبانيا / برشلونة
   carsWl: `https://tpwgts.com/content?trs=${TP.trs}&shmarker=${TP.marker}&locale=en&country=35&city=60691&powered_by=false&campaign_id=87&promo_id=2466`,
   // تأجير السيارات — GetRentacar (10%، كوكيز 90 يومًا): نموذج بحث ينقل الزبون لموقع المزوّد
-  carsSearch: `https://tpwgts.com/content?trs=${TP.trs}&shmarker=${TP.marker}&locale=en&currency=usd&powered_by=false&primary=%23FFB703&secondary=%230B1B2B&light=%23FFFFFF&promo_id=4480&campaign_id=10`,
+  carsSearch: `https://tpwgts.com/content?trs=${TP.trs}&shmarker=${TP.marker}&locale=en&powered_by=false&border_radius=12&plain=true&show_logo=false&color_background=%23ffffff&color_button=%23FFB703&color_text=%230B1B2B&color_input_text=%230B1B2B&color_button_text=%230B1B2B&promo_id=4480&campaign_id=10`,
   hotelsSearch: `https://tp.media/content?currency=usd&trs=${TP.trs}&shmarker=${TP.marker}&locale=en&powered_by=false&searchUrl=search.hotellook.com&primary_override=%23FFB703&color_button=%23FFB703&color_icons=%23FFB703&secondary=%23FFFFFF&dark=%230B1B2B&light=%23FFFFFF&special=%23C4C4C4&color_focused=%23FFB703&border_radius=14&plain=true&promo_id=4038&campaign_id=101`,
 };
 

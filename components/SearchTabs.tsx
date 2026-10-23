@@ -48,12 +48,10 @@ export default function SearchTabs() {
           <WlSearchForm />
         </div>
         {active === "cars" && (
-          <div className="py-2">
+          <>
             <TpWidget src={WIDGETS.carsSearch} minHeight={150} />
-            <p className="mt-2 text-xs text-slate">
-              Compare rental cars and book directly with the provider.
-            </p>
-          </div>
+            <p className="pb-2 text-xs text-slate">Results open on our rental partner&apos;s site, where you complete the booking.</p>
+          </>
         )}
       </div>
 

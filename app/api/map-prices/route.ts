@@ -1,16 +1,7 @@
 import { NextResponse } from "next/server";
-import { getCities, type City } from "@/lib/places";
+import { getCities } from "@/lib/places";
 
-type Direction = {
-  destination?: string;
-  price?: number;
-  airline?: string;
-  transfers?: number;
-  departure_at?: string;
-  return_at?: string;
-};
-
-type PriceForDate = {
+type Row = {
   destination?: string;
   price?: number;
   transfers?: number;
@@ -18,44 +9,30 @@ type PriceForDate = {
   return_at?: string;
 };
 
-type Point = {
-  code: string;
-  name: string;
-  lat: number;
-  lng: number;
-  price: number;
-  stops: number;
-  depart: string | null;
-  back: string | null;
-};
+const API = "https://api.travelpayouts.com";
 
-function toPoint(d: Direction | PriceForDate, byCode: Map<string, City>, origin: string): Point | null {
-  const city = d.destination ? byCode.get(d.destination) : undefined;
-  if (!city || typeof d.price !== "number" || d.destination === origin) return null;
-  return {
-    code: city.code,
-    name: city.name,
-    lat: city.lat,
-    lng: city.lng,
-    price: Math.round(d.price),
-    stops: d.transfers ?? 0,
-    depart: d.departure_at?.slice(0, 10) ?? null,
-    back: d.return_at?.slice(0, 10) ?? null,
-  };
+// Current API: cheapest fare per destination, up to 1000 rows (unique=true).
+async function fromPricesForDates(origin: string, token: string): Promise<Row[]> {
+  const url = `${API}/aviasales/v3/prices_for_dates?origin=${origin}&unique=true&sorting=price&one_way=false&limit=1000&currency=usd`;
+  const res = await fetch(url, { headers: { "X-Access-Token": token }, next: { revalidate: 3600 } });
+  if (!res.ok) return [];
+  const json = (await res.json()) as { data?: Row[] };
+  return Array.isArray(json.data) ? json.data : [];
 }
 
-/** Keep the cheapest fare per destination city. */
-function dedupe(points: Point[]): Point[] {
-  const byCity = new Map<string, Point>();
-  for (const p of points) {
-    const prev = byCity.get(p.code);
-    if (!prev || p.price < prev.price) byCity.set(p.code, p);
-  }
-  return [...byCity.values()].sort((a, b) => a.price - b.price);
+// Older, deprecated endpoint (shorter list) — only used as a fallback.
+async function fromCityDirections(origin: string, token: string): Promise<Row[]> {
+  const res = await fetch(`${API}/v1/city-directions?origin=${origin}&currency=usd`, {
+    headers: { "X-Access-Token": token },
+    next: { revalidate: 3600 },
+  });
+  if (!res.ok) return [];
+  const json = (await res.json()) as { data?: Record<string, Row> };
+  return Object.values(json.data ?? {});
 }
 
 // GET /api/map-prices?origin=AMS
-// Cheapest fares from one city to many destinations, joined with coordinates.
+// Cheapest recent fares from one city to many destinations, joined with coordinates.
 // The Travelpayouts API token stays on the server (env var TP_API_TOKEN) and is never sent to the browser.
 export async function GET(req: Request) {
   const origin = (new URL(req.url).searchParams.get("origin") ?? "AMS").toUpperCase();
@@ -66,37 +43,31 @@ export async function GET(req: Request) {
 
   try {
     const cities = await getCities();
+    let rows = await fromPricesForDates(origin, token);
+    if (rows.length === 0) rows = await fromCityDirections(origin, token);
+    if (rows.length === 0) return NextResponse.json({ error: "upstream" }, { status: 502 });
+
     const byCode = new Map(cities.map((c) => [c.code, c]));
     const from = byCode.get(origin);
 
-    const prices = await fetch(
-      `https://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=${origin}&unique=true&sorting=price&one_way=false&limit=1000&currency=usd`,
-      {
-        headers: { "X-Access-Token": token },
-        next: { revalidate: 3600 },
-      },
-    )
-      .then((r) => (r.ok ? (r.json() as Promise<{ data?: PriceForDate[] }>) : null))
-      .catch(() => null);
-
-    let points = dedupe(
-      (prices?.data ?? []).map((d) => toPoint(d, byCode, origin)).filter((p): p is Point => p !== null),
-    );
-
-    if (points.length === 0) {
-      const res = await fetch(`https://api.travelpayouts.com/v1/city-directions?origin=${origin}&currency=usd`, {
-        headers: { "X-Access-Token": token },
-        next: { revalidate: 3600 },
-      });
-      if (!res.ok) return NextResponse.json({ error: "upstream" }, { status: 502 });
-
-      const json = (await res.json()) as { data?: Record<string, Direction> };
-      points = dedupe(
-        Object.values(json.data ?? {})
-          .map((d) => toPoint(d, byCode, origin))
-          .filter((p): p is Point => p !== null),
-      );
-    }
+    const points = rows
+      .map((d) => {
+        const city = d.destination ? byCode.get(d.destination) : undefined;
+        if (!city || typeof d.price !== "number" || d.destination === origin) return null;
+        return {
+          code: city.code,
+          name: city.name,
+          lat: city.lat,
+          lng: city.lng,
+          price: Math.round(d.price),
+          stops: d.transfers ?? 0,
+          depart: d.departure_at?.slice(0, 10) ?? null,
+          back: d.return_at?.slice(0, 10) ?? null,
+        };
+      })
+      .filter((p): p is NonNullable<typeof p> => p !== null)
+      .sort((a, b) => a.price - b.price)
+      .filter((p, i, arr) => arr.findIndex((q) => q.code === p.code) === i); // keep cheapest per city
 
     return NextResponse.json(
       { origin: { code: origin, name: from?.name ?? origin, lat: from?.lat ?? 52.37, lng: from?.lng ?? 4.9 }, points },
