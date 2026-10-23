@@ -50,7 +50,7 @@ lib/posts.ts    مقالات المدونة
 ```
 
 ## White Label Web — نوع Widget (المستخدم فعليًا)
-الوايت ليبل حقك من نوع **Widget** (wl_id=19695) — يعني النموذج والنتائج تظهر
+الوايت ليبل حقك من نوع **Widget** (wl_id=22715) — يعني النموذج والنتائج تظهر
 داخل صفحات ticketsjet.com مباشرة، بدون subdomain ولا CNAME ولا قالب HTML.
 
 - السكربت والحاويات في `components/WhiteLabel.tsx`

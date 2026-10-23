@@ -17,12 +17,12 @@ export const TP = {
   trs: "34009", // معرّف مشروع www.ticketsjet.com في لوحة الشريك (مؤكَّد من أكواد الودجت)
 };
 
-// --- White Label Web (نوع Widget) — مؤكَّد من لوحة التحكم: wl_id=19695 / ticketsjet.com ---
+// --- White Label Web (نوع Widget) — مؤكَّد من لوحة التحكم: wl_id=22715 / ticketsjet.com ---
 // النموذج (#tpwl-search) والنتائج (#tpwl-tickets) يظهران داخل صفحات ticketsjet.com نفسها.
 // ملاحظة من اللوحة: حاويتا النموذج والنتائج يجب أن تكونا في نفس الصفحة.
 export const WL_WEB = {
-  id: "19695",
-  src: "https://tpwgts.com/wl_web/main.js?wl_id=19695",
+  id: "22715",
+  src: "https://tpwgts.com/wl_web/main.js?wl_id=22715",
 };
 
 // --- ويدجت الفنادق (يبحث ثم ينقل الزبون لصفحة المزوّد) ---
