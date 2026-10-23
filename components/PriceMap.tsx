@@ -93,7 +93,7 @@ export default function PriceMap() {
 
       data.points
         .filter((p) => p.price <= maxPrice)
-        .slice(0, 150)
+        .slice(0, 300)
         .forEach((p) => {
           const m = L.marker([p.lat, p.lng], {
             icon: L.divIcon({ className: "tj-pin", html: `$${p.price}`, iconSize: [54, 24], iconAnchor: [27, 12] }),
