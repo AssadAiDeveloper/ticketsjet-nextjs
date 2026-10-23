@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { WlSearchForm } from "@/components/WhiteLabel";
 import TpWidget from "@/components/TpWidget";
+import { WlSearchForm } from "@/components/WhiteLabel";
 import { WIDGETS } from "@/lib/config";
 
 const tabs = [

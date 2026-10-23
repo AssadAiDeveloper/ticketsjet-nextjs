@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import TpWidget from "@/components/TpWidget";
+import PriceMap from "@/components/PriceMap";
 import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
-import { WIDGETS } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Explore Cheap Flights on a Price Map — Find Where to Fly",
@@ -37,7 +36,7 @@ export default function ExplorePage() {
 
       <section className="mx-auto -mt-6 max-w-6xl px-4">
         <div className="boarding-pass overflow-hidden p-2 sm:p-3">
-          <TpWidget src={WIDGETS.priceMap} minHeight={520} />
+          <PriceMap />
         </div>
         <p className="mt-3 text-xs text-slate">
           Prices are indicative return fares found recently. Confirm the final price on the booking page.

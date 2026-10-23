@@ -79,3 +79,10 @@ lib/posts.ts    مقالات المدونة
 - `/cars` — on-site rental widget (`WIDGETS.carsWl`, change `country`/`city` ids in `lib/config.ts` for the default city) + secondary search (`WIDGETS.carsSearch`).
 - Hotels: no hotel program is approved yet (needs ~3 months of stable traffic + travel content). The Stays widget likely earns nothing until then; consider hiding the tab.
 - Nothing public mentions the network name; outbound hotel links go through `/go/hotels/*` (noindex, disallowed in robots).
+
+## Custom price map (/explore)
+- Own Leaflet map (dark CARTO tiles) at `/explore`; pins click through to `/flights` on your own site with origin/destination/dates in the URL.
+- Needs ONE environment variable in Vercel: `TP_API_TOKEN` = your API token (Travelpayouts → Profile → API token). Server-side only, never exposed to the browser.
+- Without the token (or if the API fails) the page falls back to the stock Aviasales map widget automatically.
+- Data: `/api/map-prices?origin=AMS` (city-directions API + public cities.json for coordinates), `/api/cities?q=` (departure autocomplete).
+- Unverified: whether the White Label search form on /flights reads `origin_iata/destination_iata/depart_date/return_date` from the URL. If it doesn't, the form opens empty.
