@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TicketsJet design tokens — "Night Flight" system
+   Ink navy sky · runway-amber signal · cloud white surfaces
+   ============================================================ */
+@theme {
+  --color-ink: #0b1b2b;        /* night-sky navy */
+  --color-ink-2: #12293e;      /* raised navy panel */
+  --color-amber: #ffb703;      /* runway lights — primary action */
+  --color-amber-deep: #e09f00;
+  --color-cloud: #f6f8fa;      /* page background */
+  --color-mist: #e7edf3;       /* hairlines on light */
+  --color-slate: #55677a;      /* secondary text */
+  --color-signal: #17b26a;     /* savings / positive */
+
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-cloud);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display type */
+.font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Boarding-pass card: perforated divider + notches */
+.boarding-pass {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 24px 60px -24px rgba(3, 12, 22, 0.55);
+}
+.pass-perforation {
+  position: relative;
+  border-top: 2px dashed var(--color-mist);
+}
+.pass-perforation::before,
+.pass-perforation::after {
+  content: "";
+  position: absolute;
+  top: -13px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-ink);
+}
+.pass-perforation::before { left: -13px; }
+.pass-perforation::after { right: -13px; }
+
+/* Departure-board rows */
+.board-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.15s ease;
+}
+.board-row:hover { background: rgba(255, 183, 3, 0.07); }
+
+/* Split-flap style code chip */
+.flap {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+}
+
+/* Flight-path arc animation in the hero */
+@keyframes dash-travel {
+  to { stroke-dashoffset: -240; }
+}
+.flight-arc {
+  stroke-dasharray: 6 10;
+  animation: dash-travel 14s linear infinite;
+}
+
+/* Prose for blog + legal pages */
+.prose-tj p { margin-bottom: 1.1rem; line-height: 1.75; color: #33475b; }
+.prose-tj h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin: 2rem 0 0.75rem;
+  color: var(--color-ink);
+}
+.prose-tj ul { list-style: disc; padding-left: 1.4rem; margin-bottom: 1.1rem; color: #33475b; }
+.prose-tj li { margin-bottom: 0.4rem; line-height: 1.6; }
+
+/* FAQ details styling */
+details.faq summary { cursor: pointer; list-style: none; }
+details.faq summary::-webkit-details-marker { display: none; }
+details.faq[open] .faq-chevron { transform: rotate(180deg); }
+.faq-chevron { transition: transform 0.2s ease; }
+
+/* Partner widget container */
+.tp-widget { width: 100%; min-height: 140px; }
