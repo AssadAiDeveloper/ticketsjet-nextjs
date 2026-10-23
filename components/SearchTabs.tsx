@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { WlSearchForm } from "@/components/WhiteLabel";
-import { CARS_LINK } from "@/lib/config";
+import TpWidget from "@/components/TpWidget";
+import { WIDGETS } from "@/lib/config";
 
 const tabs = [
   { id: "flights", label: "Flights", icon: "M21 15.5 13.5 12V5.75a1.5 1.5 0 0 0-3 0V12L3 15.5v2l7.5-2v3.75L8.5 21v1.25L12 21.5l3.5.75V21l-2-1.75V15.5l7.5 2v-2Z" },
@@ -47,23 +47,7 @@ export default function SearchTabs() {
         <div className={active === "flights" ? "" : "hidden"}>
           <WlSearchForm />
         </div>
-        {active === "cars" && (
-          <div className="flex min-h-[230px] flex-col items-start justify-center gap-4 py-4">
-            <div>
-              <h3 className="font-display text-xl font-bold text-ink">Rental cars, compared</h3>
-              <p className="mt-1.5 max-w-md text-sm text-slate">
-                Search cars from local and international rental companies, then filter by deposit,
-                insurance and free cancellation.
-              </p>
-            </div>
-            <Link
-              href={CARS_LINK}
-              className="rounded-xl bg-amber px-6 py-3 text-sm font-bold text-ink transition hover:bg-amber-deep"
-            >
-              Search rental cars →
-            </Link>
-          </div>
-        )}
+        {active === "cars" && <TpWidget src={WIDGETS.carsWl} minHeight={230} />}
       </div>
 
       {/* Perforated stub */}
