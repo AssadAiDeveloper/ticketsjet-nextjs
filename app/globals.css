@@ -136,3 +136,29 @@ details.faq[open] .faq-chevron { transform: rotate(180deg); }
 .tj-pop { display: grid; gap: 4px; min-width: 170px; color: #0b1b2b; font: 500 13px/1.3 Inter, system-ui, sans-serif; }
 .tj-pop a { margin-top: 4px; padding: 6px 10px; border-radius: 8px; background: #0b1b2b; color: #fff !important; text-align: center; font-weight: 700; text-decoration: none; }
 .leaflet-container { font-family: Inter, system-ui, sans-serif; }
+
+/* ---- Date picker (react-day-picker) in the Night Flight palette ---- */
+.tj-cal {
+  --rdp-accent-color: #0b1b2b;
+  --rdp-accent-background-color: #ffb703;
+  --rdp-range_middle-background-color: #fff3cc;
+  --rdp-range_middle-color: #0b1b2b;
+  --rdp-today-color: #e09f00;
+  --rdp-day_button-border-radius: 10px;
+  --rdp-day-height: 40px;
+  --rdp-day-width: 40px;
+  --rdp-day_button-height: 38px;
+  --rdp-day_button-width: 38px;
+  font-family: Inter, system-ui, sans-serif;
+  max-width: calc(100vw - 2rem);
+}
+.tj-cal .rdp-selected:not(.rdp-range_middle) .rdp-day_button { background: #0b1b2b; color: #fff; border-color: #0b1b2b; font-weight: 700; }
+.tj-cal .rdp-range_middle .rdp-day_button { background: transparent; color: #0b1b2b; border-color: transparent; }
+.tj-cal .rdp-month_caption { font-weight: 700; color: #0b1b2b; }
+.tj-cal .rdp-weekday { font-family: ui-monospace, "IBM Plex Mono", monospace; font-size: 11px; text-transform: uppercase; color: #55677a; }
+@media (max-width: 767px) { .tj-cal .rdp-months { flex-direction: column; } }
+.tj-cal .rdp-chevron { fill: #0b1b2b; }
+.tj-cal .rdp-button_previous:hover .rdp-chevron, .tj-cal .rdp-button_next:hover .rdp-chevron { fill: #e09f00; }
+.tj-cal .rdp-range_middle { background: #fff3cc; }
+.tj-cal .rdp-range_start:not(.rdp-range_end) { background: linear-gradient(90deg, transparent 50%, #fff3cc 50%); }
+.tj-cal .rdp-range_end:not(.rdp-range_start) { background: linear-gradient(90deg, #fff3cc 50%, transparent 50%); }

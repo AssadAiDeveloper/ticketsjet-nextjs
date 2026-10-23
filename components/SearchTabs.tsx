@@ -16,7 +16,7 @@ export default function SearchTabs() {
   const [active, setActive] = useState<TabId>("flights");
 
   return (
-    <div className="boarding-pass overflow-hidden">
+    <div className="boarding-pass">
       {/* Pass header — route strip */}
       <div className="flex flex-wrap items-center justify-between gap-3 px-5 pt-5 sm:px-7">
         <div role="tablist" aria-label="Search type" className="flex gap-1 rounded-xl bg-cloud p-1">
@@ -53,7 +53,7 @@ export default function SearchTabs() {
       </div>
 
       {/* Perforated stub */}
-      <div className="pass-perforation flex flex-wrap items-center justify-between gap-2 bg-cloud/60 px-5 py-3.5 sm:px-7">
+      <div className="pass-perforation rounded-b-[20px] flex flex-wrap items-center justify-between gap-2 bg-cloud/60 px-5 py-3.5 sm:px-7">
         <p className="text-xs font-medium text-slate">
           <span className="font-semibold text-signal">No booking fees.</span> You book directly with the airline or provider.
         </p>
