@@ -30,7 +30,7 @@ export default function PriceMap() {
   const [suggest, setSuggest] = useState<Suggest[]>([]);
   const [data, setData] = useState<Data | null>(null);
   const [status, setStatus] = useState<"loading" | "ok" | "error">("loading");
-  const [maxPrice, setMaxPrice] = useState(2000);
+  const [maxPrice, setMaxPrice] = useState(20000);
 
   // load prices for the chosen origin
   useEffect(() => {
@@ -172,7 +172,7 @@ export default function PriceMap() {
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-max">
             Max price · ${maxPrice}
           </label>
-          <input id="pm-max" type="range" min={50} max={2000} step={50} value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="mt-2 w-48 accent-amber" />
+          <input id="pm-max" type="range" min={100} max={20000} step={100} value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="mt-2 w-48 accent-amber" />
         </div>
         <p className="ml-auto text-xs text-slate">{status === "loading" ? "Loading fares…" : `${data?.points.filter((p) => p.price <= maxPrice).length ?? 0} destinations`}</p>
       </div>
