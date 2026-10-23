@@ -47,7 +47,14 @@ export default function SearchTabs() {
         <div className={active === "flights" ? "" : "hidden"}>
           <WlSearchForm />
         </div>
-        {active === "cars" && <TpWidget src={WIDGETS.carsWl} minHeight={230} />}
+        {active === "cars" && (
+          <div className="py-2">
+            <TpWidget src={WIDGETS.carsSearch} minHeight={150} />
+            <p className="mt-2 text-xs text-slate">
+              Compare rental cars and book directly with the provider.
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Perforated stub */}
