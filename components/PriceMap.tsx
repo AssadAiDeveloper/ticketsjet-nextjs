@@ -23,6 +23,8 @@ export default function PriceMap() {
   const mapRef = useRef<LType.Map | null>(null);
   const layerRef = useRef<LType.LayerGroup | null>(null);
   const leafletRef = useRef<typeof LType | null>(null);
+  const drawRef = useRef<(() => void) | null>(null);
+  const closeRef = useRef<(() => void) | null>(null);
 
   const [origin, setOrigin] = useState("AMS");
   const [originLabel, setOriginLabel] = useState("Amsterdam");
@@ -83,18 +85,29 @@ export default function PriceMap() {
         mapRef.current.setView([data.origin.lat, data.origin.lng], 3);
       }
 
+      const map = mapRef.current!;
       const layer = layerRef.current!;
-      layer.clearLayers();
+      const visible = data.points.filter((p) => p.price <= maxPrice); // already sorted cheapest first
 
-      L.marker([data.origin.lat, data.origin.lng], {
-        icon: L.divIcon({ className: "tj-origin", html: "<span></span>", iconSize: [18, 18] }),
-        interactive: false,
-      }).addTo(layer);
+      // Declutter: place cheapest first, skip any pin that would overlap one already placed.
+      // Re-runs on zoom/pan, so more destinations appear as the map is zoomed in.
+      const draw = () => {
+        // don't wipe the markers while a popup is open (opening one pans the map and fires moveend)
+        if (mapEl.current?.querySelector(".leaflet-popup")) return;
+        layer.clearLayers();
+        L.marker([data.origin.lat, data.origin.lng], {
+          icon: L.divIcon({ className: "tj-origin", html: "<span></span>", iconSize: [18, 18] }),
+          interactive: false,
+        }).addTo(layer);
 
-      data.points
-        .filter((p) => p.price <= maxPrice)
-        .slice(0, 300)
-        .forEach((p) => {
+        const bounds = map.getBounds().pad(0.1);
+        const taken: Array<{ x: number; y: number }> = [];
+        for (const p of visible) {
+          if (!bounds.contains([p.lat, p.lng])) continue;
+          const pt = map.latLngToContainerPoint([p.lat, p.lng]);
+          if (taken.some((t) => Math.abs(t.x - pt.x) < 58 && Math.abs(t.y - pt.y) < 28)) continue;
+          taken.push({ x: pt.x, y: pt.y });
+
           const m = L.marker([p.lat, p.lng], {
             icon: L.divIcon({ className: "tj-pin", html: `$${p.price}`, iconSize: [54, 24], iconAnchor: [27, 12] }),
             title: p.name,
@@ -113,7 +126,17 @@ export default function PriceMap() {
           box.append(h, price, dates, a);
           m.bindPopup(box, { closeButton: false, offset: [0, -6] });
           m.addTo(layer);
-        });
+        }
+      };
+
+      const afterClose = () => setTimeout(draw, 80);
+      if (drawRef.current) map.off("zoomend moveend", drawRef.current);
+      if (closeRef.current) map.off("popupclose", closeRef.current);
+      drawRef.current = draw;
+      closeRef.current = afterClose;
+      map.on("zoomend moveend", draw);
+      map.on("popupclose", afterClose);
+      draw();
     })();
     return () => {
       cancelled = true;
