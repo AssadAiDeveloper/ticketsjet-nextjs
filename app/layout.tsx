@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import AdSenseLoader from "@/components/AdSenseLoader";
+import CookieConsent from "@/components/CookieConsent";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SITE, ADSENSE_CLIENT } from "@/lib/config";
+import { SITE } from "@/lib/config";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -63,18 +64,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
       </head>
       <body suppressHydrationWarning>
-        {ADSENSE_CLIENT && (
-          <Script
-            id="adsense"
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
-            crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
-        )}
+        <AdSenseLoader />
         <Header />
         <main>{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

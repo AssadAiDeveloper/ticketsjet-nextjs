@@ -3,10 +3,12 @@
 import { useState } from "react";
 import TpWidget from "@/components/TpWidget";
 import HeroFlightForm from "@/components/HeroFlightForm";
+import StaysForm from "@/components/StaysForm";
 import { WIDGETS } from "@/lib/config";
 
 const tabs = [
   { id: "flights", label: "Flights", icon: "M21 15.5 13.5 12V5.75a1.5 1.5 0 0 0-3 0V12L3 15.5v2l7.5-2v3.75L8.5 21v1.25L12 21.5l3.5.75V21l-2-1.75V15.5l7.5 2v-2Z" },
+  { id: "stays", label: "Stays", icon: "M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 15h18M7 9V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" },
   { id: "cars", label: "Cars", icon: "M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11m-14 0h14a2 2 0 0 1 2 2v4h-2.5a2 2 0 1 1-4 0h-5a2 2 0 1 1-4 0H3v-4a2 2 0 0 1 2-2Z" },
 ] as const;
 
@@ -44,6 +46,7 @@ export default function SearchTabs() {
 
       <div className="px-5 pb-2 pt-4 sm:px-7">
         {active === "flights" && <HeroFlightForm />}
+        {active === "stays" && <StaysForm />}
         {active === "cars" && (
           <>
             <TpWidget src={WIDGETS.carsSearch} minHeight={150} />

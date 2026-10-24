@@ -6,9 +6,9 @@
 export const SITE = {
   name: "TicketsJet",
   url: "https://ticketsjet.com",
-  tagline: "Millions of cheap flights. One simple search.",
+  tagline: "Cheap flights, compared in one search.",
   description:
-    "TicketsJet compares hundreds of airlines, hotel providers and car rental companies to find you the best travel deals. No booking fees — you book directly with the provider.",
+    "TicketsJet compares airlines, travel agencies and car rental companies to help you find good travel deals. No booking fees — you book directly with the provider.",
 };
 
 // --- Partner credentials (من لوحة الشريك: ID 271745) ---
@@ -34,8 +34,11 @@ export const WIDGETS = {
   carsWl: `https://tpwgts.com/content?trs=${TP.trs}&shmarker=${TP.marker}&locale=en&country=35&city=60691&powered_by=false&campaign_id=87&promo_id=2466`,
   // تأجير السيارات — GetRentacar (10%، كوكيز 90 يومًا): نموذج بحث ينقل الزبون لموقع المزوّد
   carsSearch: `https://tpwgts.com/content?trs=${TP.trs}&shmarker=${TP.marker}&locale=en&powered_by=false&border_radius=12&plain=true&show_logo=false&color_background=%23ffffff&color_button=%23FFB703&color_text=%230B1B2B&color_input_text=%230B1B2B&color_button_text=%230B1B2B&promo_id=4480&campaign_id=10`,
-  hotelsSearch: `https://tp.media/content?currency=usd&trs=${TP.trs}&shmarker=${TP.marker}&locale=en&powered_by=false&searchUrl=search.hotellook.com&primary_override=%23FFB703&color_button=%23FFB703&color_icons=%23FFB703&secondary=%23FFFFFF&dark=%230B1B2B&light=%23FFFFFF&special=%23C4C4C4&color_focused=%23FFB703&border_radius=14&plain=true&promo_id=4038&campaign_id=101`,
 };
+
+/** Things-to-do widget for one city (Tiqets city id). Results open on the partner's site. */
+export const activitiesWidget = (cityId: number, cards = 6) =>
+  `https://tpwgts.com/content?currency=USD&trs=${TP.trs}&shmarker=${TP.marker}&language=en&locale=${cityId}&layout=horizontal&cards=${cards}&powered_by=false&campaign_id=89&promo_id=3947`;
 
 // ============================================================
 // روابط الإحالة — تمر عبر مسارات داخلية /go/* على دومينك
@@ -46,16 +49,19 @@ export function tpRedirect(campaignId: string, programId: string, targetUrl: str
   return `https://tp.media/r?campaign_id=${campaignId}&marker=${TP.marker}&p=${programId}&trs=${TP.trs}&u=${encodeURIComponent(targetUrl)}`;
 }
 
-/** الوجهة الفعلية لبحث فنادق مدينة (تُستخدم في route handler فقط) */
-export function hotelTargetUrl(city: string) {
-  return `https://search.hotellook.com/?marker=${TP.marker}&language=en&destination=${encodeURIComponent(city)}`;
-}
-
 /** الروابط الظاهرة للزائر */
 // السيارات صارت صفحة داخل الموقع (ودجت White Label من Localrent) — لا رابط خارجي
 export const CARS_LINK = "/cars";
-export function hotelCityLink(city: string) {
-  return `/go/hotels/${encodeURIComponent(city.toLowerCase().replace(/\s+/g, "-"))}`;
+
+/**
+ * Hotel search on Booking.com (plain link, no affiliate tracking yet).
+ * If you join an affiliate programme later, add its id/params here — it is the only place that builds these links.
+ */
+export function bookingUrl(o: { city: string; checkin?: string; checkout?: string; adults?: number; children?: number; rooms?: number }) {
+  const q = new URLSearchParams({ ss: o.city, group_adults: String(o.adults ?? 2), no_rooms: String(o.rooms ?? 1), group_children: String(o.children ?? 0) });
+  if (o.checkin) q.set("checkin", o.checkin);
+  if (o.checkout) q.set("checkout", o.checkout);
+  return `https://www.booking.com/searchresults.html?${q.toString()}`;
 }
 
 // --- AdSense ---

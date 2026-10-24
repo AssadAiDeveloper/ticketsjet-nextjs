@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 };
 
 const faq = [
-  { q: "How does TicketsJet work?", a: "We search hundreds of airlines and travel agents to find the best flight options. We don't charge booking fees — you book directly with the provider." },
+  { q: "How does TicketsJet work?", a: "We search airlines and travel agents to find the best flight options. We don't charge booking fees — you book directly with the provider." },
   { q: "How can I find the cheapest flight using TicketsJet?", a: "Try searching 'Everywhere' to explore lowest-cost destinations, use the flexible-date calendar, and compare mid-week departures which are usually cheapest." },
   { q: "Where should I book a flight to right now?", a: "Check the fare board on our homepage or run an 'Everywhere' search from your home airport to see the current budget deals across Europe, the US and Asia." },
   { q: "Do I book my flight with TicketsJet?", a: "No — you book directly with the airline or travel agent on their platform. TicketsJet acts strictly as a search engine showing you the aggregated choices." },
-  { q: "Does TicketsJet do hotels too?", a: "Not yet. Right now we focus on flights and car rentals, and we are working on adding hotels." },
+  { q: "Does TicketsJet do hotels too?", a: "Flights and car rentals are our focus. For hotels, our Stays search opens Booking.com in a new tab, where you compare and book. TicketsJet doesn't compare hotel prices yet." },
   { q: "What about car rentals?", a: "TicketsJet compares leading car rental companies to bring you competitive prices, free-cancellation options and clear fuel policies." },
   { q: "What happens after I've booked my flight?", a: "You will receive a confirmation email directly from the vendor or airline you purchased from. Reach out to them directly for any support questions — they hold your reservation." },
   { q: "Can I book a flexible flight ticket?", a: "Yes. Many airlines provide tickets that allow date changes without fees. Look for the flexible filter during your search." },

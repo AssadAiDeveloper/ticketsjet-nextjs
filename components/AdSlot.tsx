@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { ADSENSE_CLIENT } from "@/lib/config";
+import { useConsent } from "@/lib/consent";
 
 declare global {
   interface Window {
@@ -15,18 +16,19 @@ declare global {
  */
 export default function AdSlot({ slot, className = "" }: { slot: string; className?: string }) {
   const pushed = useRef(false);
+  const consent = useConsent();
 
   useEffect(() => {
-    if (!ADSENSE_CLIENT || pushed.current) return;
+    if (!ADSENSE_CLIENT || consent !== "granted" || pushed.current) return;
     pushed.current = true;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch {
       /* adsense not ready */
     }
-  }, []);
+  }, [consent]);
 
-  if (!ADSENSE_CLIENT) return null;
+  if (!ADSENSE_CLIENT || consent !== "granted") return null;
 
   return (
     <div className={`mx-auto w-full max-w-5xl px-4 ${className}`}>

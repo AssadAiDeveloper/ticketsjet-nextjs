@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "TicketsJet is an independent travel search engine comparing flights and car rentals across hundreds of providers.",
+  description: "TicketsJet is an independent travel search engine comparing flights and car rentals across many providers.",
   alternates: { canonical: "/about-us" },
 };
 
@@ -20,7 +20,7 @@ export default function AboutPage() {
       </section>
       <section className="prose-tj mx-auto max-w-3xl px-4 py-14">
         <p>
-          TicketsJet is an independent travel search engine. We compare flights across hundreds
+          TicketsJet is an independent travel search engine. We compare flights across many
           of airlines and travel agents, and car rentals across leading rental companies, with
           more travel tools on the way.
         </p>
@@ -40,8 +40,8 @@ export default function AboutPage() {
         </p>
         <h2>Our promise</h2>
         <ul>
-          <li>Real prices, sourced live from providers</li>
-          <li>No booking fees, no markups, no hidden charges</li>
+          <li>Prices sourced from airlines and travel agencies</li>
+          <li>No booking fees or markups added by us</li>
           <li>Clear, honest guidance — even when it earns us nothing</li>
         </ul>
       </section>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CookieSettingsButton from "@/components/CookieSettingsButton";
 import { CARS_LINK } from "@/lib/config";
 
 const year = new Date().getFullYear();
@@ -12,7 +13,7 @@ export default function Footer() {
             Tickets<span className="text-amber">Jet</span>
           </p>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/60">
-            Compare flights and car rentals from hundreds of providers.
+            Compare flights and car rentals from many providers.
             No booking fees — ever. You always book directly with the provider.
           </p>
         </div>
@@ -22,6 +23,11 @@ export default function Footer() {
           <ul className="mt-4 space-y-2.5 text-sm text-white/75">
             <li><Link className="hover:text-white" href="/flights">Cheap flights</Link></li>
             <li><Link className="hover:text-white" href="/explore">Explore on the map</Link></li>
+            <li><Link className="hover:text-white" href="/cheap-flights">Flights by route</Link></li>
+            <li><Link className="hover:text-white" href="/stays">Hotels</Link></li>
+            <li><Link className="hover:text-white" href="/destinations">Plan a trip</Link></li>
+            <li><Link className="hover:text-white" href="/activities">Things to do</Link></li>
+            <li><Link className="hover:text-white" href="/services">Travel services</Link></li>
             <li><Link className="hover:text-white" href="/cars">Car rentals</Link></li>
             <li><Link className="hover:text-white" href="/blog">Travel guides</Link></li>
           </ul>
@@ -35,7 +41,6 @@ export default function Footer() {
                 Rental cars
               </Link>
             </li>
-            <li><Link className="hover:text-white" href="/help">Help</Link></li>
           </ul>
         </div>
 
@@ -56,7 +61,8 @@ export default function Footer() {
           <p>© {year} TicketsJet. Compare and book cheap flights from anywhere, to everywhere.</p>
           <p>
             TicketsJet is a search engine, not a seller. Some links are affiliate links —{" "}
-            <Link href="/affiliate-disclosure" className="underline hover:text-white">learn more</Link>.
+            <Link href="/affiliate-disclosure" className="underline hover:text-white">learn more</Link>.{" "}
+            <CookieSettingsButton />
           </p>
         </div>
       </div>

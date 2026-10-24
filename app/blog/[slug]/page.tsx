@@ -58,7 +58,7 @@ export default async function PostPage({ params }: Props) {
         <AdSlot slot="6666666666" className="my-10 !px-0" />
         <div className="mt-10 rounded-2xl bg-ink p-7 text-white">
           <h2 className="font-display text-xl font-bold">Ready to put it into practice?</h2>
-          <p className="mt-2 text-sm text-white/70">Run one search across hundreds of airlines and providers — no fees, ever.</p>
+          <p className="mt-2 text-sm text-white/70">Compare airlines and travel agencies in one search. We add no fees.</p>
           <Link href="/flights" className="mt-5 inline-block rounded-xl bg-amber px-6 py-3 text-sm font-bold text-ink hover:bg-amber-deep">
             Search flights →
           </Link>

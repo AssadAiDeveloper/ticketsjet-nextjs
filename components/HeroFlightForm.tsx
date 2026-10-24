@@ -1,110 +1,51 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { DayPicker, type DateRange } from "react-day-picker";
 import "react-day-picker/style.css";
+import { CityField, Stepper, usePopover, fieldBtn, labelCls, ddmm, fmt, type City } from "@/components/searchParts";
 
-type City = { code: string; name: string; country: string };
+const TRIPS = [
+  { id: "round", label: "Round trip" },
+  { id: "oneway", label: "One way" },
+  { id: "multi", label: "Multi-city" },
+] as const;
 
-/** Autocomplete city field backed by /api/cities */
-function CityField({ label, value, onPick, placeholder }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string }) {
-  const [text, setText] = useState("");
-  const [list, setList] = useState<City[]>([]);
-  const [open, setOpen] = useState(false);
+function TripIcon({ id }: { id: "round" | "oneway" | "multi" }) {
+  const common = { width: 16, height: 16, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true };
+  if (id === "oneway") return <svg {...common}><path d="M4 12h16M14 6l6 6-6 6" /></svg>;
+  if (id === "round") return <svg {...common}><path d="M17 3l4 4-4 4M3 11V9a2 2 0 0 1 2-2h16M7 21l-4-4 4-4M21 13v2a2 2 0 0 1-2 2H3" /></svg>;
+  return <svg {...common}><circle cx="5" cy="6" r="2" /><circle cx="19" cy="12" r="2" /><circle cx="7" cy="19" r="2" /><path d="M7 6h6a4 4 0 0 1 0 8H9a3 3 0 0 0 0 5" /></svg>;
+}
 
-  useEffect(() => {
-    if (value || text.trim().length < 2) return setList([]);
-    const t = setTimeout(() => {
-      fetch(`/api/cities?q=${encodeURIComponent(text.trim())}`)
-        .then((r) => r.json())
-        .then((j: { cities: City[] }) => setList(j.cities))
-        .catch(() => setList([]));
-    }, 180);
-    return () => clearTimeout(t);
-  }, [text, value]);
+type Leg = { to: City | null; date: Date | undefined };
 
+/** One flight's date in the multi-city form. */
+function LegDate({ label, value, min, onPick }: { label: string; value: Date | undefined; min: Date; onPick: (d: Date | undefined) => void }) {
+  const pop = usePopover();
   return (
-    <div className="relative">
-      <label className="block font-mono text-[10px] uppercase tracking-widest text-slate">{label}</label>
-      <input
-        value={value ? `${value.name} (${value.code})` : text}
-        onChange={(e) => {
-          onPick(null);
-          setText(e.target.value);
-          setOpen(true);
-        }}
-        onFocus={(e) => value && e.currentTarget.select()}
-        onBlur={() => setTimeout(() => setOpen(false), 150)}
-        placeholder={placeholder}
-        autoComplete="off"
-        className="mt-1 w-full rounded-xl border border-mist bg-white px-3 py-3 text-sm font-medium text-ink outline-none transition focus:border-amber"
-      />
-      {open && list.length > 0 && !value && (
-        <ul className="absolute z-50 mt-1 w-full overflow-hidden rounded-xl border border-mist bg-white shadow-xl">
-          {list.map((c) => (
-            <li key={c.code}>
-              <button
-                type="button"
-                onMouseDown={(e) => e.preventDefault()}
-                onClick={() => {
-                  onPick(c);
-                  setText("");
-                  setOpen(false);
-                }}
-                className="flex w-full items-center justify-between px-3 py-2.5 text-left text-sm hover:bg-cloud"
-              >
-                <span className="text-ink">{c.name}</span>
-                <span className="font-mono text-xs text-slate">{c.code}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
+    <div className="relative" ref={pop.ref}>
+      <span className={labelCls}>{label}</span>
+      <button type="button" className={fieldBtn} onClick={() => pop.setOpen(!pop.open)} aria-haspopup="dialog" aria-expanded={pop.open}>
+        <span className={value ? "" : "text-slate/70"}>{value ? fmt(value) : "Add date"}</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-slate" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M8 3v4M16 3v4M3 10h18" /></svg>
+      </button>
+      {pop.open && (
+        <div role="dialog" aria-label="Choose date" className="tj-cal absolute left-0 z-50 mt-2 w-max rounded-2xl border border-mist bg-white p-3 shadow-2xl">
+          <DayPicker
+            mode="single"
+            numberOfMonths={2}
+            selected={value}
+            onSelect={(d) => {
+              onPick(d);
+              if (d) pop.setOpen(false);
+            }}
+            disabled={{ before: min }}
+            startMonth={min}
+            weekStartsOn={1}
+          />
+        </div>
       )}
-    </div>
-  );
-}
-
-const two = (n: number) => String(n).padStart(2, "0");
-const ddmm = (d: Date) => two(d.getDate()) + two(d.getMonth() + 1);
-const fmt = (d?: Date) => (d ? d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }) : "");
-
-/** Closes a popover when the user clicks outside of it */
-function usePopover() {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!open) return;
-    const onDown = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    document.addEventListener("mousedown", onDown);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onDown);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [open]);
-  return { open, setOpen, ref };
-}
-
-const fieldBtn =
-  "mt-1 flex w-full items-center justify-between gap-2 rounded-xl border border-mist bg-white px-3 py-3 text-left text-sm font-medium text-ink outline-none transition hover:border-slate/40 focus:border-amber";
-const labelCls = "block font-mono text-[10px] uppercase tracking-widest text-slate";
-
-function Stepper({ label, hint, value, min, max, onChange }: { label: string; hint: string; value: number; min: number; max: number; onChange: (n: number) => void }) {
-  const btn = "grid h-8 w-8 place-items-center rounded-full border border-mist text-lg leading-none text-ink transition hover:border-amber disabled:cursor-not-allowed disabled:opacity-30";
-  return (
-    <div className="flex items-center justify-between py-2.5">
-      <div>
-        <p className="text-sm font-semibold text-ink">{label}</p>
-        <p className="text-xs text-slate">{hint}</p>
-      </div>
-      <div className="flex items-center gap-3">
-        <button type="button" className={btn} disabled={value <= min} onClick={() => onChange(value - 1)} aria-label={`Fewer ${label}`}>−</button>
-        <span className="w-4 text-center text-sm font-bold text-ink">{value}</span>
-        <button type="button" className={btn} disabled={value >= max} onClick={() => onChange(value + 1)} aria-label={`More ${label}`}>+</button>
-      </div>
     </div>
   );
 }
@@ -113,17 +54,77 @@ function Stepper({ label, hint, value, min, max, onChange }: { label: string; hi
  * Home-page flight search. It doesn't show results itself: it sends the visitor to /flights,
  * where the search widget reads the search code from the URL, runs the search and shows the results.
  */
-export default function HeroFlightForm() {
-  const [trip, setTrip] = useState<"round" | "oneway">("round");
-  const [from, setFrom] = useState<City | null>(null);
-  const [to, setTo] = useState<City | null>(null);
-  const [range, setRange] = useState<DateRange | undefined>();
-  const [single, setSingle] = useState<Date | undefined>();
-  const [adults, setAdults] = useState(1);
-  const [children, setChildren] = useState(0);
-  const [infants, setInfants] = useState(0);
-  const [cabin, setCabin] = useState<"economy" | "business">("economy");
+export type Initial = {
+  trip: "round" | "oneway" | "multi";
+  from: City;
+  to?: City;
+  depart?: string; // YYYY-MM-DD
+  back?: string | null;
+  legs?: { to: City; date: string }[];
+  adults: number;
+  children: number;
+  infants: number;
+  cabin: "economy" | "business";
+  direct?: boolean;
+  bags?: boolean;
+};
+
+const toDate = (iso?: string | null) => (iso ? new Date(Number(iso.slice(0, 4)), Number(iso.slice(5, 7)) - 1, Number(iso.slice(8, 10))) : undefined);
+
+export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) {
+  const [trip, setTrip] = useState<"round" | "oneway" | "multi">(initial?.trip ?? "round");
+  const [from, setFrom] = useState<City | null>(initial?.from ?? null);
+  const [to, setTo] = useState<City | null>(initial?.to ?? null);
+  const [range, setRange] = useState<DateRange | undefined>(initial?.trip === "round" && initial.depart ? { from: toDate(initial.depart), to: toDate(initial.back) } : undefined);
+  const [single, setSingle] = useState<Date | undefined>(initial?.trip === "oneway" ? toDate(initial.depart) : undefined);
+  const [adults, setAdults] = useState(initial?.adults ?? 1);
+  const [children, setChildren] = useState(initial?.children ?? 0);
+  const [infants, setInfants] = useState(initial?.infants ?? 0);
+  const [cabin, setCabin] = useState<"economy" | "business">(initial?.cabin ?? "economy");
+  const [direct, setDirect] = useState(initial?.direct ?? false);
+  const [bags, setBags] = useState(initial?.bags ?? false);
   const [err, setErr] = useState("");
+  const [legs, setLegs] = useState<Leg[]>(
+    initial?.legs?.length ? initial.legs.map((l) => ({ to: l.to, date: toDate(l.date) })) : [{ to: null, date: undefined }, { to: null, date: undefined }],
+  );
+
+  /** Full page load so the results widget on /flights starts fresh. */
+  function go(code: string) {
+    window.location.href = `/flights?flightSearch=${code}${direct ? "&direct=1" : ""}${bags ? "&bags=1" : ""}`;
+  }
+
+  useEffect(() => {
+    if (initial) return; // opened from a search: keep its values
+    // Restore the last search (cities, travellers, cabin) or guess the departure city from the visitor's location.
+    let restored = false;
+    try {
+      const j = JSON.parse(localStorage.getItem("tj-last-search") ?? "null");
+      if (j?.from) {
+        setFrom(j.from);
+        if (j.to) setTo(j.to);
+        if (j.trip === "oneway") setTrip("oneway");
+        if (j.adults) setAdults(j.adults);
+        setChildren(j.children ?? 0);
+        setInfants(j.infants ?? 0);
+        if (j.cabin === "business") setCabin("business");
+        restored = true;
+      }
+    } catch {}
+    if (restored) return;
+    let alive = true;
+    fetch("/api/geo")
+      .then((r) => r.json())
+      .then((g: { city?: string }) => (g.city ? fetch(`/api/cities?q=${encodeURIComponent(g.city)}`).then((r) => r.json()) : null))
+      .then((j: { cities: City[] } | null) => {
+        if (alive && j?.cities?.[0]) setFrom((cur) => cur ?? j.cities[0]);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const tripMenu = usePopover();
   const dates = usePopover();
   const pax = usePopover();
   const today = new Date(new Date().setHours(0, 0, 0, 0));
@@ -135,6 +136,28 @@ export default function HeroFlightForm() {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
+    if (trip === "multi") {
+      if (!from) return setErr("Choose where your trip starts.");
+      let prev: City = from;
+      let prevDate: Date | undefined;
+      for (const [i, l] of legs.entries()) {
+        if (!l.to) return setErr(`Choose the destination for flight ${i + 1}.`);
+        if (l.to.code === prev.code) return setErr(`Flight ${i + 1} starts and ends in the same city.`);
+        if (!l.date) return setErr(`Pick a date for flight ${i + 1}.`);
+        if (prevDate && l.date < prevDate) return setErr(`Flight ${i + 1} is before flight ${i}.`);
+        prev = l.to;
+        prevDate = l.date;
+      }
+      setErr("");
+      const people = `${adults}${children || infants ? children : ""}${infants ? infants : ""}`;
+      // Chained legs in the widget's code: ORIGIN DDMM DEST DDMM DEST …
+      const code = `${from.code}${legs.map((l) => ddmm(l.date!) + l.to!.code).join("")}${cabin === "business" ? "c" : ""}${people}`;
+      try {
+        localStorage.setItem("tj-last-search", JSON.stringify({ from, to: legs[0].to, trip: "round", adults, children, infants, cabin }));
+      } catch {}
+      go(code);
+      return;
+    }
     if (!from || !to) return setErr("Choose your departure and arrival cities from the list.");
     if (from.code === to.code) return setErr("Departure and arrival are the same city.");
     if (!depart) return setErr("Pick your travel dates.");
@@ -145,106 +168,194 @@ export default function HeroFlightForm() {
     // ORIGIN DDMM DEST [DDMM] [c = business] ADULTS [CHILDREN] [INFANTS]
     const people = `${adults}${children || infants ? children : ""}${infants ? infants : ""}`;
     const code = `${from.code}${ddmm(depart)}${to.code}${back ? ddmm(back) : ""}${cabin === "business" ? "c" : ""}${people}`;
+    try {
+      localStorage.setItem("tj-last-search", JSON.stringify({ from, to, trip, adults, children, infants, cabin }));
+    } catch {}
     // full page load so the search widget on /flights starts fresh
-    window.location.href = `/flights?flightSearch=${code}`;
+    go(code);
   }
+
+  const paxField = (
+            <div className="relative" ref={pax.ref}>
+      <span className={labelCls}>Travellers &amp; cabin</span>
+      <button type="button" className={fieldBtn} onClick={() => { pax.setOpen(!pax.open); dates.setOpen(false); }} aria-haspopup="dialog" aria-expanded={pax.open}>
+        <span>
+          {total} traveller{total > 1 ? "s" : ""} · {cabin === "business" ? "Business" : "Economy"}
+        </span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-slate" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+      </button>
+      {pax.open && (
+        <div role="dialog" aria-label="Travellers and cabin" className="absolute right-0 z-50 mt-2 w-72 rounded-2xl border border-mist bg-white p-4 shadow-2xl">
+          <Stepper label="Adults" hint="12+ years" value={adults} min={1} max={9 - children - infants} onChange={(n) => { setAdults(n); if (infants > n) setInfants(n); }} />
+          <Stepper label="Children" hint="2–11 years" value={children} min={0} max={9 - adults - infants} onChange={setChildren} />
+          <Stepper label="Infants" hint="Under 2, on lap" value={infants} min={0} max={Math.min(adults, 9 - adults - children)} onChange={setInfants} />
+          <div className="mt-2 border-t border-mist pt-3">
+            <p className="mb-2 text-sm font-semibold text-ink">Cabin</p>
+            <div className="grid grid-cols-2 gap-1 rounded-xl bg-cloud p-1 text-sm font-semibold">
+              {(["economy", "business"] as const).map((c) => (
+                <button key={c} type="button" onClick={() => setCabin(c)} className={`rounded-lg px-3 py-1.5 capitalize transition ${cabin === c ? "bg-white text-ink shadow" : "text-slate hover:text-ink"}`}>
+                  {c}
+                </button>
+              ))}
+            </div>
+          </div>
+          <button type="button" onClick={() => pax.setOpen(false)} className="mt-4 w-full rounded-xl bg-ink py-2.5 text-sm font-bold text-white transition hover:bg-ink-2">
+            Done
+          </button>
+        </div>
+      )}
+    </div>
+  );
+  const submitBtn = (
+    <button type="submit" className="rounded-xl bg-amber px-6 py-3 text-sm font-bold text-ink transition hover:bg-amber-deep md:py-[13px]">
+      Search flights
+    </button>
+  );
 
   return (
     <form onSubmit={submit} noValidate>
-      <div role="radiogroup" aria-label="Trip type" className="mb-3 inline-flex gap-1 rounded-xl bg-cloud p-1 text-sm font-semibold">
-        {([["round", "Round trip"], ["oneway", "One way"]] as const).map(([id, label]) => (
-          <button
-            key={id}
-            type="button"
-            role="radio"
-            aria-checked={trip === id}
-            onClick={() => setTrip(id)}
-            className={`rounded-lg px-4 py-1.5 transition ${trip === id ? "bg-white text-ink shadow" : "text-slate hover:text-ink"}`}
-          >
-            {label}
-          </button>
-        ))}
+      <div className="mb-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+      <div className="relative inline-block" ref={tripMenu.ref}>
+        <button
+          type="button"
+          onClick={() => tripMenu.setOpen(!tripMenu.open)}
+          aria-haspopup="listbox"
+          aria-expanded={tripMenu.open}
+          className="flex items-center gap-2 rounded-full border border-mist bg-white py-1.5 pl-3 pr-3 text-sm font-semibold text-ink shadow-sm outline-none transition hover:border-amber focus-visible:ring-2 focus-visible:ring-amber"
+        >
+          <TripIcon id={trip} />
+          {TRIPS.find((t) => t.id === trip)!.label}
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className={`text-slate transition ${tripMenu.open ? "rotate-180" : ""}`} aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+        </button>
+        {tripMenu.open && (
+          <ul role="listbox" aria-label="Trip type" className="absolute left-0 z-50 mt-2 w-52 overflow-hidden rounded-2xl border border-mist bg-white p-1.5 shadow-2xl">
+            {TRIPS.map((t) => (
+              <li key={t.id} role="option" aria-selected={trip === t.id}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setTrip(t.id);
+                    setErr("");
+                    tripMenu.setOpen(false);
+                  }}
+                  className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm font-semibold transition hover:bg-cloud ${trip === t.id ? "bg-cloud text-ink" : "text-slate"}`}
+                >
+                  <TripIcon id={t.id} />
+                  <span className="flex-1">{t.label}</span>
+                  {trip === t.id && (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F5A300" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10" /></svg>
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink">
+        <input type="checkbox" checked={direct} onChange={(e) => setDirect(e.target.checked)} className="h-4 w-4 accent-[#FFB703]" />
+        Direct flights only
+      </label>
+      <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink">
+        <input type="checkbox" checked={bags} onChange={(e) => setBags(e.target.checked)} className="h-4 w-4 accent-[#FFB703]" />
+        Baggage included
+      </label>
       </div>
 
-      <div className="grid gap-3 md:grid-cols-[1fr_1fr_1.35fr_1fr_auto] md:items-end">
-        <CityField label="From" value={from} onPick={setFrom} placeholder="City or airport" />
-        <CityField label="To" value={to} onPick={setTo} placeholder="City or airport" />
-
-        {/* Dates */}
-        <div className="relative" ref={dates.ref}>
-          <span className={labelCls}>{trip === "round" ? "Depart — Return" : "Depart"}</span>
-          <button type="button" className={fieldBtn} onClick={() => { dates.setOpen(!dates.open); pax.setOpen(false); }} aria-haspopup="dialog" aria-expanded={dates.open}>
-            <span className={dateLabel ? "" : "text-slate/70"}>{dateLabel || "Add dates"}</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-slate" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M8 3v4M16 3v4M3 10h18" /></svg>
-          </button>
-          {dates.open && (
-            <div role="dialog" aria-label="Choose dates" className="tj-cal absolute left-0 z-50 mt-2 w-max rounded-2xl border border-mist bg-white p-3 shadow-2xl">
-              {trip === "round" ? (
-                <DayPicker
-                  mode="range"
-                  numberOfMonths={2}
-                  selected={range}
-                  onSelect={(r) => {
-                    setRange(r);
-                    if (r?.from && r?.to && r.to.getTime() !== r.from.getTime()) dates.setOpen(false);
-                  }}
-                  disabled={{ before: today }}
-                  startMonth={today}
-                  weekStartsOn={1}
-                />
+      {trip === "multi" ? (
+        <div className="space-y-3">
+          {legs.map((leg, i) => (
+            <div key={i} className="grid gap-3 md:grid-cols-[1fr_1fr_1fr_2rem] md:items-end">
+              {i === 0 ? (
+                <CityField label="From" value={from} onPick={setFrom} placeholder="City or airport" />
               ) : (
-                <DayPicker
-                  mode="single"
-                  numberOfMonths={2}
-                  selected={single}
-                  onSelect={(d) => {
-                    setSingle(d);
-                    if (d) dates.setOpen(false);
-                  }}
-                  disabled={{ before: today }}
-                  startMonth={today}
-                  weekStartsOn={1}
-                />
+                <div>
+                  <span className={labelCls}>From</span>
+                  <div className={`${fieldBtn} cursor-default bg-cloud/60 text-slate`}>{legs[i - 1].to ? `${legs[i - 1].to!.name} (${legs[i - 1].to!.code})` : "Previous destination"}</div>
+                </div>
+              )}
+              <CityField label="To" value={leg.to} onPick={(c) => setLegs((ls) => ls.map((l, k) => (k === i ? { ...l, to: c } : l)))} placeholder="City or airport" />
+              <LegDate label={`Flight ${i + 1} date`} value={leg.date} min={legs[i - 1]?.date ?? today} onPick={(d) => setLegs((ls) => ls.map((l, k) => (k === i ? { ...l, date: d } : l)))} />
+              {legs.length > 2 ? (
+                <button type="button" onClick={() => setLegs((ls) => ls.filter((_, k) => k !== i))} aria-label={`Remove flight ${i + 1}`} className="grid h-8 w-8 place-items-center rounded-full border border-mist text-slate transition hover:border-red-400 hover:text-red-500 md:mb-2">
+                  ×
+                </button>
+              ) : (
+                <span />
               )}
             </div>
-          )}
-        </div>
-
-        {/* Travellers + cabin */}
-        <div className="relative" ref={pax.ref}>
-          <span className={labelCls}>Travellers &amp; cabin</span>
-          <button type="button" className={fieldBtn} onClick={() => { pax.setOpen(!pax.open); dates.setOpen(false); }} aria-haspopup="dialog" aria-expanded={pax.open}>
-            <span>
-              {total} traveller{total > 1 ? "s" : ""} · {cabin === "business" ? "Business" : "Economy"}
-            </span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-slate" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
-          </button>
-          {pax.open && (
-            <div role="dialog" aria-label="Travellers and cabin" className="absolute right-0 z-50 mt-2 w-72 rounded-2xl border border-mist bg-white p-4 shadow-2xl">
-              <Stepper label="Adults" hint="12+ years" value={adults} min={1} max={9 - children - infants} onChange={(n) => { setAdults(n); if (infants > n) setInfants(n); }} />
-              <Stepper label="Children" hint="2–11 years" value={children} min={0} max={9 - adults - infants} onChange={setChildren} />
-              <Stepper label="Infants" hint="Under 2, on lap" value={infants} min={0} max={Math.min(adults, 9 - adults - children)} onChange={setInfants} />
-              <div className="mt-2 border-t border-mist pt-3">
-                <p className="mb-2 text-sm font-semibold text-ink">Cabin</p>
-                <div className="grid grid-cols-2 gap-1 rounded-xl bg-cloud p-1 text-sm font-semibold">
-                  {(["economy", "business"] as const).map((c) => (
-                    <button key={c} type="button" onClick={() => setCabin(c)} className={`rounded-lg px-3 py-1.5 capitalize transition ${cabin === c ? "bg-white text-ink shadow" : "text-slate hover:text-ink"}`}>
-                      {c}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <button type="button" onClick={() => pax.setOpen(false)} className="mt-4 w-full rounded-xl bg-ink py-2.5 text-sm font-bold text-white transition hover:bg-ink-2">
-                Done
+          ))}
+          <div className="flex flex-wrap items-end gap-3">
+            {legs.length < 5 && (
+              <button type="button" onClick={() => setLegs((ls) => [...ls, { to: null, date: undefined }])} className="rounded-xl border border-dashed border-slate/40 px-4 py-3 text-sm font-semibold text-ink transition hover:border-amber">
+                + Add another flight
               </button>
-            </div>
-          )}
+            )}
+            <div className="w-full sm:w-64">{paxField}</div>
+            <div className="sm:ml-auto">{submitBtn}</div>
+          </div>
         </div>
+      ) : (
+        <div className="grid gap-3 md:grid-cols-[2fr_1.35fr_1fr_auto] md:items-end">
+          <div className="relative grid gap-3 sm:grid-cols-2">
+            <CityField label="From" value={from} onPick={setFrom} placeholder="City or airport" />
+            <CityField label="To" value={to} onPick={setTo} placeholder="City or airport" />
+            <button
+              type="button"
+              onClick={() => {
+                setFrom(to);
+                setTo(from);
+              }}
+              aria-label="Swap departure and arrival"
+              className="absolute left-1/2 top-[calc(50%+10px)] z-10 hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-mist bg-white text-ink shadow transition hover:border-amber sm:grid"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7" /></svg>
+            </button>
+          </div>
 
-        <button type="submit" className="rounded-xl bg-amber px-6 py-3 text-sm font-bold text-ink transition hover:bg-amber-deep md:py-[13px]">
-          Search flights
-        </button>
-      </div>
+          {/* Dates */}
+          <div className="relative" ref={dates.ref}>
+            <span className={labelCls}>{trip === "round" ? "Depart — Return" : "Depart"}</span>
+            <button type="button" className={fieldBtn} onClick={() => { dates.setOpen(!dates.open); pax.setOpen(false); }} aria-haspopup="dialog" aria-expanded={dates.open}>
+              <span className={dateLabel ? "" : "text-slate/70"}>{dateLabel || "Add dates"}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-slate" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M8 3v4M16 3v4M3 10h18" /></svg>
+            </button>
+            {dates.open && (
+              <div role="dialog" aria-label="Choose dates" className="tj-cal absolute left-0 z-50 mt-2 w-max rounded-2xl border border-mist bg-white p-3 shadow-2xl">
+                {trip === "round" ? (
+                  <DayPicker
+                    mode="range"
+                    numberOfMonths={2}
+                    selected={range}
+                    onSelect={(r) => {
+                      setRange(r);
+                      if (r?.from && r?.to && r.to.getTime() !== r.from.getTime()) dates.setOpen(false);
+                    }}
+                    disabled={{ before: today }}
+                    startMonth={today}
+                    weekStartsOn={1}
+                  />
+                ) : (
+                  <DayPicker
+                    mode="single"
+                    numberOfMonths={2}
+                    selected={single}
+                    onSelect={(d) => {
+                      setSingle(d);
+                      if (d) dates.setOpen(false);
+                    }}
+                    disabled={{ before: today }}
+                    startMonth={today}
+                    weekStartsOn={1}
+                  />
+                )}
+              </div>
+            )}
+          </div>
+
+          {paxField}
+          {submitBtn}
+        </div>
+      )}
       {err && <p role="alert" className="mt-3 text-sm font-medium text-red-600">{err}</p>}
     </form>
   );
