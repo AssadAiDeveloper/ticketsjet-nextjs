@@ -120,7 +120,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
     let alive = true;
     fetch("/api/geo")
       .then((r) => r.json())
-      .then((g: { city?: string }) => (g.city ? fetch(`/api/cities?q=${encodeURIComponent(g.city)}`).then((r) => r.json()) : null))
+      .then((g: { city?: string }) => (g.city ? fetch(`/api/cities?q=${encodeURIComponent(g.city)}&locale=${locale}`).then((r) => r.json()) : null))
       .then((j: { cities: City[] } | null) => {
         if (alive && j?.cities?.[0]) setFrom((cur) => cur ?? j.cities[0]);
       })

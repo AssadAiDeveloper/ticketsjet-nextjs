@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { pickerDate } from "@/lib/format";
 
 export type City = { code: string; name: string; country: string; kind?: "country" };
@@ -9,6 +9,7 @@ export type City = { code: string; name: string; country: string; kind?: "countr
 /** Autocomplete city field backed by /api/cities */
 export function CityField({ label, value, onPick, placeholder, withCountries, compact }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string; withCountries?: boolean; compact?: boolean }) {
   const t = useTranslations("form");
+  const locale = useLocale();
   const [text, setText] = useState("");
   const [list, setList] = useState<City[]>([]);
   const [open, setOpen] = useState(false);
@@ -16,13 +17,13 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
   useEffect(() => {
     if (value || text.trim().length < 2) return setList([]);
     const t = setTimeout(() => {
-      fetch(`/api/cities?q=${encodeURIComponent(text.trim())}${withCountries ? "&countries=1" : ""}`)
+      fetch(`/api/cities?q=${encodeURIComponent(text.trim())}${withCountries ? "&countries=1" : ""}&locale=${locale}`)
         .then((r) => r.json())
         .then((j: { cities: City[] }) => setList(j.cities))
         .catch(() => setList([]));
     }, 180);
     return () => clearTimeout(t);
-  }, [text, value, withCountries]);
+  }, [text, value, withCountries, locale]);
 
   return (
     <div className="relative">

@@ -49,7 +49,7 @@ export default function TripForm({ initial }: { initial?: TripInitial }) {
     if (initial?.from) return;
     fetch("/api/geo").then((r) => r.json()).then((g: { city: string }) => {
       if (!g.city) return;
-      return fetch(`/api/cities?q=${encodeURIComponent(g.city)}`).then((r) => r.json()).then((j: { cities: City[] }) => {
+      return fetch(`/api/cities?q=${encodeURIComponent(g.city)}&locale=${locale}`).then((r) => r.json()).then((j: { cities: City[] }) => {
         if (j.cities[0]) setFrom((cur) => cur ?? j.cities[0]);
       });
     }).catch(() => {});
