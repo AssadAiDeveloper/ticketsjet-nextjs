@@ -1,21 +1,29 @@
+import { getLocale, getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
-import Faq, { type QA } from "@/components/Faq";
+import Faq from "@/components/Faq";
 import AdSlot from "@/components/AdSlot";
 import { SITE } from "@/lib/config";
+import { alternatesFor } from "@/lib/i18nPages";
 
-type Props = {
-  eyebrow: string;
-  title: string;
-  intro: string;
-  cta: { label: string; href: string };
-  steps: { t: string; d: string }[];
-  sections: { h: string; p: string }[];
-  faq: QA[];
-  path: string;
-  slot: string;
-};
+type Ns = "esim" | "tr" | "comp";
 
-export default function ServicePage({ eyebrow, title, intro, cta, steps, sections, faq, path, slot }: Props) {
+/** Shared metadata for the service pages (copy lives in messages under the same namespace). */
+export async function serviceMetadata(locale: string, ns: Ns, path: string): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: ns });
+  return { title: t("metaTitle"), description: t("metaDesc"), alternates: alternatesFor(locale, path) };
+}
+
+/** Server component: every string comes from messages[ns] (eyebrow, title, intro, cta, s1-3, h/p 1-3, q/a 1-4). */
+export default async function ServicePage({ ns, ctaHref, path, slot }: { ns: Ns; ctaHref: string; path: string; slot: string }) {
+  const locale = await getLocale();
+  const t = await getTranslations(ns);
+  const c = await getTranslations("svc");
+  const nav = await getTranslations("flights");
+  const steps = [1, 2, 3].map((i) => ({ t: t(`s${i}t`), d: t(`s${i}d`) }));
+  const sections = [1, 2, 3].map((i) => ({ h: t(`h${i}`), p: t(`p${i}`) }));
+  const faq = [1, 2, 3, 4].map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const ld = [
     {
       "@context": "https://schema.org",
@@ -26,9 +34,9 @@ export default function ServicePage({ eyebrow, title, intro, cta, steps, section
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-        { "@type": "ListItem", position: 2, name: "Services", item: `${SITE.url}/services` },
-        { "@type": "ListItem", position: 3, name: eyebrow, item: `${SITE.url}${path}` },
+        { "@type": "ListItem", position: 1, name: nav("home"), item: `${SITE.url}${prefix}` },
+        { "@type": "ListItem", position: 2, name: c("crumb"), item: `${SITE.url}${prefix}/services` },
+        { "@type": "ListItem", position: 3, name: t("eyebrow"), item: `${SITE.url}${prefix}${path}` },
       ],
     },
   ];
@@ -37,19 +45,19 @@ export default function ServicePage({ eyebrow, title, intro, cta, steps, section
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <section className="bg-ink pb-14 pt-14">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{eyebrow}</p>
-          <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{title}</h1>
-          <p className="mt-4 max-w-xl text-white/70">{intro}</p>
-          <a href={cta.href} target="_blank" rel="sponsored nofollow noopener" className="mt-6 inline-block rounded-full bg-amber px-6 py-3 font-semibold text-ink hover:brightness-95">
-            {cta.label}
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("eyebrow")}</p>
+          <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{t("title")}</h1>
+          <p className="mt-4 max-w-xl text-white/70">{t("intro")}</p>
+          <a href={ctaHref} target="_blank" rel="sponsored nofollow noopener" className="mt-6 inline-block rounded-full bg-amber px-6 py-3 font-semibold text-ink hover:brightness-95">
+            {t("cta")}
           </a>
-          <p className="mt-3 text-xs text-white/50">Opens the provider&apos;s site. Affiliate link — it costs you nothing extra.</p>
+          <p className="mt-3 text-xs text-white/50">{c("disclosure")}</p>
         </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-12">
         <section>
-          <h2 className="font-display text-2xl font-bold text-ink">How it works</h2>
+          <h2 className="font-display text-2xl font-bold text-ink">{c("how")}</h2>
           <ol className="mt-5 grid gap-4 sm:grid-cols-3">
             {steps.map((s, i) => (
               <li key={s.t} className="rounded-2xl border border-mist bg-white p-5">
@@ -75,13 +83,13 @@ export default function ServicePage({ eyebrow, title, intro, cta, steps, section
         </div>
 
         <section className="max-w-3xl">
-          <h2 className="font-display mb-4 text-2xl font-bold text-ink">Questions</h2>
+          <h2 className="font-display mb-4 text-2xl font-bold text-ink">{(await getTranslations("route"))("questions")}</h2>
           <Faq items={faq} />
         </section>
 
         <p className="mt-10 text-sm text-slate">
-          Looking for flights? <Link href="/flights" className="font-medium text-ink underline">Search flights</Link> or browse{" "}
-          <Link href="/cheap-flights" className="font-medium text-ink underline">flights by route</Link>.
+          {c("lookingFlights")} <Link href="/flights" className="font-medium text-ink underline">{c("searchFlights")}</Link> {c("or")}{" "}
+          <Link href="/cheap-flights" className="font-medium text-ink underline">{c("byRoute")}</Link>.
         </p>
       </div>
     </>

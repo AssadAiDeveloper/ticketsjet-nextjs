@@ -1,8 +1,8 @@
 import { LOCALES } from "@/i18n/routing";
 
 /** Pages (paths without the language prefix) that are fully translated. Others show English until translated. */
-const EXACT = ["/", "/flights", "/trip-finder", "/cheap-flights", "/destinations", "/activities"];
-const PREFIXES: string[] = ["/cheap-flights/", "/destinations/", "/activities/"];
+const EXACT = ["/", "/flights", "/trip-finder", "/cheap-flights", "/destinations", "/activities", "/services"];
+const PREFIXES: string[] = ["/cheap-flights/", "/destinations/", "/activities/", "/services/"];
 
 export const isTranslated = (path: string) => EXACT.includes(path) || PREFIXES.some((p) => path.startsWith(p));
 
