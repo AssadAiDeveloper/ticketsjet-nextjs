@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Faq, { type QA } from "@/components/Faq";
 import AdSlot from "@/components/AdSlot";
 import { SITE } from "@/lib/config";

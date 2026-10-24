@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
+import { pickerDate } from "@/lib/format";
 
 export type City = { code: string; name: string; country: string; kind?: "country" };
 
 /** Autocomplete city field backed by /api/cities */
 export function CityField({ label, value, onPick, placeholder, withCountries, compact }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string; withCountries?: boolean; compact?: boolean }) {
+  const t = useTranslations("form");
   const [text, setText] = useState("");
   const [list, setList] = useState<City[]>([]);
   const [open, setOpen] = useState(false);
@@ -25,7 +28,7 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
     <div className="relative">
       <label className="block font-mono text-[10px] uppercase tracking-widest text-slate">{label}</label>
       <input
-        value={value ? (value.kind === "country" ? `${value.name} — any city` : `${value.name} (${value.code})`) : text}
+        value={value ? (value.kind === "country" ? `${value.name} — ${t("anyCity")}` : `${value.name} (${value.code})`) : text}
         onChange={(e) => {
           onPick(null);
           setText(e.target.value);
@@ -52,7 +55,7 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
                 className="flex w-full items-center justify-between px-3 py-2.5 text-left text-sm hover:bg-cloud"
               >
                 <span className="text-ink">{c.name}</span>
-                <span className="font-mono text-xs text-slate">{c.kind === "country" ? "Country" : c.code}</span>
+                <span className="font-mono text-xs text-slate">{c.kind === "country" ? t("country") : c.code}</span>
               </button>
             </li>
           ))}
@@ -64,7 +67,7 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
 
 export const two = (n: number) => String(n).padStart(2, "0");
 export const ddmm = (d: Date) => two(d.getDate()) + two(d.getMonth() + 1);
-export const fmt = (d?: Date) => (d ? d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }) : "");
+export const fmt = (d: Date | undefined, locale = "en") => (d ? pickerDate(d, locale) : "");
 
 /** Closes a popover when the user clicks outside of it */
 export function usePopover() {
@@ -105,4 +108,11 @@ export function Stepper({ label, hint, value, min, max, onChange }: { label: str
       </div>
     </div>
   );
+}
+
+import { ar, nl, enGB } from "react-day-picker/locale";
+
+/** Calendar language and first weekday for the current site language. */
+export function dayPickerLocale(locale: string) {
+  return { locale: locale === "ar" ? ar : locale === "nl" ? nl : enGB, weekStartsOn: (locale === "ar" ? 6 : 1) as 0 | 1 | 6 };
 }

@@ -8,8 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@swc/core": "^1.16.20",
     "leaflet": "^1.9.4",
     "next": "15.3.9",
+    "next-intl": "^4.14.9",
     "react": "^19.1.0",
     "react-day-picker": "^9.4.4",
     "react-dom": "^19.1.0"

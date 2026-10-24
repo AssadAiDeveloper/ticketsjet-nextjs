@@ -1,0 +1,17 @@
+import { LOCALES } from "@/i18n/routing";
+
+/** Pages (paths without the language prefix) that are fully translated. Others show English until translated. */
+const EXACT = ["/", "/flights", "/trip-finder"];
+const PREFIXES: string[] = [];
+
+export const isTranslated = (path: string) => EXACT.includes(path) || PREFIXES.some((p) => path.startsWith(p));
+
+const withLocale = (locale: string, path: string) => (locale === "en" ? path : path === "/" ? `/${locale}` : `/${locale}${path}`);
+
+/** canonical + hreflang alternates for a path. Untranslated pages point everyone at the English URL. */
+export function alternatesFor(locale: string, path: string) {
+  if (!isTranslated(path)) return { canonical: path };
+  const languages: Record<string, string> = Object.fromEntries(LOCALES.map((l) => [l, withLocale(l, path)]));
+  languages["x-default"] = path;
+  return { canonical: withLocale(locale, path), languages };
+}

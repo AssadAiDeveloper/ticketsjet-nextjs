@@ -3,11 +3,10 @@ import { headers } from "next/headers";
 import { getFares, searchCode } from "@/lib/fares";
 import { getCities } from "@/lib/places";
 import { POPULAR } from "@/lib/destinations";
+import { countryName } from "@/lib/format";
 
 export type Deal = { code: string; name: string; country: string; price: number; stops: number; depart: string | null; month: string | null; href: string };
 export type Deals = { origin: { code: string; name: string }; items: Deal[] };
-
-const regionName = new Intl.DisplayNames(["en"], { type: "region" });
 
 /** Visitor's departure city from the hosting platform's IP header, defaulting to Amsterdam. */
 async function guessOrigin(): Promise<string> {
@@ -22,7 +21,7 @@ async function guessOrigin(): Promise<string> {
   }
 }
 
-export async function getDeals(): Promise<Deals | null> {
+export async function getDeals(locale = "en"): Promise<Deals | null> {
   let code = await guessOrigin();
   let fares = await getFares(code);
   if ((!fares || fares.points.length < 8) && code !== "AMS") {
@@ -37,7 +36,7 @@ export async function getDeals(): Promise<Deals | null> {
     return {
       code: p.code,
       name: p.name,
-      country: regionName.of(p.country) ?? p.country,
+      country: countryName(p.country, locale),
       price: p.price,
       stops: p.stops,
       depart: p.depart,
