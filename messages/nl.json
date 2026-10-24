@@ -179,7 +179,22 @@
   "search": "Zoek verblijven",
   "note": "Resultaten openen op Booking.com in een nieuw tabblad, waar je de boeking afrondt.",
   "errDest": "Kies een bestemming uit de lijst.",
-  "errDates": "Kies je in- en uitcheckdatum."
+  "errDates": "Kies je in- en uitcheckdatum.",
+  "metaTitle": "Hotels & verblijf — zoek op Booking.com",
+  "metaDesc": "Vind een plek om te verblijven tijdens je reis. Kies een stad en data en ga verder naar Booking.com om kamers te vergelijken en te boeken.",
+  "kicker": "Verblijf",
+  "h1": "Vind een plek om te verblijven",
+  "lead": "Kies je stad en data. We openen de resultaten op Booking.com.",
+  "popular": "Populaire hotelbestemmingen",
+  "hotelsIn": "Hotels in {city}",
+  "searchBooking": "Zoek op Booking.com →",
+  "faqTitle": "Veelgestelde vragen over verblijf",
+  "q1": "Vergelijken jullie hotelprijzen?",
+  "a1": "Nog niet. Onze verblijfszoekopdracht brengt je naar Booking.com met je stad, data en gasten al ingevuld. Daar vergelijk en boek je.",
+  "q2": "Is gratis annuleren een hogere prijs waard?",
+  "a2": "Als je plannen kunnen veranderen meestal wel. Met een restitueerbaar tarief kun je opnieuw boeken als de prijzen dalen, dus het blijkt in de praktijk vaak goedkoper.",
+  "q3": "Zijn belastingen en kosten inbegrepen?",
+  "a3": "Het totaalbedrag, inclusief lokale belastingen en eventuele resortkosten, zie je op de afrekenpagina van de aanbieder voordat je betaalt."
  },
  "tf": {
   "flexible": "Flexibele maand",
@@ -643,5 +658,27 @@
   "a3": "Het controleren van je recht is meestal gratis. Gebruik je een claimdienst, dan wordt de vergoeding van de compensatie ingehouden, dus lees eerst de voorwaarden.",
   "q4": "Behandelt TicketsJet de claim?",
   "a4": "Nee. We verwijzen naar een externe claimdienst. TicketsJet is geen partij bij je claim en geeft geen juridisch advies."
+ },
+ "cars": {
+  "metaTitle": "Autohuur vergelijken — vergelijk borg, verzekering en annulering",
+  "metaDesc": "Zoek huurauto's van lokale en internationale bedrijven. Filter op borg, verzekering, nieuwe auto's en gratis annuleren — allemaal op TicketsJet.",
+  "kicker": "Auto's",
+  "h1": "Huurauto's vergeleken",
+  "lead": "Zoek auto's van lokale en internationale verhuurbedrijven en filter op borg, verzekering en gratis annuleren.",
+  "moreTitle": "Vergelijk meer huuraanbiedingen",
+  "moreText": "Nog een vergelijkingspunt nodig? Zoek hieronder bij een tweede groep verhuurbedrijven.",
+  "guideLead": "Nieuw met auto huren in het buitenland? Lees onze gids:",
+  "guideLink": "De gids voor autohuur zonder verrassingen",
+  "faqTitle": "Veelgestelde vragen over autohuur",
+  "q1": "Wat betekent vol-vol?",
+  "a1": "Je haalt de auto op met een volle tank en brengt hem vol terug. Meestal het eerlijkste brandstofbeleid — je betaalt alleen pompprijzen voor de brandstof die je echt gebruikt.",
+  "q2": "Heb ik een creditcard nodig?",
+  "a2": "Veel verhuurbalies eisen een creditcard op naam van de hoofdbestuurder voor de borg. Sommige aanbiedingen staan als zonder creditcard gemarkeerd — gebruik het filter in de zoekopdracht hierboven.",
+  "q3": "Moet ik extra verzekering nemen?",
+  "a3": "Basistarieven bevatten meestal een schadevrijwaring met een hoog eigen risico. Vergelijk wat elk aanbod omvat en overweeg een volledige verzekering als je een lager eigen risico wilt.",
+  "q4": "Kan ik gratis annuleren?",
+  "a4": "Veel aanbiedingen bevatten gratis annuleren. De exacte voorwaarden staan bij elk aanbod voordat je boekt, controleer ze dus voor je betaalt.",
+  "q5": "Waar betaal ik?",
+  "a5": "De boeking rond je af bij de verhuurder. TicketsJet is een zoektool en neemt nooit betalingen aan en rekent geen kosten."
  }
 }

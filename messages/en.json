@@ -179,7 +179,22 @@
   "search": "Search stays",
   "note": "Results open on Booking.com in a new tab, where you complete the booking.",
   "errDest": "Choose a destination from the list.",
-  "errDates": "Pick your check-in and check-out dates."
+  "errDates": "Pick your check-in and check-out dates.",
+  "metaTitle": "Hotels & Stays — Search on Booking.com",
+  "metaDesc": "Find a place to stay for your trip. Pick a city and dates and continue to Booking.com to compare rooms and book.",
+  "kicker": "Stays",
+  "h1": "Find a place to stay",
+  "lead": "Pick your city and dates. We'll open the results on Booking.com.",
+  "popular": "Popular hotel destinations",
+  "hotelsIn": "Hotels in {city}",
+  "searchBooking": "Search on Booking.com →",
+  "faqTitle": "Stays FAQ",
+  "q1": "Do you compare hotel prices?",
+  "a1": "Not yet. Our Stays search takes you to Booking.com with your city, dates and guests filled in. You compare and book there.",
+  "q2": "Is free cancellation worth a higher rate?",
+  "a2": "If your plans could change, usually yes. A refundable rate lets you rebook if prices drop, so it often ends up cheaper in practice.",
+  "q3": "Are taxes and fees included?",
+  "a3": "The final total, including local taxes and any resort fees, is shown on the provider's checkout page before you pay."
  },
  "tf": {
   "flexible": "Flexible month",
@@ -643,5 +658,27 @@
   "a3": "Checking eligibility is normally free. If you use a claims service, the fee is taken from the compensation, so read the terms first.",
   "q4": "Does TicketsJet handle the claim?",
   "a4": "No. We link to a third-party claims service. TicketsJet isn't a party to your claim and doesn't give legal advice."
+ },
+ "cars": {
+  "metaTitle": "Car Rental Comparison — Compare Deposits, Insurance and Cancellation",
+  "metaDesc": "Search rental cars from local and international companies. Filter by deposit, insurance, new cars and free cancellation — all on TicketsJet.",
+  "kicker": "Cars",
+  "h1": "Rental cars, compared",
+  "lead": "Search cars from local and international rental companies and filter by deposit, insurance and free cancellation.",
+  "moreTitle": "Compare more rental offers",
+  "moreText": "Want another point of comparison? Search a second set of rental companies below.",
+  "guideLead": "New to renting abroad? Read our guide:",
+  "guideLink": "The no-surprises car rental guide",
+  "faqTitle": "Car rental FAQ",
+  "q1": "What does full-to-full mean?",
+  "a1": "You collect the car with a full tank and return it full. It's usually the fairest fuel policy — you only pay pump prices for the fuel you actually use.",
+  "q2": "Do I need a credit card?",
+  "a2": "Many rental desks require a credit card in the main driver's name for the security deposit. Some offers are marked as not requiring one — use the filter in the search above.",
+  "q3": "Should I buy extra insurance?",
+  "a3": "Basic rates usually include a damage waiver with a high excess. Compare what each offer includes, and consider full-insurance options if you want a lower excess.",
+  "q4": "Can I cancel for free?",
+  "a4": "Many offers include free cancellation. The exact conditions are shown on each offer before you book, so check them before you pay.",
+  "q5": "Where do I pay?",
+  "a5": "Booking is completed with the rental provider. TicketsJet is a search tool and never takes payment or adds fees."
  }
 }
