@@ -1,3 +1,4 @@
+import { isRtl } from "@/i18n/routing";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import Price from "@/components/Price";
@@ -18,7 +19,7 @@ const GRADS = [
 export default async function DestinationCards({ origin, items }: { origin: { code: string; name: string }; items: Dest[] }) {
   const t = await getTranslations("dest");
   const locale = await getLocale();
-  const arrow = locale === "ar" ? "←" : "→";
+  const arrow = isRtl(locale) ? "←" : "→";
   const when = (iso: string | null) => (iso ? dayMonth(iso, locale) : null);
   return (
     <section className="mx-auto max-w-6xl px-4 pt-16">

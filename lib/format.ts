@@ -1,5 +1,8 @@
 // Locale-aware date helpers (Latin digits for Arabic, so numbers match the booking widgets).
-export const intlTag = (locale: string) => (locale === "ar" ? "ar-u-nu-latn" : locale === "nl" ? "nl-NL" : "en-GB");
+const INTL: Record<string, string> = {
+  en: "en-GB", ar: "ar-u-nu-latn", fa: "fa-u-nu-latn", nl: "nl-NL", es: "es-ES", fr: "fr-FR", de: "de-DE", it: "it-IT", pt: "pt-PT", tr: "tr-TR", ru: "ru-RU", pl: "pl-PL", he: "he-IL",
+};
+export const intlTag = (locale: string) => INTL[locale] ?? "en-GB";
 
 const utc = (iso: string) => new Date(iso.slice(0, 10) + "T00:00:00Z");
 

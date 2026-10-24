@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { alternatesFor } from "@/lib/i18nPages";
 import UntranslatedGuard from "@/components/UntranslatedGuard";
-import { LOCALES, isLocale } from "@/i18n/routing";
+import { LOCALES, OG_LOCALES, isLocale, isRtl } from "@/i18n/routing";
 import { CurrencyProvider } from "@/components/CurrencyProvider";
 import AdSenseLoader from "@/components/AdSenseLoader";
 import CookieConsent from "@/components/CookieConsent";
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: t("description"),
     keywords: ["cheap flights", "flight comparison", "hotel deals", "car rental", "travel search engine"],
     alternates: alternatesFor(locale, "/"),
-    openGraph: { type: "website", siteName: SITE.name, url: SITE.url, title, description: t("description"), locale: locale === "ar" ? "ar_AR" : locale === "nl" ? "nl_NL" : "en_US" },
+    openGraph: { type: "website", siteName: SITE.name, url: SITE.url, title, description: t("description"), locale: OG_LOCALES[locale as keyof typeof OG_LOCALES] ?? "en_US" },
     twitter: { card: "summary_large_image", title, description: t("description") },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   };
@@ -55,12 +55,12 @@ export default async function RootLayout({ children, params }: { children: React
   setRequestLocale(locale);
   const messages = await getMessages();
   return (
-    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
+    <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />

@@ -1,3 +1,4 @@
+import { isRtl } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
@@ -46,7 +47,7 @@ export default async function TripFinderPage({ params, searchParams }: { params:
   const tx = await getTranslations("extras");
   const tc = await getTranslations("common");
   const nice = (iso: string) => dayMonth(iso, locale);
-  const arrow = locale === "ar" ? "←" : "→";
+  const arrow = isRtl(locale) ? "←" : "→";
   const sp = await searchParams;
   const parsed = parse(sp);
   let result = null;

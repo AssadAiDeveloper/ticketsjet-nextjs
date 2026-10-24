@@ -1,3 +1,4 @@
+import { isRtl } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import SearchTabs from "@/components/SearchTabs";
@@ -47,7 +48,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const tb = await getTranslations("blog");
   const tpost = await getTranslations("post");
   const faq = [1, 2, 3, 4, 5, 6].map((n) => ({ q: t(`faq${n}q`), a: t(`faq${n}a`) }));
-  const arrow = locale === "ar" ? "←" : "→";
+  const arrow = isRtl(locale) ? "←" : "→";
   return (
     <>
       {/* ============ HERO — night flight ============ */}

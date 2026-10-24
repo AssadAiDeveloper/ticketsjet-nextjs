@@ -95,6 +95,7 @@ export const fieldBtn =
 export const labelCls = "block font-mono text-[10px] uppercase tracking-widest text-slate";
 
 export function Stepper({ label, hint, value, min, max, onChange }: { label: string; hint: string; value: number; min: number; max: number; onChange: (n: number) => void }) {
+  const t = useTranslations("form");
   const btn = "grid h-8 w-8 place-items-center rounded-full border border-mist text-lg leading-none text-ink transition hover:border-amber disabled:cursor-not-allowed disabled:opacity-30";
   return (
     <div className="flex items-center justify-between py-2.5">
@@ -103,17 +104,19 @@ export function Stepper({ label, hint, value, min, max, onChange }: { label: str
         <p className="text-xs text-slate">{hint}</p>
       </div>
       <div className="flex items-center gap-3">
-        <button type="button" className={btn} disabled={value <= min} onClick={() => onChange(value - 1)} aria-label={`Fewer ${label}`}>−</button>
+        <button type="button" className={btn} disabled={value <= min} onClick={() => onChange(value - 1)} aria-label={t("fewer", { label })}>−</button>
         <span className="w-4 text-center text-sm font-bold text-ink">{value}</span>
-        <button type="button" className={btn} disabled={value >= max} onClick={() => onChange(value + 1)} aria-label={`More ${label}`}>+</button>
+        <button type="button" className={btn} disabled={value >= max} onClick={() => onChange(value + 1)} aria-label={t("more", { label })}>+</button>
       </div>
     </div>
   );
 }
 
-import { ar, nl, enGB } from "react-day-picker/locale";
+import { ar, nl, enGB, es, fr, de, it, pt, tr, ru, pl, faIR, he } from "react-day-picker/locale";
+
+const DP = { ar, nl, es, fr, de, it, pt, tr, ru, pl, fa: faIR, he } as const;
 
 /** Calendar language and first weekday for the current site language. */
 export function dayPickerLocale(locale: string) {
-  return { locale: locale === "ar" ? ar : locale === "nl" ? nl : enGB, weekStartsOn: (locale === "ar" ? 6 : 1) as 0 | 1 | 6 };
+  return { locale: DP[locale as keyof typeof DP] ?? enGB, weekStartsOn: (locale === "ar" || locale === "fa" ? 6 : 1) as 0 | 1 | 6 };
 }

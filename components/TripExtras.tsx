@@ -1,3 +1,4 @@
+import { isRtl } from "@/i18n/routing";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { bookingUrl } from "@/lib/config";
@@ -7,7 +8,7 @@ type Props = { city: string; depart: string; back: string | null };
 /** Services related to this trip, shown under the search. */
 export default async function TripExtras({ city, depart, back }: Props) {
   const t = await getTranslations("extras");
-  const arrow = (await getLocale()) === "ar" ? "←" : "→";
+  const arrow = isRtl(await getLocale()) ? "←" : "→";
   // Booking.com needs a check-out date; for one-way searches we leave dates empty.
   const hotel = bookingUrl({ city, checkin: back ? depart : undefined, checkout: back ?? undefined });
   const cards = [

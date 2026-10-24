@@ -4,8 +4,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import { useLocale } from "next-intl";
 import { CURRENCY_KEY, DEFAULT_CURRENCY, defaultCurrencyFor, isCurrency, type Currency } from "@/lib/currency";
 
-type Ctx = { currency: Currency; setCurrency: (c: Currency) => void; rate: number; ready: boolean };
-const CurrencyCtx = createContext<Ctx>({ currency: DEFAULT_CURRENCY, setCurrency: () => {}, rate: 1, ready: false });
+type Ctx = { currency: Currency; setCurrency: (c: Currency) => void; rate: number; ready: boolean; priceCurrency: string };
+const CurrencyCtx = createContext<Ctx>({ currency: DEFAULT_CURRENCY, setCurrency: () => {}, rate: 1, ready: false, priceCurrency: "USD" });
 
 let ratesPromise: Promise<Record<string, number>> | null = null;
 function loadRates() {
@@ -33,7 +33,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
     try { localStorage.setItem(CURRENCY_KEY, c); } catch {}
   }, []);
 
-  const value = useMemo(() => ({ currency, setCurrency, rate: rates[currency] ?? 1, ready }), [currency, setCurrency, rates, ready]);
+  const value = useMemo(() => ({ currency, setCurrency, rate: rates[currency] ?? 1, ready, priceCurrency: rates[currency] ? currency : "USD" }), [currency, setCurrency, rates, ready]);
   return <CurrencyCtx.Provider value={value}>{children}</CurrencyCtx.Provider>;
 }
 

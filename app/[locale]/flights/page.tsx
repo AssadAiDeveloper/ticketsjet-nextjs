@@ -1,3 +1,4 @@
+import { isRtl } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
@@ -51,7 +52,7 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("flights");
-  const arrow = locale === "ar" ? "←" : "→";
+  const arrow = isRtl(locale) ? "←" : "→";
   const faq = [1, 2, 3, 4].map((n) => ({ q: t(`faq${n}q`), a: t(`faq${n}a`) }));
   const { flightSearch, direct, bags } = await searchParams;
   const trip = parseSearchCode(flightSearch);

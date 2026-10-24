@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
 import { getCities } from "@/lib/places";
 import { cityAliases, cityName, norm } from "@/lib/cityNames";
+import { isLocale } from "@/i18n/routing";
 import { intlTag } from "@/lib/format";
 
 // GET /api/cities?q=ams&locale=ar → up to 6 matching cities, matched by English, Arabic or Dutch name and returned in the visitor's language
 export async function GET(req: Request) {
   const url = new URL(req.url);
-  const locale = ["ar", "nl"].includes(url.searchParams.get("locale") ?? "") ? (url.searchParams.get("locale") as string) : "en";
+  const asked = url.searchParams.get("locale") ?? "";
+  const locale = isLocale(asked) ? asked : "en";
   const raw = (url.searchParams.get("q") ?? "").trim();
   const q = norm(raw);
   if (q.length < 2) return NextResponse.json({ cities: [] });
