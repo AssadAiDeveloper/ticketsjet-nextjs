@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export type City = { code: string; name: string; country: string };
+export type City = { code: string; name: string; country: string; kind?: "country" };
 
 /** Autocomplete city field backed by /api/cities */
-export function CityField({ label, value, onPick, placeholder }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string }) {
+export function CityField({ label, value, onPick, placeholder, withCountries }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string; withCountries?: boolean }) {
   const [text, setText] = useState("");
   const [list, setList] = useState<City[]>([]);
   const [open, setOpen] = useState(false);
@@ -13,19 +13,19 @@ export function CityField({ label, value, onPick, placeholder }: { label: string
   useEffect(() => {
     if (value || text.trim().length < 2) return setList([]);
     const t = setTimeout(() => {
-      fetch(`/api/cities?q=${encodeURIComponent(text.trim())}`)
+      fetch(`/api/cities?q=${encodeURIComponent(text.trim())}${withCountries ? "&countries=1" : ""}`)
         .then((r) => r.json())
         .then((j: { cities: City[] }) => setList(j.cities))
         .catch(() => setList([]));
     }, 180);
     return () => clearTimeout(t);
-  }, [text, value]);
+  }, [text, value, withCountries]);
 
   return (
     <div className="relative">
       <label className="block font-mono text-[10px] uppercase tracking-widest text-slate">{label}</label>
       <input
-        value={value ? `${value.name} (${value.code})` : text}
+        value={value ? (value.kind === "country" ? `${value.name} — any city` : `${value.name} (${value.code})`) : text}
         onChange={(e) => {
           onPick(null);
           setText(e.target.value);
@@ -52,7 +52,7 @@ export function CityField({ label, value, onPick, placeholder }: { label: string
                 className="flex w-full items-center justify-between px-3 py-2.5 text-left text-sm hover:bg-cloud"
               >
                 <span className="text-ink">{c.name}</span>
-                <span className="font-mono text-xs text-slate">{c.code}</span>
+                <span className="font-mono text-xs text-slate">{c.kind === "country" ? "Country" : c.code}</span>
               </button>
             </li>
           ))}

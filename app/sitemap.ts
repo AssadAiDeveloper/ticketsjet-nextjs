@@ -6,7 +6,7 @@ import { ACTIVITY_CITIES } from "@/lib/activities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const pages = ["", "/flights", "/explore", "/cheap-flights", "/services", "/activities", "/destinations", "/services/esim", "/services/airport-transfers", "/services/flight-compensation", "/cars", "/blog", "/help", "/about-us", "/privacy-policy", "/terms-and-conditions", "/affiliate-disclosure"];
+  const pages = ["", "/flights", "/explore", "/cheap-flights", "/services", "/activities", "/destinations", "/trip-finder", "/services/esim", "/services/airport-transfers", "/services/flight-compensation", "/cars", "/blog", "/help", "/about-us", "/privacy-policy", "/terms-and-conditions", "/affiliate-disclosure"];
   return [
     ...pages.map((p) => ({
       url: `${SITE.url}${p}`,

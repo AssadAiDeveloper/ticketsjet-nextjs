@@ -25,6 +25,7 @@ export default function Footer() {
             <li><Link className="hover:text-white" href="/explore">Explore on the map</Link></li>
             <li><Link className="hover:text-white" href="/cheap-flights">Flights by route</Link></li>
             <li><Link className="hover:text-white" href="/stays">Hotels</Link></li>
+            <li><Link className="hover:text-white" href="/trip-finder">Trip finder</Link></li>
             <li><Link className="hover:text-white" href="/destinations">Plan a trip</Link></li>
             <li><Link className="hover:text-white" href="/activities">Things to do</Link></li>
             <li><Link className="hover:text-white" href="/services">Travel services</Link></li>
