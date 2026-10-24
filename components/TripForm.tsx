@@ -66,85 +66,74 @@ export default function TripForm({ initial }: { initial?: TripInitial }) {
     router.push(`/trip-finder?${q}`);
   }
 
-  const canSwap = !!from && !!to && to.kind !== "country";
-  const pill = (on: boolean) => `shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition ${on ? "border-ink bg-ink text-white" : "border-mist bg-white text-ink hover:border-amber"}`;
+  const chip = (on: boolean) => `rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${on ? "border-ink bg-ink text-white" : "border-mist bg-white text-ink hover:border-amber"}`;
+  const m = months.find((x) => x.v === month);
+  const lenLabel = LENGTHS.find(([v]) => v === len)?.[1];
+  const summary = mode === "exact" ? label : `${m ? `${m.l} ${m.y}` : ""}${len ? " · " + lenLabel : ""}`;
+  const field = "mt-0.5 flex w-full items-center justify-between gap-2 rounded-lg border border-mist bg-white px-3 py-2 text-left text-sm font-medium text-ink outline-none transition hover:border-slate/40 focus:border-amber";
 
   return (
-    <form onSubmit={submit} noValidate className="rounded-3xl border border-mist bg-white p-4 shadow-xl sm:p-6">
-      <div className="inline-flex rounded-full bg-cloud p-1 text-sm font-semibold" role="tablist" aria-label="Date type">
-        {([["flex", "Flexible month"], ["exact", "Exact dates"]] as const).map(([k, l]) => (
-          <button key={k} type="button" role="tab" aria-selected={mode === k} onClick={() => setMode(k)} className={`rounded-full px-4 py-1.5 transition ${mode === k ? "bg-white text-ink shadow" : "text-slate hover:text-ink"}`}>{l}</button>
-        ))}
-      </div>
+    <form onSubmit={submit} noValidate className="rounded-2xl border border-mist bg-white p-3 shadow-lg sm:p-4">
+      <div className="relative grid gap-2 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
+        <CityField label="From" value={from} onPick={setFrom} placeholder="City or airport" compact />
+        <CityField label="To" value={to} onPick={setTo} placeholder="City or country" withCountries compact />
 
-      <div className="relative mt-4 grid gap-3 md:grid-cols-2">
-        <CityField label="From" value={from} onPick={setFrom} placeholder="City or airport" />
-        <CityField label="To" value={to} onPick={setTo} placeholder="City or country, e.g. Philippines" withCountries />
-        {canSwap && (
-          <button
-            type="button"
-            aria-label="Swap origin and destination"
-            onClick={() => { setFrom(to); setTo(from); }}
-            className="absolute left-1/2 top-[34px] z-10 hidden h-9 w-9 -translate-x-1/2 place-items-center rounded-full border border-mist bg-white text-ink shadow transition hover:border-amber md:grid"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7" /></svg>
-          </button>
-        )}
-      </div>
-
-      {mode === "flex" ? (
-        <div className="mt-5 space-y-4">
-          <div>
-            <span className={labelCls}>Leaving in</span>
-            <div className="-mx-1 mt-2 flex gap-2 overflow-x-auto px-1 pb-1" role="radiogroup" aria-label="Month">
-              {months.map((m, i) => (
-                <button key={m.v} type="button" role="radio" aria-checked={month === m.v} onClick={() => setMonth(m.v)} className={pill(month === m.v) + " min-w-[64px] !px-3 text-center leading-tight"}>
-                  <span className="block">{m.l}</span>
-                  {(i === 0 || m.l === "Jan") && <span className="block text-[10px] font-medium opacity-60">{m.y}</span>}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <span className={labelCls}>Trip length</span>
-            <div className="-mx-1 mt-2 flex gap-2 overflow-x-auto px-1 pb-1" role="radiogroup" aria-label="Trip length">
-              {LENGTHS.map(([v, l]) => (
-                <button key={v} type="button" role="radio" aria-checked={len === v} onClick={() => setLen(v)} className={pill(len === v)}>{l}</button>
-              ))}
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="relative mt-5 max-w-md" ref={dates.ref}>
-          <span className={labelCls}>Depart — Return</span>
-          <button type="button" className={fieldBtn} onClick={() => dates.setOpen(!dates.open)} aria-haspopup="dialog" aria-expanded={dates.open}>
-            <span className={label ? "" : "text-slate/70"}>{label || "Add dates"}</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-slate" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M8 3v4M16 3v4M3 10h18" /></svg>
+        <div className="relative" ref={dates.ref}>
+          <span className={labelCls}>When</span>
+          <button type="button" className={field} onClick={() => dates.setOpen(!dates.open)} aria-haspopup="dialog" aria-expanded={dates.open}>
+            <span className={summary ? "truncate" : "truncate text-slate/70"}>{summary || "Add dates"}</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-slate" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M8 3v4M16 3v4M3 10h18" /></svg>
           </button>
           {dates.open && (
-            <div role="dialog" aria-label="Choose dates" className="tj-cal absolute left-0 z-50 mt-2 w-max max-w-[calc(100vw-2rem)] rounded-2xl border border-mist bg-white p-3 shadow-2xl">
-              <DayPicker
-                mode="range"
-                numberOfMonths={2}
-                selected={range}
-                onSelect={(r) => {
-                  setRange(r);
-                  if (r?.from && r?.to && r.to.getTime() !== r.from.getTime()) dates.setOpen(false);
-                }}
-                disabled={{ before: today }}
-                startMonth={today}
-                weekStartsOn={1}
-              />
+            <div role="dialog" aria-label="Choose when" className="tj-cal absolute right-0 z-50 mt-2 w-max max-w-[calc(100vw-2rem)] rounded-2xl border border-mist bg-white p-3 shadow-2xl">
+              <div className="inline-flex rounded-full bg-cloud p-0.5 text-xs font-semibold" role="tablist" aria-label="Date type">
+                {([["flex", "Flexible month"], ["exact", "Exact dates"]] as const).map(([k, l]) => (
+                  <button key={k} type="button" role="tab" aria-selected={mode === k} onClick={() => setMode(k)} className={`rounded-full px-3 py-1 transition ${mode === k ? "bg-white text-ink shadow" : "text-slate hover:text-ink"}`}>{l}</button>
+                ))}
+              </div>
+              {mode === "flex" ? (
+                <div className="mt-3 w-[min(22rem,calc(100vw-4rem))]">
+                  <span className={labelCls}>Leaving in</span>
+                  <div className="mt-1.5 grid grid-cols-4 gap-1.5" role="radiogroup" aria-label="Month">
+                    {months.map((x) => (
+                      <button key={x.v} type="button" role="radio" aria-checked={month === x.v} onClick={() => setMonth(x.v)} className={chip(month === x.v) + " leading-tight"}>
+                        {x.l}
+                        <span className="block text-[9px] font-medium opacity-60">{x.y}</span>
+                      </button>
+                    ))}
+                  </div>
+                  <span className={labelCls + " mt-3"}>Trip length</span>
+                  <div className="mt-1.5 flex flex-wrap gap-1.5" role="radiogroup" aria-label="Trip length">
+                    {LENGTHS.map(([v, l]) => (
+                      <button key={v} type="button" role="radio" aria-checked={len === v} onClick={() => setLen(v)} className={chip(len === v)}>{l}</button>
+                    ))}
+                  </div>
+                  <button type="button" onClick={() => dates.setOpen(false)} className="mt-3 w-full rounded-lg bg-ink py-2 text-xs font-bold text-white transition hover:bg-ink-2">Done</button>
+                </div>
+              ) : (
+                <div className="mt-2">
+                  <DayPicker
+                    mode="range"
+                    numberOfMonths={2}
+                    selected={range}
+                    onSelect={(r) => {
+                      setRange(r);
+                      if (r?.from && r?.to && r.to.getTime() !== r.from.getTime()) dates.setOpen(false);
+                    }}
+                    disabled={{ before: today }}
+                    startMonth={today}
+                    weekStartsOn={1}
+                  />
+                </div>
+              )}
             </div>
           )}
         </div>
-      )}
 
-      <div className="mt-6 flex flex-wrap items-center gap-4">
-        <button type="submit" className="rounded-xl bg-amber px-8 py-3.5 text-sm font-bold text-ink transition hover:bg-amber-deep">Find cheapest trips</button>
-        <p className="text-xs text-slate">Round trips · prices in USD · from recent searches</p>
+        <button type="submit" className="rounded-lg bg-amber px-5 py-2 text-sm font-bold text-ink transition hover:bg-amber-deep md:py-[9px]">Search</button>
       </div>
-      {err && <p role="alert" className="mt-3 text-sm font-medium text-red-600">{err}</p>}
+      {err && <p role="alert" className="mt-2 text-xs font-medium text-red-600">{err}</p>}
+      <p className="mt-2 text-[11px] text-slate">Round trips · USD · fares from recent searches</p>
     </form>
   );
 }

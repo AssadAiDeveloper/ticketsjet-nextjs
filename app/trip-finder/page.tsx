@@ -62,15 +62,15 @@ export default async function TripFinderPage({ searchParams }: { searchParams: P
 
   return (
     <>
-      <section className="bg-ink pb-24 pt-14">
+      <section className="bg-ink pb-16 pt-10">
         <div className="mx-auto max-w-6xl px-4">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">Trip finder</p>
-          <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Where do you want to go, and when?</h1>
-          <p className="mt-4 max-w-xl text-white/70">Type a city or a whole country, pick a month or exact dates, and we search the lowest fares automatically.</p>
+          <h1 className="font-display mt-3 max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Where do you want to go, and when?</h1>
+          <p className="mt-3 max-w-xl text-sm text-white/70">Type a city or a whole country, pick a month or exact dates, and we search the lowest fares automatically.</p>
         </div>
       </section>
 
-      <div className="mx-auto -mt-16 max-w-6xl px-4 pb-14">
+      <div className="mx-auto -mt-10 max-w-6xl px-4 pb-14">
         <TripForm key={parsed ? JSON.stringify(parsed.q) : "new"} initial={initial} />
 
         {parsed && (

@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 export type City = { code: string; name: string; country: string; kind?: "country" };
 
 /** Autocomplete city field backed by /api/cities */
-export function CityField({ label, value, onPick, placeholder, withCountries }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string; withCountries?: boolean }) {
+export function CityField({ label, value, onPick, placeholder, withCountries, compact }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string; withCountries?: boolean; compact?: boolean }) {
   const [text, setText] = useState("");
   const [list, setList] = useState<City[]>([]);
   const [open, setOpen] = useState(false);
@@ -35,7 +35,7 @@ export function CityField({ label, value, onPick, placeholder, withCountries }: 
         onBlur={() => setTimeout(() => setOpen(false), 150)}
         placeholder={placeholder}
         autoComplete="off"
-        className="mt-1 w-full rounded-xl border border-mist bg-white px-3 py-3 text-sm font-medium text-ink outline-none transition focus:border-amber"
+        className={`${compact ? "mt-0.5 rounded-lg py-2" : "mt-1 rounded-xl py-3"} w-full border border-mist bg-white px-3 text-sm font-medium text-ink outline-none transition focus:border-amber`}
       />
       {open && list.length > 0 && !value && (
         <ul className="absolute z-50 mt-1 w-full overflow-hidden rounded-xl border border-mist bg-white shadow-xl">
