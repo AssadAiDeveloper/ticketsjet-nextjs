@@ -431,5 +431,114 @@
  "cal": {
   "title": "Price calendar",
   "sub": "Lowest round-trip fare found for each departure day. Darker yellow = cheaper. Blank days had no recent fare."
+ },
+ "act": {
+  "london": {
+   "blurb": "Museums, royal palaces, gardens and river views. Many of the big sights have timed entry, so booking ahead saves queueing.",
+   "tip1": "Many major museums are free to enter, but special exhibitions are ticketed.",
+   "tip2": "A single-day pass often beats buying each ticket separately if you plan three or more sights."
+  },
+  "paris": {
+   "blurb": "Art, architecture and river cruises. The Louvre, Eiffel Tower and Versailles all work best with a pre-booked time slot.",
+   "tip1": "Book the Eiffel Tower and the Louvre ahead; same-day slots often run out.",
+   "tip2": "Versailles is a half-day trip from the centre, so plan it separately."
+  },
+  "rome": {
+   "blurb": "Ancient sites, the Vatican and plenty of food stops. Combined tickets cover the Colosseum, Forum and Palatine Hill.",
+   "tip1": "The Colosseum, Forum and Palatine are usually sold together.",
+   "tip2": "Vatican entry is timed, and security queues can be long in peak season."
+  },
+  "barcelona": {
+   "blurb": "Gaudí's buildings, beaches and tapas. The most popular interiors have limited daily entry.",
+   "tip1": "Sagrada Família and Park Güell need a booked time slot.",
+   "tip2": "Group your Gaudí sights by area to save travel time."
+  },
+  "amsterdam": {
+   "blurb": "Canals, world-class museums and cycling. Popular museums and canal cruises are worth booking in advance.",
+   "tip1": "The Rijksmuseum, Van Gogh Museum and Anne Frank House use timed tickets.",
+   "tip2": "Public transport passes can cover the city and the region."
+  },
+  "madrid": {
+   "blurb": "The Prado, royal palaces and lively evenings. Madrid also makes a good base for day trips to Toledo and Segovia.",
+   "tip1": "The Prado, Reina Sofía and Thyssen are close together on the Paseo del Prado.",
+   "tip2": "Many day-trip tours leave from the city centre in the morning."
+  },
+  "istanbul": {
+   "blurb": "Mosques, bazaars and Bosphorus cruises across two continents. Guided tours help with the old city's layered history.",
+   "tip1": "Dress modestly when visiting mosques; some close briefly for prayer times.",
+   "tip2": "A Bosphorus cruise is a relaxed way to see both shores."
+  },
+  "lisbon": {
+   "blurb": "Hilltop viewpoints, historic trams and day trips to Sintra. Plan for hills and comfortable shoes.",
+   "tip1": "Sintra is easy by train, but its palaces have their own entry queues.",
+   "tip2": "Tram 28 gets very crowded; go early or choose another route."
+  }
+ },
+ "dpi": {
+  "metaTitle": "Plan a Trip — Destination Guides",
+  "metaDesc": "One page per destination: flights, a place to stay, things to do and travel essentials, all in one place.",
+  "kicker": "Plan a trip",
+  "h1": "Pick a destination, plan the whole trip",
+  "lead": "Flights, hotels, things to do and travel essentials for each city, gathered on one page."
+ },
+ "dp": {
+  "metaTitle": "Plan a Trip to {city} — Flights, Hotels & Things to Do",
+  "metaDesc": "Everything for a trip to {city}, {country}: flight prices, where to stay, tours and tickets, and travel essentials in one place.",
+  "kicker": "Plan a trip · {country}",
+  "h1": "Plan your trip to {city}",
+  "ctaFrom": "Flights from {from} from {price}",
+  "ctaSearch": "Search flights to {city}",
+  "s1": "1 · FLY",
+  "s1t": "Compare flights",
+  "s1fare": "Recent fares start around {price} round trip.",
+  "s1none": "Search live prices from your city.",
+  "s2": "2 · STAY",
+  "s2t": "Find a hotel",
+  "s2d": "Opens a hotel search for {city} on Booking.com.",
+  "s3": "3 · DO",
+  "s3t": "Tours and tickets",
+  "s3d": "Skip-the-line tickets and guided tours.",
+  "s4": "4 · CONNECT",
+  "s4t": "Travel essentials",
+  "s4d": "eSIM, airport transfers and flight-delay compensation.",
+  "byCity": "Flights to {city} by departure city",
+  "routeLink": "{from} → {city} →",
+  "todo": "Popular things to do",
+  "todoSub": "Prices come from the provider and may change. You finish booking on their site.",
+  "moreTodo": "More things to do in {city} →",
+  "tips": "Tips for {city}",
+  "q1": "When is the cheapest time to fly to {city}?",
+  "a1": "It varies by departure city. The price calendar on each route page shows the cheapest days in the next three months.",
+  "q2": "Do I need to book {city} attractions in advance?",
+  "a2": "For the most popular sights, yes. Many use timed entry and can sell out in school holidays and at weekends.",
+  "q3": "Does TicketsJet sell these services?",
+  "a3": "No. We link to the providers, where you choose dates and pay. We don't take payments or add fees."
+ },
+ "aci": {
+  "metaTitle": "Things to Do — Tours, Tickets & Activities by City",
+  "metaDesc": "Find popular tours, attraction tickets and activities in top travel cities, with tips for booking ahead.",
+  "kicker": "Activities",
+  "h1": "Things to do",
+  "lead": "Pick a city to see popular tours and tickets, plus tips for planning your visit."
+ },
+ "ac": {
+  "metaTitle": "Things to Do in {city} — Tours, Tickets & Activities",
+  "metaDesc": "Popular tours, attraction tickets and activities in {city}, {country}. Tips for booking ahead, plus flights and stays.",
+  "kicker": "Things to do · {country}",
+  "h1": "Things to do in {city}",
+  "popular": "Popular tours and tickets",
+  "popularSub": "Prices are from the provider and may change. You finish booking on the provider's site.",
+  "tips": "Tips for {city}",
+  "plan": "Plan the trip",
+  "flightsFrom": "Flights from {from} to {city} →",
+  "guide": "Full {city} trip guide →",
+  "hotels": "Hotels in {city} →",
+  "esim": "Travel eSIM for {city} →",
+  "q1": "Should I book {city} attractions in advance?",
+  "a1": "For the most popular sights, yes. Many use timed entry and can sell out, especially in school holidays and at weekends.",
+  "q2": "Where do I complete the booking?",
+  "a2": "Tours and tickets open on the provider's site, where you choose a date and pay. TicketsJet doesn't take payments or add fees.",
+  "q3": "Can I cancel?",
+  "a3": "Cancellation terms differ by activity and are shown on each listing before you pay. Check them if your plans might change."
  }
 }

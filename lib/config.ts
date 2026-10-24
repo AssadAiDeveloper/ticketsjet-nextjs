@@ -37,8 +37,8 @@ export const WIDGETS = {
 };
 
 /** Things-to-do widget for one city (Tiqets city id). Results open on the partner's site. */
-export const activitiesWidget = (cityId: number, cards = 6) =>
-  `https://tpwgts.com/content?currency=USD&trs=${TP.trs}&shmarker=${TP.marker}&language=en&locale=${cityId}&layout=horizontal&cards=${cards}&powered_by=false&campaign_id=89&promo_id=3947`;
+export const activitiesWidget = (cityId: number, cards = 6, language = "en", currency = "USD") =>
+  `https://tpwgts.com/content?currency=${currency}&trs=${TP.trs}&shmarker=${TP.marker}&language=${language}&locale=${cityId}&layout=horizontal&cards=${cards}&powered_by=false&campaign_id=89&promo_id=3947`;
 
 // ============================================================
 // روابط الإحالة — تمر عبر مسارات داخلية /go/* على دومينك

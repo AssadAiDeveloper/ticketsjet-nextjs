@@ -431,5 +431,114 @@
  "cal": {
   "title": "Prijskalender",
   "sub": "Laagste retourtarief per vertrekdag. Donkerder geel = goedkoper. Lege dagen hadden geen recent tarief."
+ },
+ "act": {
+  "london": {
+   "blurb": "Musea, koninklijke paleizen, tuinen en uitzicht op de rivier. Veel grote bezienswaardigheden werken met tijdslots, dus vooraf boeken scheelt wachten.",
+   "tip1": "Veel grote musea zijn gratis, maar speciale tentoonstellingen vragen een ticket.",
+   "tip2": "Een dagpas is vaak goedkoper dan losse tickets als je drie of meer bezienswaardigheden plant."
+  },
+  "paris": {
+   "blurb": "Kunst, architectuur en riviercruises. Het Louvre, de Eiffeltoren en Versailles werken het best met een vooraf geboekt tijdslot.",
+   "tip1": "Boek de Eiffeltoren en het Louvre vooraf; tijdslots op de dag zelf zijn vaak uitverkocht.",
+   "tip2": "Versailles is een halve dagtrip vanuit het centrum, plan het dus apart."
+  },
+  "rome": {
+   "blurb": "Antieke sites, het Vaticaan en genoeg plekken om te eten. Combitickets dekken het Colosseum, het Forum en de Palatijn.",
+   "tip1": "Het Colosseum, het Forum en de Palatijn worden meestal samen verkocht.",
+   "tip2": "Toegang tot het Vaticaan gaat met tijdslots, en de beveiligingsrijen kunnen in het hoogseizoen lang zijn."
+  },
+  "barcelona": {
+   "blurb": "Gaudí's gebouwen, stranden en tapas. De populairste interieurs hebben een beperkt aantal bezoekers per dag.",
+   "tip1": "Voor de Sagrada Família en Park Güell is een tijdslot nodig.",
+   "tip2": "Groepeer je Gaudí-bezienswaardigheden per wijk om reistijd te besparen."
+  },
+  "amsterdam": {
+   "blurb": "Grachten, wereldmusea en fietsen. Populaire musea en rondvaarten boek je het best vooraf.",
+   "tip1": "Het Rijksmuseum, het Van Gogh Museum en het Anne Frank Huis werken met tijdgebonden tickets.",
+   "tip2": "Ov-passen kunnen de stad en de regio dekken."
+  },
+  "madrid": {
+   "blurb": "Het Prado, koninklijke paleizen en levendige avonden. Madrid is ook een goede uitvalsbasis voor dagtrips naar Toledo en Segovia.",
+   "tip1": "Het Prado, het Reina Sofía en het Thyssen liggen dicht bij elkaar aan de Paseo del Prado.",
+   "tip2": "Veel dagtrips vertrekken 's ochtends vanuit het centrum."
+  },
+  "istanbul": {
+   "blurb": "Moskeeën, bazaars en Bosporuscruises over twee continenten. Rondleidingen helpen bij de gelaagde geschiedenis van de oude stad.",
+   "tip1": "Kleed je netjes bij een moskeebezoek; sommige sluiten kort tijdens het gebed.",
+   "tip2": "Een Bosporuscruise is een ontspannen manier om beide oevers te zien."
+  },
+  "lisbon": {
+   "blurb": "Uitzichtpunten op heuvels, historische trams en dagtrips naar Sintra. Houd rekening met heuvels en draag comfortabele schoenen.",
+   "tip1": "Sintra is makkelijk met de trein bereikbaar, maar de paleizen hebben hun eigen wachtrijen.",
+   "tip2": "Tram 28 wordt erg druk; ga vroeg of kies een andere lijn."
+  }
+ },
+ "dpi": {
+  "metaTitle": "Plan een reis — bestemmingsgidsen",
+  "metaDesc": "Eén pagina per bestemming: vluchten, een plek om te slapen, activiteiten en reisbenodigdheden op één plek.",
+  "kicker": "Plan een reis",
+  "h1": "Kies een bestemming en plan de hele reis",
+  "lead": "Vluchten, hotels, activiteiten en reisbenodigdheden per stad, op één pagina."
+ },
+ "dp": {
+  "metaTitle": "Plan een reis naar {city} — vluchten, hotels & activiteiten",
+  "metaDesc": "Alles voor een reis naar {city}, {country}: vluchtprijzen, waar te slapen, tours en tickets en reisbenodigdheden op één plek.",
+  "kicker": "Plan een reis · {country}",
+  "h1": "Plan je reis naar {city}",
+  "ctaFrom": "Vluchten vanaf {from} vanaf {price}",
+  "ctaSearch": "Zoek vluchten naar {city}",
+  "s1": "1 · VLIEG",
+  "s1t": "Vergelijk vluchten",
+  "s1fare": "Recente tarieven beginnen rond {price} retour.",
+  "s1none": "Zoek actuele prijzen vanuit jouw stad.",
+  "s2": "2 · VERBLIJF",
+  "s2t": "Zoek een hotel",
+  "s2d": "Opent een hotelzoekopdracht voor {city} op Booking.com.",
+  "s3": "3 · DOE",
+  "s3t": "Tours en tickets",
+  "s3d": "Tickets zonder wachtrij en rondleidingen.",
+  "s4": "4 · VERBIND",
+  "s4t": "Reisbenodigdheden",
+  "s4d": "eSIM, vliegveldtransfers en compensatie bij vertraagde vluchten.",
+  "byCity": "Vluchten naar {city} per vertrekstad",
+  "routeLink": "{from} → {city} →",
+  "todo": "Populaire activiteiten",
+  "todoSub": "Prijzen komen van de aanbieder en kunnen veranderen. Je rondt de boeking af op hun site.",
+  "moreTodo": "Meer activiteiten in {city} →",
+  "tips": "Tips voor {city}",
+  "q1": "Wanneer vlieg je het goedkoopst naar {city}?",
+  "a1": "Dat verschilt per vertrekstad. De prijskalender op elke routepagina toont de goedkoopste dagen van de komende drie maanden.",
+  "q2": "Moet ik attracties in {city} vooraf boeken?",
+  "a2": "Voor de populairste bezienswaardigheden wel. Veel werken met tijdslots en kunnen uitverkocht raken in schoolvakanties en weekenden.",
+  "q3": "Verkoopt TicketsJet deze diensten?",
+  "a3": "Nee. We verwijzen naar de aanbieders, waar je data kiest en betaalt. We nemen geen betalingen aan en rekenen geen kosten."
+ },
+ "aci": {
+  "metaTitle": "Doen & zien — tours, tickets en activiteiten per stad",
+  "metaDesc": "Vind populaire tours, attractietickets en activiteiten in topreissteden, met tips om vooruit te boeken.",
+  "kicker": "Activiteiten",
+  "h1": "Doen & zien",
+  "lead": "Kies een stad voor populaire tours en tickets, plus tips om je bezoek te plannen."
+ },
+ "ac": {
+  "metaTitle": "Doen & zien in {city} — tours, tickets en activiteiten",
+  "metaDesc": "Populaire tours, attractietickets en activiteiten in {city}, {country}. Tips om vooruit te boeken, plus vluchten en verblijf.",
+  "kicker": "Doen & zien · {country}",
+  "h1": "Doen & zien in {city}",
+  "popular": "Populaire tours en tickets",
+  "popularSub": "Prijzen komen van de aanbieder en kunnen veranderen. Je rondt de boeking af op de site van de aanbieder.",
+  "tips": "Tips voor {city}",
+  "plan": "Plan de reis",
+  "flightsFrom": "Vluchten van {from} naar {city} →",
+  "guide": "Complete reisgids voor {city} →",
+  "hotels": "Hotels in {city} →",
+  "esim": "Reis-eSIM voor {city} →",
+  "q1": "Moet ik attracties in {city} vooraf boeken?",
+  "a1": "Voor de populairste bezienswaardigheden wel. Veel werken met tijdslots en kunnen uitverkocht raken, vooral in schoolvakanties en weekenden.",
+  "q2": "Waar rond ik de boeking af?",
+  "a2": "Tours en tickets openen op de site van de aanbieder, waar je een datum kiest en betaalt. TicketsJet neemt geen betalingen aan en rekent geen kosten.",
+  "q3": "Kan ik annuleren?",
+  "a3": "Annuleringsvoorwaarden verschillen per activiteit en staan bij elk aanbod voordat je betaalt. Controleer ze als je plannen kunnen veranderen."
  }
 }
