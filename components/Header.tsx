@@ -75,7 +75,7 @@ export default function Header() {
             </Link>
           ))}
           <div className="mt-2 border-t border-white/10 pt-2">
-            <LocaleSwitcher align="start" />
+            <LocaleSwitcher />
           </div>
         </nav>
       )}

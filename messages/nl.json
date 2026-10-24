@@ -3,7 +3,10 @@
   "label": "Taal en valuta",
   "language": "Taal",
   "currency": "Valuta",
-  "note": "Prijzen worden omgerekend tegen recente wisselkoersen en zijn indicatief. De definitieve prijs zie je op de boekingspagina."
+  "note": "Prijzen worden omgerekend tegen recente wisselkoersen en zijn indicatief. De definitieve prijs zie je op de boekingspagina.",
+  "title": "Regionale instellingen",
+  "save": "Opslaan",
+  "cancel": "Annuleren"
  },
  "nav": {
   "home": "TicketsJet startpagina",

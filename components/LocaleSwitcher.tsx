@@ -1,61 +1,119 @@
 "use client";
 
+import { useEffect, useId, useState } from "react";
+import { createPortal } from "react-dom";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { LOCALES, LOCALE_NAMES, type Locale } from "@/i18n/routing";
-import { CURRENCIES } from "@/lib/currency";
+import { CURRENCIES, type Currency } from "@/lib/currency";
 import { useCurrency } from "@/components/CurrencyProvider";
-import { usePopover } from "@/components/searchParts";
 
-/** Header control: language and currency in one small popover. Choices apply across the whole site. */
-export default function LocaleSwitcher({ align = "end" }: { align?: "start" | "end" }) {
+/** Header button + regional-settings dialog (language and currency, applied on Save). Lists come from LOCALES / CURRENCIES. */
+export default function LocaleSwitcher() {
   const t = useTranslations("switcher");
   const locale = useLocale() as Locale;
   const pathname = usePathname();
   const router = useRouter();
   const { currency, setCurrency } = useCurrency();
-  const pop = usePopover();
-  const names = new Intl.DisplayNames([locale], { type: "currency" });
-  const cname = (c: string) => { try { return names.of(c) ?? c; } catch { return c; } };
+  const [open, setOpen] = useState(false);
+  const [lang, setLang] = useState<Locale>(locale);
+  const [cur, setCur] = useState<Currency>(currency);
+  const id = useId();
 
-  function pick(next: Locale) {
-    pop.setOpen(false);
-    const qs = window.location.search; // keep the current search (e.g. ?flightSearch=…)
-    router.replace((qs ? `${pathname}${qs}` : pathname) as never, { locale: next });
+  function show() {
+    setLang(locale);
+    setCur(currency);
+    setOpen(true);
   }
 
-  const opt = (on: boolean) => `rounded-lg border px-2.5 py-1.5 text-sm font-semibold transition ${on ? "border-amber bg-amber text-ink" : "border-white/15 text-white/85 hover:border-white/40"}`;
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  function save(nextLang: Locale = lang) {
+    setCurrency(cur);
+    setOpen(false);
+    if (nextLang !== locale) {
+      const qs = window.location.search; // keep the current search (e.g. ?flightSearch=…)
+      router.replace((qs ? `${pathname}${qs}` : pathname) as never, { locale: nextLang });
+    }
+  }
+
+  const names = new Intl.DisplayNames([lang], { type: "currency" });
+  const cname = (c: string) => { try { return names.of(c) ?? ""; } catch { return ""; } };
+  const field = "w-full appearance-none rounded-lg border border-slate/40 bg-white px-3 py-3 text-sm text-ink focus:border-ink focus:outline-none focus:ring-2 focus:ring-amber";
+  const chevron = <svg className="pointer-events-none absolute end-3 top-1/2 h-3 w-3 -translate-y-1/2 text-ink" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 6 5-6z" /></svg>;
 
   return (
-    <div className="relative" ref={pop.ref}>
+    <>
       <button
         type="button"
-        onClick={() => pop.setOpen(!pop.open)}
+        onClick={show}
         aria-haspopup="dialog"
-        aria-expanded={pop.open}
+        aria-expanded={open}
         aria-label={t("label")}
         className="flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium text-white/85 transition hover:bg-white/10 hover:text-white"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3Z" /></svg>
         <span dir="ltr">{locale.toUpperCase()} · {currency}</span>
       </button>
-      {pop.open && (
-        <div role="dialog" aria-label={t("label")} className={`absolute top-full z-50 mt-2 w-72 rounded-2xl border border-white/10 bg-ink-2 p-4 shadow-2xl ${align === "end" ? "end-0" : "start-0"}`}>
-          <p className="font-mono text-[10px] uppercase tracking-widest text-amber">{t("language")}</p>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {LOCALES.map((l) => (
-              <button key={l} type="button" onClick={() => pick(l)} className={opt(l === locale)} lang={l}>{LOCALE_NAMES[l]}</button>
-            ))}
+
+      {open && createPortal(
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4" onMouseDown={(e) => e.target === e.currentTarget && setOpen(false)}>
+          <div role="dialog" aria-modal="true" aria-labelledby={`${id}-t`} className="w-full max-w-[400px] rounded-2xl bg-white p-6 text-ink shadow-2xl">
+            <div className="flex items-center justify-between">
+              <button type="button" onClick={() => setOpen(false)} aria-label={t("cancel")} className="flex h-8 w-8 items-center justify-center rounded border border-ink/70 hover:bg-cloud">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" /></svg>
+              </button>
+              <h2 id={`${id}-t`} className="font-display text-base font-bold">{t("title")}</h2>
+            </div>
+
+            <div className="mt-6">
+              <div className="flex items-center justify-between gap-3">
+                {locale !== "en" || lang !== "en" ? (
+                  <button type="button" lang="en" dir="ltr" onClick={() => save("en")} className="text-sm underline underline-offset-4 hover:text-ink/70">Switch to English</button>
+                ) : <span />}
+                <label htmlFor={`${id}-l`} className="flex items-center gap-1.5 text-sm font-semibold">
+                  {t("language")}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z" /></svg>
+                </label>
+              </div>
+              <div className="relative mt-2">
+                <select id={`${id}-l`} value={lang} onChange={(e) => setLang(e.target.value as Locale)} className={field}>
+                  {LOCALES.map((l) => <option key={l} value={l} lang={l}>{LOCALE_NAMES[l]}</option>)}
+                </select>
+                {chevron}
+              </div>
+            </div>
+
+            <div className="mt-5">
+              <label htmlFor={`${id}-c`} className="flex items-center justify-end gap-1.5 text-sm font-semibold">
+                {t("currency")}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3" /><path d="M4 9.5c0 1.7 3.6 3 8 3s8-1.3 8-3V13c0 1.7-3.6 3-8 3s-8-1.3-8-3V9.5Zm0 6.5c0 1.7 3.6 3 8 3s8-1.3 8-3v3c0 1.7-3.6 3-8 3s-8-1.3-8-3v-3Z" /></svg>
+              </label>
+              <div className="relative mt-2">
+                <select id={`${id}-c`} value={cur} onChange={(e) => setCur(e.target.value as Currency)} className={field}>
+                  {CURRENCIES.map((c) => <option key={c} value={c}>{c}{cname(c) ? ` — ${cname(c)}` : ""}</option>)}
+                </select>
+                {chevron}
+              </div>
+              <p className="mt-2 text-[11px] leading-snug text-slate">{t("note")}</p>
+            </div>
+
+            <button type="button" onClick={() => save()} className="mt-6 w-full rounded-lg bg-ink px-4 py-3 text-sm font-bold text-white hover:bg-ink-2">{t("save")}</button>
+            <button type="button" onClick={() => setOpen(false)} className="mt-2 w-full rounded-lg bg-mist px-4 py-3 text-sm font-bold text-ink hover:brightness-95">{t("cancel")}</button>
           </div>
-          <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-amber">{t("currency")}</p>
-          <div className="mt-2 grid grid-cols-4 gap-1.5">
-            {CURRENCIES.map((c) => (
-              <button key={c} type="button" title={cname(c)} onClick={() => setCurrency(c)} className={opt(c === currency) + " !px-1 text-center text-xs"}>{c}</button>
-            ))}
-          </div>
-          <p className="mt-3 text-[11px] leading-snug text-white/50">{t("note")}</p>
-        </div>
+        </div>,
+        document.body,
       )}
-    </div>
+    </>
   );
 }

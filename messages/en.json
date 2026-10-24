@@ -3,7 +3,10 @@
   "label": "Language and currency",
   "language": "Language",
   "currency": "Currency",
-  "note": "Prices are converted at recent exchange rates and are a guide. The final price is confirmed on the booking page."
+  "note": "Prices are converted at recent exchange rates and are a guide. The final price is confirmed on the booking page.",
+  "title": "Regional settings",
+  "save": "Save",
+  "cancel": "Cancel"
  },
  "nav": {
   "home": "TicketsJet home",
