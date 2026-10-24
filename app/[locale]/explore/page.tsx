@@ -1,38 +1,32 @@
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import PriceMap from "@/components/PriceMap";
 import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
+import { alternatesFor } from "@/lib/i18nPages";
 
-export const metadata: Metadata = {
-  title: "Explore Cheap Flights on a Price Map — Find Where to Fly",
-  description:
-    "Start from your budget, not the destination. See the cheapest flight prices from your city to destinations around the world on one interactive map.",
-  alternates: { canonical: "/explore" },
-};
-
-const faq = [
-  { q: "How does the price map work?", a: "Pick a departure city and the map shows the lowest recent fares to destinations around the world. Zoom in and click a price to see the dates and open the offer." },
-  { q: "Are these prices live?", a: "They are the lowest fares found recently by travellers searching these routes, so treat them as a guide. The final price is always confirmed on the booking page before you pay." },
-  { q: "Can I change the departure city?", a: "Yes. Use the departure field on the map to choose another city and the prices update for that origin." },
-  { q: "What happens when I click a price?", a: "You'll see the dates for that fare and a button to open the offer, where you complete your booking directly with the airline or travel agent." },
-];
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "exp" });
+  return { title: t("metaTitle"), description: t("metaDesc"), alternates: alternatesFor(locale, "/explore") };
+}
 
 export default async function ExplorePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("exp");
+  const faq = [1, 2, 3, 4].map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
   return (
     <>
       <section className="bg-ink pb-14 pt-14">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">Explore</p>
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker")}</p>
           <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-            Where can your budget take you?
+            {t("h1")}
           </h1>
           <p className="mt-4 max-w-xl text-white/70">
-            Start from the price, not the destination. Choose your departure city and see the
-            cheapest fares around the world on one map.
+            {t("lead")}
           </p>
         </div>
       </section>
@@ -42,20 +36,16 @@ export default async function ExplorePage({ params }: { params: Promise<{ locale
           <PriceMap />
         </div>
         <p className="mt-3 text-xs text-slate">
-          Prices are indicative return fares found recently. Confirm the final price on the booking page.
+          {t("note")}
         </p>
       </section>
 
       <AdSlot slot="7777777777" className="mt-10" />
 
       <section className="mx-auto max-w-6xl px-4 py-14">
-        <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">Three ways to use the map</h2>
+        <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">{t("three")}</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {[
-            { t: "Flexible on where", d: "Zoom into a region and pick the cheapest city that fits the trip you want." },
-            { t: "Flexible on when", d: "Click a price to see its dates, then compare nearby days in the flight search." },
-            { t: "Fixed destination", d: "Already know where you're going? Use the full flight search for exact dates and filters." },
-          ].map((c) => (
+          {[1, 2, 3].map((n) => ({ t: t(`c${n}t`), d: t(`c${n}d`) })).map((c) => (
             <div key={c.t} className="rounded-2xl border border-mist bg-white p-6">
               <h3 className="font-display text-lg font-bold text-ink">{c.t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate">{c.d}</p>
@@ -63,14 +53,14 @@ export default async function ExplorePage({ params }: { params: Promise<{ locale
           ))}
         </div>
         <p className="mt-8 text-sm text-slate">
-          Ready to search exact dates?{" "}
-          <Link href="/flights" className="font-semibold text-amber-deep underline">Open the flight search</Link>
+          {t("ready")}{" "}
+          <Link href="/flights" className="font-semibold text-amber-deep underline">{t("open")}</Link>
         </p>
       </section>
 
       <section className="border-t border-mist bg-white">
         <div className="mx-auto max-w-3xl px-4 py-16">
-          <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">Price map FAQ</h2>
+          <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">{t("faqTitle")}</h2>
           <div className="mt-7"><Faq items={faq} /></div>
         </div>
       </section>

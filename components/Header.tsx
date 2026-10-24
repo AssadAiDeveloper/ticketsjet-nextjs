@@ -21,11 +21,8 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2.5" aria-label={t("home")}>
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-amber text-ink">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M21 15.5 13.5 12V5.75a1.5 1.5 0 0 0-3 0V12L3 15.5v2l7.5-2v3.75L8.5 21v1.25L12 21.5l3.5.75V21l-2-1.75V15.5l7.5 2v-2Z" fill="currentColor" />
-            </svg>
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.svg" alt="" width={44} height={32} className="h-8 w-auto" />
           <span className="font-display text-lg font-bold tracking-tight text-white">
             Tickets<span className="text-amber">Jet</span>
           </span>

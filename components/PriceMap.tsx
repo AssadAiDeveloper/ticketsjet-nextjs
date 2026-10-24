@@ -3,7 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import type * as LType from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { useLocale, useTranslations } from "next-intl";
 import TpWidget from "@/components/TpWidget";
+import { useFormatPrice } from "@/components/Price";
+import { fullDate } from "@/lib/format";
 import { WIDGETS } from "@/lib/config";
 
 type Point = { code: string; name: string; lat: number; lng: number; price: number; stops: number; depart: string | null; back: string | null };
@@ -11,14 +14,22 @@ type Data = { origin: { code: string; name: string; lat: number; lng: number }; 
 type Suggest = { code: string; name: string; country: string };
 
 /** Link into our own flight search page; the search widget there does the rest. */
-function flightsHref(origin: string, p: Point) {
+function flightsHref(origin: string, p: Point, prefix: string) {
   const q = new URLSearchParams({ origin_iata: origin, destination_iata: p.code, adults: "1" });
   if (p.depart) q.set("depart_date", p.depart);
   if (p.back) q.set("return_date", p.back);
-  return `/flights?${q.toString()}#results`;
+  return `${prefix}/flights?${q.toString()}#results`;
 }
 
 export default function PriceMap() {
+  const t = useTranslations("map");
+  const locale = useLocale();
+  const fmtPrice = useFormatPrice();
+  const fmtRef = useRef(fmtPrice);
+  fmtRef.current = fmtPrice;
+  const tRef = useRef(t);
+  tRef.current = t;
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const mapEl = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LType.Map | null>(null);
   const layerRef = useRef<LType.LayerGroup | null>(null);
@@ -109,7 +120,7 @@ export default function PriceMap() {
           taken.push({ x: pt.x, y: pt.y });
 
           const m = L.marker([p.lat, p.lng], {
-            icon: L.divIcon({ className: "tj-pin", html: `$${p.price}`, iconSize: [54, 24], iconAnchor: [27, 12] }),
+            icon: L.divIcon({ className: "tj-pin", html: fmtRef.current(p.price), iconSize: [54, 24], iconAnchor: [27, 12] }),
             title: p.name,
           });
           const box = document.createElement("div");
@@ -117,12 +128,12 @@ export default function PriceMap() {
           const h = document.createElement("strong");
           h.textContent = `${data.origin.name} → ${p.name}`;
           const price = document.createElement("div");
-          price.textContent = `from $${p.price} return${p.stops === 0 ? " · direct" : ` · ${p.stops} stop${p.stops > 1 ? "s" : ""}`}`;
+          price.textContent = `${tRef.current("fromReturn", { price: fmtRef.current(p.price) })} · ${p.stops === 0 ? tRef.current("direct") : tRef.current("stops", { n: p.stops })}`;
           const dates = document.createElement("small");
-          dates.textContent = p.depart ? `${p.depart}${p.back ? " → " + p.back : ""}` : "Flexible dates";
+          dates.textContent = p.depart ? `${fullDate(p.depart, locale)}${p.back ? " → " + fullDate(p.back, locale) : ""}` : tRef.current("flex");
           const a = document.createElement("a");
-          a.href = flightsHref(data.origin.code, p);
-          a.textContent = "See flights →";
+          a.href = flightsHref(data.origin.code, p, prefix);
+          a.textContent = tRef.current("see");
           box.append(h, price, dates, a);
           m.bindPopup(box, { closeButton: false, offset: [0, -6] });
           m.addTo(layer);
@@ -141,7 +152,7 @@ export default function PriceMap() {
     return () => {
       cancelled = true;
     };
-  }, [status, data, maxPrice]);
+  }, [status, data, maxPrice, locale, fmtPrice, prefix]);
 
   // cleanup
   useEffect(
@@ -160,7 +171,7 @@ export default function PriceMap() {
       <div className="flex flex-wrap items-end gap-4 pb-3">
         <div className="relative">
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-from">
-            Flying from
+            {t("from")}
           </label>
           <input
             id="pm-from"
@@ -176,7 +187,7 @@ export default function PriceMap() {
                 <li key={c.code}>
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between px-3 py-2 text-left text-sm hover:bg-cloud"
+                    className="flex w-full items-center justify-between px-3 py-2 text-start text-sm hover:bg-cloud"
                     onClick={() => {
                       setOrigin(c.code);
                       setQuery("");
@@ -193,13 +204,13 @@ export default function PriceMap() {
         </div>
         <div>
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-max">
-            Max price · ${maxPrice}
+            {t("max", { price: fmtPrice(maxPrice) })}
           </label>
           <input id="pm-max" type="range" min={100} max={20000} step={100} value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="mt-2 w-48 accent-amber" />
         </div>
-        <p className="ml-auto text-xs text-slate">{status === "loading" ? "Loading fares…" : `${data?.points.filter((p) => p.price <= maxPrice).length ?? 0} destinations`}</p>
+        <p className="ms-auto text-xs text-slate">{status === "loading" ? t("loading") : t("count", { n: data?.points.filter((p) => p.price <= maxPrice).length ?? 0 })}</p>
       </div>
-      <div ref={mapEl} className="h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label="Map of flight prices" />
+      <div ref={mapEl} className="h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label={t("aria")} />
     </div>
   );
 }

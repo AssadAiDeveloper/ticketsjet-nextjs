@@ -44,6 +44,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale);
   const board = await loadBoard(locale);
   const t = await getTranslations("home");
+  const tb = await getTranslations("blog");
+  const tpost = await getTranslations("post");
   const faq = [1, 2, 3, 4, 5, 6].map((n) => ({ q: t(`faq${n}q`), a: t(`faq${n}a`) }));
   const arrow = locale === "ar" ? "←" : "→";
   return (
@@ -144,9 +146,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {posts.map((p) => (
             <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex flex-col rounded-2xl border border-mist bg-white p-6 transition hover:border-amber hover:shadow-lg">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-slate">{p.readingTime}</p>
-              <h3 className="font-display mt-2 text-lg font-bold leading-snug text-ink group-hover:text-amber-deep">{p.title}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-slate">{p.description}</p>
+              <p className="font-mono text-[11px] uppercase tracking-widest text-slate">{tb("minutes", { n: p.minutes })}</p>
+              <h3 className="font-display mt-2 text-lg font-bold leading-snug text-ink group-hover:text-amber-deep">{tpost(`${p.slug}.title`)}</h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-slate">{tpost(`${p.slug}.desc`)}</p>
               <p className="mt-4 text-sm font-semibold text-amber-deep">{t("readGuide")} {arrow}</p>
             </Link>
           ))}
