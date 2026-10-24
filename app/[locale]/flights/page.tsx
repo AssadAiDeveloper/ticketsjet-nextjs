@@ -7,6 +7,7 @@ import Faq from "@/components/Faq";
 import { WlSearchForm, WlResults } from "@/components/WhiteLabel";
 import HeroFlightForm, { type Initial } from "@/components/HeroFlightForm";
 import FilterBridge from "@/components/FilterBridge";
+import WlSync from "@/components/WlSync";
 import NearbyDates from "@/components/NearbyDates";
 import TripExtras from "@/components/TripExtras";
 import { parseSearchCode } from "@/lib/searchCode";
@@ -102,6 +103,7 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
         {trip && trip.back && <NearbyDates origin={trip.origin} dest={trip.dest} depart={trip.depart} />}
         <WlResults />
         <FilterBridge direct={direct === "1"} bags={bags === "1"} />
+        {searching && <WlSync />}
         {trip && destName && <TripExtras city={destName} depart={trip.depart} back={trip.back} />}
       </section>
 

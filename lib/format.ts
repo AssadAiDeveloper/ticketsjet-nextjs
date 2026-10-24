@@ -17,3 +17,5 @@ export const countryName = (code: string, locale: string) => {
 };
 /** "December". */
 export const monthName = (iso: string, locale: string) => utc(iso).toLocaleDateString(intlTag(locale), { month: "long", timeZone: "UTC" });
+/** "12 Dec 2026". */
+export const fullDate = (iso: string, locale: string) => utc(iso).toLocaleDateString(intlTag(locale), { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });

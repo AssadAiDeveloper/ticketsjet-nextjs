@@ -1,4 +1,6 @@
-export type QA = { q: string; a: string };
+import type { ReactNode } from "react";
+
+export type QA = { q: string; a: ReactNode };
 
 export default function Faq({ items }: { items: QA[] }) {
   return (
@@ -11,7 +13,7 @@ export default function Faq({ items }: { items: QA[] }) {
               <path d="m6 9 6 6 6-6" />
             </svg>
           </summary>
-          <p className="px-5 pb-5 text-sm leading-relaxed text-slate">{item.a}</p>
+          <div className="px-5 pb-5 text-sm leading-relaxed text-slate">{item.a}</div>
         </details>
       ))}
     </div>

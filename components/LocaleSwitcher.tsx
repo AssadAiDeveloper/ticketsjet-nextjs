@@ -15,6 +15,8 @@ export default function LocaleSwitcher({ align = "end" }: { align?: "start" | "e
   const router = useRouter();
   const { currency, setCurrency } = useCurrency();
   const pop = usePopover();
+  const names = new Intl.DisplayNames([locale], { type: "currency" });
+  const cname = (c: string) => { try { return names.of(c) ?? c; } catch { return c; } };
 
   function pick(next: Locale) {
     pop.setOpen(false);
@@ -48,7 +50,7 @@ export default function LocaleSwitcher({ align = "end" }: { align?: "start" | "e
           <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-amber">{t("currency")}</p>
           <div className="mt-2 grid grid-cols-4 gap-1.5">
             {CURRENCIES.map((c) => (
-              <button key={c} type="button" onClick={() => setCurrency(c)} className={opt(c === currency) + " !px-1 text-center text-xs"}>{c}</button>
+              <button key={c} type="button" title={cname(c)} onClick={() => setCurrency(c)} className={opt(c === currency) + " !px-1 text-center text-xs"}>{c}</button>
             ))}
           </div>
           <p className="mt-3 text-[11px] leading-snug text-white/50">{t("note")}</p>

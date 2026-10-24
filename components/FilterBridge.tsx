@@ -10,19 +10,24 @@ import { useEffect } from "react";
 export default function FilterBridge({ direct, bags }: { direct: boolean; bags: boolean }) {
   useEffect(() => {
     if (!direct && !bags) return;
-    const wanted = [direct && "No layovers", bags && "Baggage included"].filter(Boolean) as string[];
+    // The widget's own button texts in each language it is shown in.
+    const LABELS = {
+      direct: ["No layovers", "ممنوع التوقف المؤقت", "Geen tussenstops"],
+      bags: ["Baggage included", "تشمل الأمتعة", "Inclusief bagage"],
+    };
+    const wanted = [direct && "direct", bags && "bags"].filter(Boolean) as ("direct" | "bags")[];
     const done = new Set<string>();
     const started = Date.now();
     const timer = setInterval(() => {
       const root = document.getElementById("tpwl-tickets")?.shadowRoot;
       if (root) {
         const buttons = [...root.querySelectorAll("button")];
-        for (const label of wanted) {
-          if (done.has(label)) continue;
-          const btn = buttons.find((b) => b.textContent?.trim() === label && /Popular/.test(b.parentElement?.className ?? ""));
+        for (const key of wanted) {
+          if (done.has(key)) continue;
+          const btn = buttons.find((b) => LABELS[key].includes(b.textContent?.trim() ?? "") && /Popular/.test(b.parentElement?.className ?? ""));
           if (btn) {
             btn.click();
-            done.add(label);
+            done.add(key);
           }
         }
       }

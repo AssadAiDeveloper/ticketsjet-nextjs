@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { DayPicker, type DateRange } from "react-day-picker";
 import "react-day-picker/style.css";
+import { useCurrency } from "@/components/CurrencyProvider";
+import { WL_CURRENCIES } from "@/lib/wlCurrencies";
 import { CityField, Stepper, usePopover, fieldBtn, labelCls, ddmm, fmt, dayPickerLocale, type City } from "@/components/searchParts";
 
 const TRIPS = [{ id: "round" }, { id: "oneway" }, { id: "multi" }] as const;
@@ -75,6 +77,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
   const tc = useTranslations("common");
   const locale = useLocale();
   const prefix = locale === "en" ? "" : `/${locale}`;
+  const { currency } = useCurrency();
   const [trip, setTrip] = useState<"round" | "oneway" | "multi">(initial?.trip ?? "round");
   const [from, setFrom] = useState<City | null>(initial?.from ?? null);
   const [to, setTo] = useState<City | null>(initial?.to ?? null);
@@ -93,7 +96,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
 
   /** Full page load so the results widget on /flights starts fresh. */
   function go(code: string) {
-    window.location.href = `${prefix}/flights?flightSearch=${code}${direct ? "&direct=1" : ""}${bags ? "&bags=1" : ""}`;
+    window.location.href = `${prefix}/flights?flightSearch=${code}${direct ? "&direct=1" : ""}${bags ? "&bags=1" : ""}&language=${locale}${WL_CURRENCIES.has(currency) ? `&currency=${currency}` : ""}`;
   }
 
   useEffect(() => {

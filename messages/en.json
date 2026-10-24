@@ -295,5 +295,138 @@
  },
  "notice": {
   "untranslated": "This page isn't available in your language yet and is shown in English."
+ },
+ "place": {
+  "lon": {
+   "name": "London",
+   "blurb": "Europe's busiest city break, with five airports and dozens of daily flights from most hubs."
+  },
+  "par": {
+   "name": "Paris",
+   "blurb": "Short, frequent flights make Paris one of the easiest weekend trips in Europe."
+  },
+  "bcn": {
+   "name": "Barcelona",
+   "blurb": "Beach, architecture and food in one city, served by both full-service and low-cost airlines."
+  },
+  "rom": {
+   "name": "Rome",
+   "blurb": "Flights reach Fiumicino and Ciampino; low-cost carriers often fly to Ciampino."
+  },
+  "mad": {
+   "name": "Madrid",
+   "blurb": "A major hub for flights onward to Latin America as well as a destination in its own right."
+  },
+  "ist": {
+   "name": "Istanbul",
+   "blurb": "Straddles two continents, with two main airports and many direct routes from Europe and the Gulf."
+  },
+  "dxb": {
+   "name": "Dubai",
+   "blurb": "A global transit hub with long-haul routes in every direction."
+  },
+  "cai": {
+   "name": "Cairo",
+   "blurb": "Direct flights from many European and Gulf cities; popular year-round."
+  },
+  "ruh": {
+   "name": "Riyadh",
+   "blurb": "The capital's King Khalid airport is well connected to Europe, Asia and the Gulf."
+  },
+  "jed": {
+   "name": "Jeddah",
+   "blurb": "Gateway to Makkah and the Red Sea coast, with busy seasonal demand."
+  },
+  "cmn": {
+   "name": "Casablanca",
+   "blurb": "Morocco's main hub, with many direct flights from Europe."
+  },
+  "nyc": {
+   "name": "New York",
+   "blurb": "Flights serve JFK, Newark and LaGuardia — compare all three in one search."
+  },
+  "bkk": {
+   "name": "Bangkok",
+   "blurb": "A common first stop for travel across Southeast Asia."
+  },
+  "mnl": {
+   "name": "Manila",
+   "blurb": "Long-haul routes usually include one stop; compare duration as well as price."
+  },
+  "ams": {
+   "name": "Amsterdam",
+   "blurb": "Schiphol is one of Europe's largest hubs, with excellent connections."
+  },
+  "dub": {
+   "name": "Dublin",
+   "blurb": "Frequent short flights from the UK and continental Europe."
+  },
+  "lis": {
+   "name": "Lisbon",
+   "blurb": "A compact capital with direct flights from most major European cities."
+  },
+  "ath": {
+   "name": "Athens",
+   "blurb": "Gateway to the Greek islands; summer schedules add many extra routes."
+  },
+  "vie": {
+   "name": "Vienna",
+   "blurb": "Well served by full-service carriers from across Europe."
+  },
+  "fra": {
+   "name": "Frankfurt",
+   "blurb": "A major connecting hub, often the cheapest way to reach long-haul destinations."
+  }
+ },
+ "route": {
+  "metaTitle": "Cheap Flights from {from} to {to}",
+  "metaTitleFrom": "Cheap Flights from {from} to {to} from {price}",
+  "metaDesc": "Compare flights from {from} to {to}. See recent low fares and the cheapest dates, then search airlines and agencies in one place.",
+  "h1": "Cheap flights from {from} to {to}",
+  "leadFare": "Recent round-trip fares start at {price}. Pick a date below or search your own.",
+  "leadNone": "Compare airlines and travel agencies for flights from {from} to {to}.",
+  "searchBtn": "Search {route}",
+  "cheapestTitle": "Cheapest dates found",
+  "cheapestSub": "Round-trip prices per adult, from recent searches. Refreshed hourly.",
+  "thDepart": "Depart",
+  "thReturn": "Return",
+  "thStops": "Stops",
+  "thFrom": "From",
+  "oneWay": "One way",
+  "search": "Search",
+  "flyingTo": "Flying to {to}",
+  "about": "{blurb} {to} is in {country}.",
+  "stats": "In the last searches we saw {n} different departure dates from {from}, with fares ranging from {lo} to {hi}.",
+  "cache": "Fares are cached from recent searches and can change quickly. The price you see on the results page is the one that counts, and you always finish booking with the airline or agency, not with us.",
+  "thingsTitle": "Things to do in {to}",
+  "thingsText": "Popular tours and attraction tickets, with tips for booking ahead.",
+  "seeActivities": "See activities",
+  "questions": "Questions",
+  "more": "More flights from {from}",
+  "q1": "How much is a flight from {from} to {to}?",
+  "a1": "Recent searches show round-trip fares from about {price}. Prices change constantly, so the final price is confirmed with the provider before you book.",
+  "a1none": "Prices vary by date and airline. Run a search to see current fares before you book.",
+  "q2": "When is the cheapest time to fly from {from} to {to}?",
+  "a2": "The lowest recent fare departs on {date}. Mid-week departures outside school holidays are usually cheaper, and flexible dates help most.",
+  "a2none": "Mid-week departures outside school holidays are usually cheaper, and flexible dates help most.",
+  "q3": "Are there direct flights from {from} to {to}?",
+  "a3yes": "Yes — some of the recent fares we found were direct. Use the stops column to compare.",
+  "a3no": "The recent low fares we found include a stop. Direct flights may still exist at a higher price; search to compare.",
+  "a3unk": "This depends on the dates. Search to see direct and one-stop options side by side.",
+  "q4": "Do you add fees?",
+  "a4": "No. TicketsJet is a comparison tool: we show provider prices and send you to the provider to book. We may earn a commission from the provider at no extra cost to you.",
+  "stops": "{n, plural, one {# stop} other {# stops}}",
+  "fromTo": "{from} to {to}"
+ },
+ "routes": {
+  "metaTitle": "Cheap Flights by Route",
+  "metaDesc": "Browse popular flight routes and see recent low fares and the cheapest dates for each.",
+  "h1": "Cheap flights by route",
+  "lead": "Pick a route to see recent low fares and the cheapest dates.",
+  "from": "From {from}"
+ },
+ "cal": {
+  "title": "Price calendar",
+  "sub": "Lowest round-trip fare found for each departure day. Darker yellow = cheaper. Blank days had no recent fare."
  }
 }

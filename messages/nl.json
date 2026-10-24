@@ -295,5 +295,138 @@
  },
  "notice": {
   "untranslated": "Deze pagina is nog niet in jouw taal beschikbaar en wordt in het Engels getoond."
+ },
+ "place": {
+  "lon": {
+   "name": "Londen",
+   "blurb": "De drukste citytrip van Europa, met vijf luchthavens en tientallen dagelijkse vluchten vanaf de meeste hubs."
+  },
+  "par": {
+   "name": "Parijs",
+   "blurb": "Korte, frequente vluchten maken Parijs een van de makkelijkste weekendtrips van Europa."
+  },
+  "bcn": {
+   "name": "Barcelona",
+   "blurb": "Strand, architectuur en eten in één stad, bediend door zowel traditionele als lagekostenmaatschappijen."
+  },
+  "rom": {
+   "name": "Rome",
+   "blurb": "Vluchten gaan naar Fiumicino en Ciampino; lagekostenmaatschappijen vliegen vaak op Ciampino."
+  },
+  "mad": {
+   "name": "Madrid",
+   "blurb": "Een belangrijke hub voor doorvluchten naar Latijns-Amerika en ook een bestemming op zich."
+  },
+  "ist": {
+   "name": "Istanbul",
+   "blurb": "Ligt op twee continenten, met twee grote luchthavens en veel directe routes vanuit Europa en de Golf."
+  },
+  "dxb": {
+   "name": "Dubai",
+   "blurb": "Een mondiale overstaphub met lange routes in alle richtingen."
+  },
+  "cai": {
+   "name": "Caïro",
+   "blurb": "Directe vluchten vanuit veel Europese en Golfsteden; het hele jaar populair."
+  },
+  "ruh": {
+   "name": "Riyad",
+   "blurb": "Het King Khalid-vliegveld van de hoofdstad is goed verbonden met Europa, Azië en de Golf."
+  },
+  "jed": {
+   "name": "Jeddah",
+   "blurb": "Toegangspoort tot Mekka en de Rode Zeekust, met drukke seizoenen."
+  },
+  "cmn": {
+   "name": "Casablanca",
+   "blurb": "De belangrijkste hub van Marokko, met veel directe vluchten vanuit Europa."
+  },
+  "nyc": {
+   "name": "New York",
+   "blurb": "Vluchten gaan naar JFK, Newark en LaGuardia — vergelijk ze alle drie in één zoekopdracht."
+  },
+  "bkk": {
+   "name": "Bangkok",
+   "blurb": "Een veelvoorkomende eerste stop voor reizen door Zuidoost-Azië."
+  },
+  "mnl": {
+   "name": "Manilla",
+   "blurb": "Lange routes hebben meestal één tussenstop; vergelijk ook de reisduur, niet alleen de prijs."
+  },
+  "ams": {
+   "name": "Amsterdam",
+   "blurb": "Schiphol is een van Europa's grootste hubs, met uitstekende verbindingen."
+  },
+  "dub": {
+   "name": "Dublin",
+   "blurb": "Frequente korte vluchten vanuit het VK en continentaal Europa."
+  },
+  "lis": {
+   "name": "Lissabon",
+   "blurb": "Een compacte hoofdstad met directe vluchten vanuit de meeste grote Europese steden."
+  },
+  "ath": {
+   "name": "Athene",
+   "blurb": "Toegangspoort tot de Griekse eilanden; in de zomer komen er veel extra routes bij."
+  },
+  "vie": {
+   "name": "Wenen",
+   "blurb": "Goed bediend door traditionele maatschappijen uit heel Europa."
+  },
+  "fra": {
+   "name": "Frankfurt",
+   "blurb": "Een belangrijke overstaphub, vaak de goedkoopste manier om verre bestemmingen te bereiken."
+  }
+ },
+ "route": {
+  "metaTitle": "Goedkope vluchten van {from} naar {to}",
+  "metaTitleFrom": "Goedkope vluchten van {from} naar {to} vanaf {price}",
+  "metaDesc": "Vergelijk vluchten van {from} naar {to}. Bekijk recente lage tarieven en de goedkoopste data en zoek daarna bij airlines en reisbureaus op één plek.",
+  "h1": "Goedkope vluchten van {from} naar {to}",
+  "leadFare": "Recente retourtarieven beginnen bij {price}. Kies hieronder een datum of zoek zelf.",
+  "leadNone": "Vergelijk airlines en reisbureaus voor vluchten van {from} naar {to}.",
+  "searchBtn": "Zoek {route}",
+  "cheapestTitle": "Goedkoopste data gevonden",
+  "cheapestSub": "Retourprijzen per volwassene uit recente zoekopdrachten. Ieder uur ververst.",
+  "thDepart": "Heen",
+  "thReturn": "Terug",
+  "thStops": "Overstappen",
+  "thFrom": "Vanaf",
+  "oneWay": "Enkele reis",
+  "search": "Zoek",
+  "flyingTo": "Vliegen naar {to}",
+  "about": "{blurb} {to} ligt in {country}.",
+  "stats": "In de laatste zoekopdrachten zagen we {n} verschillende vertrekdata vanaf {from}, met tarieven van {lo} tot {hi}.",
+  "cache": "Tarieven worden bewaard uit recente zoekopdrachten en kunnen snel veranderen. De prijs op de resultatenpagina telt, en je rondt de boeking altijd af bij de airline of het reisbureau, niet bij ons.",
+  "thingsTitle": "Doen & zien in {to}",
+  "thingsText": "Populaire tours en attractietickets, met tips om vooruit te boeken.",
+  "seeActivities": "Bekijk activiteiten",
+  "questions": "Veelgestelde vragen",
+  "more": "Meer vluchten vanaf {from}",
+  "q1": "Hoeveel kost een vlucht van {from} naar {to}?",
+  "a1": "Recente zoekopdrachten tonen retourtarieven vanaf ongeveer {price}. Prijzen veranderen voortdurend, dus de definitieve prijs wordt bij de aanbieder bevestigd voordat je boekt.",
+  "a1none": "Prijzen verschillen per datum en airline. Zoek om de actuele tarieven te zien voordat je boekt.",
+  "q2": "Wanneer vlieg je het goedkoopst van {from} naar {to}?",
+  "a2": "Het laagste recente tarief vertrekt op {date}. Vertrekken midden in de week buiten schoolvakanties is meestal goedkoper, en flexibele data helpen het meest.",
+  "a2none": "Vertrekken midden in de week buiten schoolvakanties is meestal goedkoper, en flexibele data helpen het meest.",
+  "q3": "Zijn er directe vluchten van {from} naar {to}?",
+  "a3yes": "Ja — een aantal van de recente tarieven die we vonden waren direct. Gebruik de kolom overstappen om te vergelijken.",
+  "a3no": "De recente lage tarieven die we vonden hebben een overstap. Directe vluchten kunnen er tegen een hogere prijs nog zijn; zoek om te vergelijken.",
+  "a3unk": "Dat hangt af van de data. Zoek om directe vluchten en vluchten met één overstap naast elkaar te zien.",
+  "q4": "Rekenen jullie kosten?",
+  "a4": "Nee. TicketsJet is een vergelijkingstool: we tonen prijzen van aanbieders en sturen je door om te boeken. We kunnen een commissie van de aanbieder ontvangen, zonder extra kosten voor jou.",
+  "stops": "{n, plural, one {# overstap} other {# overstappen}}",
+  "fromTo": "{from} naar {to}"
+ },
+ "routes": {
+  "metaTitle": "Goedkope vluchten per route",
+  "metaDesc": "Bekijk populaire vluchtroutes met recente lage tarieven en de goedkoopste data per route.",
+  "h1": "Goedkope vluchten per route",
+  "lead": "Kies een route voor recente lage tarieven en de goedkoopste data.",
+  "from": "Vanaf {from}"
+ },
+ "cal": {
+  "title": "Prijskalender",
+  "sub": "Laagste retourtarief per vertrekdag. Donkerder geel = goedkoper. Lege dagen hadden geen recent tarief."
  }
 }
