@@ -133,6 +133,50 @@ for (const first of ["/fa", "/he", "/ar"]) {
   }
 }
 
+// Legacy redirect test
+const legacyRedirects = [
+  { from: "/hotels", to: "/stays" },
+  { from: "/stay", to: "/stays" },
+  { from: "/contact-us", to: "/help" },
+  { from: "/privacy-policy-2", to: "/privacy-policy" },
+  { from: "/guides", to: "/blog" },
+  { from: "/travel-guide", to: "/blog" },
+  { from: "/airfare-refund", to: "/help" },
+  { from: "/cruise", to: "/" },
+  { from: "/bike-bookings", to: "/" },
+  { from: "/author/webmaster", to: "/" },
+];
+for (const { from, to } of legacyRedirects) {
+  total++;
+  let issues = [];
+  try {
+    const resp = await fetch(`${BASE}${from}`, { redirect: "manual" });
+    if (resp.status !== 308 && resp.status !== 301) issues.push(`status=${resp.status} (expected 301/308)`);
+    const loc = resp.headers.get("location");
+    if (loc !== to && loc !== `${BASE}${to}`) issues.push(`location=${loc} (expected ${to})`);
+  } catch (e) {
+    issues.push(`fetch failed: ${e.message}`);
+  }
+  if (issues.length) {
+    failures.push({ locale: "en", path: `redirect ${from}`, w: 0, url: `${BASE}${from}`, issues });
+    console.log(`FAIL redirect ${from}: ${issues.join("; ")}`);
+  } else {
+    console.log(`ok   redirect ${from} -> ${to}`);
+  }
+}
+// /stay -> /stays -> 200
+total++;
+{
+  let issues = [];
+  try {
+    const r1 = await fetch(`${BASE}/stay`, { redirect: "manual" });
+    if (r1.status !== 308 && r1.status !== 301) issues.push(`status=${r1.status}`);
+    const r2 = await fetch(`${BASE}/stays`, { redirect: "manual" });
+    if (r2.status !== 200) issues.push(`/stays status=${r2.status}`);
+  } catch (e) { issues.push(`fetch failed: ${e.message}`); }
+  if (issues.length) { failures.push({ locale: "en", path: "redirect /stay->/stays", w: 0, url: `${BASE}/stay`, issues }); console.log(`FAIL /stay->/stays: ${issues.join("; ")}`); }
+  else console.log("ok   /stay -> /stays -> 200");
+}
 await browser.close();
 console.log(`\nTotal: ${total}, Failures: ${failures.length}`);
 if (failures.length) {
@@ -142,6 +186,8 @@ if (failures.length) {
 } else {
   console.log("ALL SMOKE TESTS PASSED");
 }
+
+
 
 
 
