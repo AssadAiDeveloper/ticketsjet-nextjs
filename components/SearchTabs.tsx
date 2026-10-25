@@ -53,7 +53,7 @@ export default function SearchTabs() {
           </Link>
         </div>
         <p className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-slate sm:block">
-          {t("pass")} � TJ-{new Date().getFullYear()}
+          {t("pass")} - TJ-{new Date().getFullYear()}
         </p>
       </div>
 

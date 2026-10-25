@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -17,10 +17,10 @@ import "../globals.css";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
-  const title = `${SITE.name} � ${t("tagline")}`;
+  const title = `${SITE.name} - ${t("tagline")}`;
   return {
     metadataBase: new URL(SITE.url),
-    title: { default: title, template: `%s � ${SITE.name}` },
+    title: { default: title, template: `%s - ${SITE.name}` },
     description: t("description"),
     keywords: ["cheap flights", "flight comparison", "hotel deals", "car rental", "travel search engine"],
     alternates: alternatesFor(locale, "/"),

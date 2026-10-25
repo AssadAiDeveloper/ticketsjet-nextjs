@@ -114,7 +114,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
           fetch(`/api/cities?q=${encodeURIComponent(src.code)}&locale=${locale}`)
             .then((r) => r.json())
             .then((d: { cities?: { code: string; name: string }[] }) => {
-              const c = d.cities?.find((x: { code: string; name: string }) => x.code === src.code);
+              const c = d.cities?.find((x: any) => x.code === src.code);
               if (c) {
                 if (src === j.from) setFrom((cur) => cur ? { ...cur, name: c.name } : cur);
                 else setTo((cur) => cur ? { ...cur, name: c.name } : cur);

@@ -1,6 +1,23 @@
-import { readFileSync } from "node:fs";
-import { readdirSync } from "node:fs";
+import { readFileSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
+
+// Check for U+FFFD replacement characters in all source/message files.
+function walk(dir) {
+  const out = [];
+  for (const f of readdirSync(dir)) {
+    const p = path.join(dir, f);
+    const s = statSync(p);
+    if (s.isDirectory()) { if (f === "node_modules" || f === ".next" || f === ".git") continue; out.push(...walk(p)); }
+    else if (/\.(tsx?|json|css|mjs|cjs)$/.test(f)) out.push(p);
+  }
+  return out;
+}
+let ffdFailed = false;
+for (const f of walk(process.cwd())) {
+  const txt = readFileSync(f, "utf8");
+  if (txt.includes("\uFFFD")) { console.error(`U+FFFD found in ${f}`); ffdFailed = true; }
+}
+if (ffdFailed) { console.error("check-i18n: FAILED (U+FFFD present)"); process.exit(1); }
 
 const messagesDir = path.join(process.cwd(), "messages");
 const enPath = path.join(messagesDir, "en.json");
@@ -18,8 +35,6 @@ function flatten(obj, prefix = "", out = {}) {
 const enFlat = flatten(en);
 const enKeys = Object.keys(enFlat);
 
-// Extract top-level ICU placeholder variable names, e.g. {n}, {count, number}, {n, plural, ...} -> "n"/"count".
-// Plural categories (one/other/few/many) are language-specific, so only the variable name is compared.
 function placeholders(s) {
   const set = new Set();
   let i = 0;
@@ -46,7 +61,6 @@ function placeholders(s) {
 function tags(s) {
   const set = new Set();
   for (const m of String(s).matchAll(/<\/?[A-Za-z0-9_]+(?:\s[^>]*)?>/g)) {
-    // normalize: strip attributes, keep tag name + closing slash
     const t = m[0].replace(/\s.*$/, ">");
     set.add(t);
   }
@@ -100,4 +114,3 @@ if (failed) {
 } else {
   console.log("\ncheck-i18n: all locales OK");
 }
-
