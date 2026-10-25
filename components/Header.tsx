@@ -7,10 +7,9 @@ import LocaleSwitcher from "@/components/LocaleSwitcher";
 
 const nav = [
   { href: "/flights", key: "flights" },
-  { href: "/trip-finder", key: "tripFinder" },
-  { href: "/explore", key: "explore" },
+  { href: "/stays", key: "stays" },
   { href: "/cars", key: "cars" },
-  { href: "/blog", key: "guides" },
+  { href: "/explore", key: "explore" },
 ] as const;
 
 export default function Header() {
@@ -28,22 +27,22 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden min-w-0 flex-wrap items-center gap-1 md:flex" aria-label={t("main")}>
+        <nav className="hidden items-center gap-1 md:flex" aria-label={t("main")}>
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg px-2.5 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white lg:px-3.5"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
             >
               {t(item.key)}
             </Link>
           ))}
           <LocaleSwitcher />
           <Link
-            href="/flights"
-            className="ms-2 shrink-0 rounded-lg bg-amber px-3 py-2 text-sm font-semibold text-ink transition hover:bg-amber-deep lg:px-4"
+            href="/trip-finder"
+            className="ms-2 rounded-lg bg-amber px-4 py-2 text-sm font-semibold text-ink transition hover:bg-amber-deep"
           >
-            {t("searchFlights")}
+            {t("tripFinder")}
           </Link>
         </nav>
 
@@ -74,6 +73,13 @@ export default function Header() {
           <div className="mt-2 border-t border-white/10 pt-2">
             <LocaleSwitcher />
           </div>
+          <Link
+            href="/trip-finder"
+            onClick={() => setOpen(false)}
+            className="mt-2 block w-full rounded-lg bg-amber px-4 py-2.5 text-center text-sm font-bold text-ink transition hover:bg-amber-deep"
+          >
+            {t("tripFinder")}
+          </Link>
         </nav>
       )}
     </header>

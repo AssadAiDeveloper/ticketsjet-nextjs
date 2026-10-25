@@ -19,7 +19,8 @@
     "explore": "Explore",
     "cars": "Cars",
     "guides": "Guides",
-    "searchFlights": "Search flights"
+    "searchFlights": "Search flights",
+    "stays": "Stays"
   },
   "footer": {
     "about": "Compare flights and car rentals from many providers. No booking fees — ever. You always book directly with the provider.",
@@ -120,7 +121,9 @@
     "pass": "Boarding pass",
     "carsNote": "Results open on our rental partner's site, where you complete the booking.",
     "noFees": "No booking fees.",
-    "directly": "You book directly with the airline or provider."
+    "directly": "You book directly with the airline or provider.",
+    "explore": "Explore",
+    "tripFinder": "Trip finder"
   },
   "form": {
     "from": "From",

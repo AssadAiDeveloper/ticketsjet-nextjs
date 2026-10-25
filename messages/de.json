@@ -19,7 +19,8 @@
     "explore": "Entdecken",
     "cars": "Autos",
     "guides": "Ratgeber",
-    "searchFlights": "Flüge suchen"
+    "searchFlights": "Flüge suchen",
+    "stays": "Stays"
   },
   "footer": {
     "about": "Vergleiche Flüge und Mietwagen vieler Anbieter. Keine Buchungsgebühren – niemals. Du buchst immer direkt beim Anbieter.",
@@ -120,7 +121,9 @@
     "pass": "Bordkarte",
     "carsNote": "Die Ergebnisse öffnen sich auf der Website unseres Mietpartners, wo du die Buchung abschließt.",
     "noFees": "Keine Buchungsgebühren.",
-    "directly": "Du buchst direkt bei der Airline oder dem Anbieter."
+    "directly": "Du buchst direkt bei der Airline oder dem Anbieter.",
+    "explore": "Explore",
+    "tripFinder": "Trip finder"
   },
   "form": {
     "from": "Von",

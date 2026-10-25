@@ -19,7 +19,8 @@
     "explore": "Explorer",
     "cars": "Voitures",
     "guides": "Guides",
-    "searchFlights": "Rechercher des vols"
+    "searchFlights": "Rechercher des vols",
+    "stays": "Stays"
   },
   "footer": {
     "about": "Comparez des vols et des locations de voiture auprès de nombreux fournisseurs. Aucuns frais de réservation, jamais. Vous réservez toujours directement auprès du fournisseur.",
@@ -120,7 +121,9 @@
     "pass": "Carte d'embarquement",
     "carsNote": "Les résultats s'ouvrent sur le site de notre partenaire de location, où vous finalisez la réservation.",
     "noFees": "Aucuns frais de réservation.",
-    "directly": "Vous réservez directement auprès de la compagnie ou du fournisseur."
+    "directly": "Vous réservez directement auprès de la compagnie ou du fournisseur.",
+    "explore": "Explore",
+    "tripFinder": "Trip finder"
   },
   "form": {
     "from": "De",

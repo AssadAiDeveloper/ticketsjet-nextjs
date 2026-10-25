@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import TpWidget from "@/components/TpWidget";
 import HeroFlightForm from "@/components/HeroFlightForm";
@@ -21,7 +22,6 @@ export default function SearchTabs() {
 
   return (
     <div className="boarding-pass">
-      {/* Pass header — route strip */}
       <div className="flex flex-wrap items-center justify-between gap-3 px-5 pt-5 sm:px-7">
         <div role="tablist" aria-label={t("aria")} className="flex flex-wrap gap-1 rounded-xl bg-cloud p-1 min-w-0 w-full sm:w-auto">
           {tabs.map((tab) => (
@@ -40,9 +40,20 @@ export default function SearchTabs() {
               {t(tab.id)}
             </button>
           ))}
+          <span className="mx-1 hidden h-6 w-px bg-mist sm:block" aria-hidden="true" />
+          <Link href="/explore" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-slate transition hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z" /><circle cx="12" cy="9" r="2.5" /></svg>
+            {t("explore")}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="opacity-60"><path d="M7 17L17 7M17 7H7M17 7v10" /></svg>
+          </Link>
+          <Link href="/trip-finder" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-slate transition hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16 8-2 6-6 2 2-6 6-2Z" /></svg>
+            {t("tripFinder")}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="opacity-60"><path d="M7 17L17 7M17 7H7M17 7v10" /></svg>
+          </Link>
         </div>
         <p className="hidden font-mono text-[11px] uppercase tracking-[0.2em] text-slate sm:block">
-          {t("pass")} · TJ-{new Date().getFullYear()}
+          {t("pass")} � TJ-{new Date().getFullYear()}
         </p>
       </div>
 
@@ -57,7 +68,6 @@ export default function SearchTabs() {
         )}
       </div>
 
-      {/* Perforated stub */}
       <div className="pass-perforation rounded-b-[20px] flex flex-wrap items-center justify-between gap-2 bg-cloud/60 px-5 py-3.5 sm:px-7">
         <p className="text-xs font-medium text-slate">
           <span className="font-semibold text-signal">{t("noFees")}</span> {t("directly")}

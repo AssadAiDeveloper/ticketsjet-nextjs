@@ -19,7 +19,8 @@
     "explore": "Explorar",
     "cars": "Coches",
     "guides": "Guías",
-    "searchFlights": "Buscar vuelos"
+    "searchFlights": "Buscar vuelos",
+    "stays": "Stays"
   },
   "footer": {
     "about": "Compara vuelos y alquileres de coche de muchos proveedores. Sin comisiones de reserva, nunca. Siempre reservas directamente con el proveedor.",
@@ -120,7 +121,9 @@
     "pass": "Tarjeta de embarque",
     "carsNote": "Los resultados se abren en la web de nuestro socio de alquiler, donde completas la reserva.",
     "noFees": "Sin comisiones de reserva.",
-    "directly": "Reservas directamente con la aerolínea o el proveedor."
+    "directly": "Reservas directamente con la aerolínea o el proveedor.",
+    "explore": "Explore",
+    "tripFinder": "Trip finder"
   },
   "form": {
     "from": "Origen",

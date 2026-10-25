@@ -19,7 +19,8 @@
     "explore": "Odkrywaj",
     "cars": "Samochody",
     "guides": "Poradniki",
-    "searchFlights": "Szukaj lotów"
+    "searchFlights": "Szukaj lotów",
+    "stays": "Stays"
   },
   "footer": {
     "about": "Porównuj loty i wynajem samochodów u wielu dostawców. Żadnych opłat za rezerwację — nigdy. Zawsze rezerwujesz bezpośrednio u dostawcy.",
@@ -120,7 +121,9 @@
     "pass": "Karta pokładowa",
     "carsNote": "Wyniki otwierają się na stronie naszego partnera wynajmu, gdzie sfinalizujesz rezerwację.",
     "noFees": "Bez opłat za rezerwację.",
-    "directly": "Rezerwujesz bezpośrednio u linii lotniczej lub dostawcy."
+    "directly": "Rezerwujesz bezpośrednio u linii lotniczej lub dostawcy.",
+    "explore": "Explore",
+    "tripFinder": "Trip finder"
   },
   "form": {
     "from": "Skąd",

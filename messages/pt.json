@@ -19,7 +19,8 @@
     "explore": "Explorar",
     "cars": "Carros",
     "guides": "Guias",
-    "searchFlights": "Pesquisar voos"
+    "searchFlights": "Pesquisar voos",
+    "stays": "Stays"
   },
   "footer": {
     "about": "Compare voos e aluguer de carros de muitos fornecedores. Sem taxas de reserva, nunca. Reserva sempre diretamente com o fornecedor.",
@@ -120,7 +121,9 @@
     "pass": "Cartão de embarque",
     "carsNote": "Os resultados abrem no site do nosso parceiro de aluguer, onde conclui a reserva.",
     "noFees": "Sem taxas de reserva.",
-    "directly": "Reserva diretamente com a companhia aérea ou o fornecedor."
+    "directly": "Reserva diretamente com a companhia aérea ou o fornecedor.",
+    "explore": "Explore",
+    "tripFinder": "Trip finder"
   },
   "form": {
     "from": "De",
