@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 type Photo = {
   id: string;
   url: string;
@@ -13,10 +11,9 @@ type Photo = {
   photoUrl?: string;
 };
 
-function loader({ src, width }: { src: string; width: number }) {
-  // Unsplash imgix params (WebP/AVIF via auto=format). No Vercel optimization.
+function buildSrc(src: string, w: number) {
   const sep = src.includes("?") ? "&" : "?";
-  return `${src}${sep}w=${width}&q=70&auto=format&fit=crop&crop=entropy`;
+  return `${src}${sep}w=${w}&q=70&auto=format&fit=crop&crop=entropy`;
 }
 
 export default function DestPhoto({
@@ -38,23 +35,24 @@ export default function DestPhoto({
   locale?: string;
   country?: string;
 }) {
-  if (!photo || !photo.url) {
-    // Fallback: gradient is handled by parent; render nothing.
-    return null;
-  }
+  if (!photo || !photo.url) return null;
   const altText = alt || photo.alt || code;
+  const widths = [400, 640, 960];
+  const srcSet = widths.map((w) => `${buildSrc(photo.url, w)} ${w}w`).join(", ");
+  const src = buildSrc(photo.url, 640);
   return (
-    <Image
-      loader={loader}
-      src={photo.url}
-      alt={altText}
-      fill
+    <img
+      src={src}
+      srcSet={srcSet}
       sizes={sizes}
-      priority={priority}
+      alt={altText}
       loading={priority ? "eager" : "lazy"}
-      className={`object-cover ${className}`}
+      fetchPriority={priority ? "high" : "auto"}
+      width={photo.width || 1600}
+      height={photo.height || 900}
+      className={`absolute inset-0 h-full w-full object-cover ${className}`}
       style={{ backgroundColor: photo.color || undefined }}
-      unoptimized
+      decoding="async"
     />
   );
 }

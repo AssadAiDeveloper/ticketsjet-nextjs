@@ -15,6 +15,7 @@ import { parseSearchCode } from "@/lib/searchCode";
 import { getCities } from "@/lib/places";
 import DealsGrid from "@/components/DealsGrid";
 import { getDeals } from "@/lib/deals";
+import { allPhotos } from "@/lib/destinationPhotos";
 import { ROUTES, DESTS, originName, slug } from "@/lib/routes";
 
 type SP = Promise<{ flightSearch?: string; direct?: string; bags?: string }>;

@@ -5,6 +5,8 @@ import { ACTIVITY_CITIES } from "@/lib/activities";
 import { alternatesFor } from "@/lib/i18nPages";
 import { countryName } from "@/lib/format";
 import { DEST_CC } from "@/lib/richPrice";
+import DestPhoto from "@/components/DestPhoto";
+import { allPhotos } from "@/lib/destinationPhotos";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -17,6 +19,7 @@ export default async function DestinationsIndex({ params }: { params: Promise<{ 
   setRequestLocale(locale);
   const t = await getTranslations("dpi");
   const tp = await getTranslations("place");
+  const photos = allPhotos();
   const ta = await getTranslations("act");
   return (
     <>
@@ -31,6 +34,7 @@ export default async function DestinationsIndex({ params }: { params: Promise<{ 
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {ACTIVITY_CITIES.map((c) => (
             <li key={c.slug}>
+              {photos[c.iata] && <div className="relative mb-3 aspect-[16/9] overflow-hidden rounded-xl"><DestPhoto code={c.iata} photo={photos[c.iata]} sizes="(min-width: 1024px) 25vw, 50vw, 100vw" alt={tp(`${c.iata.toLowerCase()}.name`)} /></div>}
               <Link href={`/destinations/${c.slug}`} className="block h-full rounded-2xl border border-mist bg-white p-5 hover:border-amber">
                 <p className="font-display text-xl font-bold text-ink">{tp(`${c.iata.toLowerCase()}.name`)}</p>
                 <p className="text-sm text-slate">{countryName(DEST_CC[c.iata.toLowerCase()], locale)}</p>

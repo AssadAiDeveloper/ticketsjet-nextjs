@@ -7,6 +7,8 @@ import Price from "@/components/Price";
 import { dayMonth, monthName } from "@/lib/format";
 import { PHOTOS } from "@/lib/destinations";
 import type { Deal } from "@/lib/deals";
+import DestPhoto from "@/components/DestPhoto";
+import { allPhotos } from "@/lib/destinationPhotos";
 
 const GRADS = ["from-[#16324a] to-[#0b1b2b]", "from-[#3b2f5c] to-[#0b1b2b]", "from-[#0f4a55] to-[#0b1b2b]", "from-[#5a3a1c] to-[#0b1b2b]", "from-[#1f4d3a] to-[#0b1b2b]", "from-[#4a2438] to-[#0b1b2b]"];
 
@@ -15,6 +17,7 @@ export default function DealsGrid({ origin, items }: { origin: { code: string; n
   const td = useTranslations("dest");
   const tc = useTranslations("common");
   const locale = useLocale();
+  const photos = allPhotos();
   const when = (iso: string | null) => (iso ? dayMonth(iso, locale) : null);
   const [filter, setFilter] = useState<string>("all"); // all | direct | YYYY-MM
   const months = useMemo(() => [...new Set(items.map((d) => d.month).filter((m): m is string => !!m))].sort().slice(0, 3), [items]);
@@ -58,6 +61,8 @@ export default function DealsGrid({ origin, items }: { origin: { code: string; n
                   style={photo ? { backgroundImage: `linear-gradient(to top, rgba(11,27,43,.85), rgba(11,27,43,.1)), url(${photo})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined}
                 >
                   <span className="flex items-start justify-between">
+                    {photos[d.code] && <DestPhoto code={d.code} photo={photos[d.code]} sizes="(min-width: 1024px) 25vw, 50vw, 100vw" alt={`${d.name}, ${d.country}`} />}
+                    {photos[d.code] && <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" aria-hidden="true" />}
                     <span className="font-display select-none text-5xl font-extrabold leading-none tracking-tight text-white/10 transition group-hover:text-amber/30" aria-hidden="true">{d.code}</span>
                     {d.stops === 0 && <span className="rounded-full bg-signal/20 px-2.5 py-1 text-[11px] font-semibold text-signal">{tc("direct")}</span>}
                   </span>
@@ -65,6 +70,7 @@ export default function DealsGrid({ origin, items }: { origin: { code: string; n
                     <span className="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"><span dir="ltr">{origin.code} → {d.code}</span></span>
                     <span className="font-display mt-1 block text-2xl font-bold leading-tight">{d.name}</span>
                     <span className="block text-sm text-white/60">{d.country}</span>
+                    {photos[d.code]?.author && (<a href={photos[d.code].photoUrl} target="_blank" rel="noopener noreferrer" className="absolute bottom-2 end-2 z-10 text-[10px] text-white/70 opacity-70 hover:opacity-100"><bdi>Photo: {photos[d.code].author} / Unsplash</bdi></a>)}
                     <span className="mt-3 flex items-end justify-between border-t border-white/15 pt-3">
                       <span>
                         <span className="block text-[11px] text-white/50">{td("from")}</span>

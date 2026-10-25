@@ -4,9 +4,8 @@ import { Link } from "@/i18n/navigation";
 import Price from "@/components/Price";
 import { dayMonth } from "@/lib/format";
 import { PHOTOS } from "@/lib/destinations";
+import { allPhotos } from "@/lib/destinationPhotos";
 import DestPhoto from "@/components/DestPhoto";
-import { readFileSync } from "node:fs";
-import path from "node:path";
 
 export type Dest = { code: string; name: string; country: string; price: number; href: string; depart: string | null };
 
@@ -22,8 +21,7 @@ const GRADS = [
 export default async function DestinationCards({ origin, items }: { origin: { code: string; name: string }; items: Dest[] }) {
   const t = await getTranslations("dest");
   const locale = await getLocale();
-  let photos: Record<string, any> = {};
-  try { photos = JSON.parse(readFileSync(path.join(process.cwd(), "data", "destination-photos.json"), "utf8")); } catch {}
+  const photos = allPhotos();
   const arrow = isRtl(locale) ? "←" : "→";
   const when = (iso: string | null) => (iso ? dayMonth(iso, locale) : null);
   return (
