@@ -12,13 +12,20 @@ declare global {
   }
 }
 
+function clearTpwlLocaleCookie() {
+  for (const domain of ["", "ticketsjet.com", "www.ticketsjet.com"]) {
+    const d = domain ? `; Domain=${domain}` : "";
+    document.cookie = `tpwl_locale=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT${d}`;
+  }
+}
+
 export default function WlSync() {
   const locale = useLocale();
   const { currency, setCurrency, ready } = useCurrency();
 
   useEffect(() => {
-    // Keep the White Label script from reusing a stale locale (it reads tpwl_locale cookie).
     try {
+      clearTpwlLocaleCookie();
       document.cookie = `tpwl_locale=${locale}; path=/; SameSite=Lax`;
       for (const k of ["__wlcc", "__wlsh"]) {
         try { localStorage.removeItem(k); } catch {}

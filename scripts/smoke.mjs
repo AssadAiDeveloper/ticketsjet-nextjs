@@ -58,7 +58,7 @@ for (const locale of locales) {
         const clientLang = await page.evaluate(() => document.documentElement.lang);
         const clientDir = await page.evaluate(() => document.documentElement.dir || "ltr");
         const expectRtl = (locale === "ar" || locale === "fa" || locale === "he");
-        overflow = await page.evaluate(() => { if (document.documentElement.scrollWidth <= document.documentElement.clientWidth) return false; return Array.from(document.querySelectorAll("*")).some((el) => { const r = el.getBoundingClientRect(); return r.right > window.innerWidth + 2 && r.left > -100; }); });
+        const overflowInfo = await page.evaluate(() => {\n          if (document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1) return null;\n          const offs = [];\n          document.querySelectorAll("*").forEach((el) => {\n            const r = el.getBoundingClientRect();\n            if (r.right > window.innerWidth + 2 || r.left < -2) offs.push(`${el.tagName}[${(el.id||el.className?.toString()||"").slice(0,40)}] left=${Math.round(r.left)} right=${Math.round(r.right)}`);\n          });\n          return { scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth, offenders: offs.slice(0,5) };\n        });\n        overflow = !!overflowInfo;\n        if (overflowInfo) issues.push(`overflow: scrollWidth=${overflowInfo.scrollWidth} clientWidth=${overflowInfo.clientWidth} :: ${overflowInfo.offenders.join("; ")}`);
         // Destinations: ensure localized names are used (not English) when available
         const issues0 = [];
         if (clientLang !== locale) issues0.push(`client lang=${clientLang} (expected ${locale})`);
@@ -142,3 +142,5 @@ if (failures.length) {
 } else {
   console.log("ALL SMOKE TESTS PASSED");
 }
+
+

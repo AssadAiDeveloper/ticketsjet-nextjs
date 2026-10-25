@@ -1,8 +1,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+
+function clearTpwlLocaleCookie() {
+  for (const domain of ["", "ticketsjet.com", "www.ticketsjet.com"]) {
+    const d = domain ? `; Domain=${domain}` : "";
+    document.cookie = `tpwl_locale=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT${d}`;
+  }
+}
 
 export default function TpWidget({ src, minHeight = 220 }: { src: string; minHeight?: number }) {
   const t = useTranslations("common");
@@ -12,7 +18,7 @@ export default function TpWidget({ src, minHeight = 220 }: { src: string; minHei
   useEffect(() => {
     const el = ref.current;
     if (!el || el.dataset.loaded === "true") return;
-    try { document.cookie = `tpwl_locale=${locale}; path=/; SameSite=Lax`; } catch {}
+    try { clearTpwlLocaleCookie(); document.cookie = `tpwl_locale=${locale}; path=/; SameSite=Lax`; } catch {}
     el.dataset.loaded = "true";
     const script = document.createElement("script");
     script.src = src;

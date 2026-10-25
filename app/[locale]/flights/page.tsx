@@ -94,7 +94,7 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
             <HeroFlightForm key={flightSearch ?? "new"} initial={initial} />
           </div>
           {/* The results widget expects its own search container on the page; it stays off-screen. */}
-          <div aria-hidden="true" style={{ position: "absolute", left: -9999, top: 0, width: 1, height: 1, overflow: "hidden" }}>
+          <div aria-hidden="true" style={{ position: "fixed", left: 0, top: 0, width: 1, height: 1, overflow: "hidden", transform: "translateX(-9999px)", contain: "paint" }}>
             <WlSearchForm />
           </div>
         </div>
