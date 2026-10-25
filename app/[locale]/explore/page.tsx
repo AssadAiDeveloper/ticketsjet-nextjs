@@ -2,6 +2,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import PriceMap from "@/components/PriceMap";
+import { cityName as locCity } from "@/lib/cityName";
+import { getCities } from "@/lib/places";
 import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
 import { alternatesFor } from "@/lib/i18nPages";
@@ -17,6 +19,8 @@ export default async function ExplorePage({ params }: { params: Promise<{ locale
   setRequestLocale(locale);
   const t = await getTranslations("exp");
   const faq = [1, 2, 3, 4].map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
+  const cities = await getCities();
+  const names = Object.fromEntries(cities.map((c) => [c.code, locCity(c.code, locale, c.name)]));
   return (
     <>
       <section className="bg-ink pb-14 pt-14">
@@ -33,7 +37,7 @@ export default async function ExplorePage({ params }: { params: Promise<{ locale
 
       <section className="mx-auto -mt-6 max-w-6xl px-4">
         <div className="boarding-pass overflow-hidden p-2 sm:p-3">
-          <PriceMap />
+          <PriceMap names={names} />
         </div>
         <p className="mt-3 text-xs text-slate">
           {t("note")}

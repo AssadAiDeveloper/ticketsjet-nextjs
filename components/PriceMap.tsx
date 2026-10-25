@@ -21,7 +21,7 @@ function flightsHref(origin: string, p: Point, prefix: string) {
   return `${prefix}/flights?${q.toString()}#results`;
 }
 
-export default function PriceMap() {
+export default function PriceMap({ names = {} }: { names?: Record<string, string> }) {
   const t = useTranslations("map");
   const locale = useLocale();
   const fmtPrice = useFormatPrice();
@@ -54,7 +54,7 @@ export default function PriceMap() {
       .then((d) => {
         if (off) return;
         setData(d);
-        setOriginLabel(d.origin.name);
+        setOriginLabel((names && names[d.origin.code]) || d.origin.name);
         setStatus(d.points.length ? "ok" : "error");
       })
       .catch(() => !off && setStatus("error"));
@@ -121,12 +121,12 @@ export default function PriceMap() {
 
           const m = L.marker([p.lat, p.lng], {
             icon: L.divIcon({ className: "tj-pin", html: fmtRef.current(p.price), iconSize: [54, 24], iconAnchor: [27, 12] }),
-            title: p.name,
+            title: (names && names[p.code]) || p.name,
           });
           const box = document.createElement("div");
           box.className = "tj-pop";
           const h = document.createElement("strong");
-          h.textContent = data.origin.name + " to " + p.name;
+          h.textContent = ((names && names[data.origin.code]) || data.origin.name) + " ? " + ((names && names[p.code]) || p.name);
           const price = document.createElement("div");
           price.textContent = `${tRef.current("fromReturn", { price: fmtRef.current(p.price) })} · ${p.stops === 0 ? tRef.current("direct") : tRef.current("stops", { n: p.stops })}`;
           const dates = document.createElement("small");
