@@ -62,7 +62,9 @@
     "arrow": "→",
     "seeAll": "Zobacz wszystko",
     "done": "Gotowe",
-    "sources": "Ceny są orientacyjne i często się zmieniają; ostateczną cenę potwierdza strona dostawcy."
+    "sources": "Ceny są orientacyjne i często się zmieniają; ostateczną cenę potwierdza strona dostawcy.",
+    "travelSearch": "Travel search",
+    "flightSearch": "Flight search"
   },
   "home": {
     "kicker": "Loty · Samochody — jedno wyszukiwanie",

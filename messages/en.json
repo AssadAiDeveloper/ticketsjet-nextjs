@@ -62,7 +62,9 @@
     "arrow": "→",
     "seeAll": "See all",
     "done": "Done",
-    "sources": "Prices are a guide and change often; the final price is confirmed on the provider's site."
+    "sources": "Prices are a guide and change often; the final price is confirmed on the provider's site.",
+    "travelSearch": "Travel search",
+    "flightSearch": "Flight search"
   },
   "home": {
     "kicker": "Flights · Cars — one search",

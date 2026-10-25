@@ -62,7 +62,9 @@
     "arrow": "→",
     "seeAll": "Tout voir",
     "done": "Terminé",
-    "sources": "Les prix sont indicatifs et changent souvent ; le prix final est confirmé sur le site du fournisseur."
+    "sources": "Les prix sont indicatifs et changent souvent ; le prix final est confirmé sur le site du fournisseur.",
+    "travelSearch": "Travel search",
+    "flightSearch": "Flight search"
   },
   "home": {
     "kicker": "Vols · Voitures — une seule recherche",

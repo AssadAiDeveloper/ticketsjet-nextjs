@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 
 /**
- * يحقن سكربت ويدجت الشريك داخل حاوية معزولة.
- * السكربت يكتب iframe الويدجت مباشرة بعد نفسه.
+ * Travelpayouts widget loader.
  */
 export default function TpWidget({ src, minHeight = 220 }: { src: string; minHeight?: number }) {
+  const t = useTranslations("common");
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -20,5 +21,5 @@ export default function TpWidget({ src, minHeight = 220 }: { src: string; minHei
     el.appendChild(script);
   }, [src]);
 
-  return <div ref={ref} className="tp-widget" style={{ minHeight }} aria-label="Travel search" />;
+  return <div ref={ref} className="tp-widget" style={{ minHeight }} aria-label={t("travelSearch")} />;
 }

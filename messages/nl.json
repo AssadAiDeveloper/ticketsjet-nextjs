@@ -62,7 +62,9 @@
     "arrow": "→",
     "seeAll": "Alles bekijken",
     "done": "Klaar",
-    "sources": "Prijzen zijn indicatief en veranderen vaak; de definitieve prijs zie je op de site van de aanbieder."
+    "sources": "Prijzen zijn indicatief en veranderen vaak; de definitieve prijs zie je op de site van de aanbieder.",
+    "travelSearch": "Travel search",
+    "flightSearch": "Flight search"
   },
   "home": {
     "kicker": "Vluchten · Auto's — één zoekopdracht",

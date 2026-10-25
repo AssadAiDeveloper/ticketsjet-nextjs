@@ -62,7 +62,9 @@
     "arrow": "→",
     "seeAll": "Alle ansehen",
     "done": "Fertig",
-    "sources": "Preise sind Richtwerte und ändern sich oft; der Endpreis wird auf der Website des Anbieters bestätigt."
+    "sources": "Preise sind Richtwerte und ändern sich oft; der Endpreis wird auf der Website des Anbieters bestätigt.",
+    "travelSearch": "Travel search",
+    "flightSearch": "Flight search"
   },
   "home": {
     "kicker": "Flüge · Mietwagen – eine Suche",
