@@ -51,7 +51,7 @@ export default async function DestinationCards({ origin, items }: { origin: { co
                   <span className="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">
                     <span dir="ltr">{origin.code} → {d.code}</span>
                   </span>
-                  <span className="font-display mt-1 block text-2xl font-bold leading-tight">{d.name}</span>
+                  <span className="font-display mt-1 block text-2xl font-bold leading-tight"><bdi>{d.name}</bdi></span>
                   <span className="block text-sm text-white/60">{d.country}</span>
                   <span className="mt-3 flex items-end justify-between border-t border-white/15 pt-3">
                     <span>

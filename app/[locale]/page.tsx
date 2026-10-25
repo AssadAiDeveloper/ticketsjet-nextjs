@@ -7,6 +7,7 @@ import Faq from "@/components/Faq";
 import { CARS_LINK } from "@/lib/config";
 import { posts } from "@/lib/posts";
 import { getFares, searchCode } from "@/lib/fares";
+import { cityName as locCity } from "@/lib/cityName";
 import DestinationCards, { type Dest } from "@/components/DestinationCards";
 import { POPULAR } from "@/lib/destinations";
 import { countryName } from "@/lib/format";
@@ -21,7 +22,7 @@ async function loadBoard(locale: string) {
       const code = searchCode(fares.origin.code, p);
       return {
         code: p.code,
-        name: p.name,
+        name: locCity(p.code, locale, p.name),
         country: countryName(p.country, locale),
         price: p.price,
         depart: p.depart,

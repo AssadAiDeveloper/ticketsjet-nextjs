@@ -4,7 +4,7 @@ import { getFares, searchCode } from "@/lib/fares";
 import { getCities } from "@/lib/places";
 import { POPULAR } from "@/lib/destinations";
 import { countryName } from "@/lib/format";
-import { cityName } from "@/lib/cityNames";
+import { cityName as locCity } from "@/lib/cityName";
 
 export type Deal = { code: string; name: string; country: string; price: number; stops: number; depart: string | null; month: string | null; href: string };
 export type Deals = { origin: { code: string; name: string }; items: Deal[] };
@@ -36,7 +36,7 @@ export async function getDeals(locale = "en"): Promise<Deals | null> {
     const sc = searchCode(code, p);
     return {
       code: p.code,
-      name: cityName(p.code, p.name, locale),
+      name: locCity(p.code, locale, p.name),
       country: countryName(p.country, locale),
       price: p.price,
       stops: p.stops,
@@ -45,5 +45,5 @@ export async function getDeals(locale = "en"): Promise<Deals | null> {
       href: sc ? `/flights?flightSearch=${sc}` : "/flights",
     };
   });
-  return { origin: { code, name: cityName(code, fares.origin.name, locale) }, items };
+  return { origin: { code, name: locCity(code, locale, fares.origin.name) }, items };
 }
