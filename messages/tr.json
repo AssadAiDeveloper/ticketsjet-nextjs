@@ -20,7 +20,7 @@
     "cars": "Araçlar",
     "guides": "Rehberler",
     "searchFlights": "Uçuş ara",
-    "stays": "Stays"
+    "stays": "Konaklamalar"
   },
   "footer": {
     "about": "Birçok sağlayıcıdan uçuş ve araç kiralamayı karşılaştırın. Rezervasyon ücreti yok, asla. Her zaman doğrudan sağlayıcıdan rezervasyon yaparsınız.",
@@ -122,8 +122,8 @@
     "carsNote": "Sonuçlar, rezervasyonu tamamladığınız kiralama ortağımızın sitesinde açılır.",
     "noFees": "Rezervasyon ücreti yok.",
     "directly": "Doğrudan havayolu veya sağlayıcıdan rezervasyon yaparsınız.",
-    "explore": "Explore",
-    "tripFinder": "Trip finder"
+    "explore": "Keşfet",
+    "tripFinder": "Seyahat bulucu"
   },
   "form": {
     "from": "Nereden",

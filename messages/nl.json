@@ -20,7 +20,7 @@
     "cars": "Auto's",
     "guides": "Reisgidsen",
     "searchFlights": "Zoek vluchten",
-    "stays": "Stays"
+    "stays": "Verblijven"
   },
   "footer": {
     "about": "Vergelijk vluchten en autoverhuur van veel aanbieders. Nooit boekingskosten. Je boekt altijd rechtstreeks bij de aanbieder.",
@@ -122,8 +122,8 @@
     "carsNote": "Resultaten openen op de site van onze verhuurpartner, waar je de boeking afrondt.",
     "noFees": "Geen boekingskosten.",
     "directly": "Je boekt rechtstreeks bij de luchtvaartmaatschappij of aanbieder.",
-    "explore": "Explore",
-    "tripFinder": "Trip finder"
+    "explore": "Ontdekken",
+    "tripFinder": "Reisfinder"
   },
   "form": {
     "from": "Van",

@@ -20,7 +20,7 @@
     "cars": "Auto",
     "guides": "Guide",
     "searchFlights": "Cerca voli",
-    "stays": "Stays"
+    "stays": "Soggiorni"
   },
   "footer": {
     "about": "Confronta voli e noleggi auto di molti fornitori. Nessuna commissione di prenotazione, mai. Prenoti sempre direttamente con il fornitore.",
@@ -122,8 +122,8 @@
     "carsNote": "I risultati si aprono sul sito del nostro partner di noleggio, dove completi la prenotazione.",
     "noFees": "Nessuna commissione di prenotazione.",
     "directly": "Prenoti direttamente con la compagnia o il fornitore.",
-    "explore": "Explore",
-    "tripFinder": "Trip finder"
+    "explore": "Esplora",
+    "tripFinder": "Trova viaggio"
   },
   "form": {
     "from": "Da",

@@ -210,3 +210,4 @@ if (failures.length) {
 } else {
   console.log("ALL SMOKE TESTS PASSED");
 }
+
