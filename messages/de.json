@@ -170,7 +170,8 @@
     "errDates": "Wähle deine Reisedaten.",
     "errReturn": "Wähle ein Rückflugdatum oder wechsle zu Nur Hinflug.",
     "fewer": "Fewer {label}",
-    "more": "More {label}"
+    "more": "More {label}",
+    "paxCompact": "{n} · {cabin}"
   },
   "stays": {
     "destination": "Reiseziel",

@@ -170,7 +170,8 @@
     "errDates": "تاریخ‌های سفر را انتخاب کنید.",
     "errReturn": "تاریخ برگشت را انتخاب کنید یا به «فقط رفت» بروید.",
     "fewer": "Fewer {label}",
-    "more": "More {label}"
+    "more": "More {label}",
+    "paxCompact": "{n} · {cabin}"
   },
   "stays": {
     "destination": "مقصد",

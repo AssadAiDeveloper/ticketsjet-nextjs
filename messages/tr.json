@@ -170,7 +170,8 @@
     "errDates": "Seyahat tarihlerinizi seçin.",
     "errReturn": "Dönüş tarihi seçin veya tek yöne geçin.",
     "fewer": "Fewer {label}",
-    "more": "More {label}"
+    "more": "More {label}",
+    "paxCompact": "{n} · {cabin}"
   },
   "stays": {
     "destination": "Varış noktası",

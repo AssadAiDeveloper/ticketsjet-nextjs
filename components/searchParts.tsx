@@ -96,7 +96,7 @@ export const labelCls = "block font-mono text-[10px] uppercase tracking-widest t
 
 export function Stepper({ label, hint, value, min, max, onChange }: { label: string; hint: string; value: number; min: number; max: number; onChange: (n: number) => void }) {
   const t = useTranslations("form");
-  const btn = "grid h-8 w-8 place-items-center rounded-full border border-mist text-lg leading-none text-ink transition hover:border-amber disabled:cursor-not-allowed disabled:opacity-30";
+  const btn = "grid h-10 w-10 place-items-center rounded-full border border-mist text-lg leading-none text-ink transition hover:border-amber disabled:cursor-not-allowed disabled:opacity-30";
   return (
     <div className="flex items-center justify-between py-2.5">
       <div>
@@ -105,7 +105,7 @@ export function Stepper({ label, hint, value, min, max, onChange }: { label: str
       </div>
       <div className="flex items-center gap-3">
         <button type="button" className={btn} disabled={value <= min} onClick={() => onChange(value - 1)} aria-label={t("fewer", { label })}>−</button>
-        <span className="w-4 text-center text-sm font-bold text-ink">{value}</span>
+        <span className="w-4 text-center text-sm font-bold text-ink" dir="ltr">{value}</span>
         <button type="button" className={btn} disabled={value >= max} onClick={() => onChange(value + 1)} aria-label={t("more", { label })}>+</button>
       </div>
     </div>

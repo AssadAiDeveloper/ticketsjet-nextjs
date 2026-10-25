@@ -184,14 +184,14 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
   const paxField = (
             <div className="relative" ref={pax.ref}>
       <span className={labelCls}>{t("travellersCabin")}</span>
-      <button type="button" className={fieldBtn} onClick={() => { pax.setOpen(!pax.open); dates.setOpen(false); }} aria-haspopup="dialog" aria-expanded={pax.open}>
-        <span>
-          {t("travellers", { n: total })} · {cabin === "business" ? t("business") : t("economy")}
+      <button type="button" className={fieldBtn} onClick={() => { pax.setOpen(!pax.open); dates.setOpen(false); }} aria-haspopup="dialog" aria-expanded={pax.open} title={t("travellers", { n: total }) + " - " + (cabin === "business" ? t("business") : t("economy"))}>
+        <span className="block min-w-0 truncate whitespace-nowrap" title={t("travellers", { n: total }) + " - " + (cabin === "business" ? t("business") : t("economy"))}>
+          {t("paxCompact", { n: total, cabin: cabin === "business" ? t("business") : t("economy") })}
         </span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-slate" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
       </button>
       {pax.open && (
-        <div role="dialog" aria-label={t("travellersDialog")} className="absolute end-0 z-50 mt-2 w-72 rounded-2xl border border-mist bg-white p-4 shadow-2xl">
+        <div role="dialog" aria-label={t("travellersDialog")} className="absolute end-0 z-50 mt-2 min-w-[16rem] max-w-[calc(100vw-2rem)] rounded-2xl border border-mist bg-white p-4 shadow-2xl">
           <Stepper label={t("adults")} hint={t("adultsHint")} value={adults} min={1} max={9 - children - infants} onChange={(n) => { setAdults(n); if (infants > n) setInfants(n); }} />
           <Stepper label={t("children")} hint={t("childrenHint")} value={children} min={0} max={9 - adults - infants} onChange={setChildren} />
           <Stepper label={t("infants")} hint={t("infantsHint")} value={infants} min={0} max={Math.min(adults, 9 - adults - children)} onChange={setInfants} />
@@ -276,7 +276,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
               ) : (
                 <div>
                   <span className={labelCls}>{t("from")}</span>
-                  <div className={`${fieldBtn} cursor-default bg-cloud/60 text-slate`}>{legs[i - 1].to ? `${legs[i - 1].to!.name} (${legs[i - 1].to!.code})` : t("previousDest")}</div>
+                  <div className={`${fieldBtn} cursor-default bg-cloud/60 text-slate`}>{legs[i - 1].to ? <><bdi>{legs[i - 1].to!.name}</bdi> <span dir="ltr" className="text-slate">({legs[i - 1].to!.code})</span></> : t("previousDest")}</div>
                 </div>
               )}
               <CityField label={t("to")} value={leg.to} onPick={(c) => setLegs((ls) => ls.map((l, k) => (k === i ? { ...l, to: c } : l)))} placeholder={t("cityPlaceholder")} />
@@ -301,7 +301,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
           </div>
         </div>
       ) : (
-        <div className="grid gap-3 md:grid-cols-[2fr_1.35fr_1fr_auto] md:items-end">
+        <div className="grid gap-3 md:grid-cols-[2fr_1.35fr_minmax(11rem,1fr)_auto] md:items-end">
           <div className="relative grid gap-3 sm:grid-cols-2">
             <CityField label={t("from")} value={from} onPick={setFrom} placeholder={t("cityPlaceholder")} />
             <CityField label={t("to")} value={to} onPick={setTo} placeholder={t("cityPlaceholder")} />

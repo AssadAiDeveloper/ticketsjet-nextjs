@@ -170,7 +170,8 @@
     "errDates": "בחרו את תאריכי הנסיעה.",
     "errReturn": "בחרו תאריך חזרה או עברו לכיוון אחד.",
     "fewer": "Fewer {label}",
-    "more": "More {label}"
+    "more": "More {label}",
+    "paxCompact": "{n} · {cabin}"
   },
   "stays": {
     "destination": "יעד",

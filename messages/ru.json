@@ -170,7 +170,8 @@
     "errDates": "Выберите даты поездки.",
     "errReturn": "Выберите дату возвращения или переключитесь на «в одну сторону».",
     "fewer": "Fewer {label}",
-    "more": "More {label}"
+    "more": "More {label}",
+    "paxCompact": "{n} · {cabin}"
   },
   "stays": {
     "destination": "Направление",

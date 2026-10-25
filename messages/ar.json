@@ -170,7 +170,8 @@
     "errDates": "اختر تواريخ سفرك.",
     "errReturn": "اختر تاريخ العودة، أو بدّل إلى ذهاب فقط.",
     "fewer": "Fewer {label}",
-    "more": "More {label}"
+    "more": "More {label}",
+    "paxCompact": "{n} · {cabin}"
   },
   "stays": {
     "destination": "الوجهة",
