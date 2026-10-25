@@ -55,7 +55,7 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
                 }}
                 className="flex w-full items-center justify-between px-3 py-2.5 text-left text-sm hover:bg-cloud"
               >
-                <span className="text-ink">{c.name}</span>
+                <span className="text-ink"><bdi>{c.name}</bdi> <span dir="ltr" className="text-slate">({c.code})</span></span>
                 <span className="font-mono text-xs text-slate">{c.kind === "country" ? t("country") : c.code}</span>
               </button>
             </li>

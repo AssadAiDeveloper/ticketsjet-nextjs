@@ -61,6 +61,7 @@ export default async function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} TicketsJet. {t("tagline")}</p>
+          <p className="text-[10px] text-white/40">{t("geoNames")}</p>
           <p>
             {t("notSeller")}{" "}
             <Link href="/affiliate-disclosure" className="underline hover:text-white">{t("learnMore")}</Link>.{" "}

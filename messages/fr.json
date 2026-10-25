@@ -44,7 +44,8 @@
     "affiliate": "Mention d'affiliation",
     "tagline": "Comparez et réservez des vols pas chers de n'importe où, vers n'importe où.",
     "notSeller": "TicketsJet est un moteur de recherche, pas un vendeur. Certains liens sont des liens d'affiliation —",
-    "learnMore": "en savoir plus"
+    "learnMore": "en savoir plus",
+    "geoNames": "City names: GeoNames, CC BY 4.0"
   },
   "cookie": {
     "aria": "Préférences relatives aux cookies",

@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { getCities } from "@/lib/places";
-import { cityAliases, cityName, norm } from "@/lib/cityNames";
+import { cityName as localizeCity } from "@/lib/cityName";
+import { cityAliases, norm } from "@/lib/cityNames";
 import { isLocale } from "@/i18n/routing";
 import { intlTag } from "@/lib/format";
 
-// GET /api/cities?q=ams&locale=ar → up to 6 matching cities, matched by English, Arabic or Dutch name and returned in the visitor's language
+// GET /api/cities?q=ams&locale=ar ? up to 6 matching cities, matched by English or localized name and returned in the visitor's language
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const asked = url.searchParams.get("locale") ?? "";
@@ -14,12 +15,12 @@ export async function GET(req: Request) {
   if (q.length < 2) return NextResponse.json({ cities: [] });
   try {
     const all = await getCities();
-    const names = (c: { code: string; name: string }) => cityAliases(c.code, c.name).map(norm);
+    const names = (c: { code: string; name: string }) => [...cityAliases(c.code, c.name), localizeCity(c.code, locale, c.name)].map(norm);
     const starts = all.filter((c) => names(c).some((n) => n.startsWith(q)) || c.code.toLowerCase() === q);
     const rest = all.filter((c) => !starts.includes(c) && names(c).some((n) => n.includes(q)));
     let cities: Array<{ code: string; name: string; country: string; kind?: "country" }> = [...starts, ...rest]
       .slice(0, 6)
-      .map(({ code, name, country }) => ({ code, name: cityName(code, name, locale), country }));
+      .map(({ code, name, country }) => ({ code, name: localizeCity(code, locale, name), country }));
     if (url.searchParams.get("countries") === "1") {
       const en = new Intl.DisplayNames(["en"], { type: "region" });
       const loc = new Intl.DisplayNames([intlTag(locale)], { type: "region" });
