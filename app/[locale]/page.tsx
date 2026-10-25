@@ -52,7 +52,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       {/* ============ HERO — night flight ============ */}
-      <section className="relative bg-ink pb-24 pt-16 sm:pt-24">
+      <section className="relative overflow-hidden bg-ink pb-24 pt-16 sm:pt-24">
         {/* flight-path arcs */}
         <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-40" viewBox="0 0 1200 600" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <path className="flight-arc" d="M-50 480 C 250 120, 700 80, 1250 260" stroke="#FFB703" strokeWidth="1.5" />

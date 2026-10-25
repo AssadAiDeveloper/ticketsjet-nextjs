@@ -68,7 +68,7 @@ export default function LocaleSwitcher() {
 
       {open && createPortal(
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4" onMouseDown={(e) => e.target === e.currentTarget && setOpen(false)}>
-          <div role="dialog" aria-modal="true" aria-labelledby={`${id}-t`} className="w-full max-w-[400px] rounded-2xl bg-white p-6 text-ink shadow-2xl">
+          <div role="dialog" aria-modal="true" aria-labelledby={`${id}-t`} className="w-full max-w-[400px] max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-6 text-ink shadow-2xl">
             <div className="flex items-center justify-between">
               <button type="button" onClick={() => setOpen(false)} aria-label={t("cancel")} className="flex h-8 w-8 items-center justify-center rounded border border-ink/70 hover:bg-cloud">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" /></svg>

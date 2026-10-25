@@ -23,14 +23,14 @@ export default function SearchTabs() {
     <div className="boarding-pass">
       {/* Pass header — route strip */}
       <div className="flex flex-wrap items-center justify-between gap-3 px-5 pt-5 sm:px-7">
-        <div role="tablist" aria-label={t("aria")} className="flex gap-1 rounded-xl bg-cloud p-1">
+        <div role="tablist" aria-label={t("aria")} className="flex flex-wrap gap-1 rounded-xl bg-cloud p-1 min-w-0 w-full sm:w-auto">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               role="tab"
               aria-selected={active === tab.id}
               onClick={() => setActive(tab.id)}
-              className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition ${
+              className={`flex min-w-0 flex-1 items-center justify-center gap-2 rounded-lg px-2 py-2 text-sm font-semibold transition sm:flex-none sm:px-4 ${
                 active === tab.id ? "bg-ink text-white shadow" : "text-slate hover:text-ink"
               }`}
             >

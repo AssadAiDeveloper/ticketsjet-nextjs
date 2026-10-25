@@ -28,12 +28,12 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label={t("main")}>
+        <nav className="hidden min-w-0 flex-wrap items-center gap-1 md:flex" aria-label={t("main")}>
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg px-3.5 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
+              className="rounded-lg px-2.5 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white lg:px-3.5"
             >
               {t(item.key)}
             </Link>
@@ -41,7 +41,7 @@ export default function Header() {
           <LocaleSwitcher />
           <Link
             href="/flights"
-            className="ms-2 rounded-lg bg-amber px-4 py-2 text-sm font-semibold text-ink transition hover:bg-amber-deep"
+            className="ms-2 shrink-0 rounded-lg bg-amber px-3 py-2 text-sm font-semibold text-ink transition hover:bg-amber-deep lg:px-4"
           >
             {t("searchFlights")}
           </Link>

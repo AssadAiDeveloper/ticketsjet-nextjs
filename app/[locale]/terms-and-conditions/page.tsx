@@ -17,7 +17,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
     <>
       <section className="bg-ink py-14">
         <div className="mx-auto max-w-3xl px-4">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight text-white">{t("h1")}</h1>
+          <h1 className="font-display break-words text-4xl font-extrabold tracking-tight text-white">{t("h1")}</h1>
           <p className="mt-3 font-mono text-xs text-white/50">{l("updated")}</p>
         </div>
       </section>
