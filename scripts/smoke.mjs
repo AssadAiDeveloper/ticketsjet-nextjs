@@ -47,7 +47,7 @@ for (const locale of locales) {
       try {
         const resp = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
         status = resp ? resp.status() : 0;
-        await page.waitForTimeout(500);
+        await page.waitForTimeout(2000);
         const body = await resp.text();
         const lm = body.match(/<html[^>]*lang="([^"]*)"/);
         lang = lm ? lm[1] : "";
@@ -92,5 +92,6 @@ if (failures.length) {
 } else {
   console.log("ALL SMOKE TESTS PASSED");
 }
+
 
 
