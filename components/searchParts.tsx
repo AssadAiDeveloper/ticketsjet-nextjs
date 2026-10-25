@@ -53,7 +53,7 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
                   setText("");
                   setOpen(false);
                 }}
-                className="flex w-full items-center justify-between px-3 py-2.5 text-left text-sm hover:bg-cloud"
+                className="flex w-full items-center justify-between px-3 py-1.5 text-left text-sm hover:bg-cloud"
               >
                 <span className="text-ink"><bdi>{c.name}</bdi> <span dir="ltr" className="text-slate">({c.code})</span></span>
                 <span className="font-mono text-xs text-slate">{c.kind === "country" ? t("country") : c.code}</span>
@@ -91,19 +91,19 @@ export function usePopover() {
 }
 
 export const fieldBtn =
-  "mt-1 flex w-full items-center justify-between gap-2 rounded-xl border border-mist bg-white px-3 py-3 text-left text-sm font-medium text-ink outline-none transition hover:border-slate/40 focus:border-amber";
+  "mt-1 flex w-full items-center justify-between gap-2 rounded-xl border border-mist bg-white px-3 py-1.5 text-left text-sm font-medium text-ink outline-none transition hover:border-slate/40 focus:border-amber";
 export const labelCls = "block font-mono text-[10px] uppercase tracking-widest text-slate";
 
 export function Stepper({ label, hint, value, min, max, onChange }: { label: string; hint: string; value: number; min: number; max: number; onChange: (n: number) => void }) {
   const t = useTranslations("form");
   const btn = "grid h-10 w-10 place-items-center rounded-full border border-mist text-lg leading-none text-ink transition hover:border-amber disabled:cursor-not-allowed disabled:opacity-30";
   return (
-    <div className="flex items-center justify-between py-2.5">
+    <div className="flex items-center justify-between py-2">
       <div>
         <p className="text-sm font-semibold text-ink">{label}</p>
         <p className="text-xs text-slate">{hint}</p>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2">
         <button type="button" className={btn} disabled={value <= min} onClick={() => onChange(value - 1)} aria-label={t("fewer", { label })}>−</button>
         <span className="w-4 text-center text-sm font-bold text-ink" dir="ltr">{value}</span>
         <button type="button" className={btn} disabled={value >= max} onClick={() => onChange(value + 1)} aria-label={t("more", { label })}>+</button>

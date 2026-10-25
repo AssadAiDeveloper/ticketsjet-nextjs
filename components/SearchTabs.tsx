@@ -23,7 +23,7 @@ export default function SearchTabs() {
 
   return (
     <div className="boarding-pass">
-      <div className="flex flex-wrap items-center justify-between gap-3 px-5 pt-5 sm:px-7">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-4 pt-2 sm:px-6">
         <div role="tablist" aria-label={t("aria")} className="flex flex-wrap gap-2 rounded-xl bg-cloud p-1 min-w-0 w-full sm:w-auto">
           {tabs.map((tab) => (
             <button
@@ -58,7 +58,7 @@ export default function SearchTabs() {
         </p>
       </div>
 
-      <div className="px-5 pb-2 pt-4 sm:px-7">
+      <div className="px-4 pb-1 pt-1 sm:px-6">
         {active === "flights" && <HeroFlightForm />}
         {active === "stays" && <StaysForm />}
         {active === "cars" && (

@@ -284,7 +284,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
       {trip === "multi" ? (
         <div className="space-y-3">
           {legs.map((leg, i) => (
-            <div key={i} className="grid gap-3 md:grid-cols-[1fr_1fr_1fr_2rem] md:items-end">
+            <div key={i} className="grid gap-1.5 md:grid-cols-[1fr_1fr_1fr_2rem] md:items-end">
               {i === 0 ? (
                 <CityField label={t("from")} value={from} onPick={setFrom} placeholder={t("cityPlaceholder")} />
               ) : (
@@ -304,7 +304,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
               )}
             </div>
           ))}
-          <div className="flex flex-wrap items-end gap-3">
+          <div className="flex flex-wrap items-end gap-1.5">
             {legs.length < 5 && (
               <button type="button" onClick={() => setLegs((ls) => [...ls, { to: null, date: undefined }])} className="rounded-xl border border-dashed border-slate/40 px-4 py-3 text-sm font-semibold text-ink transition hover:border-amber">
                 {t("addFlight")}
@@ -315,8 +315,8 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
           </div>
         </div>
       ) : (
-        <div className="grid gap-3 md:grid-cols-[2fr_1.35fr_minmax(11rem,1fr)_auto] md:items-end">
-          <div className="relative grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-1.5 md:grid-cols-[2fr_1.35fr_minmax(11rem,1fr)_auto] md:items-end">
+          <div className="relative grid gap-1.5 sm:grid-cols-2">
             <CityField label={t("from")} value={from} onPick={setFrom} placeholder={t("cityPlaceholder")} />
             <CityField label={t("to")} value={to} onPick={setTo} placeholder={t("cityPlaceholder")} />
             <button
