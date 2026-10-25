@@ -36,7 +36,7 @@ export default async function ExplorePage({ params }: { params: Promise<{ locale
       </section>
 
       <section className="mx-auto -mt-6 max-w-6xl px-4">
-        <div className="boarding-pass overflow-hidden p-2 sm:p-3">
+        <div className="boarding-pass p-2 sm:p-3">
           <PriceMap names={names} />
         </div>
         <p className="mt-3 text-xs text-slate">

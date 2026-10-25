@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { WL_WEB } from "@/lib/config";
 
 function bootWlScript() {
@@ -34,8 +34,10 @@ export function WlSearchForm() {
 }
 
 export function WlResults() {
+  const locale = useLocale();
   useEffect(() => {
+    try { document.cookie = `tpwl_locale=${locale}; path=/; SameSite=Lax`; } catch {}
     bootWlScript();
-  }, []);
+  }, [locale]);
   return <div id="tpwl-tickets" />;
 }
