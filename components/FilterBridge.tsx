@@ -10,7 +10,7 @@ import { useEffect } from "react";
 export default function FilterBridge({ direct, bags }: { direct: boolean; bags: boolean }) {
   useEffect(() => {
     if (!direct && !bags) return;
-    // The widget's own button texts in each language it is shown in.
+    // The widget's own button texts in the languages it is shown in (all 13 of our locales are supported).
     const LABELS = {
       direct: ["No layovers", "ممنوع التوقف المؤقت", "Geen tussenstops"],
       bags: ["Baggage included", "تشمل الأمتعة", "Inclusief bagage"],

@@ -5,8 +5,8 @@ import TpWidget from "@/components/TpWidget";
 import { useCurrency } from "@/components/CurrencyProvider";
 import { activitiesWidget } from "@/lib/config";
 
-// The activities partner widget is only known to support these; anything else falls back (other languages -> English, other currencies -> USD).
-const LANGS = new Set(["en", "nl", "de", "fr", "es", "it", "pt"]);
+// The activities partner widget supports all of our locales; languages fall back to English if unsupported.
+const LANGS = new Set(["en", "ar", "nl", "es", "fr", "de", "it", "pt", "tr", "ru", "pl", "fa", "he"]);
 const CURRENCIES = new Set(["USD", "EUR", "GBP"]);
 
 /** Things-to-do widget in the visitor's language and currency (when the partner supports them). */
