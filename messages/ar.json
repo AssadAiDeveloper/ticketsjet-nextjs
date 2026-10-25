@@ -782,7 +782,9 @@
     "l2": "لا رسوم حجز ولا زيادات في الأسعار من جانبنا",
     "l3": "إرشاد واضح وصادق — حتى حين لا نربح منه شيئاً",
     "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
-    "creditsH": "Credits"
+    "creditsH": "Credits",
+    "photoCredits": "Photo credits",
+    "photoCreditsBody": "Destination photos are provided by photographers on Unsplash."
   },
   "priv": {
     "metaTitle": "سياسة الخصوصية",
@@ -799,7 +801,8 @@
     "h2d": "أطراف ثالثة",
     "p3": "تُقدَّم أدوات البحث والروابط الخارجية لدينا بالتعاون مع شركاء سفر قد يضعون ملفات تعريف ارتباط لنسب الحجوزات إليهم. وقد تُعرض الإعلانات في هذا الموقع عبر Google AdSense الذي يستخدم ملفات تعريف الارتباط لعرض إعلانات ملائمة. يمكنك إدارة تخصيص الإعلانات من إعدادات Google وملفات تعريف الارتباط من إعدادات متصفحك.",
     "h2e": "حقوقك",
-    "p4": "بموجب اللائحة العامة لحماية البيانات (GDPR) وما يماثلها من أنظمة، يحق لك طلب الاطلاع على أي بيانات شخصية نحتفظ بها أو حذفها. تواصل معنا عبر البيانات الموجودة في هذا الموقع وسنرد خلال 30 يوماً."
+    "p4": "بموجب اللائحة العامة لحماية البيانات (GDPR) وما يماثلها من أنظمة، يحق لك طلب الاطلاع على أي بيانات شخصية نحتفظ بها أو حذفها. تواصل معنا عبر البيانات الموجودة في هذا الموقع وسنرد خلال 30 يوماً.",
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
   },
   "legal": {
     "updated": "آخر تحديث: يوليو 2026"

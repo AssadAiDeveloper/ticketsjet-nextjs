@@ -782,7 +782,9 @@
     "l2": "بدون کارمزد رزرو یا افزایش قیمت از طرف ما",
     "l3": "راهنمایی روشن و صادقانه، حتی وقتی چیزی برای ما ندارد",
     "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
-    "creditsH": "Credits"
+    "creditsH": "Credits",
+    "photoCredits": "Photo credits",
+    "photoCreditsBody": "Destination photos are provided by photographers on Unsplash."
   },
   "priv": {
     "metaTitle": "سیاست حریم خصوصی",
@@ -799,7 +801,8 @@
     "h2d": "اشخاص ثالث",
     "p3": "ابزارهای جستجو و لینک‌های خروجی ما همراه با شرکای سفر ارائه می‌شود که ممکن است برای نسبت دادن رزروها کوکی تنظیم کنند. تبلیغات این سایت ممکن است توسط Google AdSense نمایش داده شود که برای نمایش تبلیغات مرتبط از کوکی استفاده می‌کند. می‌توانید شخصی‌سازی تبلیغات را در تنظیمات Google و کوکی‌ها را در تنظیمات مرورگر خود مدیریت کنید.",
     "h2e": "حقوق شما",
-    "p4": "بر اساس GDPR و مقررات مشابه، می‌توانید درخواست دسترسی یا حذف هرگونه داده شخصی را که نزد ما است بدهید. از طریق اطلاعات این وب‌سایت با ما تماس بگیرید و ظرف ۳۰ روز پاسخ می‌دهیم."
+    "p4": "بر اساس GDPR و مقررات مشابه، می‌توانید درخواست دسترسی یا حذف هرگونه داده شخصی را که نزد ما است بدهید. از طریق اطلاعات این وب‌سایت با ما تماس بگیرید و ظرف ۳۰ روز پاسخ می‌دهیم.",
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
   },
   "legal": {
     "updated": "آخرین به‌روزرسانی: ژوئیه ۲۰۲۶"

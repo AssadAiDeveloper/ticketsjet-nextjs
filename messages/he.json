@@ -782,7 +782,9 @@
     "l2": "ללא עמלות הזמנה או תוספות מחיר מצידנו",
     "l3": "הכוונה ברורה וישרה — גם כשזה לא מכניס לנו כלום",
     "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
-    "creditsH": "Credits"
+    "creditsH": "Credits",
+    "photoCredits": "Photo credits",
+    "photoCreditsBody": "Destination photos are provided by photographers on Unsplash."
   },
   "priv": {
     "metaTitle": "מדיניות פרטיות",
@@ -799,7 +801,8 @@
     "h2d": "צדדים שלישיים",
     "p3": "כלי החיפוש והקישורים היוצאים שלנו מסופקים יחד עם שותפי נסיעות שעשויים להגדיר קובצי Cookie כדי לשייך הזמנות. הפרסום באתר זה עשוי להיות מוגש על ידי Google AdSense, המשתמש בקובצי Cookie כדי להציג מודעות רלוונטיות. ניתן לנהל התאמה אישית של מודעות בהגדרות Google ואת קובצי ה-Cookie בהגדרות הדפדפן.",
     "h2e": "הזכויות שלכם",
-    "p4": "לפי ה-GDPR ותקנות דומות, ניתן לבקש גישה לכל מידע אישי שאנו מחזיקים או מחיקתו. פנו אלינו באמצעות הפרטים באתר ונשיב תוך 30 יום."
+    "p4": "לפי ה-GDPR ותקנות דומות, ניתן לבקש גישה לכל מידע אישי שאנו מחזיקים או מחיקתו. פנו אלינו באמצעות הפרטים באתר ונשיב תוך 30 יום.",
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
   },
   "legal": {
     "updated": "עודכן לאחרונה: יולי 2026"

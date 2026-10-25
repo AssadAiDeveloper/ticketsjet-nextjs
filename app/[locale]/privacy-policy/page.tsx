@@ -36,6 +36,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
         <p>{t("p3")}</p>
         <h2>{t("h2e")}</h2>
         <p>{t("p4")}</p>
+        <p>{t("unsplash")}</p>
       </section>
     </>
   );

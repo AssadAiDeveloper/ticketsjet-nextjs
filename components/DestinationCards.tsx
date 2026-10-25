@@ -4,6 +4,9 @@ import { Link } from "@/i18n/navigation";
 import Price from "@/components/Price";
 import { dayMonth } from "@/lib/format";
 import { PHOTOS } from "@/lib/destinations";
+import DestPhoto from "@/components/DestPhoto";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 export type Dest = { code: string; name: string; country: string; price: number; href: string; depart: string | null };
 
@@ -19,6 +22,8 @@ const GRADS = [
 export default async function DestinationCards({ origin, items }: { origin: { code: string; name: string }; items: Dest[] }) {
   const t = await getTranslations("dest");
   const locale = await getLocale();
+  let photos: Record<string, any> = {};
+  try { photos = JSON.parse(readFileSync(path.join(process.cwd(), "data", "destination-photos.json"), "utf8")); } catch {}
   const arrow = isRtl(locale) ? "←" : "→";
   const when = (iso: string | null) => (iso ? dayMonth(iso, locale) : null);
   return (
@@ -44,6 +49,13 @@ export default async function DestinationCards({ origin, items }: { origin: { co
                 className={`group relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-br ${GRADS[i % GRADS.length]} p-5 text-white shadow-md transition hover:-translate-y-1 hover:shadow-xl`}
                 style={photo ? { backgroundImage: `linear-gradient(to top, rgba(11,27,43,.85), rgba(11,27,43,.1)), url(${photo})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined}
               >
+                {photos[d.code] && <DestPhoto code={d.code} photo={photos[d.code]} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" alt={`${d.name}, ${d.country}`} />}
+                {photos[d.code] && <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" aria-hidden="true" />}
+                {photos[d.code]?.author && (
+                  <a href={photos[d.code].photoUrl} target="_blank" rel="noopener noreferrer" className="absolute bottom-2 end-2 z-10 text-[10px] text-white/70 opacity-70 hover:opacity-100">
+                    <bdi>Photo: {photos[d.code].author} / Unsplash</bdi>
+                  </a>
+                )}
                 <span className="font-display select-none text-6xl font-extrabold leading-none tracking-tight text-white/10 transition group-hover:text-amber/30" aria-hidden="true">
                   {d.code}
                 </span>

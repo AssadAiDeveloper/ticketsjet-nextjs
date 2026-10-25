@@ -782,7 +782,9 @@
     "l2": "Aucuns frais de réservation ni majorations ajoutés par nos soins",
     "l3": "Des conseils clairs et honnêtes, même quand cela ne nous rapporte rien",
     "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
-    "creditsH": "Credits"
+    "creditsH": "Credits",
+    "photoCredits": "Photo credits",
+    "photoCreditsBody": "Destination photos are provided by photographers on Unsplash."
   },
   "priv": {
     "metaTitle": "Politique de confidentialité",
@@ -799,7 +801,8 @@
     "h2d": "Tiers",
     "p3": "Nos outils de recherche et nos liens sortants sont fournis avec des partenaires de voyage qui peuvent déposer des cookies pour attribuer les réservations. La publicité sur ce site peut être diffusée par Google AdSense, qui utilise des cookies pour afficher des annonces pertinentes. Vous pouvez gérer la personnalisation des annonces dans vos paramètres Google et les cookies dans les paramètres de votre navigateur.",
     "h2e": "Vos droits",
-    "p4": "En vertu du RGPD et de réglementations similaires, vous pouvez demander l'accès ou la suppression de toute donnée personnelle que nous détenons. Contactez-nous via les coordonnées de ce site et nous répondrons sous 30 jours."
+    "p4": "En vertu du RGPD et de réglementations similaires, vous pouvez demander l'accès ou la suppression de toute donnée personnelle que nous détenons. Contactez-nous via les coordonnées de ce site et nous répondrons sous 30 jours.",
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
   },
   "legal": {
     "updated": "Dernière mise à jour : juillet 2026"

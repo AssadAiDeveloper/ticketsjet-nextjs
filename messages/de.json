@@ -782,7 +782,9 @@
     "l2": "Keine von uns hinzugefügten Buchungsgebühren oder Aufschläge",
     "l3": "Klare, ehrliche Beratung – auch wenn sie uns nichts einbringt",
     "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
-    "creditsH": "Credits"
+    "creditsH": "Credits",
+    "photoCredits": "Photo credits",
+    "photoCreditsBody": "Destination photos are provided by photographers on Unsplash."
   },
   "priv": {
     "metaTitle": "Datenschutzerklärung",
@@ -799,7 +801,8 @@
     "h2d": "Dritte",
     "p3": "Unsere Suchwerkzeuge und ausgehenden Links werden zusammen mit Reisepartnern bereitgestellt, die Cookies setzen können, um Buchungen zuzuordnen. Werbung auf dieser Website kann von Google AdSense ausgeliefert werden, das Cookies nutzt, um relevante Anzeigen zu zeigen. Die Anzeigenpersonalisierung kannst du in deinen Google-Einstellungen und Cookies in deinen Browsereinstellungen verwalten.",
     "h2e": "Deine Rechte",
-    "p4": "Nach der DSGVO und ähnlichen Vorschriften kannst du Auskunft über oder Löschung der von uns gespeicherten personenbezogenen Daten verlangen. Kontaktiere uns über die Angaben auf dieser Website, wir antworten innerhalb von 30 Tagen."
+    "p4": "Nach der DSGVO und ähnlichen Vorschriften kannst du Auskunft über oder Löschung der von uns gespeicherten personenbezogenen Daten verlangen. Kontaktiere uns über die Angaben auf dieser Website, wir antworten innerhalb von 30 Tagen.",
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
   },
   "legal": {
     "updated": "Zuletzt aktualisiert: Juli 2026"

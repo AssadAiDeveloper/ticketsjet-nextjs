@@ -782,7 +782,9 @@
     "l2": "Bizim eklediğimiz rezervasyon ücreti veya ek fiyat yok",
     "l3": "Net, dürüst yönlendirme — bize bir şey kazandırmasa bile",
     "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
-    "creditsH": "Credits"
+    "creditsH": "Credits",
+    "photoCredits": "Photo credits",
+    "photoCreditsBody": "Destination photos are provided by photographers on Unsplash."
   },
   "priv": {
     "metaTitle": "Gizlilik Politikası",
@@ -799,7 +801,8 @@
     "h2d": "Üçüncü taraflar",
     "p3": "Arama araçlarımız ve dış bağlantılarımız, rezervasyonları ilişkilendirmek için çerez yerleştirebilen seyahat ortaklarıyla birlikte sağlanır. Bu sitedeki reklamlar, ilgili reklamları göstermek için çerez kullanan Google AdSense tarafından sunulabilir. Reklam kişiselleştirmesini Google ayarlarınızdan, çerezleri tarayıcı ayarlarınızdan yönetebilirsiniz.",
     "h2e": "Haklarınız",
-    "p4": "GDPR ve benzeri düzenlemeler uyarınca, elimizdeki kişisel verilere erişim veya silinmesini talep edebilirsiniz. Bu web sitesindeki bilgiler üzerinden bize ulaşın, 30 gün içinde yanıt vereceğiz."
+    "p4": "GDPR ve benzeri düzenlemeler uyarınca, elimizdeki kişisel verilere erişim veya silinmesini talep edebilirsiniz. Bu web sitesindeki bilgiler üzerinden bize ulaşın, 30 gün içinde yanıt vereceğiz.",
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
   },
   "legal": {
     "updated": "Son güncelleme: Temmuz 2026"

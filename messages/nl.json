@@ -782,7 +782,9 @@
     "l2": "Geen boekingskosten of opslagen van onze kant",
     "l3": "Duidelijk, eerlijk advies — ook als het ons niets oplevert",
     "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
-    "creditsH": "Credits"
+    "creditsH": "Credits",
+    "photoCredits": "Photo credits",
+    "photoCreditsBody": "Destination photos are provided by photographers on Unsplash."
   },
   "priv": {
     "metaTitle": "Privacybeleid",
@@ -799,7 +801,8 @@
     "h2d": "Derden",
     "p3": "Onze zoekhulpmiddelen en uitgaande links worden aangeboden samen met reispartners die cookies kunnen plaatsen om boekingen toe te wijzen. Advertenties op deze site kunnen worden getoond door Google AdSense, dat cookies gebruikt om relevante advertenties te tonen. Je kunt advertentiepersonalisatie beheren in je Google-instellingen en cookies in je browserinstellingen.",
     "h2e": "Je rechten",
-    "p4": "Op grond van de AVG en vergelijkbare regelgeving kun je inzage in of verwijdering van persoonsgegevens vragen die wij bewaren. Neem contact met ons op via de gegevens op deze website en we reageren binnen 30 dagen."
+    "p4": "Op grond van de AVG en vergelijkbare regelgeving kun je inzage in of verwijdering van persoonsgegevens vragen die wij bewaren. Neem contact met ons op via de gegevens op deze website en we reageren binnen 30 dagen.",
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
   },
   "legal": {
     "updated": "Laatst bijgewerkt: juli 2026"

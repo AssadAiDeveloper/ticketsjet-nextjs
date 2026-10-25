@@ -1,4 +1,4 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
+﻿import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { alternatesFor } from "@/lib/i18nPages";
@@ -24,7 +24,9 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <section className="prose-tj mx-auto max-w-3xl px-4 py-14">
         <p>{t("p1")}</p>
         <h2>{t("h2")}</h2>
-        <p>{t("p2")}</p>\n        <h2>{t("creditsH")}</h2>\n        <p>{t.rich("credits", { a: (chunks) => <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="font-semibold text-amber-deep underline">{chunks}</a> })}</p>
+        <p>{t("p2")}</p>
+        <h2>{t("creditsH")}</h2>
+        <p>{t.rich("credits", { a: (chunks) => <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="font-semibold text-amber-deep underline">{chunks}</a> })}</p>
         <h2>{t("h3")}</h2>
         <p>
           {t.rich("p3", { a: (chunks) => <Link href="/affiliate-disclosure" className="font-semibold text-amber-deep underline">{chunks}</Link> })}
@@ -35,6 +37,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <li>{t("l2")}</li>
           <li>{t("l3")}</li>
         </ul>
+        <h2>{t("photoCredits")}</h2>
+        <p>{t("photoCreditsBody")}</p>
       </section>
     </>
   );
