@@ -6,7 +6,8 @@
     "note": "Prices are converted at recent exchange rates and are a guide. The final price is confirmed on the booking page.",
     "title": "Regional settings",
     "save": "Save",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "switchToEnglish": "Switch to English"
   },
   "nav": {
     "home": "TicketsJet home",

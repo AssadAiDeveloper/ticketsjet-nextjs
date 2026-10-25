@@ -79,7 +79,7 @@ export default function LocaleSwitcher() {
             <div className="mt-6">
               <div className="flex items-center justify-between gap-3">
                 {locale !== "en" || lang !== "en" ? (
-                  <button type="button" lang="en" dir="ltr" onClick={() => save("en")} className="text-sm underline underline-offset-4 hover:text-ink/70">Switch to English</button>
+                  <button type="button" lang="en" dir="ltr" onClick={() => save("en")} className="text-sm underline underline-offset-4 hover:text-ink/70">{t("switchToEnglish")}</button>
                 ) : <span />}
                 <label htmlFor={`${id}-l`} className="flex items-center gap-1.5 text-sm font-semibold">
                   {t("language")}

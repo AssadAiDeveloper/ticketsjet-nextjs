@@ -6,7 +6,8 @@
     "note": "Fiyatlar güncel döviz kurlarıyla çevrilir ve yol göstericidir. Nihai fiyat rezervasyon sayfasında onaylanır.",
     "title": "Bölgesel ayarlar",
     "save": "Kaydet",
-    "cancel": "İptal"
+    "cancel": "İptal",
+    "switchToEnglish": "Switch to English"
   },
   "nav": {
     "home": "TicketsJet ana sayfa",

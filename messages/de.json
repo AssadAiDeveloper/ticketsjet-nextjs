@@ -6,7 +6,8 @@
     "note": "Die Preise werden zu aktuellen Wechselkursen umgerechnet und dienen als Richtwert. Der Endpreis wird auf der Buchungsseite bestätigt.",
     "title": "Regionale Einstellungen",
     "save": "Speichern",
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "switchToEnglish": "Switch to English"
   },
   "nav": {
     "home": "TicketsJet Startseite",

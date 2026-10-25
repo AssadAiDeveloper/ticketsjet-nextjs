@@ -6,7 +6,8 @@
     "note": "Los precios se convierten con tipos de cambio recientes y son orientativos. El precio final se confirma en la página de reserva.",
     "title": "Ajustes regionales",
     "save": "Guardar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "switchToEnglish": "Switch to English"
   },
   "nav": {
     "home": "Inicio de TicketsJet",

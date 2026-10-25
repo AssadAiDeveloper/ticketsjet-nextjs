@@ -6,7 +6,8 @@
     "note": "Ceny są przeliczane według aktualnych kursów i mają charakter orientacyjny. Ostateczną cenę potwierdza strona rezerwacji.",
     "title": "Ustawienia regionalne",
     "save": "Zapisz",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "switchToEnglish": "Switch to English"
   },
   "nav": {
     "home": "Strona główna TicketsJet",
