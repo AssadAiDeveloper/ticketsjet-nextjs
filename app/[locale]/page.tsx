@@ -35,7 +35,7 @@ async function loadBoard(locale: string) {
     const seen = new Set(popular.map((p) => p.country));
     const extra = fares.points.filter((p) => !used.has(p.code) && !seen.has(p.country) && (seen.add(p.country), true));
     const items = [...popular, ...extra].slice(0, 8).map(toDest);
-    return items.length >= 4 ? { origin: fares.origin, items } : null;
+    return items.length >= 4 ? { origin: { ...fares.origin, name: locCity(fares.origin.code, locale, fares.origin.name) }, items } : null;
   } catch {
     return null;
   }

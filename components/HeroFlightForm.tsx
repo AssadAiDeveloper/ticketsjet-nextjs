@@ -108,6 +108,20 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
       if (j?.from) {
         setFrom(j.from);
         if (j.to) setTo(j.to);
+        // Localize restored city names (localStorage keeps English names).
+        for (const src of [j.from, j.to]) {
+          if (!src?.code) continue;
+          fetch(`/api/cities?q=${encodeURIComponent(src.code)}&locale=${locale}`)
+            .then((r) => r.json())
+            .then((d: { cities?: { code: string; name: string }[] }) => {
+              const c = d.cities?.find((x: { code: string; name: string }) => x.code === src.code);
+              if (c) {
+                if (src === j.from) setFrom((cur) => cur ? { ...cur, name: c.name } : cur);
+                else setTo((cur) => cur ? { ...cur, name: c.name } : cur);
+              }
+            })
+            .catch(() => {});
+        }
         if (j.trip === "oneway") setTrip("oneway");
         if (j.adults) setAdults(j.adults);
         setChildren(j.children ?? 0);
