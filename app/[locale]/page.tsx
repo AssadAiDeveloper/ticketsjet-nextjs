@@ -53,10 +53,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       {/* ============ HERO — night flight ============ */}
-      <section className="relative bg-ink pb-4 pt-2 sm:pb-8 sm:pt-4">
+      <section className="relative bg-ink pb-4 pt-8 sm:pb-8 sm:pt-12">
         {/* flight-path arcs */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-          <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-40" viewBox="0 0 1200 600" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <div className="pointer-events-none absolute inset-0 -z-0 overflow-hidden" aria-hidden="true">
+          <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-20" viewBox="0 0 1200 600" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <path className="flight-arc" d="M-50 480 C 250 120, 700 80, 1250 260" stroke="#FFB703" strokeWidth="1.5" />
           <path className="flight-arc" d="M-50 560 C 350 320, 800 380, 1250 140" stroke="#3d5a75" strokeWidth="1.5" style={{ animationDuration: "20s" }} />
           <circle cx="1020" cy="205" r="3" fill="#FFB703" />
@@ -65,17 +65,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
 
         <div className="relative mx-auto max-w-6xl px-4">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">
-            {t("kicker")}
-          </p>
           <h1 className="font-display mt-2 max-w-3xl text-3xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl">
             {t("h1")}
           </h1>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
             {t("sub")}
           </p>
 
-          <div className="relative z-30 mt-10">
+          <div className="relative z-30 mt-6">
             <SearchTabs />
           </div>
 
