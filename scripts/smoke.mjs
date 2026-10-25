@@ -8,7 +8,7 @@ mkdirSync(OUT, { recursive: true });
 
 const locales = ["en","ar","nl","es","fr","de","it","pt","tr","ru","pl","fa","he"];
 const rtl = new Set(["ar","fa","he"]);
-const paths = ["/","/flights","/stays","/cars","/explore","/blog","/help","/privacy-policy","/destinations"];
+const paths = ["/", "/flights", "/stays", "/cars", "/explore", "/blog", "/help", "/privacy-policy", "/destinations", "/cheap-flights", "/activities", "/services", "/about-us", "/terms-and-conditions", "/affiliate-disclosure", "/trip-finder"];
 const viewports = [{w:375,h:800},{w:1280,h:800}];
 
 const IGNORE_HOSTS = ["travelpayouts","google-analytics","googletagmanager","doubleclick","adservice","facebook","hotjar","sentry","avsplow"];
@@ -46,6 +46,8 @@ for (const locale of locales) {
       let lang = "";
       let dir = "";
       let overflow = false;
+      let overflowDetail = "";
+      let extraIssues = [];
       try {
         const resp = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
         status = resp ? resp.status() : 0;
@@ -58,23 +60,45 @@ for (const locale of locales) {
         const clientLang = await page.evaluate(() => document.documentElement.lang);
         const clientDir = await page.evaluate(() => document.documentElement.dir || "ltr");
         const expectRtl = (locale === "ar" || locale === "fa" || locale === "he");
-        const overflowInfo = await page.evaluate(() => {\n          if (document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1) return null;\n          const offs = [];\n          document.querySelectorAll("*").forEach((el) => {\n            const r = el.getBoundingClientRect();\n            if (r.right > window.innerWidth + 2 || r.left < -2) offs.push(`${el.tagName}[${(el.id||el.className?.toString()||"").slice(0,40)}] left=${Math.round(r.left)} right=${Math.round(r.right)}`);\n          });\n          return { scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth, offenders: offs.slice(0,5) };\n        });\n        overflow = !!overflowInfo;\n        if (overflowInfo) issues.push(`overflow: scrollWidth=${overflowInfo.scrollWidth} clientWidth=${overflowInfo.clientWidth} :: ${overflowInfo.offenders.join("; ")}`);
-        // Destinations: ensure localized names are used (not English) when available
-        const issues0 = [];
-        if (clientLang !== locale) issues0.push(`client lang=${clientLang} (expected ${locale})`);
-        if (expectRtl && clientDir !== "rtl") issues0.push(`client dir=${clientDir} (expected rtl)`);
-        if (!expectRtl && clientDir === "rtl") issues0.push(`client dir=rtl (expected ltr)`);
+        const ow = await page.evaluate(() => {
+          if (document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1) return null;
+          const offs = [];
+          document.querySelectorAll("*").forEach((el) => {
+            const r = el.getBoundingClientRect();
+            if (r.right > window.innerWidth + 2 || r.left < -2) offs.push(`${el.tagName}[${(el.id || (el.className && el.className.toString) ? el.className.toString().slice(0,30) : "")}] left=${Math.round(r.left)} right=${Math.round(r.right)}`);
+          });
+          return { scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth, offenders: offs.slice(0,5) };
+        });
+        overflow = !!ow;
+        if (ow) extraIssues.push(`overflow: scrollWidth=${ow.scrollWidth} clientWidth=${ow.clientWidth} :: ${ow.offenders.join("; ")}`);
+        if (clientLang !== locale) extraIssues.push(`client lang=${clientLang} (expected ${locale})`);
+        if (expectRtl && clientDir !== "rtl") extraIssues.push(`client dir=${clientDir} (expected rtl)`);
+        if (!expectRtl && clientDir === "rtl") extraIssues.push(`client dir=rtl (expected ltr)`);
         if (p === "/destinations" && locale !== "en") {
           const html = await page.content();
           for (const enName of ["Amsterdam", "London", "Paris"]) {
-            if (html.includes(enName)) issues0.push(`destinations contains English "${enName}"`);
+            if (html.includes(enName)) extraIssues.push(`destinations contains English "${enName}"`);
           }
         }
-        // store for later
-        var extraIssues = issues0;
+        if (p === "/" && locale !== "en") {
+          const html = await page.content();
+          for (const enName of ["Amsterdam", "Madrid"]) {
+            if (html.includes(enName)) extraIssues.push(`home contains English "${enName}"`);
+          }
+        }
+        if (p === "/") {
+          const html = await page.content();
+          const SITE_URL = "https://ticketsjet.com";
+          const canonMatch = html.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"/);
+          if (canonMatch && !canonMatch[1].startsWith(SITE_URL)) extraIssues.push(`canonical=${canonMatch[1]} (expected ${SITE_URL}*)`);
+          const ogMatch = html.match(/<meta[^>]*property="og:url"[^>]*content="([^"]*)"/);
+          if (ogMatch && !ogMatch[1].startsWith(SITE_URL)) extraIssues.push(`og:url=${ogMatch[1]} (expected ${SITE_URL}*)`);
+          for (const m of html.matchAll(/<link[^>]*rel="alternate"[^>]*href="([^"]*)"/g)) {
+            if (!m[1].startsWith(SITE_URL)) { extraIssues.push(`hreflang=${m[1]} (expected ${SITE_URL}*)`); break; }
+          }
+        }
       } catch (e) {
         consoleErrors.push(`goto failed: ${e.message}`);
-        var extraIssues = [];
       }
 
       const safePath = p === "/" ? "root" : p.replace(/^\//, "").replace(/\//g, "-");
@@ -87,10 +111,9 @@ for (const locale of locales) {
       const expectRtl = (locale === "ar" || locale === "fa" || locale === "he");
       if (expectRtl && dir !== "rtl") issues.push(`dir=${dir} (expected rtl)`);
       if (!expectRtl && dir === "rtl") issues.push(`dir=rtl (expected ltr)`);
-      if (overflow) issues.push("horizontal overflow");
       if (consoleErrors.length) issues.push(`console: ${consoleErrors.slice(0,2).join(" | ")}`);
       if (failedRequests.length) issues.push(`requests: ${failedRequests.slice(0,2).join(" | ")}`);
-      if (typeof extraIssues !== "undefined") issues.push(...extraIssues);
+      issues.push(...extraIssues);
 
       if (issues.length) {
         failures.push({ locale, path: p, w: vp.w, url, issues });
@@ -177,6 +200,7 @@ total++;
   if (issues.length) { failures.push({ locale: "en", path: "redirect /stay->/stays", w: 0, url: `${BASE}/stay`, issues }); console.log(`FAIL /stay->/stays: ${issues.join("; ")}`); }
   else console.log("ok   /stay -> /stays -> 200");
 }
+
 await browser.close();
 console.log(`\nTotal: ${total}, Failures: ${failures.length}`);
 if (failures.length) {
@@ -186,8 +210,3 @@ if (failures.length) {
 } else {
   console.log("ALL SMOKE TESTS PASSED");
 }
-
-
-
-
-
