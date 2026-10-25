@@ -52,6 +52,7 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("flights");
+  const tp = await getTranslations("place");
   const arrow = isRtl(locale) ? "←" : "→";
   const faq = [1, 2, 3, 4].map((n) => ({ q: t(`faq${n}q`), a: t(`faq${n}a`) }));
   const { flightSearch, direct, bags } = await searchParams;
@@ -137,7 +138,7 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
               {ROUTES.slice(0, 14).map(([o, d]) => (
                 <li key={`${o}${d}`}>
                   <Link href={`/cheap-flights/${slug(o, d)}`} className="block rounded-full border border-mist bg-white px-4 py-2 text-sm font-medium text-ink hover:border-amber">
-                    {t("routeLabel", { from: originName(o), to: DESTS[d].name })}
+                    {t("routeLabel", { from: tp(`${o}.name`), to: tp(`${d}.name`) })}
                   </Link>
                 </li>
               ))}
