@@ -19,7 +19,43 @@ for (const f of walk(process.cwd())) {
 }
 if (ffdFailed) { console.error("check-i18n: FAILED (U+FFFD present)"); process.exit(1); }
 
+// Scan message files for garbage: Latin letters mixed into Hebrew/Arabic/Persian/Cyrillic words.
+const ALLOWED_TOKENS = new Set(["TicketsJet", "TJ"]);
+function isAllowedToken(tok) {
+  if (ALLOWED_TOKENS.has(tok)) return true;
+  if (/^[A-Z]{3}$/.test(tok)) return true; // IATA code
+  if (/^https?:/i.test(tok)) return true; // URL
+  if (/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(tok)) return true; // domain
+  if (/^\d/.test(tok)) return true; // starts with digit
+  if (/^(TicketsJet|Google|AdSense|SIM|QR|Wi-Fi|Cookie|JFK|NYC)$/i.test(tok)) return true;
+  return false;
+}
 const messagesDir = path.join(process.cwd(), "messages");
+let garbageFailed = false;
+for (const file of readdirSync(messagesDir).filter((f) => f.endsWith(".json"))) {
+  const data = JSON.parse(readFileSync(path.join(messagesDir, file), "utf8"));
+  function scan(obj, p) {
+    for (const [k, v] of Object.entries(obj)) {
+      const key = p ? `${p}.${k}` : k;
+      if (v && typeof v === "object" && !Array.isArray(v)) scan(v, key);
+      else if (typeof v === "string") {
+        const stripped = v.replace(/<[^>]+>/g, " ").replace(/\{[^}]*\}/g, " ");
+        for (const word of stripped.split(/[\s-]+/)) {
+          const clean = word.replace(/[.,!?;:()\u060C\u061F\u00AB\u00BB]/g, "");
+          const hasLatin = /[A-Za-z]/.test(clean);
+          const hasNonLatin = /[\u0400-\u04FF\u0590-\u05FF\u0600-\u06FF\u0750-\u077F]/.test(clean);
+          if (hasLatin && hasNonLatin && !isAllowedToken(clean)) {
+            console.error(`Garbage (mixed scripts) in ${file}: ${key} = ${JSON.stringify(v)} (word: ${word})`);
+            garbageFailed = true;
+          }
+        }
+      }
+    }
+  }
+  scan(data, "");
+}
+if (garbageFailed) { console.error("check-i18n: FAILED (garbage mixed-script words)"); process.exit(1); }
+
 const enPath = path.join(messagesDir, "en.json");
 const en = JSON.parse(readFileSync(enPath, "utf8"));
 
@@ -114,3 +150,7 @@ if (failed) {
 } else {
   console.log("\ncheck-i18n: all locales OK");
 }
+
+
+
+

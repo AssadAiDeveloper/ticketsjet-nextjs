@@ -18,6 +18,7 @@ type TabId = (typeof tabs)[number]["id"];
 
 export default function SearchTabs() {
   const t = useTranslations("tabs");
+  const n = useTranslations("nav");
   const [active, setActive] = useState<TabId>("flights");
 
   return (
@@ -37,18 +38,18 @@ export default function SearchTabs() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill={tab.id === "flights" ? "currentColor" : "none"} stroke="currentColor" strokeWidth={tab.id === "flights" ? 0 : 2} strokeLinejoin="round" aria-hidden="true">
                 <path d={tab.icon} />
               </svg>
-              {t(tab.id)}
+              {tab.id === "stays" ? n("stays") : t(tab.id)}
             </button>
           ))}
           <span className="mx-1 hidden h-6 w-px bg-mist sm:block" aria-hidden="true" />
           <Link href="/explore" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-slate transition hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z" /><circle cx="12" cy="9" r="2.5" /></svg>
-            {t("explore")}
+            {n("explore")}
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="opacity-60"><path d="M7 17L17 7M17 7H7M17 7v10" /></svg>
           </Link>
           <Link href="/trip-finder" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-slate transition hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16 8-2 6-6 2 2-6 6-2Z" /></svg>
-            {t("tripFinder")}
+            {n("tripFinder")}
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="opacity-60"><path d="M7 17L17 7M17 7H7M17 7v10" /></svg>
           </Link>
         </div>
