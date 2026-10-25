@@ -71,8 +71,8 @@
   },
   "home": {
     "kicker": "Vuelos · Coches — una sola búsqueda",
-    "h1": "Vuelos baratos, comparados en una sola búsqueda.",
-    "sub": "TicketsJet busca en aerolíneas y agencias de viajes por ti y luego te envía directamente al proveedor para reservar. No añadimos comisiones ni recargos.",
+    "h1": "Compara vuelos. Sin comisiones.",
+    "sub": "Busca aerolíneas y agencias en un solo lugar y reserva directamente con el proveedor.",
     "check1": "Aerolíneas y agencias comparadas",
     "check2": "Precios a la vista antes de salir",
     "check3": "Reserva directamente con el proveedor",
@@ -318,8 +318,8 @@
     "disclaimer": "Las tarifas proceden de búsquedas recientes de viajeros y son orientativas, no una garantía. Los precios de hoteles se muestran en la web del hotel."
   },
   "meta": {
-    "tagline": "Vuelos baratos, comparados en una sola búsqueda.",
-    "description": "TicketsJet compara aerolíneas, agencias de viajes y empresas de alquiler de coches para ayudarte a encontrar buenas ofertas de viaje. Sin comisiones de reserva: reservas directamente con el proveedor."
+    "tagline": "Compara vuelos. Sin comisiones.",
+    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. TicketsJet compara aerolíneas, agencias de viajes y empresas de alquiler de coches para ayudarte a encontrar buenas ofertas de viaje. Sin comisiones de reserva: reservas directamente con el proveedor."
   },
   "notice": {
     "untranslated": "Esta página aún no está disponible en tu idioma y se muestra en inglés."
@@ -781,7 +781,9 @@
     "h4": "Nuestra promesa",
     "l1": "Precios obtenidos de aerolíneas y agencias de viajes",
     "l2": "Sin comisiones de reserva ni recargos añadidos por nosotros",
-    "l3": "Orientación clara y honesta, incluso cuando no nos reporta nada"
+    "l3": "Orientación clara y honesta, incluso cuando no nos reporta nada",
+    "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
+    "creditsH": "Credits"
   },
   "priv": {
     "metaTitle": "Política de privacidad",

@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 
@@ -14,10 +14,17 @@ const nav = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const t = useTranslations("nav");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/95 backdrop-blur">
+    <header className={`sticky top-0 z-50 bg-ink transition-shadow ${scrolled ? "shadow-lg shadow-black/20" : ""}`}>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2.5" aria-label={t("home")}>
           {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -71,8 +71,8 @@
   },
   "home": {
     "kicker": "Vols · Voitures — une seule recherche",
-    "h1": "Des vols pas chers, comparés en une seule recherche.",
-    "sub": "TicketsJet interroge les compagnies aériennes et les agences de voyage pour vous, puis vous renvoie directement chez le fournisseur pour réserver. Nous n'ajoutons ni frais ni majoration.",
+    "h1": "Comparez les vols. Sans frais cachés.",
+    "sub": "Recherchez compagnies et agences en un seul endroit, puis réservez directement auprès du prestataire.",
     "check1": "Compagnies et agences comparées",
     "check2": "Prix affichés avant de quitter le site",
     "check3": "Réservez directement chez le fournisseur",
@@ -318,8 +318,8 @@
     "disclaimer": "Les tarifs proviennent de recherches récentes de voyageurs et sont donnés à titre indicatif, sans garantie. Les prix des hôtels sont affichés sur le site de l'hôtel."
   },
   "meta": {
-    "tagline": "Des vols pas chers, comparés en une seule recherche.",
-    "description": "TicketsJet compare les compagnies aériennes, les agences de voyage et les loueurs de voitures pour vous aider à trouver de bonnes offres. Aucuns frais de réservation : vous réservez directement chez le fournisseur."
+    "tagline": "Comparez les vols. Sans frais cachés.",
+    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. TicketsJet compare les compagnies aériennes, les agences de voyage et les loueurs de voitures pour vous aider à trouver de bonnes offres. Aucuns frais de réservation : vous réservez directement chez le fournisseur."
   },
   "notice": {
     "untranslated": "Cette page n'est pas encore disponible dans votre langue et s'affiche en anglais."
@@ -781,7 +781,9 @@
     "h4": "Notre promesse",
     "l1": "Prix issus des compagnies aériennes et des agences de voyage",
     "l2": "Aucuns frais de réservation ni majorations ajoutés par nos soins",
-    "l3": "Des conseils clairs et honnêtes, même quand cela ne nous rapporte rien"
+    "l3": "Des conseils clairs et honnêtes, même quand cela ne nous rapporte rien",
+    "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
+    "creditsH": "Credits"
   },
   "priv": {
     "metaTitle": "Politique de confidentialité",

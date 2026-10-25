@@ -71,8 +71,8 @@
   },
   "home": {
     "kicker": "Flüge · Mietwagen – eine Suche",
-    "h1": "Günstige Flüge, in einer Suche verglichen.",
-    "sub": "TicketsJet durchsucht Airlines und Reisebüros für dich und leitet dich zum Buchen direkt zum Anbieter weiter. Wir erheben keine Gebühren und schlagen nichts auf.",
+    "h1": "Flüge vergleichen. Keine Aufschläge.",
+    "sub": "Suche Airlines und Agenturen an einem Ort und buche direkt beim Anbieter.",
     "check1": "Airlines und Reisebüros im Vergleich",
     "check2": "Preise vor dem Verlassen sichtbar",
     "check3": "Direkt beim Anbieter buchen",
@@ -318,8 +318,8 @@
     "disclaimer": "Die Preise stammen aus aktuellen Suchen von Reisenden und sind ein Richtwert, keine Garantie. Hotelpreise werden auf der Hotelseite angezeigt."
   },
   "meta": {
-    "tagline": "Günstige Flüge, in einer Suche verglichen.",
-    "description": "TicketsJet vergleicht Airlines, Reisebüros und Autovermieter, damit du gute Reiseangebote findest. Keine Buchungsgebühren – du buchst direkt beim Anbieter."
+    "tagline": "Flüge vergleichen. Keine Aufschläge.",
+    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. TicketsJet vergleicht Airlines, Reisebüros und Autovermieter, damit du gute Reiseangebote findest. Keine Buchungsgebühren – du buchst direkt beim Anbieter."
   },
   "notice": {
     "untranslated": "Diese Seite ist noch nicht in deiner Sprache verfügbar und wird auf Englisch angezeigt."
@@ -781,7 +781,9 @@
     "h4": "Unser Versprechen",
     "l1": "Preise von Airlines und Reisebüros",
     "l2": "Keine von uns hinzugefügten Buchungsgebühren oder Aufschläge",
-    "l3": "Klare, ehrliche Beratung – auch wenn sie uns nichts einbringt"
+    "l3": "Klare, ehrliche Beratung – auch wenn sie uns nichts einbringt",
+    "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
+    "creditsH": "Credits"
   },
   "priv": {
     "metaTitle": "Datenschutzerklärung",

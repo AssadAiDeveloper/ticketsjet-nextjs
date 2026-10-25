@@ -71,8 +71,8 @@
   },
   "home": {
     "kicker": "Voli · Auto — un'unica ricerca",
-    "h1": "Voli economici, confrontati in un'unica ricerca.",
-    "sub": "TicketsJet cerca per te tra compagnie aeree e agenzie di viaggio, poi ti manda direttamente al fornitore per prenotare. Nessuna commissione né ricarico.",
+    "h1": "Confronta voli. Senza sovrapprezzi.",
+    "sub": "Cerca compagnie e agenzie in un unico posto, poi prenota direttamente con il fornitore.",
     "check1": "Compagnie e agenzie a confronto",
     "check2": "Prezzi visibili prima di uscire",
     "check3": "Prenota direttamente con il fornitore",
@@ -318,8 +318,8 @@
     "disclaimer": "Le tariffe provengono da ricerche recenti dei viaggiatori e sono indicative, non una garanzia. I prezzi degli hotel sono mostrati sul sito dell'hotel."
   },
   "meta": {
-    "tagline": "Voli economici, confrontati in un'unica ricerca.",
-    "description": "TicketsJet confronta compagnie aeree, agenzie di viaggio e noleggiatori auto per aiutarti a trovare buone offerte di viaggio. Nessuna commissione: prenoti direttamente con il fornitore."
+    "tagline": "Confronta voli. Senza sovrapprezzi.",
+    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. TicketsJet confronta compagnie aeree, agenzie di viaggio e noleggiatori auto per aiutarti a trovare buone offerte di viaggio. Nessuna commissione: prenoti direttamente con il fornitore."
   },
   "notice": {
     "untranslated": "Questa pagina non è ancora disponibile nella tua lingua ed è mostrata in inglese."
@@ -781,7 +781,9 @@
     "h4": "La nostra promessa",
     "l1": "Prezzi provenienti da compagnie aeree e agenzie di viaggio",
     "l2": "Nessuna commissione di prenotazione né ricarico aggiunti da noi",
-    "l3": "Indicazioni chiare e oneste, anche quando non ci fanno guadagnare nulla"
+    "l3": "Indicazioni chiare e oneste, anche quando non ci fanno guadagnare nulla",
+    "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
+    "creditsH": "Credits"
   },
   "priv": {
     "metaTitle": "Informativa sulla privacy",

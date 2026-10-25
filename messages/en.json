@@ -71,8 +71,8 @@
   },
   "home": {
     "kicker": "Flights · Cars — one search",
-    "h1": "Cheap flights, compared in one search.",
-    "sub": "TicketsJet searches airlines and travel agencies for you — then sends you straight to the provider to book. We add no fees or markup.",
+    "h1": "Compare flights. Skip the markup.",
+    "sub": "Search airlines and agencies in one place, then book direct with the provider.",
     "check1": "Airlines & agencies compared",
     "check2": "Prices shown before you leave",
     "check3": "Book directly with the provider",
@@ -318,8 +318,8 @@
     "disclaimer": "Fares come from recent searches by travellers and are a guide, not a guarantee. Hotel prices are shown on the hotel site."
   },
   "meta": {
-    "tagline": "Cheap flights, compared in one search.",
-    "description": "TicketsJet compares airlines, travel agencies and car rental companies to help you find good travel deals. No booking fees — you book directly with the provider."
+    "tagline": "Compare flights. Skip the markup.",
+    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. TicketsJet compares airlines, travel agencies and car rental companies to help you find good travel deals. No booking fees — you book directly with the provider."
   },
   "notice": {
     "untranslated": "This page isn't available in your language yet and is shown in English."
@@ -781,7 +781,9 @@
     "h4": "Our promise",
     "l1": "Prices sourced from airlines and travel agencies",
     "l2": "No booking fees or markups added by us",
-    "l3": "Clear, honest guidance — even when it earns us nothing"
+    "l3": "Clear, honest guidance — even when it earns us nothing",
+    "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
+    "creditsH": "Credits"
   },
   "priv": {
     "metaTitle": "Privacy Policy",

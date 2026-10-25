@@ -71,8 +71,8 @@
   },
   "home": {
     "kicker": "Uçuşlar · Araçlar — tek arama",
-    "h1": "Ucuz uçuşlar, tek aramada karşılaştırılır.",
-    "sub": "TicketsJet sizin için havayollarını ve seyahat acentelerini tarar, ardından rezervasyon için sizi doğrudan sağlayıcıya yönlendirir. Ücret veya ek fiyat eklemeyiz.",
+    "h1": "Uçuşları karşılaştır. Ek ücret yok.",
+    "sub": "Havayollarını ve acenteleri tek yerde arayın, sonra doğrudan sağlayıcıyla rezervasyon yapın.",
     "check1": "Havayolları ve acenteler karşılaştırılır",
     "check2": "Siteden ayrılmadan önce fiyatlar görünür",
     "check3": "Doğrudan sağlayıcıdan rezervasyon yapın",
@@ -318,8 +318,8 @@
     "disclaimer": "Fiyatlar yolcuların son aramalarından gelir ve bir rehberdir, garanti değildir. Otel fiyatları otel sitesinde gösterilir."
   },
   "meta": {
-    "tagline": "Ucuz uçuşlar, tek aramada karşılaştırılır.",
-    "description": "TicketsJet, iyi seyahat fırsatları bulmanıza yardımcı olmak için havayollarını, seyahat acentelerini ve araç kiralama şirketlerini karşılaştırır. Rezervasyon ücreti yok — doğrudan sağlayıcıdan rezervasyon yaparsınız."
+    "tagline": "Uçuşları karşılaştır. Ek ücret yok.",
+    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. TicketsJet, iyi seyahat fırsatları bulmanıza yardımcı olmak için havayollarını, seyahat acentelerini ve araç kiralama şirketlerini karşılaştırır. Rezervasyon ücreti yok — doğrudan sağlayıcıdan rezervasyon yaparsınız."
   },
   "notice": {
     "untranslated": "Bu sayfa henüz dilinizde mevcut değil ve İngilizce gösteriliyor."
@@ -781,7 +781,9 @@
     "h4": "Sözümüz",
     "l1": "Havayolları ve seyahat acentelerinden alınan fiyatlar",
     "l2": "Bizim eklediğimiz rezervasyon ücreti veya ek fiyat yok",
-    "l3": "Net, dürüst yönlendirme — bize bir şey kazandırmasa bile"
+    "l3": "Net, dürüst yönlendirme — bize bir şey kazandırmasa bile",
+    "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
+    "creditsH": "Credits"
   },
   "priv": {
     "metaTitle": "Gizlilik Politikası",

@@ -71,8 +71,8 @@
   },
   "home": {
     "kicker": "Loty · Samochody — jedno wyszukiwanie",
-    "h1": "Tanie loty porównane w jednym wyszukiwaniu.",
-    "sub": "TicketsJet przeszukuje dla Ciebie linie lotnicze i biura podróży, a następnie kieruje Cię prosto do dostawcy, by dokonać rezerwacji. Nie dodajemy opłat ani marży.",
+    "h1": "Porównaj loty. Bez dodatkowych opłat.",
+    "sub": "Szukaj linii i agencji w jednym miejscu, potem rezerwuj bezpośrednio u dostawcy.",
     "check1": "Porównanie linii i biur podróży",
     "check2": "Ceny widoczne przed przejściem dalej",
     "check3": "Rezerwuj bezpośrednio u dostawcy",
@@ -318,7 +318,7 @@
     "disclaimer": "Ceny pochodzą z ostatnich wyszukiwań podróżnych i mają charakter orientacyjny, nie są gwarancją. Ceny hoteli wyświetla strona hotelu."
   },
   "meta": {
-    "tagline": "Tanie loty porównane w jednym wyszukiwaniu.",
+    "tagline": "Porównaj loty. Bez dodatkowych opłat.",
     "description": "TicketsJet porównuje linie lotnicze, biura podróży i wypożyczalnie samochodów, aby pomóc Ci znaleźć dobre oferty. Bez opłat za rezerwację — rezerwujesz bezpośrednio u dostawcy."
   },
   "notice": {
@@ -781,7 +781,9 @@
     "h4": "Nasza obietnica",
     "l1": "Ceny pochodzą z linii lotniczych i biur podróży",
     "l2": "Bez dodawanych przez nas opłat za rezerwację ani marży",
-    "l3": "Jasne, uczciwe wskazówki — nawet gdy nic nam to nie daje"
+    "l3": "Jasne, uczciwe wskazówki — nawet gdy nic nam to nie daje",
+    "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
+    "creditsH": "Credits"
   },
   "priv": {
     "metaTitle": "Polityka prywatności",

@@ -71,8 +71,8 @@
   },
   "home": {
     "kicker": "Vluchten · Auto's — één zoekopdracht",
-    "h1": "Goedkope vluchten, vergeleken in één zoekopdracht.",
-    "sub": "TicketsJet zoekt voor je bij luchtvaartmaatschappijen en reisbureaus en stuurt je daarna rechtstreeks naar de aanbieder om te boeken. Wij rekenen geen kosten of opslag.",
+    "h1": "Vergelijk vluchten. Geen toeslagen.",
+    "sub": "Zoek luchtvaartmaatschappijen en agentschappen op één plek en boek direct bij de aanbieder.",
     "check1": "Airlines en reisbureaus vergeleken",
     "check2": "Prijzen zie je voordat je doorklikt",
     "check3": "Boek rechtstreeks bij de aanbieder",
@@ -318,8 +318,8 @@
     "disclaimer": "Tarieven komen uit recente zoekopdrachten van reizigers en zijn een richtlijn, geen garantie. Hotelprijzen zie je op de hotelsite."
   },
   "meta": {
-    "tagline": "Goedkope vluchten, vergeleken in één zoekopdracht.",
-    "description": "TicketsJet vergelijkt airlines, reisbureaus en autoverhuurbedrijven om je te helpen goede reisdeals te vinden. Geen boekingskosten — je boekt rechtstreeks bij de aanbieder."
+    "tagline": "Vergelijk vluchten. Geen toeslagen.",
+    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. TicketsJet vergelijkt airlines, reisbureaus en autoverhuurbedrijven om je te helpen goede reisdeals te vinden. Geen boekingskosten — je boekt rechtstreeks bij de aanbieder."
   },
   "notice": {
     "untranslated": "Deze pagina is nog niet in jouw taal beschikbaar en wordt in het Engels getoond."
@@ -781,7 +781,9 @@
     "h4": "Onze belofte",
     "l1": "Prijzen afkomstig van airlines en reisbureaus",
     "l2": "Geen boekingskosten of opslagen van onze kant",
-    "l3": "Duidelijk, eerlijk advies — ook als het ons niets oplevert"
+    "l3": "Duidelijk, eerlijk advies — ook als het ons niets oplevert",
+    "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
+    "creditsH": "Credits"
   },
   "priv": {
     "metaTitle": "Privacybeleid",

@@ -53,7 +53,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       {/* ============ HERO — night flight ============ */}
-      <section className="relative bg-ink pb-24 pt-16 sm:pt-24">
+      <section className="relative bg-ink pb-12 pt-8 sm:pb-16 sm:pt-12">
         {/* flight-path arcs */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
           <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-40" viewBox="0 0 1200 600" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -68,7 +68,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">
             {t("kicker")}
           </p>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl">
+          <h1 className="font-display mt-4 max-w-3xl text-3xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl">
             {t("h1")}
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
