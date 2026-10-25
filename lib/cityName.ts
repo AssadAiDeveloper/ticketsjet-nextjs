@@ -47,3 +47,7 @@ export function cityName(code: string, locale: string, fallback?: string): strin
   }
   return fallback ?? code;
 }
+
+/** Lower-cased, accent- and diacritic-insensitive form used for matching what the visitor types. */
+export const norm = (s: string) =>
+  s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f\u064b-\u065f\u0670]/g, "");

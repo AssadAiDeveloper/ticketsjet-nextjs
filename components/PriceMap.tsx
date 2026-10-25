@@ -7,7 +7,6 @@ import { useLocale, useTranslations } from "next-intl";
 import TpWidget from "@/components/TpWidget";
 import { useFormatPrice } from "@/components/Price";
 import { fullDate } from "@/lib/format";
-import { cityName } from "@/lib/cityNames";
 import { WIDGETS } from "@/lib/config";
 
 type Point = { code: string; name: string; lat: number; lng: number; price: number; stops: number; depart: string | null; back: string | null };
@@ -55,7 +54,7 @@ export default function PriceMap() {
       .then((d) => {
         if (off) return;
         setData(d);
-        setOriginLabel(cityName(d.origin.code, d.origin.name, locale));
+        setOriginLabel(d.origin.name);
         setStatus(d.points.length ? "ok" : "error");
       })
       .catch(() => !off && setStatus("error"));
@@ -122,12 +121,12 @@ export default function PriceMap() {
 
           const m = L.marker([p.lat, p.lng], {
             icon: L.divIcon({ className: "tj-pin", html: fmtRef.current(p.price), iconSize: [54, 24], iconAnchor: [27, 12] }),
-            title: cityName(p.code, p.name, locale),
+            title: p.name,
           });
           const box = document.createElement("div");
           box.className = "tj-pop";
           const h = document.createElement("strong");
-          h.textContent = `${cityName(data.origin.code, data.origin.name, locale)} → ${cityName(p.code, p.name, locale)}`;
+          h.textContent = data.origin.name + " to " + p.name;
           const price = document.createElement("div");
           price.textContent = `${tRef.current("fromReturn", { price: fmtRef.current(p.price) })} · ${p.stops === 0 ? tRef.current("direct") : tRef.current("stops", { n: p.stops })}`;
           const dates = document.createElement("small");

@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCities } from "@/lib/places";
-import { cityName as localizeCity } from "@/lib/cityName";
-import { cityAliases, norm } from "@/lib/cityNames";
+import { cityName as localizeCity, norm } from "@/lib/cityName";
 import { isLocale } from "@/i18n/routing";
 import { intlTag } from "@/lib/format";
 
@@ -15,7 +14,7 @@ export async function GET(req: Request) {
   if (q.length < 2) return NextResponse.json({ cities: [] });
   try {
     const all = await getCities();
-    const names = (c: { code: string; name: string }) => [...cityAliases(c.code, c.name), localizeCity(c.code, locale, c.name)].map(norm);
+    const names = (c: { code: string; name: string }) => [c.name, localizeCity(c.code, locale, c.name)].map(norm);
     const starts = all.filter((c) => names(c).some((n) => n.startsWith(q)) || c.code.toLowerCase() === q);
     const rest = all.filter((c) => !starts.includes(c) && names(c).some((n) => n.includes(q)));
     let cities: Array<{ code: string; name: string; country: string; kind?: "country" }> = [...starts, ...rest]

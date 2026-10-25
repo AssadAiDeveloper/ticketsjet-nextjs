@@ -6,7 +6,7 @@ import { alternatesFor } from "@/lib/i18nPages";
 import TripForm, { type TripInitial } from "@/components/TripForm";
 import AdSlot from "@/components/AdSlot";
 import { bookingUrl } from "@/lib/config";
-import { cityName } from "@/lib/cityNames";
+import { cityName as locCity } from "@/lib/cityName";
 import { searchTrips, type TripQuery } from "@/lib/tripSearch";
 import { searchCode } from "@/lib/fares";
 import { getCities } from "@/lib/places";
@@ -59,12 +59,12 @@ export default async function TripFinderPage({ params, searchParams }: { params:
     let cities: Awaited<ReturnType<typeof getCities>> = [];
     try { cities = await getCities(); } catch {}
     const f = cities.find((c) => c.code === q.from);
-    fromName = cityName(q.from, f?.name ?? q.from, locale);
+    fromName = locCity(q.from, locale, f?.name ?? q.from);
     const toIsCountry = q.to.length === 2;
     const t = toIsCountry ? null : cities.find((c) => c.code === q.to);
     initial = {
       from: { code: q.from, name: fromName, country: f?.country ?? "" },
-      to: toIsCountry ? { code: q.to, name: tn || q.to, country: q.to, kind: "country" } : { code: q.to, name: t ? cityName(q.to, t.name, locale) : (tn || q.to), country: t?.country ?? "" },
+      to: toIsCountry ? { code: q.to, name: tn || q.to, country: q.to, kind: "country" } : { code: q.to, name: t ? locCity(q.to, locale, t?.name ?? q.to) : (tn || q.to), country: t?.country ?? "" },
       mode: q.dep ? "exact" : "flex", month: q.month, len: q.len ? String(q.len) : "", dep: q.dep, ret: q.ret,
     };
   }
@@ -104,7 +104,7 @@ export default async function TripFinderPage({ params, searchParams }: { params:
                     <li key={o.dest + o.depart}>
                       <Link href={`/flights?flightSearch=${searchCode(parsed!.q.from, { code: o.dest, depart: o.depart, back: o.back })}`} className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-mist bg-white p-4 transition hover:border-amber">
                         <div>
-                          <p className="font-display text-lg font-bold text-ink">{fromName} → {cityName(o.dest, o.destName, locale)}</p>
+                          <p className="font-display text-lg font-bold text-ink">{fromName} → {locCity(o.dest, locale, o.destName)}</p>
                           <p className="text-sm text-slate">{nice(o.depart)}{o.back ? ` – ${nice(o.back)}` : ""}{o.nights !== null ? ` · ${tc("nights", { n: o.nights })}` : ""} · {o.stops === 0 ? tc("direct") : tc("stops", { n: o.stops })}</p>
                         </div>
                         <p className="text-right"><span className="block text-xs text-slate">{tc("from")}</span><Price usd={o.price} className="text-2xl font-extrabold text-ink" /></p>
@@ -117,7 +117,7 @@ export default async function TripFinderPage({ params, searchParams }: { params:
                   <div className="mt-8 grid gap-4 md:grid-cols-3">
                     <a href={bookingUrl({ city: best.destName, checkin: best.back ? best.depart : undefined, checkout: best.back ?? undefined })} target="_blank" rel="nofollow noopener" className="block rounded-2xl border border-mist bg-white p-5 hover:border-amber">
                       <p className="font-mono text-xs text-amber">{t("stay")}</p>
-                      <p className="font-display mt-1 text-lg font-bold text-ink">{tx("hotelsIn", { city: cityName(best.dest, best.destName, locale) })}</p>
+                      <p className="font-display mt-1 text-lg font-bold text-ink">{tx("hotelsIn", { city: locCity(best.dest, locale, best.destName) })}</p>
                       <p className="mt-1 text-sm text-slate">{best.back ? t("hotelDates", { from: nice(best.depart), to: nice(best.back) }) : t("hotelOpen")}</p>
                     </a>
                     <Link href="/services/esim" className="block rounded-2xl border border-mist bg-white p-5 hover:border-amber">
