@@ -33,6 +33,19 @@ function loadWikidata(): Record<string, Record<string, string>> {
   }
 }
 
+const airportCache: { data: Record<string, string> | null } = { data: null };
+function loadAirports(): Record<string, string> {
+  if (airportCache.data) return airportCache.data;
+  try {
+    const p = path.join(process.cwd(), "data", "city-names", "airport-to-city.json");
+    airportCache.data = JSON.parse(readFileSync(p, "utf8"));
+    return airportCache.data!;
+  } catch {
+    airportCache.data = {};
+    return airportCache.data!;
+  }
+}
+
 function load(locale: string): Record<string, string> {
   if (cache.has(locale)) return cache.get(locale)!;
   try {
@@ -49,17 +62,22 @@ function load(locale: string): Record<string, string> {
 /** Localized city name, falling back to English then the provided fallback. */
 export function cityName(code: string, locale: string, fallback?: string): string {
   const loc = isLocale(locale) ? locale : "en";
+  const upper = code.toUpperCase();
   const overrides = loadOverrides();
-  const ov = overrides[loc] && overrides[loc][code.toUpperCase()];
+  const ov = overrides[loc] && overrides[loc][upper];
   if (ov) return ov;
   const wikidata = loadWikidata();
-  const wv = wikidata[loc] && wikidata[loc][code.toUpperCase()];
+  const wv = wikidata[loc] && wikidata[loc][upper];
   if (wv) return wv;
+  const airports = loadAirports();
+  const cityCode = airports[upper];
   const data = load(loc);
-  if (data[code]) return data[code];
+  if (cityCode && data[cityCode]) return data[cityCode];
+  if (data[upper]) return data[upper];
   if (loc !== "en") {
     const en = load("en");
-    if (en[code]) return en[code];
+    if (cityCode && en[cityCode]) return en[cityCode];
+    if (en[upper]) return en[upper];
   }
   return fallback ?? code;
 }
