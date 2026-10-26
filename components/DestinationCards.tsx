@@ -41,7 +41,7 @@ export default async function DestinationCards({ origin, items }: { origin: { co
         {items.map((d, i) => {
           const photo = PHOTOS[d.code];
           return (
-            <li key={d.code}>
+            <li key={d.code} className="relative">
               <Link
                 href={d.href}
                 className={`group relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-br ${GRADS[i % GRADS.length]} p-5 text-white shadow-md transition hover:-translate-y-1 hover:shadow-xl`}
@@ -49,11 +49,6 @@ export default async function DestinationCards({ origin, items }: { origin: { co
               >
                 {photos[d.code] && <DestPhoto code={d.code} photo={photos[d.code]} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" alt={`${d.name}, ${d.country}`} />}
                 {photos[d.code] && <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" aria-hidden="true" />}
-                {photos[d.code]?.author && (
-                  <a href={photos[d.code].photoUrl} target="_blank" rel="noopener noreferrer" className="absolute bottom-2 end-2 z-10 text-[10px] text-white/70 opacity-70 hover:opacity-100">
-                    <bdi>Photo: {photos[d.code].author} / Unsplash</bdi>
-                  </a>
-                )}
                 <span className="font-display select-none text-6xl font-extrabold leading-none tracking-tight text-white/10 transition group-hover:text-amber/30" aria-hidden="true">
                   {d.code}
                 </span>
@@ -72,6 +67,7 @@ export default async function DestinationCards({ origin, items }: { origin: { co
                   </span>
                 </span>
               </Link>
+              {photos[d.code]?.author && (<span className="absolute bottom-2 end-2 z-10 text-[10px] text-white/70 opacity-70"><bdi>Photo: {photos[d.code].author} / Unsplash</bdi></span>)}
             </li>
           );
         })}

@@ -1,4 +1,4 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
+﻿import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
@@ -14,6 +14,8 @@ import { countryName } from "@/lib/format";
 import { DEST_CC, fillTokens } from "@/lib/richPrice";
 import { getRouteFares } from "@/lib/routeFares";
 import { searchCode } from "@/lib/fares";
+import DestPhoto from "@/components/DestPhoto";
+import { allPhotos } from "@/lib/destinationPhotos";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -42,6 +44,7 @@ export default async function DestinationPage({ params }: Props) {
   const c = activityCity(city);
   if (!c) notFound();
   const t = await getTranslations("dp");
+  const photos = allPhotos();
   const tp = await getTranslations("place");
   const ta = await getTranslations("act");
   const dest = c.iata.toLowerCase();
@@ -70,93 +73,56 @@ export default async function DestinationPage({ params }: Props) {
       { "@type": "ListItem", position: 3, name, item: `${SITE.url}${prefix}/destinations/${c.slug}` },
     ] },
   ];
-  const tok = "§p§";
+  const tok = "";
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
-      <section className="bg-ink pb-14 pt-14">
-        <div className="mx-auto max-w-6xl px-4">
+      <section className="relative overflow-hidden bg-ink pb-14 pt-14">
+        {photos[c.iata] && <DestPhoto code={c.iata} photo={photos[c.iata]} sizes="100vw" alt={`${name}, ${country}`} className="opacity-30" />}
+        <div className="relative z-10 mx-auto max-w-6xl px-4">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker", { country })}</p>
           <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{t("h1", { city: name })}</h1>
-          <p className="mt-4 max-w-xl text-white/70">{ta(`${c.slug}.blurb`)}</p>
-          <Link href={bestHref} className="mt-6 inline-block rounded-full bg-amber px-6 py-3 font-semibold text-ink">
-            {best && main ? fillTokens(t("ctaFrom", { from: tp(`${main[0]}.name`), price: tok }), { p: P }) : t("ctaSearch", { city: name })}
-          </Link>
+          <p className="mt-4 max-w-xl text-white/70">{t("lead", { city: name, country })}</p>
         </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <li>
-            <Link href={bestHref} className={card}>
-              <p className="font-mono text-xs text-amber">{t("s1")}</p>
-              <p className="font-display mt-1 text-lg font-bold text-ink">{t("s1t")}</p>
-              <p className="mt-1 text-sm text-slate">{best ? fillTokens(t("s1fare", { price: tok }), { p: P }) : t("s1none")}</p>
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
+          <div>
+            <h2 className="font-display text-2xl font-bold text-ink">{t("thingsToDo", { city: name })}</h2>
+            <p className="mt-2 text-sm text-slate">{ta("intro", { city: name })}</p>
+            <ActivitiesWidget cityId={c.tiqets} cards={6} minHeight={260} />
+          </div>
+          <div>
+            <h2 className="font-display text-2xl font-bold text-ink">{t("flightsTo", { city: name })}</h2>
+            {fares && fares.length > 0 ? (
+              <ul className="mt-4 space-y-2">
+                {fares.slice(0, 6).map((f) => (
+                  <li key={f.depart} className="flex items-center justify-between rounded-xl border border-mist bg-white px-4 py-3 text-sm">
+                    <span className="font-medium text-ink">{f.depart} → {f.back ?? "one way"}</span>
+                    <span className="font-semibold text-ink">${f.price}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-4 text-sm text-slate">{t("noFares")}</p>
+            )}
+            <Link href="/flights" className="mt-5 inline-block rounded-xl bg-ink px-5 py-2.5 text-sm font-bold text-white transition hover:bg-ink-2">
+              {t("searchFlights", { city: name })}
             </Link>
-          </li>
-          <li>
-            <a href={bookingUrl({ city: c.name })} target="_blank" rel="nofollow noopener" className={card}>
-              <p className="font-mono text-xs text-amber">{t("s2")}</p>
-              <p className="font-display mt-1 text-lg font-bold text-ink">{t("s2t")}</p>
-              <p className="mt-1 text-sm text-slate">{t("s2d", { city: name })}</p>
-            </a>
-          </li>
-          <li>
-            <Link href={`/activities/${c.slug}`} className={card}>
-              <p className="font-mono text-xs text-amber">{t("s3")}</p>
-              <p className="font-display mt-1 text-lg font-bold text-ink">{t("s3t")}</p>
-              <p className="mt-1 text-sm text-slate">{t("s3d")}</p>
-            </Link>
-          </li>
-          <li>
-            <Link href="/services" className={card}>
-              <p className="font-mono text-xs text-amber">{t("s4")}</p>
-              <p className="font-display mt-1 text-lg font-bold text-ink">{t("s4t")}</p>
-              <p className="mt-1 text-sm text-slate">{t("s4d")}</p>
-            </Link>
-          </li>
-        </ol>
+          </div>
+        </div>
 
-        {routes.length > 0 && (
+        {ACTIVITY_CITIES.some((a) => a.iata === c.iata) && (
           <section className="mt-12">
-            <h2 className="font-display text-2xl font-bold text-ink">{t("byCity", { city: name })}</h2>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {routes.map(([o, d]) => (
-                <li key={o}>
-                  <Link href={`/cheap-flights/${routeSlug(o, d)}`} className={card + " !p-4 text-sm font-semibold text-ink"}>
-                    {t("routeLink", { from: tp(`${o}.name`), city: name })}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <h2 className="font-display text-2xl font-bold text-ink">{t("faqTitle", { city: name })}</h2>
+            <div className="mt-5"><Faq items={faq} /></div>
           </section>
         )}
-
-        <section className="mt-12">
-          <h2 className="font-display text-2xl font-bold text-ink">{t("todo")}</h2>
-          <p className="mt-1 text-sm text-slate">{t("todoSub")}</p>
-          <div className="mt-5 rounded-2xl border border-mist bg-white p-3 sm:p-5">
-            <ActivitiesWidget cityId={c.tiqets} cards={3} minHeight={420} />
-          </div>
-          <Link href={`/activities/${c.slug}`} className="mt-3 inline-block text-sm font-semibold text-ink underline">{t("moreTodo", { city: name })}</Link>
-        </section>
-
-        <section className="mt-12 max-w-3xl">
-          <h2 className="font-display text-xl font-bold text-ink">{t("tips", { city: name })}</h2>
-          <ul className="mt-3 list-disc space-y-2 ps-5 text-slate">
-            <li>{ta(`${c.slug}.tip1`)}</li>
-            <li>{ta(`${c.slug}.tip2`)}</li>
-          </ul>
-        </section>
-
-        <div className="my-10"><AdSlot slot="3333333333" /></div>
-
-        <section className="max-w-3xl">
-          <h2 className="font-display mb-4 text-2xl font-bold text-ink">{(await getTranslations("route"))("questions")}</h2>
-          <Faq items={faq} />
-        </section>
       </div>
+
+      <AdSlot slot="6666666666" className="mt-6" />
     </>
   );
 }

@@ -34,8 +34,9 @@ export default async function DestinationsIndex({ params }: { params: Promise<{ 
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {ACTIVITY_CITIES.map((c) => (
             <li key={c.slug}>
-              {photos[c.iata] && <div className="relative mb-3 aspect-[16/9] overflow-hidden rounded-xl"><DestPhoto code={c.iata} photo={photos[c.iata]} sizes="(min-width: 1024px) 25vw, 50vw, 100vw" alt={tp(`${c.iata.toLowerCase()}.name`)} /></div>}
-              <Link href={`/destinations/${c.slug}`} className="block h-full rounded-2xl border border-mist bg-white p-5 hover:border-amber">
+              <Link href={`/destinations/${c.slug}`} className="flex h-full flex-col rounded-2xl border border-mist bg-white p-5 hover:border-amber">
+                {photos[c.iata] && <div className="relative -mx-5 -mt-5 mb-4 aspect-[16/9] overflow-hidden rounded-t-2xl"><DestPhoto code={c.iata} photo={photos[c.iata]} sizes="(min-width: 1024px) 25vw, 50vw, 100vw" alt={tp(`${c.iata.toLowerCase()}.name`)} /></div>}
+                {photos[c.iata]?.author && (<span className="absolute bottom-2 end-2 z-10 text-[10px] text-white/70 opacity-70"><bdi>Photo: {photos[c.iata].author} / Unsplash</bdi></span>)}
                 <p className="font-display text-xl font-bold text-ink">{tp(`${c.iata.toLowerCase()}.name`)}</p>
                 <p className="text-sm text-slate">{countryName(DEST_CC[c.iata.toLowerCase()], locale)}</p>
                 <p className="mt-3 line-clamp-3 text-sm text-slate">{ta(`${c.slug}.blurb`)}</p>
