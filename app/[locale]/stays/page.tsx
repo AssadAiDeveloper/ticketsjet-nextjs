@@ -6,7 +6,10 @@ import Faq from "@/components/Faq";
 import { bookingUrl } from "@/lib/config";
 import { alternatesFor } from "@/lib/i18nPages";
 import { cityName as locCity } from "@/lib/cityName";
+import { getCities } from "@/lib/places";
+import { countryName } from "@/lib/format";
 import DestPhoto from "@/components/DestPhoto";
+import PhotoCredit from "@/components/PhotoCredit";
 import { allPhotos } from "@/lib/destinationPhotos";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -24,6 +27,8 @@ export default async function StaysPage({ params }: { params: Promise<{ locale: 
   const tp = await getTranslations("place");
   const tc = await getTranslations("common");
   const photos = allPhotos();
+  const cityList = await getCities();
+  const countryOf = (code: string) => cityList.find((c) => c.code === code)?.country ?? "";
   const faq = [1, 2, 3, 4, 5, 6].map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
   return (
     <>
@@ -74,7 +79,7 @@ export default async function StaysPage({ params }: { params: Promise<{ locale: 
               <p className="mt-2 max-w-xl text-sm text-white/80 sm:text-base">{t("bannerSub")}</p>
               <span className="mt-4 inline-block w-fit rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-ink transition group-hover:bg-amber">{t("bannerCta")}</span>
             </div>
-            {photos["LON"]?.author && (<span className="absolute bottom-2 end-2 z-20 text-[10px] text-white/70 opacity-70"><bdi>Photo: {photos["LON"].author} / Unsplash</bdi></span>)}
+            {photos["LON"]?.author && <PhotoCredit author={photos["LON"].author} authorUrl={photos["LON"].photoUrl || ""} photoUrl={photos["LON"].photoUrl || ""} />}
           </Link>
         </div>
 
@@ -90,10 +95,11 @@ export default async function StaysPage({ params }: { params: Promise<{ locale: 
                   <div className="absolute inset-0 z-10 flex items-end p-4">
                     <p className="font-display text-xl font-bold text-white drop-shadow"><bdi>{tp(`${k}.name`)}</bdi></p>
                   </div>
-                  {photos[k.toUpperCase()]?.author && (<span className="absolute bottom-2 end-2 z-20 text-[10px] text-white/70 opacity-70"><bdi>Photo: {photos[k.toUpperCase()].author} / Unsplash</bdi></span>)}
+                  {photos[k.toUpperCase()]?.author && <PhotoCredit author={photos[k.toUpperCase()].author || ""} authorUrl={photos[k.toUpperCase()].photoUrl || ""} photoUrl={photos[k.toUpperCase()].photoUrl || ""} />}
                 </div>
                 <div className="p-4">
-                  <p className="mt-2 text-sm font-semibold text-amber-deep group-hover:underline">{t("searchBooking")}</p>
+                  <p className="text-sm text-slate">{countryName(countryOf(k.toUpperCase()), locale)}</p>
+                  <p className="mt-2 text-sm font-semibold text-amber-deep group-hover:underline">{t("search")}</p>
                 </div>
               </a>
             ))}
@@ -107,10 +113,8 @@ export default async function StaysPage({ params }: { params: Promise<{ locale: 
               <a key={c} href={bookingUrl({ city: c })} target="_blank" rel="nofollow noopener" className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-xl bg-gradient-to-br from-[#16324a] to-[#0b1b2b] p-4 text-white transition hover:-translate-y-1 hover:shadow-xl">
                 {photos[k.toUpperCase()] && <DestPhoto code={k.toUpperCase()} photo={photos[k.toUpperCase()]} sizes="(min-width: 1024px) 33vw, 50vw, 100vw" alt={tp(`${k}.name`)} className="z-0" />}
                 {photos[k.toUpperCase()] && <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true" />}
-                {photos[k.toUpperCase()] && <DestPhoto code={k.toUpperCase()} photo={photos[k.toUpperCase()]} sizes="(min-width: 1024px) 33vw, 50vw, 100vw" alt={tp(`${k}.name`)} className="z-0" />}
-                {photos[k.toUpperCase()] && <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true" />}
                 <p className="relative z-10 font-display text-lg font-bold drop-shadow"><bdi>{tp(`${k}.name`)}</bdi></p>
-                <span className="relative z-10 text-xs text-white/80 drop-shadow">{locCity(k.toUpperCase(), locale, tp(`${k}.name`)) !== tp(`${k}.name`) ? '' : ''}</span>
+                {photos[k.toUpperCase()]?.author && <PhotoCredit author={photos[k.toUpperCase()].author || ""} authorUrl={photos[k.toUpperCase()].photoUrl || ""} photoUrl={photos[k.toUpperCase()].photoUrl || ""} />}
               </a>
             ))}
           </div>
