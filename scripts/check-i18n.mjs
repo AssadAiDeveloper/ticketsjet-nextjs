@@ -20,16 +20,16 @@ for (const f of walk(process.cwd())) {
 if (ffdFailed) { console.error("check-i18n: FAILED (U+FFFD present)"); process.exit(1); }
 
 // Scan message files for garbage: script mixing per locale.
-const ALLOWED_TOKENS = new Set(["TicketsJet", "TJ", "Booking.com", "Google", "AdSense", "Unsplash", "GeoNames", "eSIM", "QR", "SIM", "Wi-Fi", "GDPR", "CC", "BY", "UTC", "IP"]);
+const ALLOWED_TOKENS = new Set(["TicketsJet", "Booking.com", "Google", "AdSense", "Unsplash", "GeoNames", "eSIM", "Wi-Fi", "Wi", "Fi", "Cookie", "GDPR", "QR", "SIM", "IP", "UTC", "CC", "BY", "TJ"]);
 // Keys whose values legitimately contain foreign scripts (bilingual text, technical attribution, ICU).
-const ALLOWED_KEYS = new Set(["switcher.switchToEnglish", "footer.geoNames", "common.stops", "common.travelSearch", "common.flightSearch", "common.photoCredit", "common.photoBy", "common.home", "home.faq4a", "home.bannerTitle", "home.bannerSub", "home.bannerCta", "form.fewer", "form.more", "form.travellers", "stays.guestsLabel", "stays.note", "stays.metaTitle", "stays.metaDesc", "stays.lead", "stays.searchBooking", "stays.a1", "stays.a4", "stays.a5", "stays.a6", "extras.searchBooking", "extras.esim", "tfp.hotelDates", "tfp.hotelOpen", "meta.description", "meta.tagline", "route.stops", "dp.s2d", "dp.s4d", "dp.noFares", "ac.esim", "svc.metaTitle", "svc.esimT", "esim.metaTitle", "esim.metaDesc", "esim.eyebrow", "esim.intro", "esim.cta", "esim.s1d", "esim.s3d", "esim.h1", "esim.p1", "esim.p2", "esim.a1", "esim.a2", "esim.q4", "esim.a4", "map.count", "map.stops", "help.a5", "about.credits", "about.creditsH", "about.photoCredits", "about.photoCreditsBody", "priv.p1", "priv.p4", "priv.unsplash"]);
 function isAllowedToken(tok) {
   if (ALLOWED_TOKENS.has(tok)) return true;
   if (/^[A-Z]{3}$/.test(tok)) return true;
   if (/^https?:/i.test(tok)) return true;
   if (/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(tok)) return true;
+  if (/\.[a-z]{2,}/i.test(tok) && /[a-z0-9]/i.test(tok)) return true; // allow domain-like tokens
   if (/^\d/.test(tok)) return true;
-  if (/^(TicketsJet|Google|AdSense|SIM|QR|Wi-Fi|Cookie|JFK|NYC|UTC|IP|one|two|few|many|other|zero)$/i.test(tok)) return true;
+  if (/^(one|two|few|many|other|zero)$/i.test(tok)) return true;
   return false;
 }
 const messagesDir = path.join(process.cwd(), "messages");
@@ -64,12 +64,11 @@ for (const file of readdirSync(messagesDir).filter((f) => f.endsWith(".json"))) 
       const key = p ? `${p}.${k}` : k;
       if (v && typeof v === "object" && !Array.isArray(v)) scan(v, key);
       else if (typeof v === "string") {
-        if (ALLOWED_KEYS.has(key)) continue;
         const stripped = v.replace(/<[^>]+>/g, " ").replace(/\{[^}]*\}/g, " ");
         for (const word of stripped.split(/[\s-]+/)) {
           const clean = word.replace(/[.,!?;:()\u060C\u061F\u00AB\u00BB]/g, "");
           if (!clean) continue;
-          if (isAllowedToken(clean)) continue;
+          if (isAllowedToken(clean) || isAllowedToken(word)) continue;
           const foreign = foreignScripts(clean);
           if (foreign.length) {
             console.error(`Garbage (foreign script: ${foreign.join(",")}) in ${file}: ${key} = ${JSON.stringify(v)} (word: ${word})`);
