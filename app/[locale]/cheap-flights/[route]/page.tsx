@@ -14,6 +14,8 @@ import { DESTS, ROUTES, parseRoute, slug } from "@/lib/routes";
 import { alternatesFor } from "@/lib/i18nPages";
 import { fullDate, countryName } from "@/lib/format";
 import { DEST_CC, fillTokens, usdText } from "@/lib/richPrice";
+import DestPhoto from "@/components/DestPhoto";
+import { allPhotos } from "@/lib/destinationPhotos";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -54,6 +56,7 @@ export default async function RoutePage({ params }: Props) {
   const tf = await getTranslations("flights");
   const from = tp(`${r.o}.name`);
   const dest = DESTS[r.d];
+  const photos = allPhotos();
   const toName = tp(`${r.d}.name`);
   const country = countryName(DEST_CC[r.d], locale);
   const fares = await getRouteFares(r.o, r.d);
@@ -115,7 +118,9 @@ export default async function RoutePage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, crumbs]) }} />
-      <section className="bg-ink pb-14 pt-14">
+      <section className="relative overflow-hidden bg-ink pb-14 pt-14">
+        {photos[dest.code] && <DestPhoto code={dest.code} photo={photos[dest.code]} sizes="100vw" alt={toName} className="opacity-30" />}
+        <div className="relative z-10">
         <div className="mx-auto max-w-6xl px-4">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber" dir="ltr">{searchLabel}</p>
           <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
@@ -129,6 +134,7 @@ export default async function RoutePage({ params }: Props) {
               {fillTokens(t("searchBtn", { route: "§r§" }), { r: <bdi dir="ltr">{searchLabel}</bdi> })}
             </Link>
           </div>
+        </div>
         </div>
       </section>
 
