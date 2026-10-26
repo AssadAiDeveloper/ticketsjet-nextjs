@@ -35,8 +35,17 @@ export default async function DestinationsIndex({ params }: { params: Promise<{ 
           {ACTIVITY_CITIES.map((c) => (
             <li key={c.slug}>
               <Link href={`/destinations/${c.slug}`} className="flex h-full flex-col rounded-2xl border border-mist bg-white p-5 hover:border-amber">
-              {photos[c.iata] && <div className="relative -mx-5 -mt-5 mb-4 aspect-[16/9] overflow-hidden rounded-t-2xl"><DestPhoto code={c.iata} photo={photos[c.iata]} sizes="(min-width: 1024px) 25vw, 50vw, 100vw" alt={tp(`${c.iata.toLowerCase()}.name`)} className="z-0" /><div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true" /></div>}
-                {photos[c.iata]?.author && (<span className="absolute bottom-2 end-2 z-10 text-[10px] text-white/70 opacity-70"><bdi>Photo: {photos[c.iata].author} / Unsplash</bdi></span>)}
+              {photos[c.iata] ? (
+                <div className="relative -mx-5 -mt-5 mb-4 aspect-[16/9] overflow-hidden rounded-t-2xl">
+                  <DestPhoto code={c.iata} photo={photos[c.iata]} sizes="(min-width: 1024px) 25vw, 50vw, 100vw" alt={tp(`${c.iata.toLowerCase()}.name`)} className="z-0" />
+                  <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true" />
+                  {photos[c.iata]?.author && (<span className="absolute bottom-2 end-2 z-10 text-[10px] text-white/70 opacity-70"><bdi>Photo: {photos[c.iata].author} / Unsplash</bdi></span>)}
+                </div>
+              ) : (
+                <div className="relative -mx-5 -mt-5 mb-4 aspect-[16/9] overflow-hidden rounded-t-2xl bg-gradient-to-br from-[#16324a] to-[#0b1b2b] flex items-center justify-center">
+                  <span className="font-display text-4xl font-extrabold text-white/20">{c.iata}</span>
+                </div>
+              )}
                 <p className="font-display text-xl font-bold text-ink">{tp(`${c.iata.toLowerCase()}.name`)}</p>
                 <p className="text-sm text-slate">{countryName(DEST_CC[c.iata.toLowerCase()], locale)}</p>
                 <p className="mt-3 line-clamp-3 text-sm text-slate">{ta(`${c.slug}.blurb`)}</p>
