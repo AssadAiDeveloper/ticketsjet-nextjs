@@ -112,15 +112,18 @@ for (const locale of locales) {
         if (expectRtl && clientDir !== "rtl") extraIssues.push(`client dir=${clientDir} (expected rtl)`);
         if (!expectRtl && clientDir === "rtl") extraIssues.push(`client dir=rtl (expected ltr)`);
         const nonLatinLocales = new Set(["ar", "fa", "he", "ru"]);
-        if ((p === "/destinations" || p === "/") && nonLatinLocales.has(locale)) {
+        if ((p === "/destinations" || p === "/") && locale !== "en") {
           const html = await page.content();
-          const cn = cityNames[locale] || {};
-          for (const code of promotedCities) {
-            const locName = cn[code];
+          const golden = JSON.parse(fs.readFileSync(path.join(process.cwd(), "scripts", "city-names-golden.json"), "utf8"));
+          for (const [code, names] of Object.entries(golden)) {
+            const expected = names[locale];
+            if (!expected) continue;
+            // check if the English name leaked (when localized differs)
             const enName = enCityNames[code];
-            if (!locName || locName === enName) continue; // fallback or identical, skip
-            const re = new RegExp("(?<!Europe/)" + enName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-            if (re.test(html)) extraIssues.push(`${p} contains English city name "${enName}" (should be "${locName}")`);
+            if (expected !== enName) {
+              const re = new RegExp("(?<!Europe/)" + enName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+              if (re.test(html)) extraIssues.push(`${p} golden mismatch: "${enName}" found (expected "${expected}")`);
+            }
           }
         }
         if (p === "/stays" && locale !== "en") {
