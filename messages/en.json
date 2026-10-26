@@ -105,7 +105,10 @@
     "faq5q": "What about car rentals?",
     "faq5a": "We compare leading rental companies for competitive prices, free cancellation options and fair full-to-full fuel policies.",
     "faq6q": "What happens after I book?",
-    "faq6a": "Your confirmation email comes directly from the airline or provider you booked with. For changes or support, contact them directly — they hold your reservation."
+    "faq6a": "Your confirmation email comes directly from the airline or provider you booked with. For changes or support, contact them directly — they hold your reservation.",
+    "bannerTitle": "Explore the price map",
+    "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
+    "bannerCta": "Open the price map"
   },
   "dest": {
     "from": "from",

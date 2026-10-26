@@ -105,7 +105,10 @@
     "faq5q": "Et la location de voiture ?",
     "faq5a": "Nous comparons les principaux loueurs pour des prix compétitifs, des options d'annulation gratuite et des politiques de carburant équitables plein-plein.",
     "faq6q": "Que se passe-t-il après la réservation ?",
-    "faq6a": "Votre e-mail de confirmation vient directement de la compagnie ou du fournisseur chez qui vous avez réservé. Pour toute modification ou assistance, contactez-les directement : c'est eux qui détiennent votre réservation."
+    "faq6a": "Votre e-mail de confirmation vient directement de la compagnie ou du fournisseur chez qui vous avez réservé. Pour toute modification ou assistance, contactez-les directement : c'est eux qui détiennent votre réservation.",
+    "bannerTitle": "Explore the price map",
+    "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
+    "bannerCta": "Open the price map"
   },
   "dest": {
     "from": "à partir de",

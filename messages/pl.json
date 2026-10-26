@@ -105,7 +105,10 @@
     "faq5q": "A co z wynajmem samochodów?",
     "faq5a": "Porównujemy czołowe wypożyczalnie, by znaleźć konkurencyjne ceny, bezpłatną rezygnację i uczciwą politykę paliwową „pełny–pełny”.",
     "faq6q": "Co dzieje się po rezerwacji?",
-    "faq6a": "E-mail z potwierdzeniem otrzymasz bezpośrednio od linii lotniczej lub dostawcy, u którego rezerwowałeś. W sprawie zmian lub pomocy skontaktuj się z nimi — to oni mają Twoją rezerwację."
+    "faq6a": "E-mail z potwierdzeniem otrzymasz bezpośrednio od linii lotniczej lub dostawcy, u którego rezerwowałeś. W sprawie zmian lub pomocy skontaktuj się z nimi — to oni mają Twoją rezerwację.",
+    "bannerTitle": "Explore the price map",
+    "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
+    "bannerCta": "Open the price map"
   },
   "dest": {
     "from": "od",

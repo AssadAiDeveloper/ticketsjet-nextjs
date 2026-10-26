@@ -105,7 +105,10 @@
     "faq5q": "Peki ya araç kiralama?",
     "faq5a": "Rekabetçi fiyatlar, ücretsiz iptal seçenekleri ve adil «dolu-dolu» yakıt politikaları için önde gelen kiralama şirketlerini karşılaştırıyoruz.",
     "faq6q": "Rezervasyondan sonra ne olur?",
-    "faq6a": "Onay e-postanız doğrudan rezervasyon yaptığınız havayolu veya sağlayıcıdan gelir. Değişiklik veya destek için doğrudan onlarla iletişime geçin — rezervasyonunuz onlarda."
+    "faq6a": "Onay e-postanız doğrudan rezervasyon yaptığınız havayolu veya sağlayıcıdan gelir. Değişiklik veya destek için doğrudan onlarla iletişime geçin — rezervasyonunuz onlarda.",
+    "bannerTitle": "Explore the price map",
+    "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
+    "bannerCta": "Open the price map"
   },
   "dest": {
     "from": "başlangıç",

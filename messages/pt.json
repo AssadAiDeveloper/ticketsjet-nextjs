@@ -105,7 +105,10 @@
     "faq5q": "E o aluguer de carros?",
     "faq5a": "Comparamos as principais empresas de aluguer para preços competitivos, cancelamento gratuito e políticas de combustível justas «cheio-cheio».",
     "faq6q": "O que acontece depois de reservar?",
-    "faq6a": "O e-mail de confirmação chega diretamente da companhia aérea ou do fornecedor com quem reservou. Para alterações ou apoio, contacte-os diretamente — são eles que têm a sua reserva."
+    "faq6a": "O e-mail de confirmação chega diretamente da companhia aérea ou do fornecedor com quem reservou. Para alterações ou apoio, contacte-os diretamente — são eles que têm a sua reserva.",
+    "bannerTitle": "Explore the price map",
+    "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
+    "bannerCta": "Open the price map"
   },
   "dest": {
     "from": "desde",

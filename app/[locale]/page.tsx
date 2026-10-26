@@ -46,6 +46,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale);
   const board = await loadBoard(locale);
   const t = await getTranslations("home");
+  const tn = await getTranslations("nav");
   const tb = await getTranslations("blog");
   const tpost = await getTranslations("post");
   const faq = [1, 2, 3, 4, 5, 6].map((n) => ({ q: t(`faq${n}q`), a: t(`faq${n}a`) }));
@@ -78,21 +79,42 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="relative z-10 -mt-6 mx-auto max-w-6xl px-4">
+      <section className="relative z-10 -mt-6 mx-auto max-w-5xl px-4">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <Link href="/trip-finder" className="flex h-12 items-center gap-3 rounded-xl bg-ink px-4 text-sm font-semibold text-white transition hover:bg-ink-2 sm:h-14">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16 8-2 6-6 2 2-6 6-2Z" /></svg>
+            <span className="truncate">{tn("tripFinder")}</span>
+          </Link>
+          <Link href="/stays" className="flex h-12 items-center gap-3 rounded-xl bg-ink px-4 text-sm font-semibold text-white transition hover:bg-ink-2 sm:h-14">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 15h18M7 9V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" /></svg>
+            <span className="truncate">{tn("stays")}</span>
+          </Link>
+          <Link href="/cars" className="flex h-12 items-center gap-3 rounded-xl bg-ink px-4 text-sm font-semibold text-white transition hover:bg-ink-2 sm:h-14">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11m-14 0h14a2 2 0 0 1 2 2v4h-2.5a2 2 0 1 1-4 0h-5a2 2 0 1 1-4 0H3v-4a2 2 0 0 1 2-2Z" /></svg>
+            <span className="truncate">{tn("cars")}</span>
+          </Link>
+          <Link href="/explore" className="flex h-12 items-center gap-3 rounded-xl bg-ink px-4 text-sm font-semibold text-white transition hover:bg-ink-2 sm:h-14">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z" /><circle cx="12" cy="9" r="2.5" /></svg>
+            <span className="truncate">{tn("explore")}</span>
+          </Link>
+        </div>
+      </section>
+
+      <section className="relative z-10 -mt-6 mx-auto max-w-5xl px-4">
         <div className="grid gap-3 sm:grid-cols-3">
-          <div className="flex items-center gap-3 rounded-2xl border border-mist bg-white p-4 shadow-sm sm:p-5">
+          <div className="flex items-center gap-3 rounded-xl border border-mist bg-white p-4 shadow-sm sm:p-5">
             <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4" /></svg>
             </span>
             <span className="text-sm font-medium text-ink sm:text-base">{t("check1")}</span>
           </div>
-          <div className="flex items-center gap-3 rounded-2xl border border-mist bg-white p-4 shadow-sm sm:p-5">
+          <div className="flex items-center gap-3 rounded-xl border border-mist bg-white p-4 shadow-sm sm:p-5">
             <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /><circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></svg>
             </span>
             <span className="text-sm font-medium text-ink sm:text-base">{t("check2")}</span>
           </div>
-          <div className="flex items-center gap-3 rounded-2xl border border-mist bg-white p-4 shadow-sm sm:p-5">
+          <div className="flex items-center gap-3 rounded-xl border border-mist bg-white p-4 shadow-sm sm:p-5">
             <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg>
             </span>
@@ -106,11 +128,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {board && <DestinationCards origin={board.origin} items={board.items} />}
 
       {/* ============ EXPLORE TEASER ============ */}
-      <section className="mx-auto max-w-6xl px-4 pt-16">
+      <section className="mx-auto max-w-5xl px-4 pt-10 sm:pt-14">
         <div className="flex flex-wrap items-center justify-between gap-5 rounded-3xl border border-mist bg-white px-6 py-7 sm:px-9">
           <div className="max-w-xl">
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-amber-deep">{t("exploreKicker")}</p>
-            <h2 className="font-display mt-2 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+            <h2 className="font-display mt-2 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
               {t("exploreTitle")}
             </h2>
             <p className="mt-2 text-sm text-slate">
@@ -124,12 +146,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* ============ CARS ============ */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+      <section className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
         <div className="overflow-hidden rounded-3xl bg-ink px-6 py-12 text-white sm:px-12">
           <div className="grid items-center gap-8 lg:grid-cols-2">
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.25em] text-amber">{t("carsKicker")}</p>
-              <h2 className="font-display mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+              <h2 className="font-display mt-2 text-xl font-semibold tracking-tight sm:text-2xl">
                 {t("carsTitle")}
               </h2>
               <p className="mt-4 text-white/70">
@@ -156,9 +178,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <AdSlot slot="2222222222" />
 
       {/* ============ GUIDES ============ */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+      <section className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-amber-deep">{t("guidesKicker")}</p>
-        <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+        <h2 className="font-display mt-2 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
           {t("guidesTitle")}
         </h2>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -175,8 +197,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       {/* ============ FAQ ============ */}
       <section className="border-t border-mist bg-white">
-        <div className="mx-auto max-w-3xl px-4 py-16 sm:py-20">
-          <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+        <div className="mx-auto max-w-3xl px-4 py-10 sm:py-14">
+          <h2 className="font-display text-xl font-semibold tracking-tight text-ink sm:text-2xl">
             {t("faqTitle")}
           </h2>
           <p className="mt-3 text-slate">{t("faqSub")}</p>
