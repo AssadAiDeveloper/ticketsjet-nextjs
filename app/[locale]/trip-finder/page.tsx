@@ -150,6 +150,7 @@ export default async function TripFinderPage({ params, searchParams }: { params:
         )}
         <div className="my-10"><AdSlot slot="3333333333" /></div>
       </div>
+      <p className="mx-auto max-w-6xl px-4 pb-8 text-xs text-slate">{tc("affiliateNote")} <Link href="/affiliate-disclosure" className="underline hover:text-ink">{tc("learnMore")}</Link>.</p>
     </>
   );
 }

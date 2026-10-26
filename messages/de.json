@@ -69,7 +69,9 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash"
+    "photoBy": "Photo by {name} on Unsplash",
+    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
+    "learnMore": "learn more"
   },
   "home": {
     "h1": "Flüge vergleichen. Keine Aufschläge.",
@@ -105,7 +107,8 @@
     "faq5q": "Und Mietwagen?",
     "faq5a": "Wir vergleichen führende Vermieter für wettbewerbsfähige Preise, kostenlose Stornierung und faire Voll-zu-voll-Tankregelungen.",
     "faq6q": "Was passiert nach der Buchung?",
-    "faq6a": "Die Bestätigungs-E-Mail kommt direkt von der Airline oder dem Anbieter, bei dem du gebucht hast. Für Änderungen oder Support wende dich direkt an sie – sie verwalten deine Reservierung."
+    "faq6a": "Die Bestätigungs-E-Mail kommt direkt von der Airline oder dem Anbieter, bei dem du gebucht hast. Für Änderungen oder Support wende dich direkt an sie – sie verwalten deine Reservierung.",
+    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
   },
   "dest": {
     "from": "ab",

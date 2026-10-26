@@ -69,7 +69,9 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash"
+    "photoBy": "Photo by {name} on Unsplash",
+    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
+    "learnMore": "learn more"
   },
   "home": {
     "h1": "Uçuşları karşılaştır. Ek ücret yok.",
@@ -105,7 +107,8 @@
     "faq5q": "Peki ya araç kiralama?",
     "faq5a": "Rekabetçi fiyatlar, ücretsiz iptal seçenekleri ve adil «dolu-dolu» yakıt politikaları için önde gelen kiralama şirketlerini karşılaştırıyoruz.",
     "faq6q": "Rezervasyondan sonra ne olur?",
-    "faq6a": "Onay e-postanız doğrudan rezervasyon yaptığınız havayolu veya sağlayıcıdan gelir. Değişiklik veya destek için doğrudan onlarla iletişime geçin — rezervasyonunuz onlarda."
+    "faq6a": "Onay e-postanız doğrudan rezervasyon yaptığınız havayolu veya sağlayıcıdan gelir. Değişiklik veya destek için doğrudan onlarla iletişime geçin — rezervasyonunuz onlarda.",
+    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
   },
   "dest": {
     "from": "başlangıç",

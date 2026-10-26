@@ -17,6 +17,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   setRequestLocale(locale);
   const t = await getTranslations("aci");
   const tp = await getTranslations("place");
+  const tc = await getTranslations("common");
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
       <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber-deep">{t("kicker")}</p>
@@ -33,6 +34,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           </li>
         ))}
       </ul>
+    <p className="mt-6 text-xs text-slate">{tc("affiliateNote")} <Link href="/affiliate-disclosure" className="underline hover:text-ink">{tc("learnMore")}</Link>.</p>
     </div>
   );
 }

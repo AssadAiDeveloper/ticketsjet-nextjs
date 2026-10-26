@@ -53,6 +53,7 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("flights");
+  const tc = await getTranslations("common");
   const tp = await getTranslations("place");
   const arrow = isRtl(locale) ? "←" : "→";
   const faq = [1, 2, 3, 4].map((n) => ({ q: t(`faq${n}q`), a: t(`faq${n}a`) }));
@@ -151,6 +152,7 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
         </>
       )}
 
+      <p className="mx-auto max-w-6xl px-4 pt-6 text-xs text-slate">{tc("affiliateNote")} <Link href="/affiliate-disclosure" className="underline hover:text-ink">{tc("learnMore")}</Link>.</p>
       <AdSlot slot="3333333333" className="mt-10" />
 
       <section className="mx-auto max-w-6xl px-4 py-16">

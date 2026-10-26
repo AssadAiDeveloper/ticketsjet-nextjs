@@ -69,7 +69,9 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash"
+    "photoBy": "Photo by {name} on Unsplash",
+    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
+    "learnMore": "learn more"
   },
   "home": {
     "h1": "Comparez les vols. Sans frais cachés.",
@@ -105,7 +107,8 @@
     "faq5q": "Et la location de voiture ?",
     "faq5a": "Nous comparons les principaux loueurs pour des prix compétitifs, des options d'annulation gratuite et des politiques de carburant équitables plein-plein.",
     "faq6q": "Que se passe-t-il après la réservation ?",
-    "faq6a": "Votre e-mail de confirmation vient directement de la compagnie ou du fournisseur chez qui vous avez réservé. Pour toute modification ou assistance, contactez-les directement : c'est eux qui détiennent votre réservation."
+    "faq6a": "Votre e-mail de confirmation vient directement de la compagnie ou du fournisseur chez qui vous avez réservé. Pour toute modification ou assistance, contactez-les directement : c'est eux qui détiennent votre réservation.",
+    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
   },
   "dest": {
     "from": "à partir de",

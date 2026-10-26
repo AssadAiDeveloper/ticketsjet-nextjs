@@ -69,7 +69,9 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash"
+    "photoBy": "Photo by {name} on Unsplash",
+    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
+    "learnMore": "learn more"
   },
   "home": {
     "h1": "Confronta voli. Senza sovrapprezzi.",
@@ -105,7 +107,8 @@
     "faq5q": "E il noleggio auto?",
     "faq5a": "Confrontiamo i principali noleggiatori per prezzi competitivi, cancellazione gratuita e politiche carburante eque «pieno-pieno».",
     "faq6q": "Cosa succede dopo la prenotazione?",
-    "faq6a": "L'e-mail di conferma arriva direttamente dalla compagnia o dal fornitore con cui hai prenotato. Per modifiche o assistenza, contattali direttamente: sono loro a gestire la tua prenotazione."
+    "faq6a": "L'e-mail di conferma arriva direttamente dalla compagnia o dal fornitore con cui hai prenotato. Per modifiche o assistenza, contattali direttamente: sono loro a gestire la tua prenotazione.",
+    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
   },
   "dest": {
     "from": "da",

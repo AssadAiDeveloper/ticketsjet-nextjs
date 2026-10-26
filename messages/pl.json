@@ -69,7 +69,9 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash"
+    "photoBy": "Photo by {name} on Unsplash",
+    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
+    "learnMore": "learn more"
   },
   "home": {
     "h1": "Porównaj loty. Bez dodatkowych opłat.",
@@ -105,7 +107,8 @@
     "faq5q": "A co z wynajmem samochodów?",
     "faq5a": "Porównujemy czołowe wypożyczalnie, by znaleźć konkurencyjne ceny, bezpłatną rezygnację i uczciwą politykę paliwową „pełny–pełny”.",
     "faq6q": "Co dzieje się po rezerwacji?",
-    "faq6a": "E-mail z potwierdzeniem otrzymasz bezpośrednio od linii lotniczej lub dostawcy, u którego rezerwowałeś. W sprawie zmian lub pomocy skontaktuj się z nimi — to oni mają Twoją rezerwację."
+    "faq6a": "E-mail z potwierdzeniem otrzymasz bezpośrednio od linii lotniczej lub dostawcy, u którego rezerwowałeś. W sprawie zmian lub pomocy skontaktuj się z nimi — to oni mają Twoją rezerwację.",
+    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
   },
   "dest": {
     "from": "od",

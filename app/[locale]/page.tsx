@@ -75,6 +75,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="relative z-30 mt-6">
             <SearchTabs />
           </div>
+          <p className="mt-3 text-xs text-white/40">
+            {t("affiliateNote")} <Link href="/affiliate-disclosure" className="underline hover:text-white/60">{t("learnMore")}</Link>
+          </p>
 
           <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-xs text-white/50">
             <span>✓ {t("check1")}</span>

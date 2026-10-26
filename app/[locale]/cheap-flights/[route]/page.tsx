@@ -51,6 +51,7 @@ export default async function RoutePage({ params }: Props) {
   const r = parseRoute(route);
   if (!r) notFound();
   const t = await getTranslations("route");
+  const tc = await getTranslations("common");
   const tp = await getTranslations("place");
   const th = await getTranslations("common");
   const tf = await getTranslations("flights");
@@ -225,6 +226,7 @@ export default async function RoutePage({ params }: Props) {
           </section>
         )}
       </div>
+      <p className="mx-auto max-w-6xl px-4 pb-8 text-xs text-slate">{tc("affiliateNote")} <Link href="/affiliate-disclosure" className="underline hover:text-ink">{tc("learnMore")}</Link>.</p>
     </>
   );
 }
