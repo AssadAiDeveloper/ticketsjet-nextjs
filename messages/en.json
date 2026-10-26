@@ -69,9 +69,7 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
-    "learnMore": "learn more"
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Compare flights. Skip the markup.",
@@ -107,8 +105,7 @@
     "faq5q": "What about car rentals?",
     "faq5a": "We compare leading rental companies for competitive prices, free cancellation options and fair full-to-full fuel policies.",
     "faq6q": "What happens after I book?",
-    "faq6a": "Your confirmation email comes directly from the airline or provider you booked with. For changes or support, contact them directly — they hold your reservation.",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
+    "faq6a": "Your confirmation email comes directly from the airline or provider you booked with. For changes or support, contact them directly — they hold your reservation."
   },
   "dest": {
     "from": "from",
@@ -541,7 +538,8 @@
     "q2": "Do I need to book {city} attractions in advance?",
     "a2": "For the most popular sights, yes. Many use timed entry and can sell out in school holidays and at weekends.",
     "q3": "Does TicketsJet sell these services?",
-    "a3": "No. We link to the providers, where you choose dates and pay. We don't take payments or add fees."
+    "a3": "No. We link to the providers, where you choose dates and pay. We don't take payments or add fees.",
+    "noFares": "No recent fares found for this route."
   },
   "aci": {
     "metaTitle": "Things to Do — Tours, Tickets & Activities by City",

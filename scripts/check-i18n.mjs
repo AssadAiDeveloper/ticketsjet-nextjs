@@ -23,10 +23,10 @@ if (ffdFailed) { console.error("check-i18n: FAILED (U+FFFD present)"); process.e
 const ALLOWED_TOKENS = new Set(["TicketsJet", "TJ"]);
 function isAllowedToken(tok) {
   if (ALLOWED_TOKENS.has(tok)) return true;
-  if (/^[A-Z]{3}$/.test(tok)) return true; // IATA code
-  if (/^https?:/i.test(tok)) return true; // URL
-  if (/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(tok)) return true; // domain
-  if (/^\d/.test(tok)) return true; // starts with digit
+  if (/^[A-Z]{3}$/.test(tok)) return true;
+  if (/^https?:/i.test(tok)) return true;
+  if (/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(tok)) return true;
+  if (/^\d/.test(tok)) return true;
   if (/^(TicketsJet|Google|AdSense|SIM|QR|Wi-Fi|Cookie|JFK|NYC)$/i.test(tok)) return true;
   return false;
 }
@@ -56,9 +56,9 @@ for (const file of readdirSync(messagesDir).filter((f) => f.endsWith(".json"))) 
 }
 if (garbageFailed) { console.error("check-i18n: FAILED (garbage mixed-script words)"); process.exit(1); }
 
-const enPath = path.join(messagesDir, "en.json");
-const en = JSON.parse(readFileSync(enPath, "utf8"));
-
+// Static scan: t("key") calls must reference keys that exist in messages/en.json.
+// Track variable -> namespace mappings to handle multiple namespaces per file.
+const en = JSON.parse(readFileSync(path.join(messagesDir, "en.json"), "utf8"));
 function flatten(obj, prefix = "", out = {}) {
   for (const [k, v] of Object.entries(obj)) {
     const key = prefix ? `${prefix}.${k}` : k;
@@ -67,8 +67,50 @@ function flatten(obj, prefix = "", out = {}) {
   }
   return out;
 }
-
 const enFlat = flatten(en);
+const srcFiles = walk(process.cwd()).filter((f) => /\.(tsx?|mjs|cjs)$/.test(f));
+let keyScanFailed = false;
+for (const f of srcFiles) {
+  const src = readFileSync(f, "utf8");
+  const lines = src.split(/\r?\n/);
+  const varToNs = {};
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    for (const m of line.matchAll(/(?:const|let|var)\s+(\w+)\s*=\s*(?:await\s+)?(?:useTranslations|getTranslations)\(\s*["']([^"']+)["']\s*\)/g)) {
+      varToNs[m[1]] = m[2];
+    }
+    for (const m of line.matchAll(/(?:const|let|var)\s+(\w+)\s*=\s*(?:await\s+)?(?:useTranslations|getTranslations)\(\s*\{[^}]*namespace:\s*["']([^"']+)["'][^}]*\}\s*\)/g)) {
+      varToNs[m[1]] = m[2];
+    }
+    for (const m of line.matchAll(/\b(\w+)\(\s*["']([^"']+)["']\s*\)/g)) {
+      const varName = m[1];
+      const key = m[2];
+      if (key.includes("${")) continue;
+      if (!(varName in varToNs)) continue;
+      const ns = varToNs[varName];
+      const fullKey = `${ns}.${key}`;
+      if (!(fullKey in enFlat)) {
+        console.error(`Missing message key in ${f}:${i + 1}: ${varName}("${key}") -> ${fullKey} not found in en.json`);
+        keyScanFailed = true;
+      }
+    }
+    for (const m of line.matchAll(/\b(\w+)\.(?:rich|raw|markup)\(\s*["']([^"']+)["']\s*,/g)) {
+      const varName = m[1];
+      const key = m[2];
+      if (!(varName in varToNs)) continue;
+      const ns = varToNs[varName];
+      const fullKey = `${ns}.${key}`;
+      if (!(fullKey in enFlat)) {
+        console.error(`Missing message key in ${f}:${i + 1}: ${varName}.${m[0].split(".")[1].split("(")[0]}("${key}") -> ${fullKey} not found in en.json`);
+        keyScanFailed = true;
+      }
+    }
+  }
+}
+if (keyScanFailed) { console.error("check-i18n: FAILED (missing message keys referenced in source)"); process.exit(1); }
+
+// Smoke assertion note: added separately in scripts/smoke.mjs
+
 const enKeys = Object.keys(enFlat);
 
 function placeholders(s) {
@@ -103,10 +145,10 @@ function tags(s) {
   return set;
 }
 
-const files = readdirSync(messagesDir).filter((f) => f.endsWith(".json") && f !== "en.json");
+const localeFiles = readdirSync(messagesDir).filter((f) => f.endsWith(".json") && f !== "en.json");
 let failed = false;
 
-for (const file of files) {
+for (const file of localeFiles) {
   const locale = file.replace(".json", "");
   const data = JSON.parse(readFileSync(path.join(messagesDir, file), "utf8"));
   const flat = flatten(data);
@@ -150,7 +192,3 @@ if (failed) {
 } else {
   console.log("\ncheck-i18n: all locales OK");
 }
-
-
-
-

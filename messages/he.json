@@ -69,9 +69,7 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
-    "learnMore": "learn more"
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "השוו טיסות. ללא תценות.",
@@ -107,8 +105,7 @@
     "faq5q": "ומה לגבי השכרת רכב?",
     "faq5a": "אנו משווים את חברות ההשכרה המובילות כדי להציע מחירים תחרותיים, ביטול חינם ומדיניות דלק הוגנת «מלא למלא».",
     "faq6q": "מה קורה אחרי ההזמנה?",
-    "faq6a": "מייל האישור מגיע ישירות מחברת התעופה או הספק שאצלו הזמנתם. לשינויים או תמיכה פנו אליהם ישירות — ההזמנה שלכם נמצאת אצלם.",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
+    "faq6a": "מייל האישור מגיע ישירות מחברת התעופה או הספק שאצלו הזמנתם. לשינויים או תמיכה פנו אליהם ישירות — ההזמנה שלכם נמצאת אצלם."
   },
   "dest": {
     "from": "החל מ-",
@@ -541,7 +538,8 @@
     "q2": "האם צריך להזמין מראש אטרקציות ב{city}?",
     "a2": "לאתרים הפופולריים ביותר כן. לרבים יש כניסה לפי שעה והם עלולים להיגמר בחופשות לימודים ובסופי שבוע.",
     "q3": "האם TicketsJet מוכר את השירותים האלה?",
-    "a3": "לא. אנו מפנים לספקים, שם בוחרים תאריכים ומשלמים. איננו גובים תשלומים ואיננו מוסיפים עמלות."
+    "a3": "לא. אנו מפנים לספקים, שם בוחרים תאריכים ומשלמים. איננו גובים תשלומים ואיננו מוסיפים עמלות.",
+    "noFares": "No recent fares found for this route."
   },
   "aci": {
     "metaTitle": "מה לעשות — סיורים, כרטיסים ופעילויות לפי עיר",

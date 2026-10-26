@@ -69,9 +69,7 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
-    "learnMore": "learn more"
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Porównaj loty. Bez dodatkowych opłat.",
@@ -107,8 +105,7 @@
     "faq5q": "A co z wynajmem samochodów?",
     "faq5a": "Porównujemy czołowe wypożyczalnie, by znaleźć konkurencyjne ceny, bezpłatną rezygnację i uczciwą politykę paliwową „pełny–pełny”.",
     "faq6q": "Co dzieje się po rezerwacji?",
-    "faq6a": "E-mail z potwierdzeniem otrzymasz bezpośrednio od linii lotniczej lub dostawcy, u którego rezerwowałeś. W sprawie zmian lub pomocy skontaktuj się z nimi — to oni mają Twoją rezerwację.",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
+    "faq6a": "E-mail z potwierdzeniem otrzymasz bezpośrednio od linii lotniczej lub dostawcy, u którego rezerwowałeś. W sprawie zmian lub pomocy skontaktuj się z nimi — to oni mają Twoją rezerwację."
   },
   "dest": {
     "from": "od",
@@ -541,7 +538,8 @@
     "q2": "Czy muszę rezerwować atrakcje w {city} z wyprzedzeniem?",
     "a2": "W przypadku najpopularniejszych miejsc tak. Wiele ma wejścia na konkretną godzinę i w ferie oraz weekendy bilety mogą się wyprzedać.",
     "q3": "Czy TicketsJet sprzedaje te usługi?",
-    "a3": "Nie. Odsyłamy do dostawców, u których wybierasz daty i płacisz. Nie przyjmujemy płatności ani nie dodajemy opłat."
+    "a3": "Nie. Odsyłamy do dostawców, u których wybierasz daty i płacisz. Nie przyjmujemy płatności ani nie dodajemy opłat.",
+    "noFares": "No recent fares found for this route."
   },
   "aci": {
     "metaTitle": "Co robić — wycieczki, bilety i atrakcje według miast",

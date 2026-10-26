@@ -69,9 +69,7 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
-    "learnMore": "learn more"
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Uçuşları karşılaştır. Ek ücret yok.",
@@ -107,8 +105,7 @@
     "faq5q": "Peki ya araç kiralama?",
     "faq5a": "Rekabetçi fiyatlar, ücretsiz iptal seçenekleri ve adil «dolu-dolu» yakıt politikaları için önde gelen kiralama şirketlerini karşılaştırıyoruz.",
     "faq6q": "Rezervasyondan sonra ne olur?",
-    "faq6a": "Onay e-postanız doğrudan rezervasyon yaptığınız havayolu veya sağlayıcıdan gelir. Değişiklik veya destek için doğrudan onlarla iletişime geçin — rezervasyonunuz onlarda.",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
+    "faq6a": "Onay e-postanız doğrudan rezervasyon yaptığınız havayolu veya sağlayıcıdan gelir. Değişiklik veya destek için doğrudan onlarla iletişime geçin — rezervasyonunuz onlarda."
   },
   "dest": {
     "from": "başlangıç",
@@ -541,7 +538,8 @@
     "q2": "{city} gezilecek yerlerini önceden ayırtmam gerekir mi?",
     "a2": "En popüler yerler için evet. Çoğunda saatli giriş vardır ve okul tatillerinde ve hafta sonları biletler tükenebilir.",
     "q3": "TicketsJet bu hizmetleri satıyor mu?",
-    "a3": "Hayır. Tarihleri seçip ödeme yaptığınız sağlayıcılara bağlantı veririz. Ödeme almaz, ücret eklemeyiz."
+    "a3": "Hayır. Tarihleri seçip ödeme yaptığınız sağlayıcılara bağlantı veririz. Ödeme almaz, ücret eklemeyiz.",
+    "noFares": "No recent fares found for this route."
   },
   "aci": {
     "metaTitle": "Yapılacaklar — Şehre Göre Turlar, Biletler ve Etkinlikler",

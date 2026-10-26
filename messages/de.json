@@ -69,9 +69,7 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
-    "learnMore": "learn more"
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Flüge vergleichen. Keine Aufschläge.",
@@ -107,8 +105,7 @@
     "faq5q": "Und Mietwagen?",
     "faq5a": "Wir vergleichen führende Vermieter für wettbewerbsfähige Preise, kostenlose Stornierung und faire Voll-zu-voll-Tankregelungen.",
     "faq6q": "Was passiert nach der Buchung?",
-    "faq6a": "Die Bestätigungs-E-Mail kommt direkt von der Airline oder dem Anbieter, bei dem du gebucht hast. Für Änderungen oder Support wende dich direkt an sie – sie verwalten deine Reservierung.",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
+    "faq6a": "Die Bestätigungs-E-Mail kommt direkt von der Airline oder dem Anbieter, bei dem du gebucht hast. Für Änderungen oder Support wende dich direkt an sie – sie verwalten deine Reservierung."
   },
   "dest": {
     "from": "ab",
@@ -541,7 +538,8 @@
     "q2": "Muss ich Attraktionen in {city} im Voraus buchen?",
     "a2": "Bei den beliebtesten Sehenswürdigkeiten ja. Viele haben zeitgebundenen Einlass und können in den Schulferien und an Wochenenden ausverkauft sein.",
     "q3": "Verkauft TicketsJet diese Leistungen?",
-    "a3": "Nein. Wir verlinken zu den Anbietern, bei denen du Daten wählst und bezahlst. Wir nehmen keine Zahlungen entgegen und erheben keine Gebühren."
+    "a3": "Nein. Wir verlinken zu den Anbietern, bei denen du Daten wählst und bezahlst. Wir nehmen keine Zahlungen entgegen und erheben keine Gebühren.",
+    "noFares": "No recent fares found for this route."
   },
   "aci": {
     "metaTitle": "Aktivitäten – Touren, Tickets & Erlebnisse nach Stadt",

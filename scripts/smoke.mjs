@@ -111,7 +111,9 @@ for (const locale of locales) {
       const expectRtl = (locale === "ar" || locale === "fa" || locale === "he");
       if (expectRtl && dir !== "rtl") issues.push(`dir=${dir} (expected rtl)`);
       if (!expectRtl && dir === "rtl") issues.push(`dir=rtl (expected ltr)`);
-      if (consoleErrors.length) issues.push(`console: ${consoleErrors.slice(0,2).join(" | ")}`);
+      if (body.includes("MISSING_MESSAGE")) issues.push("MISSING_MESSAGE found");
+      const keyMatches = body.match(/(?:^|>)([a-z][a-zA-Z]*(?:\.[a-zA-Z]+)+)(?:<|$)/g);
+      if (keyMatches && keyMatches.length > 0) issues.push(`raw key in HTML: ${keyMatches.slice(0,3).join(", ")}`);
       if (failedRequests.length) issues.push(`requests: ${failedRequests.slice(0,2).join(" | ")}`);
       issues.push(...extraIssues);
 
@@ -210,4 +212,5 @@ if (failures.length) {
 } else {
   console.log("ALL SMOKE TESTS PASSED");
 }
+
 

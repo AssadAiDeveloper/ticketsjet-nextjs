@@ -226,7 +226,6 @@ export default async function RoutePage({ params }: Props) {
           </section>
         )}
       </div>
-      <p className="mx-auto max-w-6xl px-4 pb-8 text-xs text-slate">{tc("affiliateNote")} <Link href="/affiliate-disclosure" className="underline hover:text-ink">{tc("learnMore")}</Link>.</p>
     </>
   );
 }

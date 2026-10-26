@@ -69,9 +69,7 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
-    "learnMore": "learn more"
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Comparez les vols. Sans frais cachés.",
@@ -107,8 +105,7 @@
     "faq5q": "Et la location de voiture ?",
     "faq5a": "Nous comparons les principaux loueurs pour des prix compétitifs, des options d'annulation gratuite et des politiques de carburant équitables plein-plein.",
     "faq6q": "Que se passe-t-il après la réservation ?",
-    "faq6a": "Votre e-mail de confirmation vient directement de la compagnie ou du fournisseur chez qui vous avez réservé. Pour toute modification ou assistance, contactez-les directement : c'est eux qui détiennent votre réservation.",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
+    "faq6a": "Votre e-mail de confirmation vient directement de la compagnie ou du fournisseur chez qui vous avez réservé. Pour toute modification ou assistance, contactez-les directement : c'est eux qui détiennent votre réservation."
   },
   "dest": {
     "from": "à partir de",
@@ -541,7 +538,8 @@
     "q2": "Dois-je réserver à l'avance les attractions de {city} ?",
     "a2": "Pour les sites les plus populaires, oui. Beaucoup utilisent une entrée horodatée et peuvent afficher complet pendant les vacances scolaires et les week-ends.",
     "q3": "TicketsJet vend-il ces services ?",
-    "a3": "Non. Nous renvoyons vers les fournisseurs, où vous choisissez les dates et payez. Nous n'encaissons aucun paiement et n'ajoutons aucuns frais."
+    "a3": "Non. Nous renvoyons vers les fournisseurs, où vous choisissez les dates et payez. Nous n'encaissons aucun paiement et n'ajoutons aucuns frais.",
+    "noFares": "No recent fares found for this route."
   },
   "aci": {
     "metaTitle": "À faire — Visites, billets et activités par ville",

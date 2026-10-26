@@ -63,7 +63,6 @@ export default async function CarsPage({ params }: { params: Promise<{ locale: s
           <div className="mt-7"><Faq items={faq} /></div>
         </div>
       </section>
-      <p className="mx-auto max-w-6xl px-4 pb-8 text-xs text-slate">{tc("affiliateNote")} <Link href="/affiliate-disclosure" className="underline hover:text-ink">{tc("learnMore")}</Link>.</p>
     </>
   );
 }

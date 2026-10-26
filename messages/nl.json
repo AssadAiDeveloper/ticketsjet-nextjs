@@ -69,9 +69,7 @@
     "travelSearch": "Travel search",
     "flightSearch": "Flight search",
     "photoCredit": "Photo credit",
-    "photoBy": "Photo by {name} on Unsplash",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you.",
-    "learnMore": "learn more"
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Vergelijk vluchten. Geen toeslagen.",
@@ -107,8 +105,7 @@
     "faq5q": "En autoverhuur?",
     "faq5a": "We vergelijken toonaangevende verhuurbedrijven op scherpe prijzen, gratis annuleren en eerlijke vol-vol-brandstofbeleid.",
     "faq6q": "Wat gebeurt er na het boeken?",
-    "faq6a": "Je bevestigingsmail komt rechtstreeks van de luchtvaartmaatschappij of aanbieder bij wie je boekte. Neem voor wijzigingen of hulp rechtstreeks contact met hen op; zij beheren je reservering.",
-    "affiliateNote": "Some links are affiliate links; we may earn a commission at no extra cost to you."
+    "faq6a": "Je bevestigingsmail komt rechtstreeks van de luchtvaartmaatschappij of aanbieder bij wie je boekte. Neem voor wijzigingen of hulp rechtstreeks contact met hen op; zij beheren je reservering."
   },
   "dest": {
     "from": "vanaf",
@@ -541,7 +538,8 @@
     "q2": "Moet ik attracties in {city} vooraf boeken?",
     "a2": "Voor de populairste bezienswaardigheden wel. Veel werken met tijdslots en kunnen uitverkocht raken in schoolvakanties en weekenden.",
     "q3": "Verkoopt TicketsJet deze diensten?",
-    "a3": "Nee. We verwijzen naar de aanbieders, waar je data kiest en betaalt. We nemen geen betalingen aan en rekenen geen kosten."
+    "a3": "Nee. We verwijzen naar de aanbieders, waar je data kiest en betaalt. We nemen geen betalingen aan en rekenen geen kosten.",
+    "noFares": "No recent fares found for this route."
   },
   "aci": {
     "metaTitle": "Doen & zien — tours, tickets en activiteiten per stad",

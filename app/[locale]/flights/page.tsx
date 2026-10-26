@@ -152,7 +152,6 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
         </>
       )}
 
-      <p className="mx-auto max-w-6xl px-4 pt-6 text-xs text-slate">{tc("affiliateNote")} <Link href="/affiliate-disclosure" className="underline hover:text-ink">{tc("learnMore")}</Link>.</p>
       <AdSlot slot="3333333333" className="mt-10" />
 
       <section className="mx-auto max-w-6xl px-4 py-16">

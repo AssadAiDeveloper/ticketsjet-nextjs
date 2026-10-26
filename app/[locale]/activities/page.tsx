@@ -34,7 +34,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           </li>
         ))}
       </ul>
-    <p className="mt-6 text-xs text-slate">{tc("affiliateNote")} <Link href="/affiliate-disclosure" className="underline hover:text-ink">{tc("learnMore")}</Link>.</p>
     </div>
   );
 }
