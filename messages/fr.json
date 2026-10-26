@@ -67,7 +67,9 @@
     "done": "Terminé",
     "sources": "Les prix sont indicatifs et changent souvent ; le prix final est confirmé sur le site du fournisseur.",
     "travelSearch": "Travel search",
-    "flightSearch": "Flight search"
+    "flightSearch": "Flight search",
+    "photoCredit": "Photo credit",
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Comparez les vols. Sans frais cachés.",

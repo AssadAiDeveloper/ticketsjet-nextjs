@@ -51,7 +51,7 @@ export default function DestPhoto({
       width={photo.width || 1600}
       height={photo.height || 900}
       className={`absolute inset-0 h-full w-full object-cover ${className}`}
-      style={{ backgroundColor: photo.color || undefined }}
+      style={{ backgroundColor: photo.color || undefined, objectPosition: "center 35%" }}
       decoding="async"
     />
   );

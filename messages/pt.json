@@ -67,7 +67,9 @@
     "done": "Concluído",
     "sources": "Os preços são indicativos e mudam com frequência; o preço final é confirmado no site do fornecedor.",
     "travelSearch": "Travel search",
-    "flightSearch": "Flight search"
+    "flightSearch": "Flight search",
+    "photoCredit": "Photo credit",
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Compare voos. Sem taxas extras.",

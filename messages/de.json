@@ -67,7 +67,9 @@
     "done": "Fertig",
     "sources": "Preise sind Richtwerte und ändern sich oft; der Endpreis wird auf der Website des Anbieters bestätigt.",
     "travelSearch": "Travel search",
-    "flightSearch": "Flight search"
+    "flightSearch": "Flight search",
+    "photoCredit": "Photo credit",
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Flüge vergleichen. Keine Aufschläge.",

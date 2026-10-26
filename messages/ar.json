@@ -67,7 +67,9 @@
     "done": "تم",
     "sources": "الأسعار للاسترشاد وتتغير كثيراً؛ يُؤكَّد السعر النهائي على موقع المزوّد.",
     "travelSearch": "Travel search",
-    "flightSearch": "Flight search"
+    "flightSearch": "Flight search",
+    "photoCredit": "Photo credit",
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "قارن الرحلات. بلا رسوم إضافية.",

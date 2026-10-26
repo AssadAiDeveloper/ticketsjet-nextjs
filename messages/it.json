@@ -67,7 +67,9 @@
     "done": "Fatto",
     "sources": "I prezzi sono indicativi e cambiano spesso; il prezzo finale è confermato sul sito del fornitore.",
     "travelSearch": "Travel search",
-    "flightSearch": "Flight search"
+    "flightSearch": "Flight search",
+    "photoCredit": "Photo credit",
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Confronta voli. Senza sovrapprezzi.",

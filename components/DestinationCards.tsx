@@ -1,4 +1,4 @@
-﻿import { isRtl } from "@/i18n/routing";
+import { isRtl } from "@/i18n/routing";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import Price from "@/components/Price";
@@ -6,6 +6,7 @@ import { dayMonth } from "@/lib/format";
 import { PHOTOS } from "@/lib/destinations";
 import { allPhotos } from "@/lib/destinationPhotos";
 import DestPhoto from "@/components/DestPhoto";
+import PhotoCredit from "@/components/PhotoCredit";
 
 export type Dest = { code: string; name: string; country: string; price: number; href: string; depart: string | null };
 
@@ -22,7 +23,7 @@ export default async function DestinationCards({ origin, items }: { origin: { co
   const t = await getTranslations("dest");
   const locale = await getLocale();
   const photos = allPhotos();
-  const arrow = isRtl(locale) ? "→" : "→";
+  const arrow = isRtl(locale) ? "\u2192" : "\u2192";
   const when = (iso: string | null) => (iso ? dayMonth(iso, locale) : null);
   return (
     <section className="mx-auto max-w-6xl px-4 pt-16">
@@ -50,6 +51,7 @@ export default async function DestinationCards({ origin, items }: { origin: { co
               >
                 {hasPhoto && <DestPhoto code={d.code} photo={photos[d.code]} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" alt={`${d.name}, ${d.country}`} className="z-0" />}
                 {hasPhoto && <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true" />}
+                {hasPhoto && <div className="absolute inset-x-0 top-0 z-[1] h-1/4 bg-gradient-to-b from-black/35 to-transparent pointer-events-none" aria-hidden="true" />}
                 {hasPhoto && (
                   <span className="absolute start-3 top-3 z-10 rounded-md bg-black/40 px-2 py-0.5 font-mono text-[11px] font-semibold text-white/90 backdrop-blur-sm">
                     {d.code}
@@ -60,22 +62,27 @@ export default async function DestinationCards({ origin, items }: { origin: { co
                     {d.code}
                   </span>
                 )}
-                <span className="relative z-10">
+                <span className="relative z-10 mt-auto">
                   <span className="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">
-                    <span dir="ltr">{origin.code} → {d.code}</span>
+                    <span dir="ltr">{origin.code} ? {d.code}</span>
                   </span>
-                  <span className="font-display mt-1 block text-2xl font-bold leading-tight drop-shadow"><bdi>{d.name}</bdi></span>
-                  <span className="block text-sm text-white/60 drop-shadow">{d.country}</span>
+                  <span className="font-display mt-1 block text-xl font-bold leading-tight drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]"><bdi>{d.name}</bdi></span>
+                  <span className="block text-sm text-white/90 drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">{d.country}</span>
                   <span className="mt-3 flex items-end justify-between border-t border-white/15 pt-3">
                     <span>
                       <span className="block text-[11px] text-white/50">{t("from")}</span>
-                      <Price usd={d.price} className="font-display text-2xl font-extrabold text-amber drop-shadow" />
+                      <span className="inline-block rounded-lg bg-black/55 px-2.5 py-1 backdrop-blur-sm">
+                        <Price usd={d.price} className="font-display text-2xl font-extrabold text-amber drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]" />
+                      </span>
                     </span>
-                    {when(d.depart) && <span className="text-xs text-white/60">{when(d.depart)}</span>}
+                    {when(d.depart) && <span className="text-xs text-white/90 drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">{when(d.depart)}</span>}
                   </span>
                 </span>
               </Link>
-              {photos[d.code]?.author && (<span className="absolute bottom-2 end-2 z-20 text-[10px] text-white/70 opacity-70"><bdi>Photo: {photos[d.code].author} / Unsplash</bdi></span>)}
+              {photos[d.code]?.author && (
+                <span className="absolute bottom-2 end-2 z-20 text-[10px] text-white/70 opacity-70">
+                </span>
+              )}
             </li>
           );
         })}

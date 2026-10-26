@@ -67,7 +67,9 @@
     "done": "Done",
     "sources": "Prices are a guide and change often; the final price is confirmed on the provider's site.",
     "travelSearch": "Travel search",
-    "flightSearch": "Flight search"
+    "flightSearch": "Flight search",
+    "photoCredit": "Photo credit",
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Compare flights. Skip the markup.",

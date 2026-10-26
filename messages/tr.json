@@ -67,7 +67,9 @@
     "done": "Tamam",
     "sources": "Fiyatlar yol göstericidir ve sık değişir; nihai fiyat sağlayıcının sitesinde onaylanır.",
     "travelSearch": "Travel search",
-    "flightSearch": "Flight search"
+    "flightSearch": "Flight search",
+    "photoCredit": "Photo credit",
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Uçuşları karşılaştır. Ek ücret yok.",

@@ -7,6 +7,7 @@ import Price from "@/components/Price";
 import { dayMonth, monthName } from "@/lib/format";
 import { PHOTOS } from "@/lib/destinations";
 import DestPhoto from "@/components/DestPhoto";
+import PhotoCredit from "@/components/PhotoCredit";
 import { allPhotos } from "@/lib/destinationPhotos";
 import type { Deal } from "@/lib/deals";
 
@@ -72,6 +73,7 @@ export default function DealsGrid({ origin, items }: { origin: { code: string; n
                     <span className="font-display select-none text-5xl font-extrabold leading-none tracking-tight text-white/10 transition group-hover:text-amber/30" aria-hidden="true">{d.code}</span>
                   )}
                   {d.stops === 0 && <span className="absolute end-3 top-3 z-10 rounded-full bg-signal/20 px-2.5 py-1 text-[11px] font-semibold text-signal">{tc("direct")}</span>}
+                  {photos[d.code]?.author && <PhotoCredit author={photos[d.code].author || ""} authorUrl={photos[d.code].photoUrl || ""} photoUrl={photos[d.code].photoUrl || ""} />}
                   <span className="relative z-10 mt-auto">
                     <span className="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"><span dir="ltr">{origin.code} ? {d.code}</span></span>
                     <span className="font-display mt-1 block text-2xl font-bold leading-tight drop-shadow"><bdi>{d.name}</bdi></span>
@@ -87,7 +89,6 @@ export default function DealsGrid({ origin, items }: { origin: { code: string; n
                 </Link>
                 {photos[d.code]?.author && (
                   <span className="absolute bottom-2 end-2 z-20 text-[10px] text-white/70 opacity-70">
-                    <bdi>Photo: {photos[d.code].author} / Unsplash</bdi>
                   </span>
                 )}
               </li>

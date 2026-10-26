@@ -67,7 +67,9 @@
     "done": "Listo",
     "sources": "Los precios son orientativos y cambian a menudo; el precio final se confirma en la web del proveedor.",
     "travelSearch": "Travel search",
-    "flightSearch": "Flight search"
+    "flightSearch": "Flight search",
+    "photoCredit": "Photo credit",
+    "photoBy": "Photo by {name} on Unsplash"
   },
   "home": {
     "h1": "Compara vuelos. Sin comisiones.",
