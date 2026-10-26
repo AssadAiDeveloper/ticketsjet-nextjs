@@ -8,6 +8,34 @@ mkdirSync(OUT, { recursive: true });
 
 const locales = ["en","ar","nl","es","fr","de","it","pt","tr","ru","pl","fa","he"];
 const rtl = new Set(["ar","fa","he"]);
+const promotedCities = ["LON","PAR","ROM","BCN","AMS","MAD","IST","LIS","DXB","NYC","ATH","BKK","CAI"];
+// load city-names data for fallback table
+import fs from "node:fs";
+const cityNames = {};
+for (const loc of locales) {
+  if (loc === "en") continue;
+  try { cityNames[loc] = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "city-names", loc + ".json"), "utf8")); } catch { cityNames[loc] = {}; }
+}
+// English city names for promoted cities (from messages/en.json place.*.name)
+const enMessages = JSON.parse(fs.readFileSync(path.join(process.cwd(), "messages", "en.json"), "utf8"));
+const enCityNames = {};
+for (const code of promotedCities) {
+  const key = code.toLowerCase();
+  enCityNames[code] = enMessages.place && enMessages.place[key] ? enMessages.place[key].name : code;
+}
+// print fallback table
+console.log("\n=== City name fallback table ===");
+console.log("locale | promoted | fallback to English");
+for (const loc of locales) {
+  if (loc === "en") continue;
+  let fallback = 0;
+  for (const c of promotedCities) {
+    const locName = cityNames[loc][c];
+    if (!locName || locName === c || locName.toUpperCase() === c) fallback++;
+  }
+  console.log(`${loc} | ${promotedCities.length} | ${fallback}`);
+}
+console.log("");
 const paths = ["/", "/flights", "/stays", "/cars", "/explore", "/blog", "/help", "/privacy-policy", "/destinations", "/cheap-flights", "/activities", "/services", "/about-us", "/terms-and-conditions", "/affiliate-disclosure", "/trip-finder"];
 const viewports = [{w:375,h:800},{w:1280,h:800}];
 
@@ -83,19 +111,16 @@ for (const locale of locales) {
         if (clientLang !== locale) extraIssues.push(`client lang=${clientLang} (expected ${locale})`);
         if (expectRtl && clientDir !== "rtl") extraIssues.push(`client dir=${clientDir} (expected rtl)`);
         if (!expectRtl && clientDir === "rtl") extraIssues.push(`client dir=rtl (expected ltr)`);
-        const nonLatin = new Set(["ar", "fa", "he", "ru"]);
-        if (p === "/destinations" && nonLatin.has(locale)) {
+        const nonLatinLocales = new Set(["ar", "fa", "he", "ru"]);
+        if ((p === "/destinations" || p === "/") && nonLatinLocales.has(locale)) {
           const html = await page.content();
-          for (const enName of ["Amsterdam", "London", "Paris"]) {
-            const re = new RegExp("(?<!Europe/)" + enName);
-            if (re.test(html)) extraIssues.push(`destinations contains English "${enName}"`);
-          }
-        }
-        if (p === "/" && nonLatin.has(locale)) {
-          const html = await page.content();
-          for (const enName of ["Amsterdam", "Madrid"]) {
-            const re = new RegExp("(?<!Europe/)" + enName);
-            if (re.test(html)) extraIssues.push(`home contains English "${enName}"`);
+          const cn = cityNames[locale] || {};
+          for (const code of promotedCities) {
+            const locName = cn[code];
+            const enName = enCityNames[code];
+            if (!locName || locName === enName) continue; // fallback or identical, skip
+            const re = new RegExp("(?<!Europe/)" + enName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+            if (re.test(html)) extraIssues.push(`${p} contains English city name "${enName}" (should be "${locName}")`);
           }
         }
         if (p === "/stays" && locale !== "en") {
