@@ -5,6 +5,7 @@ import StaysForm from "@/components/StaysForm";
 import Faq from "@/components/Faq";
 import { bookingUrl } from "@/lib/config";
 import { alternatesFor } from "@/lib/i18nPages";
+import { cityName as locCity } from "@/lib/cityName";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -12,8 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return { title: t("metaTitle"), description: t("metaDesc"), alternates: alternatesFor(locale, "/stays"), robots: { index: false, follow: true } };
 }
 
-// [English name for the Booking.com query, key in messages "place"]
-const cities: [string, string][] = [["Rome", "rom"], ["Dubai", "dxb"], ["Barcelona", "bcn"], ["Amsterdam", "ams"], ["New York", "nyc"], ["London", "lon"], ["Paris", "par"], ["Istanbul", "ist"]];
+const cities: [string, string][] = [["Rome", "rom"], ["Dubai", "dxb"], ["Barcelona", "bcn"], ["Amsterdam", "ams"], ["New York", "nyc"], ["London", "lon"]];
 
 export default async function StaysPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -21,38 +21,144 @@ export default async function StaysPage({ params }: { params: Promise<{ locale: 
   const t = await getTranslations("stays");
   const tp = await getTranslations("place");
   const tc = await getTranslations("common");
-  const faq = [1, 2, 3].map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
+  const faq = [1, 2, 3, 4, 5, 6].map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
+  const cityChips = ["rom", "dxb", "bcn", "ams", "nyc", "lon"];
   return (
     <>
-      <section className="bg-ink pb-16 pt-14">
-        <div className="mx-auto max-w-6xl px-4">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker")}</p>
-          <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{t("h1")}</h1>
-          <p className="mt-4 max-w-xl text-white/70">{t("lead")}</p>
-          <div className="boarding-pass mt-9 px-5 py-6 sm:px-7">
+      <section className="relative bg-ink pb-8 pt-8 sm:pb-12 sm:pt-12">
+        <div className="mx-auto max-w-5xl px-4">
+          <h1 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">{t("h1")}</h1>
+          <p className="mt-3 max-w-xl text-white/70">{t("lead")}</p>
+          <div className="boarding-pass mt-6 px-5 py-6 sm:px-7">
             <StaysForm />
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">{t("popular")}</h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {cities.map(([c, k]) => (
-            <a key={c} href={bookingUrl({ city: c })} target="_blank" rel="nofollow noopener" className="group rounded-2xl border border-mist bg-white p-5 transition hover:border-amber hover:shadow-lg">
-              <p className="font-display text-lg font-bold text-ink">{t("hotelsIn", { city: tp(`${k}.name`) })}</p>
-              <p className="mt-3 text-sm font-semibold text-amber-deep group-hover:underline">{t("searchBooking")}</p>
-            </a>
-          ))}
-        </div>
-      </section>
+      <div className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
+        <nav className="text-xs text-slate">
+          <Link href="/" className="hover:text-ink">{tc("home")}</Link>
+          <span className="mx-2">/</span>
+          <span className="text-ink">{t("h1")}</span>
+        </nav>
 
-      <section className="border-t border-mist bg-white">
-        <div className="mx-auto max-w-3xl px-4 py-16">
-          <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">{t("faqTitle")}</h2>
-          <div className="mt-7"><Faq items={faq} /></div>
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          <div className="flex items-center gap-3 rounded-xl border border-mist bg-white p-4 shadow-sm">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
+            </span>
+            <span className="text-sm font-medium text-ink">{t("trust1")}</span>
+          </div>
+          <div className="flex items-center gap-3 rounded-xl border border-mist bg-white p-4 shadow-sm">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+            </span>
+            <span className="text-sm font-medium text-ink">{t("trust2")}</span>
+          </div>
+          <div className="flex items-center gap-3 rounded-xl border border-mist bg-white p-4 shadow-sm">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
+            </span>
+            <span className="text-sm font-medium text-ink">{t("trust3")}</span>
+          </div>
         </div>
-      </section>
+
+        <div className="mt-10 sm:mt-14">
+          <Link href="/destinations" className="group relative block aspect-[4/3] overflow-hidden rounded-xl sm:aspect-[16/6]">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#16324a] to-[#0b1b2b]" />
+            <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
+              <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">{t("bannerTitle")}</h2>
+              <p className="mt-2 max-w-xl text-sm text-white/80 sm:text-base">{t("bannerSub")}</p>
+              <span className="mt-4 inline-block w-fit rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-ink transition group-hover:bg-amber">{t("bannerCta")}</span>
+            </div>
+          </Link>
+        </div>
+
+        <section className="mt-10 sm:mt-14">
+          <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl">{t("popular")}</h2>
+          <p className="mt-2 text-sm text-slate">{t("popularDesc")}</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {cityChips.map((k) => (
+              <span key={k} className="rounded-full border border-mist bg-white px-4 py-2 text-sm font-medium text-ink">{tp(`${k}.name`)}</span>
+            ))}
+          </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {cities.slice(0, 6).map(([c, k]) => (
+              <a key={c} href={bookingUrl({ city: c })} target="_blank" rel="nofollow noopener" className="group flex h-full flex-col overflow-hidden rounded-xl border border-mist bg-white transition hover:border-amber hover:shadow-lg">
+                <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-[#16324a] to-[#0b1b2b]">
+                  <div className="absolute inset-0 flex items-end p-4">
+                    <p className="font-display text-xl font-bold text-white">{tp(`${k}.name`)}</p>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <p className="text-sm text-slate">{tp(`${k}.name`)}</p>
+                  <p className="mt-2 text-sm font-semibold text-amber-deep group-hover:underline">{t("searchBooking")}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-10 sm:mt-14">
+          <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl">{t("exploreMore")}</h2>
+          <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {cities.map(([c, k]) => (
+              <a key={c} href={bookingUrl({ city: c })} target="_blank" rel="nofollow noopener" className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-xl bg-gradient-to-br from-[#16324a] to-[#0b1b2b] p-4 text-white transition hover:-translate-y-1 hover:shadow-xl">
+                <p className="font-display text-lg font-bold">{tp(`${k}.name`)}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <div className="mt-10 grid gap-4 rounded-xl bg-cloud p-6 sm:grid-cols-3 sm:mt-14">
+          <div className="flex items-start gap-3">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-ink">{t("feature1t")}</p>
+              <p className="mt-1 text-xs text-slate">{t("feature1d")}</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-ink">{t("feature2t")}</p>
+              <p className="mt-1 text-xs text-slate">{t("feature2d")}</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg>
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-ink">{t("feature3t")}</p>
+              <p className="mt-1 text-xs text-slate">{t("feature3d")}</p>
+            </div>
+          </div>
+        </div>
+
+        <section className="mt-10 sm:mt-14">
+          <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl">{t("faqTitle")}</h2>
+          <div className="mt-4"><Faq items={faq} /></div>
+        </section>
+
+        <section className="mt-10 sm:mt-14">
+          <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl">{t("moreTravel")}</h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <button className="rounded-full border border-mist bg-white px-4 py-2 text-sm font-medium text-ink">{t("byStars")}</button>
+            <button className="rounded-full border border-mist bg-white px-4 py-2 text-sm font-medium text-ink">{t("popularCities")}</button>
+            <button className="rounded-full border border-mist bg-white px-4 py-2 text-sm font-medium text-ink">{t("topCountries")}</button>
+          </div>
+          <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-3">
+            {cities.map(([c, k]) => (
+              <li key={c}><a href={bookingUrl({ city: c })} target="_blank" rel="nofollow noopener" className="text-sm text-slate hover:text-ink hover:underline">{tp(`${k}.name`)}</a></li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </>
   );
 }
