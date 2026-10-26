@@ -313,16 +313,39 @@
   },
   "he": {
     "IST": "איסטנבול",
-    "BCN": "ברצלונה"
+    "BCN": "ברצלונה",
+    "VIE": "וינה",
+    "MNL": "מנילה"
   },
   "fa": {
     "BCN": "بارسلونا",
-    "IST": "استانبول"
+    "IST": "استانبول",
+    "VIE": "وین"
   },
   "ru": {
-    "IST": "Стамбул"
+    "IST": "Стамбул",
+    "VIE": "Вена"
   },
   "tr": {
-    "IST": "İstanbul"
+    "IST": "İstanbul",
+    "VIE": "Viyana"
+  },
+  "es": {
+    "VIE": "Viena"
+  },
+  "fr": {
+    "VIE": "Vienne"
+  },
+  "de": {
+    "VIE": "Wien"
+  },
+  "it": {
+    "VIE": "Vienna"
+  },
+  "pt": {
+    "VIE": "Viena"
+  },
+  "pl": {
+    "VIE": "Wiedeń"
   }
 }
