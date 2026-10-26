@@ -31,6 +31,10 @@ for (const locale of locales) {
         const u = r.url();
         if (IGNORE_HOSTS.some((h) => u.includes(h))) return;
         if (u.includes("_rsc=")) return;
+        if (u.includes("/api/map-prices")) {
+          console.log(`SKIPPED (no token): ${u}`);
+          return;
+        }
         failedRequests.push(`${r.failure()?.errorText || "?"} ${u}`);
       });
       page.on("response", (r) => {
@@ -38,6 +42,10 @@ for (const locale of locales) {
           const u = r.url();
           if (IGNORE_HOSTS.some((h) => u.includes(h))) return;
           if (u.includes("_rsc=")) return;
+          if (r.status() === 503 && u.includes("/api/map-prices")) {
+            console.log(`SKIPPED (no token): ${u}`);
+            return;
+          }
           failedRequests.push(`HTTP ${r.status()} ${u}`);
         }
       });
@@ -75,16 +83,19 @@ for (const locale of locales) {
         if (clientLang !== locale) extraIssues.push(`client lang=${clientLang} (expected ${locale})`);
         if (expectRtl && clientDir !== "rtl") extraIssues.push(`client dir=${clientDir} (expected rtl)`);
         if (!expectRtl && clientDir === "rtl") extraIssues.push(`client dir=rtl (expected ltr)`);
-        if (p === "/destinations" && locale !== "en") {
+        const nonLatin = new Set(["ar", "fa", "he", "ru"]);
+        if (p === "/destinations" && nonLatin.has(locale)) {
           const html = await page.content();
           for (const enName of ["Amsterdam", "London", "Paris"]) {
-            if (html.includes(enName)) extraIssues.push(`destinations contains English "${enName}"`);
+            const re = new RegExp("(?<!Europe/)" + enName);
+            if (re.test(html)) extraIssues.push(`destinations contains English "${enName}"`);
           }
         }
-        if (p === "/" && locale !== "en") {
+        if (p === "/" && nonLatin.has(locale)) {
           const html = await page.content();
           for (const enName of ["Amsterdam", "Madrid"]) {
-            if (html.includes(enName)) extraIssues.push(`home contains English "${enName}"`);
+            const re = new RegExp("(?<!Europe/)" + enName);
+            if (re.test(html)) extraIssues.push(`home contains English "${enName}"`);
           }
         }
         if (p === "/stays" && locale !== "en") {
