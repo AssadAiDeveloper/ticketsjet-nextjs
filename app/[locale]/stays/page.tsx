@@ -6,6 +6,8 @@ import Faq from "@/components/Faq";
 import { bookingUrl } from "@/lib/config";
 import { alternatesFor } from "@/lib/i18nPages";
 import { cityName as locCity } from "@/lib/cityName";
+import DestPhoto from "@/components/DestPhoto";
+import { allPhotos } from "@/lib/destinationPhotos";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -13,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return { title: t("metaTitle"), description: t("metaDesc"), alternates: alternatesFor(locale, "/stays"), robots: { index: false, follow: true } };
 }
 
-const cities: [string, string][] = [["Rome", "rom"], ["Dubai", "dxb"], ["Barcelona", "bcn"], ["Amsterdam", "ams"], ["New York", "nyc"], ["London", "lon"]];
+const cities: [string, string][] = [["Rome", "rom"], ["Dubai", "dxb"], ["Barcelona", "bcn"], ["Amsterdam", "ams"], ["New York", "nyc"], ["London", "lon"], ["Paris", "par"], ["Istanbul", "ist"]];
 
 export default async function StaysPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -21,8 +23,8 @@ export default async function StaysPage({ params }: { params: Promise<{ locale: 
   const t = await getTranslations("stays");
   const tp = await getTranslations("place");
   const tc = await getTranslations("common");
+  const photos = allPhotos();
   const faq = [1, 2, 3, 4, 5, 6].map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
-  const cityChips = ["rom", "dxb", "bcn", "ams", "nyc", "lon"];
   return (
     <>
       <section className="relative bg-ink pb-8 pt-8 sm:pb-12 sm:pt-12">
@@ -65,33 +67,32 @@ export default async function StaysPage({ params }: { params: Promise<{ locale: 
 
         <div className="mt-10 sm:mt-14">
           <Link href="/destinations" className="group relative block aspect-[4/3] overflow-hidden rounded-xl sm:aspect-[16/6]">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#16324a] to-[#0b1b2b]" />
-            <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
+            {photos["LON"] && <DestPhoto code="LON" photo={photos["LON"]} sizes="100vw" alt="London" className="z-0" />}
+            {photos["LON"] && <div className="absolute inset-0 z-[1] bg-gradient-to-r from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true" />}
+            <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 sm:p-10">
               <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">{t("bannerTitle")}</h2>
               <p className="mt-2 max-w-xl text-sm text-white/80 sm:text-base">{t("bannerSub")}</p>
               <span className="mt-4 inline-block w-fit rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-ink transition group-hover:bg-amber">{t("bannerCta")}</span>
             </div>
+            {photos["LON"]?.author && (<span className="absolute bottom-2 end-2 z-20 text-[10px] text-white/70 opacity-70"><bdi>Photo: {photos["LON"].author} / Unsplash</bdi></span>)}
           </Link>
         </div>
 
         <section className="mt-10 sm:mt-14">
           <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl">{t("popular")}</h2>
           <p className="mt-2 text-sm text-slate">{t("popularDesc")}</p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {cityChips.map((k) => (
-              <span key={k} className="rounded-full border border-mist bg-white px-4 py-2 text-sm font-medium text-ink">{tp(`${k}.name`)}</span>
-            ))}
-          </div>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {cities.slice(0, 6).map(([c, k]) => (
               <a key={c} href={bookingUrl({ city: c })} target="_blank" rel="nofollow noopener" className="group flex h-full flex-col overflow-hidden rounded-xl border border-mist bg-white transition hover:border-amber hover:shadow-lg">
-                <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-[#16324a] to-[#0b1b2b]">
-                  <div className="absolute inset-0 flex items-end p-4">
-                    <p className="font-display text-xl font-bold text-white">{tp(`${k}.name`)}</p>
+                <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-[#16324a] to-[#0b1b2b]">
+                  {photos[k.toUpperCase()] && <DestPhoto code={k.toUpperCase()} photo={photos[k.toUpperCase()]} sizes="(min-width: 1024px) 33vw, 50vw, 100vw" alt={tp(`${k}.name`)} className="z-0" />}
+                  {photos[k.toUpperCase()] && <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" aria-hidden="true" />}
+                  <div className="absolute inset-0 z-10 flex items-end p-4">
+                    <p className="font-display text-xl font-bold text-white drop-shadow"><bdi>{tp(`${k}.name`)}</bdi></p>
                   </div>
+                  {photos[k.toUpperCase()]?.author && (<span className="absolute bottom-2 end-2 z-20 text-[10px] text-white/70 opacity-70"><bdi>Photo: {photos[k.toUpperCase()].author} / Unsplash</bdi></span>)}
                 </div>
                 <div className="p-4">
-                  <p className="text-sm text-slate">{tp(`${k}.name`)}</p>
                   <p className="mt-2 text-sm font-semibold text-amber-deep group-hover:underline">{t("searchBooking")}</p>
                 </div>
               </a>
@@ -104,7 +105,12 @@ export default async function StaysPage({ params }: { params: Promise<{ locale: 
           <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
             {cities.map(([c, k]) => (
               <a key={c} href={bookingUrl({ city: c })} target="_blank" rel="nofollow noopener" className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-xl bg-gradient-to-br from-[#16324a] to-[#0b1b2b] p-4 text-white transition hover:-translate-y-1 hover:shadow-xl">
-                <p className="font-display text-lg font-bold">{tp(`${k}.name`)}</p>
+                {photos[k.toUpperCase()] && <DestPhoto code={k.toUpperCase()} photo={photos[k.toUpperCase()]} sizes="(min-width: 1024px) 33vw, 50vw, 100vw" alt={tp(`${k}.name`)} className="z-0" />}
+                {photos[k.toUpperCase()] && <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true" />}
+                {photos[k.toUpperCase()] && <DestPhoto code={k.toUpperCase()} photo={photos[k.toUpperCase()]} sizes="(min-width: 1024px) 33vw, 50vw, 100vw" alt={tp(`${k}.name`)} className="z-0" />}
+                {photos[k.toUpperCase()] && <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true" />}
+                <p className="relative z-10 font-display text-lg font-bold drop-shadow"><bdi>{tp(`${k}.name`)}</bdi></p>
+                <span className="relative z-10 text-xs text-white/80 drop-shadow">{locCity(k.toUpperCase(), locale, tp(`${k}.name`)) !== tp(`${k}.name`) ? '' : ''}</span>
               </a>
             ))}
           </div>
