@@ -79,28 +79,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="relative z-10 -mt-6 mx-auto max-w-5xl px-4">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <Link href="/trip-finder" className="flex h-12 items-center gap-3 rounded-xl bg-ink px-4 text-sm font-semibold text-white transition hover:bg-ink-2 sm:h-14">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16 8-2 6-6 2 2-6 6-2Z" /></svg>
-            <span className="truncate">{tn("tripFinder")}</span>
-          </Link>
-          <Link href="/stays" className="flex h-12 items-center gap-3 rounded-xl bg-ink px-4 text-sm font-semibold text-white transition hover:bg-ink-2 sm:h-14">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 15h18M7 9V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" /></svg>
-            <span className="truncate">{tn("stays")}</span>
-          </Link>
-          <Link href="/cars" className="flex h-12 items-center gap-3 rounded-xl bg-ink px-4 text-sm font-semibold text-white transition hover:bg-ink-2 sm:h-14">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11m-14 0h14a2 2 0 0 1 2 2v4h-2.5a2 2 0 1 1-4 0h-5a2 2 0 1 1-4 0H3v-4a2 2 0 0 1 2-2Z" /></svg>
-            <span className="truncate">{tn("cars")}</span>
-          </Link>
-          <Link href="/explore" className="flex h-12 items-center gap-3 rounded-xl bg-ink px-4 text-sm font-semibold text-white transition hover:bg-ink-2 sm:h-14">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z" /><circle cx="12" cy="9" r="2.5" /></svg>
-            <span className="truncate">{tn("explore")}</span>
-          </Link>
-        </div>
-      </section>
-
-      <section className="relative z-10 -mt-6 mx-auto max-w-5xl px-4">
+      <section className="relative z-10 mt-6 sm:mt-8 mx-auto max-w-5xl px-4">
         <div className="grid gap-3 sm:grid-cols-3">
           <div className="flex items-center gap-3 rounded-xl border border-mist bg-white p-4 shadow-sm sm:p-5">
             <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
