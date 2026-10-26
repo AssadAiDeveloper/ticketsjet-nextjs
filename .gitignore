@@ -1,6 +1,7 @@
 node_modules
 .next
 .swc-cache
+data/photo-candidates.json
 out
 .env*.local
 .vercel

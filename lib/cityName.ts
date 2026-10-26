@@ -7,6 +7,7 @@ import { isLocale } from "@/i18n/routing";
 
 const cache = new Map<string, Record<string, string>>();
 const overridesCache: { data: Record<string, Record<string, string>> | null } = { data: null };
+const wikidataCache: { data: Record<string, Record<string, string>> | null } = { data: null };
 
 function loadOverrides(): Record<string, Record<string, string>> {
   if (overridesCache.data) return overridesCache.data;
@@ -17,6 +18,18 @@ function loadOverrides(): Record<string, Record<string, string>> {
   } catch {
     overridesCache.data = {};
     return overridesCache.data!;
+  }
+}
+
+function loadWikidata(): Record<string, Record<string, string>> {
+  if (wikidataCache.data) return wikidataCache.data;
+  try {
+    const p = path.join(process.cwd(), "data", "city-names", "wikidata.json");
+    wikidataCache.data = JSON.parse(readFileSync(p, "utf8"));
+    return wikidataCache.data!;
+  } catch {
+    wikidataCache.data = {};
+    return wikidataCache.data!;
   }
 }
 
@@ -39,6 +52,9 @@ export function cityName(code: string, locale: string, fallback?: string): strin
   const overrides = loadOverrides();
   const ov = overrides[loc] && overrides[loc][code.toUpperCase()];
   if (ov) return ov;
+  const wikidata = loadWikidata();
+  const wv = wikidata[loc] && wikidata[loc][code.toUpperCase()];
+  if (wv) return wv;
   const data = load(loc);
   if (data[code]) return data[code];
   if (loc !== "en") {
