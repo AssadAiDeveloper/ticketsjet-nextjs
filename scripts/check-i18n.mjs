@@ -20,16 +20,15 @@ for (const f of walk(process.cwd())) {
 if (ffdFailed) { console.error("check-i18n: FAILED (U+FFFD present)"); process.exit(1); }
 
 // Scan message files for garbage: script mixing per locale.
-const ALLOWED_TOKENS = new Set(["TicketsJet", "Booking.com", "Google", "AdSense", "Unsplash", "GeoNames", "eSIM", "Wi-Fi", "Wi", "Fi", "Cookie", "GDPR", "QR", "SIM", "IP", "UTC", "CC", "BY", "TJ"]);
+const ALLOWED_TOKENS = new Set(["TicketsJet", "Booking.com", "Google", "AdSense"]);
 // Keys whose values legitimately contain foreign scripts (bilingual text, technical attribution, ICU).
 function isAllowedToken(tok) {
   if (ALLOWED_TOKENS.has(tok)) return true;
-  if (/^[A-Z]{3}$/.test(tok)) return true;
   if (/^https?:/i.test(tok)) return true;
-  if (/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(tok)) return true;
-  if (/\.[a-z]{2,}/i.test(tok) && /[a-z0-9]/i.test(tok)) return true; // allow domain-like tokens
+  if (/\.[a-z]{2,}/i.test(tok)) return true; // allow domain-like tokens
   if (/^\d/.test(tok)) return true;
   if (/^(one|two|few|many|other|zero)$/i.test(tok)) return true;
+  if (/^[A-Z]{2,}$/i.test(tok)) return true;
   return false;
 }
 const messagesDir = path.join(process.cwd(), "messages");
