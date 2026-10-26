@@ -48,11 +48,12 @@ for (const locale of locales) {
       let overflow = false;
       let overflowDetail = "";
       let extraIssues = [];
+      let body = "";
       try {
         const resp = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
         status = resp ? resp.status() : 0;
         await page.waitForTimeout(2000);
-        const body = await resp.text();
+        body = resp ? await resp.text() : "";
         const lm = body.match(/<html[^>]*lang="([^"]*)"/);
         lang = lm ? lm[1] : "";
         const dm = body.match(/<html[^>]*dir="([^"]*)"/);
@@ -84,6 +85,12 @@ for (const locale of locales) {
           const html = await page.content();
           for (const enName of ["Amsterdam", "Madrid"]) {
             if (html.includes(enName)) extraIssues.push(`home contains English "${enName}"`);
+          }
+        }
+        if (p === "/stays" && locale !== "en") {
+          const html = await page.content();
+          for (const enHeading of ["Find a place to stay", "Find your perfect stay", "Popular hotel destinations", "Explore more cities", "Stays FAQ", "More travel options"]) {
+            if (html.includes(enHeading)) extraIssues.push(`stays contains English heading "${enHeading}"`);
           }
         }
         if (p === "/") {

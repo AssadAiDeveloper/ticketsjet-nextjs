@@ -6,7 +6,6 @@ import { dayMonth } from "@/lib/format";
 import { PHOTOS } from "@/lib/destinations";
 import { allPhotos } from "@/lib/destinationPhotos";
 import DestPhoto from "@/components/DestPhoto";
-import PhotoCredit from "@/components/PhotoCredit";
 
 export type Dest = { code: string; name: string; country: string; price: number; href: string; depart: string | null };
 
@@ -52,11 +51,7 @@ export default async function DestinationCards({ origin, items }: { origin: { co
                 {hasPhoto && <DestPhoto code={d.code} photo={photos[d.code]} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" alt={`${d.name}, ${d.country}`} className="z-0" />}
                 {hasPhoto && <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true" />}
                 {hasPhoto && <div className="absolute inset-x-0 top-0 z-[1] h-1/4 bg-gradient-to-b from-black/35 to-transparent pointer-events-none" aria-hidden="true" />}
-                {hasPhoto && (
-                  <span className="absolute start-3 top-3 z-10 rounded-md bg-black/40 px-2 py-0.5 font-mono text-[11px] font-semibold text-white/90 backdrop-blur-sm">
-                    {d.code}
-                  </span>
-                )}
+                {/* IATA chip removed; country shown below city name */}
                 {!hasPhoto && (
                   <span className="font-display select-none text-6xl font-extrabold leading-none tracking-tight text-white/10 transition group-hover:text-amber/30" aria-hidden="true">
                     {d.code}

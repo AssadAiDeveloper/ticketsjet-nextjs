@@ -174,6 +174,25 @@ for (const file of localeFiles) {
     }
   }
 
+  // Identical-value check for stays.* namespace: non-en locales must not copy English.
+  const ALLOWED_IDENTICAL_STAYS = new Set(["Booking.com", "TicketsJet", "Google", "AdSense", "Destination", "Hotels in {city}"]);
+  const identicalStays = [];
+  for (const k of enKeys) {
+    if (!k.startsWith("stays.")) continue;
+    if (!(k in flat)) continue;
+    const enVal = enFlat[k];
+    const locVal = flat[k];
+    if (typeof enVal !== "string" || typeof locVal !== "string") continue;
+    if (locVal === enVal && !ALLOWED_IDENTICAL_STAYS.has(locVal)) {
+      identicalStays.push(k);
+    }
+  }
+  if (identicalStays.length) {
+    failed = true;
+    console.error(`\n[${locale}] ${file}`);
+    console.error(`  Identical-to-English stays values (${identicalStays.length}): ${identicalStays.slice(0, 10).join(", ")}${identicalStays.length > 10 ? "..." : ""}`);
+  }
+
   if (missing.length || mismatches.length) {
     failed = true;
     console.error(`\n[${locale}] ${file}`);
@@ -181,7 +200,7 @@ for (const file of localeFiles) {
     if (extra.length) console.warn(`  Extra keys (${extra.length}): ${extra.slice(0, 5).join(", ")}${extra.length > 5 ? "..." : ""}`);
     for (const m of mismatches.slice(0, 20)) console.error(`  Mismatch ${m.kind} at ${m.key}: en=${JSON.stringify(m.en)} loc=${JSON.stringify(m.loc)}`);
     if (mismatches.length > 20) console.error(`  ...and ${mismatches.length - 20} more mismatches`);
-  } else {
+  } else if (!identicalStays.length) {
     console.log(`[${locale}] OK (${Object.keys(flat).length} keys)`);
   }
 }
