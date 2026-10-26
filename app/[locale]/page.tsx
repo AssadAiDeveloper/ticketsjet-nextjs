@@ -75,13 +75,28 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="relative z-30 mt-6">
             <SearchTabs />
           </div>
-          <p className="mt-3 text-xs text-white/40">
-          </p>
+        </div>
+      </section>
 
-          <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-xs text-white/50">
-            <span>✓ {t("check1")}</span>
-            <span>✓ {t("check2")}</span>
-            <span>✓ {t("check3")}</span>
+      <section className="relative z-10 -mt-6 mx-auto max-w-6xl px-4">
+        <div className="grid gap-3 sm:grid-cols-3">
+          <div className="flex items-center gap-3 rounded-2xl border border-mist bg-white p-4 shadow-sm sm:p-5">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4" /></svg>
+            </span>
+            <span className="text-sm font-medium text-ink sm:text-base">{t("check1")}</span>
+          </div>
+          <div className="flex items-center gap-3 rounded-2xl border border-mist bg-white p-4 shadow-sm sm:p-5">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /><circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></svg>
+            </span>
+            <span className="text-sm font-medium text-ink sm:text-base">{t("check2")}</span>
+          </div>
+          <div className="flex items-center gap-3 rounded-2xl border border-mist bg-white p-4 shadow-sm sm:p-5">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg>
+            </span>
+            <span className="text-sm font-medium text-ink sm:text-base">{t("check3")}</span>
           </div>
         </div>
       </section>

@@ -82,7 +82,7 @@ for (const f of srcFiles) {
     for (const m of line.matchAll(/(?:const|let|var)\s+(\w+)\s*=\s*(?:await\s+)?(?:useTranslations|getTranslations)\(\s*\{[^}]*namespace:\s*["']([^"']+)["'][^}]*\}\s*\)/g)) {
       varToNs[m[1]] = m[2];
     }
-    for (const m of line.matchAll(/\b(\w+)\(\s*["']([^"']+)["']\s*\)/g)) {
+    for (const m of line.matchAll(/\b(\w+)\(\s*["']([^"']+)["']/g)) {
       const varName = m[1];
       const key = m[2];
       if (key.includes("${")) continue;
@@ -192,3 +192,4 @@ if (failed) {
 } else {
   console.log("\ncheck-i18n: all locales OK");
 }
+

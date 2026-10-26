@@ -1,4 +1,4 @@
-﻿import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
@@ -83,24 +83,24 @@ export default async function DestinationPage({ params }: Props) {
         <div className="relative z-10 mx-auto max-w-6xl px-4">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker", { country })}</p>
           <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{t("h1", { city: name })}</h1>
-          <p className="mt-4 max-w-xl text-white/70">{t("lead", { city: name, country })}</p>
+          <p className="mt-4 max-w-xl text-white/70">{t("s2d", { city: name })}</p>
         </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <h2 className="font-display text-2xl font-bold text-ink">{t("thingsToDo", { city: name })}</h2>
-            <p className="mt-2 text-sm text-slate">{ta("intro", { city: name })}</p>
+            <h2 className="font-display text-2xl font-bold text-ink">{t("s1t")}</h2>
+            <p className="mt-2 text-sm text-slate">{t("s2d", { city: name })}</p>
             <ActivitiesWidget cityId={c.tiqets} cards={6} minHeight={260} />
           </div>
           <div>
-            <h2 className="font-display text-2xl font-bold text-ink">{t("flightsTo", { city: name })}</h2>
+            <h2 className="font-display text-2xl font-bold text-ink">{t("ctaSearch", { city: name })}</h2>
             {fares && fares.length > 0 ? (
               <ul className="mt-4 space-y-2">
                 {fares.slice(0, 6).map((f) => (
                   <li key={f.depart} className="flex items-center justify-between rounded-xl border border-mist bg-white px-4 py-3 text-sm">
-                    <span className="font-medium text-ink">{f.depart} → {f.back ?? "one way"}</span>
+                    <span className="font-medium text-ink">{f.depart} ? {f.back ?? "one way"}</span>
                     <span className="font-semibold text-ink">${f.price}</span>
                   </li>
                 ))}
@@ -109,14 +109,14 @@ export default async function DestinationPage({ params }: Props) {
               <p className="mt-4 text-sm text-slate">{t("noFares")}</p>
             )}
             <Link href="/flights" className="mt-5 inline-block rounded-xl bg-ink px-5 py-2.5 text-sm font-bold text-white transition hover:bg-ink-2">
-              {t("searchFlights", { city: name })}
+              {t("ctaSearch", { city: name })}
             </Link>
           </div>
         </div>
 
         {ACTIVITY_CITIES.some((a) => a.iata === c.iata) && (
           <section className="mt-12">
-            <h2 className="font-display text-2xl font-bold text-ink">{t("faqTitle", { city: name })}</h2>
+            <h2 className="font-display text-2xl font-bold text-ink">{t("q1", { city: name })}</h2>
             <div className="mt-5"><Faq items={faq} /></div>
           </section>
         )}
