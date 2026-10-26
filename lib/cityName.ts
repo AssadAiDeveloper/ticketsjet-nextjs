@@ -37,8 +37,8 @@ function load(locale: string): Record<string, string> {
 export function cityName(code: string, locale: string, fallback?: string): string {
   const loc = isLocale(locale) ? locale : "en";
   const overrides = loadOverrides();
-  const ov = overrides[code.toUpperCase()];
-  if (ov && ov[loc]) return ov[loc];
+  const ov = overrides[loc] && overrides[loc][code.toUpperCase()];
+  if (ov) return ov;
   const data = load(loc);
   if (data[code]) return data[code];
   if (loc !== "en") {
