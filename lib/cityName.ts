@@ -34,6 +34,8 @@ function loadWikidata(): Record<string, Record<string, string>> {
 }
 
 const airportCache: { data: Record<string, string> | null } = { data: null };
+const geonamesAltCache: { data: Record<string, Record<string, string>> | null } = { data: null };
+
 function loadAirports(): Record<string, string> {
   if (airportCache.data) return airportCache.data;
   try {
@@ -43,6 +45,22 @@ function loadAirports(): Record<string, string> {
   } catch {
     airportCache.data = {};
     return airportCache.data!;
+  }
+}
+
+function loadGeonamesAlt(locale: string): Record<string, string> {
+  const cacheKey = "geonames-alt:" + locale;
+  if (geonamesAltCache.data && geonamesAltCache.data[locale]) return geonamesAltCache.data[locale];
+  try {
+    const p = path.join(process.cwd(), "data", "city-names", "geonames-alt." + locale + ".json");
+    const data = JSON.parse(readFileSync(p, "utf8"));
+    if (!geonamesAltCache.data) geonamesAltCache.data = {};
+    geonamesAltCache.data[locale] = data;
+    return data;
+  } catch {
+    if (!geonamesAltCache.data) geonamesAltCache.data = {};
+    geonamesAltCache.data[locale] = {};
+    return {};
   }
 }
 
@@ -69,6 +87,9 @@ export function cityName(code: string, locale: string, fallback?: string): strin
   const wikidata = loadWikidata();
   const wv = wikidata[loc] && wikidata[loc][upper];
   if (wv) return wv;
+  const geoAlt = loadGeonamesAlt(loc);
+  const gv = geoAlt[upper];
+  if (gv) return gv;
   const airports = loadAirports();
   const cityCode = airports[upper];
   const data = load(loc);

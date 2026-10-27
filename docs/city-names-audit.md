@@ -1,28 +1,22 @@
 # City Names Audit
 
-Promoted cities: 20
-Locales: ar, nl, es, fr, de, it, pt, tr, ru, pl, fa, he
+Total cities: 3000
 
-## Per-locale counts
+## Per-locale counts (before / after GeoNames alt)
 
-| locale | promoted | missing | identical (non-Latin) |
-|---|---|---|---|
-| ar | 20 | 0 | 0 |
-| nl | 20 | 0 | 0 |
-| es | 20 | 0 | 0 |
-| fr | 20 | 0 | 0 |
-| de | 20 | 0 | 0 |
-| it | 20 | 0 | 0 |
-| pt | 20 | 0 | 0 |
-| tr | 20 | 0 | 0 |
-| ru | 20 | 0 | 0 |
-| pl | 20 | 0 | 0 |
-| fa | 20 | 0 | 0 |
-| he | 20 | 0 | 0 |
+| locale | identical-to-English before | identical-to-English after |
+|---|---|---|
+| he | 1920 | 1920 |
+| fa | 1188 | 1188 |
 
-## Identical-to-English in non-Latin locales
+## GeoNames alt coverage
 
+- he: 1080 names (all for already-localized cities)
+- fa: 1812 names (all for already-localized cities)
 
 ## Needs review
 
-None (all 20 promoted cities have localized names in all 12 locales).
+1920 Hebrew and 1188 Persian cities remain identical to English.
+GeoNames alternateNames does not provide he/fa names for these cities.
+Wikidata P1566 query (previous attempt) also returned only 2 new names.
+Further work requires manual translation or better data sources.
