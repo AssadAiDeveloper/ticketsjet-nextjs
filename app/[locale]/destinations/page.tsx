@@ -42,8 +42,9 @@ export default async function DestinationsIndex({ params }: { params: Promise<{ 
                   {photos[c.iata]?.author && (<span className="absolute bottom-2 end-2 z-10 text-[10px] text-white/70 opacity-70"><bdi>Photo: {photos[c.iata].author} / Unsplash</bdi></span>)}
                 </div>
               ) : (
-                <div className="relative -mx-5 -mt-5 mb-4 aspect-[16/9] overflow-hidden rounded-t-2xl bg-gradient-to-br from-[#16324a] to-[#0b1b2b] flex items-center justify-center">
-                  <span className="font-display text-4xl font-extrabold text-white/20">{c.iata}</span>
+                <div className="relative -mx-5 -mt-5 mb-4 aspect-[16/9] overflow-hidden rounded-t-2xl bg-gradient-to-br from-[#16324a] to-[#0b1b2b] flex flex-col items-center justify-center">
+                  <span className="font-display text-xl font-bold text-white/80">{tp(`${c.iata.toLowerCase()}.name`)}</span>
+                  <span className="text-sm text-white/60">{countryName(DEST_CC[c.iata.toLowerCase()], locale)}</span>
                 </div>
               )}
                 <p className="font-display text-xl font-bold text-ink">{tp(`${c.iata.toLowerCase()}.name`)}</p>

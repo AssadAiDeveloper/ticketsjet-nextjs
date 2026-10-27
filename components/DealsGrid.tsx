@@ -65,9 +65,7 @@ export default function DealsGrid({ origin, items }: { origin: { code: string; n
                   {hasPhoto && <DestPhoto code={d.code} photo={photos[d.code]} sizes="(min-width: 1024px) 25vw, 50vw, 100vw" alt={`${d.name}, ${d.country}`} className="z-0" />}
                   {hasPhoto && <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true" />}
                   {/* IATA chip removed; country shown below city name */}
-                  {!hasPhoto && (
-                    <span className="font-display select-none text-5xl font-extrabold leading-none tracking-tight text-white/10 transition group-hover:text-amber/30" aria-hidden="true">{d.code}</span>
-                  )}
+                  {/* IATA watermark removed; city name and country already shown below */}
                   {d.stops === 0 && <span className="absolute end-3 top-3 z-10 rounded-full bg-signal/20 px-2.5 py-1 text-[11px] font-semibold text-signal">{tc("direct")}</span>}
                   {photos[d.code]?.author && <PhotoCredit author={photos[d.code].author || ""} authorUrl={photos[d.code].photoUrl || ""} photoUrl={photos[d.code].photoUrl || ""} />}
                   <span className="relative z-10 mt-auto">

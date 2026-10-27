@@ -52,11 +52,7 @@ export default async function DestinationCards({ origin, items }: { origin: { co
                 {hasPhoto && <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" aria-hidden="true" />}
                 {hasPhoto && <div className="absolute inset-x-0 top-0 z-[1] h-1/4 bg-gradient-to-b from-black/35 to-transparent pointer-events-none" aria-hidden="true" />}
                 {/* IATA chip removed; country shown below city name */}
-                {!hasPhoto && (
-                  <span className="font-display select-none text-6xl font-extrabold leading-none tracking-tight text-white/10 transition group-hover:text-amber/30" aria-hidden="true">
-                    {d.code}
-                  </span>
-                )}
+                {/* IATA watermark removed; city name and country already shown below */}
                 <span className="relative z-10 mt-auto">
                   <span className="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">
                     <span dir="ltr">{origin.code} ? {d.code}</span>
