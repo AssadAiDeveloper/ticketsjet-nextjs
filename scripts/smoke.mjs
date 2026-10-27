@@ -147,6 +147,17 @@ for (const locale of locales) {
           if (html.includes("<iframe")) extraIssues.push("cars page should not have iframe");
           if (!html.includes('id="eb-widget"') && !html.includes("id='eb-widget'")) extraIssues.push("cars page missing #eb-widget");
           if (!html.includes("sponsored")) extraIssues.push("cars fallback link missing sponsored rel");
+          // anchor bar
+          if (!html.includes("anchorDest") && !html.includes("Popular destinations")) {} 
+          if (!html.match(/href="#destinations"/)) extraIssues.push("cars page missing anchor bar");
+          // FAQ JSON-LD
+          if (!html.includes("application/ld+json")) extraIssues.push("cars page missing JSON-LD");
+          // 9 destination cards
+          const destLinks = (html.match(/\/destinations\//g) || []).length;
+          if (destLinks < 9) extraIssues.push(`cars page has ${destLinks} destination links (expected >=9)`);
+          // fallback check for undefined/?
+          if (/(?<!\$)undefined\b/.test(html)) extraIssues.push("cars page contains undefined");
+          if (/\?\s*\?/.test(html)) extraIssues.push("cars page contains ?? garbage");
           // try to wait for widget render
           try {
             await page.waitForSelector("#eb-widget", { timeout: 10000 });
