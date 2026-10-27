@@ -723,7 +723,10 @@
     "q4": "Ücretsiz iptal edebilir miyim?",
     "a4": "Birçok teklif ücretsiz iptal içerir. Kesin koşullar rezervasyondan önce her teklifte gösterilir; ödemeden önce kontrol edin.",
     "q5": "Nerede ödeme yaparım?",
-    "a5": "Rezervasyon kiralama sağlayıcısıyla tamamlanır. TicketsJet bir arama aracıdır ve asla ödeme almaz veya ücret eklemez."
+    "a5": "Rezervasyon kiralama sağlayıcısıyla tamamlanır. TicketsJet bir arama aracıdır ve asla ödeme almaz veya ücret eklemez.",
+    "widgetTitle": "Araba kiralama araması",
+    "widgetFallback": "Araba kiralama fiyatlarını karşılaştır",
+    "affiliateNote": "Bu ortak üzerinden rezervasyon yaparsanız komisyon kazanabiliriz, ekstra maliyet olmadan."
   },
   "exp": {
     "metaTitle": "Fiyat Haritasında Ucuz Uçuşları Keşfedin — Nereye Uçacağınızı Bulun",

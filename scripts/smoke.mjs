@@ -39,7 +39,7 @@ console.log("");
 const paths = ["/", "/flights", "/stays", "/cars", "/explore", "/blog", "/help", "/privacy-policy", "/destinations", "/cheap-flights", "/activities", "/services", "/about-us", "/terms-and-conditions", "/affiliate-disclosure", "/trip-finder"];
 const viewports = [{w:375,h:800},{w:1280,h:800}];
 
-const IGNORE_HOSTS = ["travelpayouts","google-analytics","googletagmanager","doubleclick","adservice","facebook","hotjar","sentry","avsplow","fonts.googleapis.com","fonts.gstatic.com"];
+const IGNORE_HOSTS = ["travelpayouts","google-analytics","googletagmanager","doubleclick","adservice","facebook","hotjar","sentry","avsplow","fonts.googleapis.com","fonts.gstatic.com","economybookings.com"];
 
 const browser = await chromium.launch();
 const failures = [];
@@ -140,6 +140,13 @@ for (const locale of locales) {
           if (html.includes("\uFFFD")) extraIssues.push("destinations page contains U+FFFD");
           const staysLinks = (html.match(/booking\.com\/searchresults/g) || []).length;
           if (staysLinks !== 1) extraIssues.push(`destinations page has ${staysLinks} stays CTA links (expected 1)`);
+        }
+        if (p === "/cars") {
+          const html = await page.content();
+          if (html.includes("tpwgts.com")) extraIssues.push("old car widget still present");
+          const iframes = (html.match(/i\.economybookings\.com/g) || []).length;
+          if (iframes !== 1) extraIssues.push(`cars page has ${iframes} economybookings iframes (expected 1)`);
+          if (!html.includes("sponsored")) extraIssues.push("cars fallback link missing sponsored rel");
         }
         if (p === "/") {
           const html = await page.content();

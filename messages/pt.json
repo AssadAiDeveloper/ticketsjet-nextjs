@@ -723,7 +723,10 @@
     "q4": "Posso cancelar gratuitamente?",
     "a4": "Muitas ofertas incluem cancelamento gratuito. As condições exatas são apresentadas em cada oferta antes de reservar, por isso verifique-as antes de pagar.",
     "q5": "Onde pago?",
-    "a5": "A reserva conclui-se com o fornecedor de aluguer. O TicketsJet é uma ferramenta de pesquisa e nunca recebe pagamentos nem acrescenta taxas."
+    "a5": "A reserva conclui-se com o fornecedor de aluguer. O TicketsJet é uma ferramenta de pesquisa e nunca recebe pagamentos nem acrescenta taxas.",
+    "widgetTitle": "Pesquisa de aluguel de carros",
+    "widgetFallback": "Comparar preços de aluguel de carros",
+    "affiliateNote": "Podemos ganhar uma comissão se você reservar através deste parceiro, sem custo adicional."
   },
   "exp": {
     "metaTitle": "Explore voos baratos num mapa de preços — Descubra para onde voar",

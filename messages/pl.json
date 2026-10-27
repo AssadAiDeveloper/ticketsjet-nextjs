@@ -723,7 +723,10 @@
     "q4": "Czy mogę anulować bezpłatnie?",
     "a4": "Wiele ofert obejmuje bezpłatne anulowanie. Dokładne warunki są pokazane przy każdej ofercie przed rezerwacją, więc sprawdź je przed zapłatą.",
     "q5": "Gdzie zapłacić?",
-    "a5": "Rezerwację kończysz u wypożyczalni. TicketsJet to narzędzie wyszukiwania i nigdy nie przyjmuje płatności ani nie dodaje opłat."
+    "a5": "Rezerwację kończysz u wypożyczalni. TicketsJet to narzędzie wyszukiwania i nigdy nie przyjmuje płatności ani nie dodaje opłat.",
+    "widgetTitle": "Wyszukiwanie wynajmu aut",
+    "widgetFallback": "Porównaj ceny wynajmu aut",
+    "affiliateNote": "Możemy otrzymać prowizję, jeśli zarezerwujesz przez tego partnera, bez dodatkowych kosztów."
   },
   "exp": {
     "metaTitle": "Odkrywaj tanie loty na mapie cen — znajdź, dokąd lecieć",

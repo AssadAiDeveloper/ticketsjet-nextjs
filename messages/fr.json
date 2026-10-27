@@ -723,7 +723,10 @@
     "q4": "Puis-je annuler gratuitement ?",
     "a4": "De nombreuses offres incluent l'annulation gratuite. Les conditions exactes sont affichées sur chaque offre avant la réservation : vérifiez-les avant de payer.",
     "q5": "Où paie-t-on ?",
-    "a5": "La réservation se finalise auprès du loueur. TicketsJet est un outil de recherche et n'encaisse jamais de paiement ni n'ajoute de frais."
+    "a5": "La réservation se finalise auprès du loueur. TicketsJet est un outil de recherche et n'encaisse jamais de paiement ni n'ajoute de frais.",
+    "widgetTitle": "Recherche de location de voiture",
+    "widgetFallback": "Comparer les prix de location de voiture",
+    "affiliateNote": "Nous pouvons gagner une commission si vous réservez via ce partenaire, sans frais supplémentaires."
   },
   "exp": {
     "metaTitle": "Explorez des vols pas chers sur une carte des prix — Trouvez où partir",

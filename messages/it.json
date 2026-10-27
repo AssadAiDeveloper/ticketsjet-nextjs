@@ -723,7 +723,10 @@
     "q4": "Posso cancellare gratis?",
     "a4": "Molte offerte includono la cancellazione gratuita. Le condizioni esatte sono mostrate su ogni offerta prima di prenotare, quindi controllale prima di pagare.",
     "q5": "Dove pago?",
-    "a5": "La prenotazione si completa con il noleggiatore. TicketsJet è uno strumento di ricerca e non riscuote mai pagamenti né aggiunge commissioni."
+    "a5": "La prenotazione si completa con il noleggiatore. TicketsJet è uno strumento di ricerca e non riscuote mai pagamenti né aggiunge commissioni.",
+    "widgetTitle": "Ricerca noleggio auto",
+    "widgetFallback": "Confronta prezzi noleggio auto",
+    "affiliateNote": "Potremmo guadagnare una commissione se prenoti tramite questo partner, senza costi aggiuntivi."
   },
   "exp": {
     "metaTitle": "Esplora voli economici su una mappa dei prezzi — Scopri dove volare",

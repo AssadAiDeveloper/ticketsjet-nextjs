@@ -723,7 +723,10 @@
     "q4": "Kan ik gratis annuleren?",
     "a4": "Veel aanbiedingen bevatten gratis annuleren. De exacte voorwaarden staan bij elk aanbod voordat je boekt, controleer ze dus voor je betaalt.",
     "q5": "Waar betaal ik?",
-    "a5": "De boeking rond je af bij de verhuurder. TicketsJet is een zoektool en neemt nooit betalingen aan en rekent geen kosten."
+    "a5": "De boeking rond je af bij de verhuurder. TicketsJet is een zoektool en neemt nooit betalingen aan en rekent geen kosten.",
+    "widgetTitle": "Zoek autoverhuur",
+    "widgetFallback": "Vergelijk autoverhuurprijzen",
+    "affiliateNote": "We kunnen een commissie verdienen als je via deze partner boekt, zonder extra kosten."
   },
   "exp": {
     "metaTitle": "Ontdek goedkope vluchten op een prijskaart — kies waarheen je vliegt",

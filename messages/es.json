@@ -723,7 +723,10 @@
     "q4": "¿Puedo cancelar gratis?",
     "a4": "Muchas ofertas incluyen cancelación gratuita. Las condiciones exactas se muestran en cada oferta antes de reservar, así que revísalas antes de pagar.",
     "q5": "¿Dónde pago?",
-    "a5": "La reserva se completa con el proveedor de alquiler. TicketsJet es una herramienta de búsqueda y nunca cobra pagos ni añade comisiones."
+    "a5": "La reserva se completa con el proveedor de alquiler. TicketsJet es una herramienta de búsqueda y nunca cobra pagos ni añade comisiones.",
+    "widgetTitle": "Búsqueda de alquiler de coches",
+    "widgetFallback": "Comparar precios de alquiler de coches",
+    "affiliateNote": "Podemos ganar una comisión si reservas a través de este socio, sin coste adicional."
   },
   "exp": {
     "metaTitle": "Explora vuelos baratos en un mapa de precios — Descubre a dónde volar",

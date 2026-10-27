@@ -723,7 +723,10 @@
     "q4": "Kann ich kostenlos stornieren?",
     "a4": "Viele Angebote beinhalten kostenlose Stornierung. Die genauen Bedingungen werden vor der Buchung bei jedem Angebot angezeigt – prüfe sie vor dem Bezahlen.",
     "q5": "Wo bezahle ich?",
-    "a5": "Die Buchung wird beim Vermieter abgeschlossen. TicketsJet ist ein Suchwerkzeug und nimmt nie Zahlungen entgegen oder erhebt Gebühren."
+    "a5": "Die Buchung wird beim Vermieter abgeschlossen. TicketsJet ist ein Suchwerkzeug und nimmt nie Zahlungen entgegen oder erhebt Gebühren.",
+    "widgetTitle": "Mietwagensuche",
+    "widgetFallback": "Mietwagenpreise vergleichen",
+    "affiliateNote": "Wir können eine Provision verdienen, wenn Sie über diesen Partner buchen, ohne zusätzliche Kosten."
   },
   "exp": {
     "metaTitle": "Günstige Flüge auf der Preiskarte entdecken – Finde dein Reiseziel",

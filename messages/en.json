@@ -723,7 +723,10 @@
     "q4": "Can I cancel for free?",
     "a4": "Many offers include free cancellation. The exact conditions are shown on each offer before you book, so check them before you pay.",
     "q5": "Where do I pay?",
-    "a5": "Booking is completed with the rental provider. TicketsJet is a search tool and never takes payment or adds fees."
+    "a5": "Booking is completed with the rental provider. TicketsJet is a search tool and never takes payment or adds fees.",
+    "widgetTitle": "Car rental search",
+    "widgetFallback": "Compare car rental prices",
+    "affiliateNote": "We may earn a commission if you book through this partner, at no extra cost to you."
   },
   "exp": {
     "metaTitle": "Explore Cheap Flights on a Price Map — Find Where to Fly",
