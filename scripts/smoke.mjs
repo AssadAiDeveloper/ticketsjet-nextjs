@@ -132,6 +132,11 @@ for (const locale of locales) {
             if (html.includes(enHeading)) extraIssues.push(`stays contains English heading "${enHeading}"`);
           }
         }
+        if (p.startsWith("/destinations/") && locale !== "en") {
+          const html = await page.content();
+          if (/\d{4}-\d{2}-\d{2}\s*\?\s*\d{4}-\d{2}-\d{2}/.test(html)) extraIssues.push("destinations page contains literal ? between dates");
+          if (html.includes("\uFFFD")) extraIssues.push("destinations page contains U+FFFD");
+        }
         if (p === "/") {
           const html = await page.content();
           const SITE_URL = "https://ticketsjet.com";

@@ -79,19 +79,19 @@ export default async function DestinationPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <section className="relative overflow-hidden bg-ink pb-14 pt-14">
-        {photos[c.iata] && <DestPhoto code={c.iata} photo={photos[c.iata]} sizes="100vw" alt={`${name}, ${country}`} className="opacity-30" />}
+        {photos[c.iata] && <DestPhoto code={c.iata} photo={photos[c.iata]} sizes="100vw" alt={`${name}, ${country}`} className="z-0" />}
+        {photos[c.iata] && <div className="absolute inset-0 z-[1] bg-gradient-to-r from-ink/80 via-ink/30 to-transparent pointer-events-none" aria-hidden="true" />}
         <div className="relative z-10 mx-auto max-w-6xl px-4">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker", { country })}</p>
           <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{t("h1", { city: name })}</h1>
-          <p className="mt-4 max-w-xl text-white/70">{t("s2d", { city: name })}</p>
         </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <h2 className="font-display text-2xl font-bold text-ink">{t("s1t")}</h2>
-            <p className="mt-2 text-sm text-slate">{t("s2d", { city: name })}</p>
+            <h2 className="font-display text-2xl font-bold text-ink">{t("todo")}</h2>
+            <p className="mt-2 text-sm text-slate">{t("todoSub")}</p>
             <ActivitiesWidget cityId={c.tiqets} cards={6} minHeight={260} />
           </div>
           <div>
@@ -100,8 +100,8 @@ export default async function DestinationPage({ params }: Props) {
               <ul className="mt-4 space-y-2">
                 {fares.slice(0, 6).map((f) => (
                   <li key={f.depart} className="flex items-center justify-between rounded-xl border border-mist bg-white px-4 py-3 text-sm">
-                    <span className="font-medium text-ink">{f.depart} ? {f.back ?? "one way"}</span>
-                    <span className="font-semibold text-ink">${f.price}</span>
+                    <span className="font-medium text-ink">{new Intl.DateTimeFormat(locale, { day: "numeric", month: "short" }).format(new Date(f.depart + "T00:00:00Z"))} – {f.back ? new Intl.DateTimeFormat(locale, { day: "numeric", month: "short" }).format(new Date(f.back + "T00:00:00Z")) : t("s1none")}</span>
+                    <span className="font-semibold text-ink"><Price usd={f.price} /></span>
                   </li>
                 ))}
               </ul>
