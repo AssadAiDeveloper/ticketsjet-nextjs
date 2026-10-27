@@ -26,7 +26,7 @@ export default function EconomyBookingsWidget() {
         trackingLink: ECONOMYBOOKINGS_FALLBACK_URL,
         defaults: { lang: widgetLang },
         theme: {
-          layout: "vertical",
+          layout: "horizontal",
           backgroundColor: "#ffffff",
           borderColor: "#e2e8f0",
           borderRadius: "12px",
@@ -37,7 +37,7 @@ export default function EconomyBookingsWidget() {
           fieldTextColor: "#0b1b2b",
           fieldBackgroundColor: "#ffffff",
           fieldBorderColor: "#e2e8f0",
-          fieldBorderRadius: "8px",
+          fieldBorderRadius: "12px",
           fieldFontFamily: "Inter, sans-serif",
           buttonTextColor: "#0b1b2b",
           buttonBackgroundColor: "#fbbf24",
@@ -72,10 +72,10 @@ export default function EconomyBookingsWidget() {
       <div
         id="eb-widget"
         ref={containerRef}
-        className="w-full max-w-[480px] min-h-[430px]"
+        className="w-full max-w-[900px] min-h-[430px]"
       />
       {!loaded && !failed && (
-        <div className="w-full max-w-[480px] min-h-[430px] animate-pulse rounded-xl bg-cloud" />
+        <div className="w-full max-w-[900px] min-h-[430px] animate-pulse rounded-xl bg-cloud" />
       )}
       <a
         href={ECONOMYBOOKINGS_FALLBACK_URL}

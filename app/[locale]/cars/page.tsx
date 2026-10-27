@@ -40,7 +40,7 @@ export default async function CarsPage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="mx-auto -mt-6 max-w-3xl px-4">
+      <section className="mx-auto -mt-6 max-w-[900px] px-4">
         <div className="boarding-pass p-3 sm:p-5">
           <EconomyBookingsWidget />
         </div>
