@@ -114,6 +114,14 @@ export default async function DestinationPage({ params }: Props) {
           </div>
         </div>
 
+        <section className="mt-12 rounded-2xl border border-mist bg-white p-6">
+          <h2 className="font-display text-2xl font-bold text-ink">{t("s2t")}</h2>
+          <p className="mt-2 text-sm text-slate">{t("s2d", { city: name })}</p>
+          <a href={bookingUrl({ city: name })} target="_blank" rel="nofollow noopener" className="mt-4 inline-block rounded-xl bg-amber px-5 py-2.5 text-sm font-bold text-ink transition hover:bg-amber-deep">
+            {t("s2t")}  {name}
+          </a>
+        </section>
+
         {ACTIVITY_CITIES.some((a) => a.iata === c.iata) && (
           <section className="mt-12">
             <h2 className="font-display text-2xl font-bold text-ink">{t("q1", { city: name })}</h2>

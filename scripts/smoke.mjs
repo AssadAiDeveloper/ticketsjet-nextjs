@@ -39,7 +39,7 @@ console.log("");
 const paths = ["/", "/flights", "/stays", "/cars", "/explore", "/blog", "/help", "/privacy-policy", "/destinations", "/cheap-flights", "/activities", "/services", "/about-us", "/terms-and-conditions", "/affiliate-disclosure", "/trip-finder"];
 const viewports = [{w:375,h:800},{w:1280,h:800}];
 
-const IGNORE_HOSTS = ["travelpayouts","google-analytics","googletagmanager","doubleclick","adservice","facebook","hotjar","sentry","avsplow"];
+const IGNORE_HOSTS = ["travelpayouts","google-analytics","googletagmanager","doubleclick","adservice","facebook","hotjar","sentry","avsplow","fonts.googleapis.com","fonts.gstatic.com"];
 
 const browser = await chromium.launch();
 const failures = [];
@@ -55,6 +55,8 @@ for (const locale of locales) {
       const consoleErrors = [];
       const failedRequests = [];
       page.on("console", (m) => { if (m.type() === "error") consoleErrors.push(m.text()); });
+      await page.route("**fonts.googleapis.com**", (route) => route.abort());
+      await page.route("**fonts.gstatic.com**", (route) => route.abort());
       page.on("requestfailed", (r) => {
         const u = r.url();
         if (IGNORE_HOSTS.some((h) => u.includes(h))) return;
@@ -136,6 +138,8 @@ for (const locale of locales) {
           const html = await page.content();
           if (/\d{4}-\d{2}-\d{2}\s*\?\s*\d{4}-\d{2}-\d{2}/.test(html)) extraIssues.push("destinations page contains literal ? between dates");
           if (html.includes("\uFFFD")) extraIssues.push("destinations page contains U+FFFD");
+          const staysLinks = (html.match(/booking\.com\/searchresults/g) || []).length;
+          if (staysLinks !== 1) extraIssues.push(`destinations page has ${staysLinks} stays CTA links (expected 1)`);
         }
         if (p === "/") {
           const html = await page.content();
