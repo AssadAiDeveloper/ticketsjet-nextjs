@@ -530,6 +530,16 @@
       "blurb": "Aussichtspunkte auf den Hügeln, historische Straßenbahnen und Ausflüge nach Sintra. Rechne mit Steigungen und bequemen Schuhen.",
       "tip1": "Sintra ist per Zug leicht erreichbar, aber die Paläste haben eigene Warteschlangen.",
       "tip2": "Die Straßenbahn 28 ist sehr voll; fahre früh oder wähle eine andere Linie."
+    },
+    "dubai": {
+      "blurb": "A global transit hub with long-haul routes in every direction.",
+      "tip1": "Book popular attractions ahead in peak season.",
+      "tip2": "Consider a desert safari or Burj Khalifa visit."
+    },
+    "athens": {
+      "blurb": "Gateway to the Greek islands; summer schedules add many extra routes.",
+      "tip1": "Combine the Acropolis with the museum on the same day.",
+      "tip2": "Book island ferries in advance in summer."
     }
   },
   "dpi": {

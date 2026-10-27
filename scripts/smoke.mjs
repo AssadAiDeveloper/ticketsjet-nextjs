@@ -152,9 +152,26 @@ for (const locale of locales) {
           if (!html.match(/href="#destinations"/)) extraIssues.push("cars page missing anchor bar");
           // FAQ JSON-LD
           if (!html.includes("application/ld+json")) extraIssues.push("cars page missing JSON-LD");
-          // 9 destination cards
-          const destLinks = (html.match(/\/destinations\//g) || []).length;
-          if (destLinks < 9) extraIssues.push(`cars page has ${destLinks} destination links (expected >=9)`);
+          // destination cards: exactly 9 (rendered DOM, not RSC payload)
+          await page.waitForTimeout(1000);
+          const prefix = locale === "en" ? "" : "/" + locale;
+          const domCards = await page.evaluate((pfx) => document.querySelectorAll(`a[href^="${pfx}/destinations/"]`).length, prefix);
+          if (domCards !== 9) extraIssues.push(`cars page has ${domCards} destination cards (expected 9)`);
+          // rendered FAQ count
+          const domFaq = await page.evaluate(() => document.querySelectorAll('details.faq').length);
+          // FAQPage JSON-LD question count must equal rendered FAQ count
+          const ldMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g) || [];
+          let faqLdCount = 0;
+          for (const m of ldMatch) {
+            try {
+              const o = JSON.parse(m.replace(/<script[^>]*>/, '').replace(/<\/script>/, ''));
+              if (o && o['@type'] === 'FAQPage' && Array.isArray(o.mainEntity)) faqLdCount = o.mainEntity.length;
+            } catch (e) {}
+          }
+          if (faqLdCount !== domFaq) extraIssues.push(`cars FAQPage JSON-LD has ${faqLdCount} questions but rendered ${domFaq}`);
+          // disclosure appears exactly once (rendered DOM)
+          const domDisc = await page.evaluate(() => document.querySelectorAll('[data-disclosure]').length);
+          if (domDisc !== 1) extraIssues.push(`disclosure appears ${domDisc} times (expected 1)`);
           // fallback check for undefined/?
           if (/(?<!\$)undefined\b/.test(html)) extraIssues.push("cars page contains undefined");
           if (/\?\s*\?/.test(html)) extraIssues.push("cars page contains ?? garbage");

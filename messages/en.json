@@ -530,6 +530,16 @@
       "blurb": "Hilltop viewpoints, historic trams and day trips to Sintra. Plan for hills and comfortable shoes.",
       "tip1": "Sintra is easy by train, but its palaces have their own entry queues.",
       "tip2": "Tram 28 gets very crowded; go early or choose another route."
+    },
+    "dubai": {
+      "blurb": "A global transit hub with long-haul routes in every direction.",
+      "tip1": "Book popular attractions ahead in peak season.",
+      "tip2": "Consider a desert safari or Burj Khalifa visit."
+    },
+    "athens": {
+      "blurb": "Gateway to the Greek islands; summer schedules add many extra routes.",
+      "tip1": "Combine the Acropolis with the museum on the same day.",
+      "tip2": "Book island ferries in advance in summer."
     }
   },
   "dpi": {

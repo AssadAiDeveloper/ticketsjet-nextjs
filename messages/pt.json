@@ -530,6 +530,16 @@
       "blurb": "Miradouros no alto das colinas, elétricos históricos e excursões a Sintra. Conte com ladeiras e use calçado confortável.",
       "tip1": "Sintra é fácil de comboio, mas os seus palácios têm filas de entrada próprias.",
       "tip2": "O elétrico 28 enche muito; vá cedo ou escolha outro percurso."
+    },
+    "dubai": {
+      "blurb": "A global transit hub with long-haul routes in every direction.",
+      "tip1": "Book popular attractions ahead in peak season.",
+      "tip2": "Consider a desert safari or Burj Khalifa visit."
+    },
+    "athens": {
+      "blurb": "Gateway to the Greek islands; summer schedules add many extra routes.",
+      "tip1": "Combine the Acropolis with the museum on the same day.",
+      "tip2": "Book island ferries in advance in summer."
     }
   },
   "dpi": {

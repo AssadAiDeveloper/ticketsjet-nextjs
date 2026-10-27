@@ -530,6 +530,16 @@
       "blurb": "Tepe üstü seyir noktaları, tarihi tramvaylar ve Sintra günübirlik gezileri. Yokuşlara hazırlıklı olun, rahat ayakkabı giyin.",
       "tip1": "Sintra trenle kolaydır ancak saraylarının kendi giriş kuyrukları vardır.",
       "tip2": "28 numaralı tramvay çok kalabalık olur; erken gidin veya başka bir güzergâh seçin."
+    },
+    "dubai": {
+      "blurb": "A global transit hub with long-haul routes in every direction.",
+      "tip1": "Book popular attractions ahead in peak season.",
+      "tip2": "Consider a desert safari or Burj Khalifa visit."
+    },
+    "athens": {
+      "blurb": "Gateway to the Greek islands; summer schedules add many extra routes.",
+      "tip1": "Combine the Acropolis with the museum on the same day.",
+      "tip2": "Book island ferries in advance in summer."
     }
   },
   "dpi": {

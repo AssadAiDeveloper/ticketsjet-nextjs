@@ -530,6 +530,16 @@
       "blurb": "Points de vue sur les collines, tramways historiques et excursions à Sintra. Prévoyez des côtes et de bonnes chaussures.",
       "tip1": "Sintra est facile d'accès en train, mais ses palais ont leurs propres files d'attente.",
       "tip2": "Le tram 28 est très bondé ; allez-y tôt ou choisissez un autre itinéraire."
+    },
+    "dubai": {
+      "blurb": "A global transit hub with long-haul routes in every direction.",
+      "tip1": "Book popular attractions ahead in peak season.",
+      "tip2": "Consider a desert safari or Burj Khalifa visit."
+    },
+    "athens": {
+      "blurb": "Gateway to the Greek islands; summer schedules add many extra routes.",
+      "tip1": "Combine the Acropolis with the museum on the same day.",
+      "tip2": "Book island ferries in advance in summer."
     }
   },
   "dpi": {

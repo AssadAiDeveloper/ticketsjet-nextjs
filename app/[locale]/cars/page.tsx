@@ -29,9 +29,15 @@ export default async function CarsPage({ params }: { params: Promise<{ locale: s
   const tn = await getTranslations("nav");
   const photos = allPhotos();
   const faq = [1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <section className="bg-ink pb-14 pt-14">
         <div className="mx-auto max-w-3xl px-4">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker")}</p>
@@ -44,7 +50,7 @@ export default async function CarsPage({ params }: { params: Promise<{ locale: s
         <div className="boarding-pass p-3 sm:p-5">
           <EconomyBookingsWidget />
         </div>
-        <p className="mt-3 text-center text-xs text-slate">{t("affiliateNote")}</p>
+        <p data-disclosure className="mt-3 text-center text-xs text-slate">{t("affiliateNote")}</p>
       </section>
 
       <div className="sticky top-0 z-30 mt-6 border-b border-mist bg-white/95 backdrop-blur">

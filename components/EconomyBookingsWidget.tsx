@@ -72,10 +72,10 @@ export default function EconomyBookingsWidget() {
       <div
         id="eb-widget"
         ref={containerRef}
-        className="w-full max-w-[900px] min-h-[430px]"
+        className="w-full max-w-[900px] min-h-[430px] md:min-h-[230px]"
       />
       {!loaded && !failed && (
-        <div className="w-full max-w-[900px] min-h-[430px] animate-pulse rounded-xl bg-cloud" />
+        <div className="w-full max-w-[900px] min-h-[430px] md:min-h-[230px] animate-pulse rounded-xl bg-cloud" />
       )}
       <a
         href={ECONOMYBOOKINGS_FALLBACK_URL}
@@ -85,7 +85,6 @@ export default function EconomyBookingsWidget() {
       >
         {t("widgetFallback")}
       </a>
-      <p className="mt-2 text-xs text-slate">{t("affiliateNote")}</p>
     </div>
   );
 }

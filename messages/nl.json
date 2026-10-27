@@ -530,6 +530,16 @@
       "blurb": "Uitzichtpunten op heuvels, historische trams en dagtrips naar Sintra. Houd rekening met heuvels en draag comfortabele schoenen.",
       "tip1": "Sintra is makkelijk met de trein bereikbaar, maar de paleizen hebben hun eigen wachtrijen.",
       "tip2": "Tram 28 wordt erg druk; ga vroeg of kies een andere lijn."
+    },
+    "dubai": {
+      "blurb": "A global transit hub with long-haul routes in every direction.",
+      "tip1": "Book popular attractions ahead in peak season.",
+      "tip2": "Consider a desert safari or Burj Khalifa visit."
+    },
+    "athens": {
+      "blurb": "Gateway to the Greek islands; summer schedules add many extra routes.",
+      "tip1": "Combine the Acropolis with the museum on the same day.",
+      "tip2": "Book island ferries in advance in summer."
     }
   },
   "dpi": {
