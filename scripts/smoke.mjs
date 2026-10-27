@@ -39,7 +39,7 @@ console.log("");
 const paths = ["/", "/flights", "/stays", "/cars", "/explore", "/blog", "/help", "/privacy-policy", "/destinations", "/cheap-flights", "/activities", "/services", "/about-us", "/terms-and-conditions", "/affiliate-disclosure", "/trip-finder"];
 const viewports = [{w:375,h:800},{w:1280,h:800}];
 
-const IGNORE_HOSTS = ["travelpayouts","google-analytics","googletagmanager","doubleclick","adservice","facebook","hotjar","sentry","avsplow","fonts.googleapis.com","fonts.gstatic.com","economybookings.com"];
+const IGNORE_HOSTS = ["travelpayouts","google-analytics","googletagmanager","doubleclick","adservice","facebook","hotjar","sentry","avsplow","fonts.googleapis.com","fonts.gstatic.com","economybookings.com","targetcircle.com"];
 
 const browser = await chromium.launch();
 const failures = [];
@@ -144,9 +144,20 @@ for (const locale of locales) {
         if (p === "/cars") {
           const html = await page.content();
           if (html.includes("tpwgts.com")) extraIssues.push("old car widget still present");
-          const iframes = (html.match(/i\.economybookings\.com/g) || []).length;
-          if (iframes !== 1) extraIssues.push(`cars page has ${iframes} economybookings iframes (expected 1)`);
+          if (html.includes("<iframe")) extraIssues.push("cars page should not have iframe");
+          if (!html.includes('id="eb-widget"') && !html.includes("id='eb-widget'")) extraIssues.push("cars page missing #eb-widget");
           if (!html.includes("sponsored")) extraIssues.push("cars fallback link missing sponsored rel");
+          // try to wait for widget render
+          try {
+            await page.waitForSelector("#eb-widget", { timeout: 10000 });
+            const hasShadow = await page.evaluate(() => {
+              const el = document.querySelector("#eb-widget");
+              return !!(el && el.shadowRoot && (el.shadowRoot.querySelector("input") || el.shadowRoot.querySelector("button")));
+            });
+            if (!hasShadow) console.log("WARNING: #eb-widget has no shadowRoot with input/button (CDN may be unreachable)");
+          } catch (e) {
+            console.log("WARNING: #eb-widget not found within 10s (CDN may be unreachable)");
+          }
         }
         if (p === "/") {
           const html = await page.content();
