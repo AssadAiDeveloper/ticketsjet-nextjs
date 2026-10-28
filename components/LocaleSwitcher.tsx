@@ -9,6 +9,8 @@ import { CURRENCIES, type Currency } from "@/lib/currency";
 import { useCurrency } from "@/components/CurrencyProvider";
 
 /** Header button + regional-settings dialog (language and currency, applied on Save). Lists come from LOCALES / CURRENCIES. */
+const POPULAR = ["USD", "EUR", "GBP"] as const;
+
 export default function LocaleSwitcher() {
   const t = useTranslations("switcher");
   const locale = useLocale() as Locale;
@@ -18,6 +20,8 @@ export default function LocaleSwitcher() {
   const [open, setOpen] = useState(false);
   const [lang, setLang] = useState<Locale>(locale);
   const [cur, setCur] = useState<Currency>(currency);
+  const [langOpen, setLangOpen] = useState(false);
+  const [curOpen, setCurOpen] = useState(false);
   const id = useId();
 
   function show() {
@@ -87,10 +91,22 @@ export default function LocaleSwitcher() {
                 </label>
               </div>
               <div className="relative mt-2">
-                <select id={`${id}-l`} value={lang} onChange={(e) => setLang(e.target.value as Locale)} className={field}>
-                  {LOCALES.map((l) => <option key={l} value={l} lang={l}>{LOCALE_NAMES[l]}</option>)}
-                </select>
+                <button id={id + "-l"} type="button" onClick={() => { setLangOpen((o) => !o); setCurOpen(false); }} aria-haspopup="listbox" aria-expanded={langOpen} className={field + " text-start"}>
+                  <span lang={lang}>{LOCALE_NAMES[lang]}</span>
+                </button>
                 {chevron}
+                {langOpen && (
+                  <ul role="listbox" className="absolute inset-x-0 z-10 mt-1 max-h-56 overflow-y-auto rounded-xl border border-mist bg-white p-1.5 shadow-xl">
+                    {LOCALES.map((l) => (
+                      <li key={l} role="option" aria-selected={l === lang}>
+                        <button type="button" lang={l} onClick={() => { setLang(l); setLangOpen(false); }} className={"flex w-full items-center justify-between rounded-lg px-3 py-2 text-start text-sm " + (l === lang ? "bg-amber/20 font-semibold" : "hover:bg-cloud")}>
+                          <span>{LOCALE_NAMES[l]}</span>
+                          {l === lang && <span aria-hidden>✓</span>}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
 
@@ -99,11 +115,28 @@ export default function LocaleSwitcher() {
                 {t("currency")}
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3" /><path d="M4 9.5c0 1.7 3.6 3 8 3s8-1.3 8-3V13c0 1.7-3.6 3-8 3s-8-1.3-8-3V9.5Zm0 6.5c0 1.7 3.6 3 8 3s8-1.3 8-3v3c0 1.7-3.6 3-8 3s-8-1.3-8-3v-3Z" /></svg>
               </label>
+              <div className="mt-2 grid grid-cols-3 gap-2">
+                {POPULAR.map((c) => (
+                  <button key={c} type="button" onClick={() => { setCur(c as Currency); setCurOpen(false); }} aria-pressed={cur === c} className={"rounded-lg border px-3 py-2 text-sm font-semibold " + (cur === c ? "border-amber bg-amber/15 text-ink" : "border-mist bg-white text-ink hover:bg-cloud")}>{c}</button>
+                ))}
+              </div>
               <div className="relative mt-2">
-                <select id={`${id}-c`} value={cur} onChange={(e) => setCur(e.target.value as Currency)} className={field}>
-                  {CURRENCIES.map((c) => <option key={c} value={c}>{c}{cname(c) ? ` — ${cname(c)}` : ""}</option>)}
-                </select>
+                <button id={id + "-c"} type="button" onClick={() => { setCurOpen((o) => !o); setLangOpen(false); }} aria-haspopup="listbox" aria-expanded={curOpen} className={field + " text-start"}>
+                  <span>{cur}{cname(cur) ? " — " + cname(cur) : ""}</span>
+                </button>
                 {chevron}
+                {curOpen && (
+                  <ul role="listbox" className="absolute inset-x-0 z-10 mt-1 max-h-56 overflow-y-auto rounded-xl border border-mist bg-white p-1.5 shadow-xl">
+                    {[...POPULAR, ...CURRENCIES.filter((c) => !(POPULAR as readonly string[]).includes(c))].map((c) => (
+                      <li key={c} role="option" aria-selected={c === cur}>
+                        <button type="button" onClick={() => { setCur(c as Currency); setCurOpen(false); }} className={"flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-start text-sm " + (c === cur ? "bg-amber/20 font-semibold" : "hover:bg-cloud")}>
+                          <span>{c}{cname(c) ? " — " + cname(c) : ""}</span>
+                          {c === cur && <span aria-hidden>✓</span>}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
               <p className="mt-2 text-[11px] leading-snug text-slate">{t("note")}</p>
             </div>
