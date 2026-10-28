@@ -97,6 +97,10 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
   const [destQuery, setDestQuery] = useState(url0.q || "");
   const [hovered, setHovered] = useState<string | null>(null);
   const [touchHint, setTouchHint] = useState(false);
+  const [dOpen, setDOpen] = useState(false);
+  const [sOpen, setSOpen] = useState(false);
+  const [calY, setCalY] = useState(() => new Date().getFullYear());
+  const [calM, setCalM] = useState(() => new Date().getMonth());
 
   const num = (x: string) => { const n = parseFloat(x); return Number.isFinite(n) && rate > 0 ? n / rate : null; };
   const lo0 = num(minTxt);
@@ -321,6 +325,28 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
     months.push({ value: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`, label: d.toLocaleString(locale, { month: "long", year: "numeric" }) });
   }
 
+  const pad2 = (n: number) => String(n).padStart(2, "0");
+  const todayIso = now.getFullYear() + "-" + pad2(now.getMonth() + 1) + "-" + pad2(now.getDate());
+  const fmtD = (iso: string) => { try { return new Intl.DateTimeFormat(locale, { day: "numeric", month: "short" }).format(new Date(iso + "T00:00:00")); } catch { return iso; } };
+  const monthLabel = months.find((m) => m.value === month)?.label;
+  const dLabel = month === "exact" && (exactDepart || exactReturn) ? (exactDepart ? fmtD(exactDepart) : "…") + " – " + (exactReturn ? fmtD(exactReturn) : "…") : monthLabel || t("anytime");
+  const monthStart0 = new Date(calY, calM, 1);
+  const monday = !["en", "ar", "he", "fa"].includes(locale);
+  const lead = (monthStart0.getDay() + (monday ? 6 : 0)) % 7;
+  const dim = new Date(calY, calM + 1, 0).getDate();
+  const isoOf = (d: number) => calY + "-" + pad2(calM + 1) + "-" + pad2(d);
+  let calTitle = calY + "-" + pad2(calM + 1);
+  try { calTitle = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }).format(monthStart0); } catch {}
+  const wk = Array.from({ length: 7 }, (_, i) => { try { return new Intl.DateTimeFormat(locale, { weekday: "narrow" }).format(new Date(2024, 0, 1 + i - (monday ? 0 : 1))); } catch { return ""; } });
+  const goMonth = (delta: number) => { const d = new Date(calY, calM + delta, 1); setCalY(d.getFullYear()); setCalM(d.getMonth()); };
+  const atMin = calY === now.getFullYear() && calM <= now.getMonth();
+  const pickDay = (iso: string) => {
+    if (month !== "exact" || !exactDepart || exactReturn) { setMonth("exact"); setExactDepart(iso); setExactReturn(""); }
+    else if (iso < exactDepart) { setExactDepart(iso); }
+    else { setExactReturn(iso); setDOpen(false); }
+  };
+  const sortOpts: Array<[string, string]> = [["cheapest", t("sortCheapest")], ["direct", t("sortDirect")]];
+
   const photoFor = (code: string) => (heroPhotos as any)[code?.toUpperCase?.()] || null;
 
   return (
@@ -362,20 +388,40 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
             <input id="pm-max" type="text" inputMode="numeric" autoComplete="off" value={maxTxt} onChange={(e) => setMaxTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[1] * rate))} aria-label={`${priceCurrency} max`} className="w-24 rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
           </div>
         </div>
-        <div>
+        <div className="relative">
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-when">{t("when")}</label>
-          <select id="pm-when" value={month} onChange={(e) => setMonth(e.target.value)} className="mt-1 rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber">
-            <option value="any">{t("anytime")}</option>
-            {months.map((m) => <option key={m.value} value={m.value}>{m.label}</option>)}
-            <option value="exact">{t("exactDates")}</option>
-          </select>
+          <button id="pm-when" type="button" onClick={() => { setDOpen((o) => !o); setSOpen(false); }} aria-expanded={dOpen} className="mt-1 flex w-full items-center justify-between gap-2 rounded-lg border border-mist bg-white px-3 py-2 text-start text-sm text-ink outline-none focus:border-amber w-44">
+            <span className="truncate">{dLabel}</span>
+            <span aria-hidden className="text-slate">▾</span>
+          </button>
+          {(dOpen || sOpen) && <button type="button" aria-label="×" className="fixed inset-0 z-[998] cursor-default" onClick={() => { setDOpen(false); setSOpen(false); }} />}
+          {dOpen && (
+            <div className="absolute start-0 z-[999] mt-1 w-72 max-w-[calc(100vw-2rem)] rounded-xl border border-mist bg-white p-3 shadow-xl">
+              <div className="mb-2 flex items-center justify-between">
+                <button type="button" onClick={() => goMonth(-1)} disabled={atMin} aria-label="<" className="h-8 w-8 rounded-full text-lg text-ink hover:bg-cloud disabled:opacity-30"><span className="inline-block rtl:rotate-180">‹</span></button>
+                <span className="text-sm font-semibold text-ink">{calTitle}</span>
+                <button type="button" onClick={() => goMonth(1)} aria-label=">" className="h-8 w-8 rounded-full text-lg text-ink hover:bg-cloud"><span className="inline-block rtl:rotate-180">›</span></button>
+              </div>
+              <div className="grid grid-cols-7 text-center text-[11px] text-slate">
+                {wk.map((w, i) => <span key={i} className="py-1">{w}</span>)}
+              </div>
+              <div className="grid grid-cols-7 gap-y-1">
+                {Array.from({ length: lead }, (_, i) => <span key={"b" + i} />)}
+                {Array.from({ length: dim }, (_, i) => {
+                  const iso = isoOf(i + 1);
+                  const dis = iso < todayIso;
+                  const ex = month === "exact";
+                  const isS = ex && iso === exactDepart;
+                  const isE = ex && iso === exactReturn;
+                  const inR = ex && !!exactDepart && !!exactReturn && iso > exactDepart && iso < exactReturn;
+                  const cls = "h-9 text-sm " + (isS || isE ? "rounded-full bg-amber font-semibold text-ink" : inR ? "bg-amber/20 text-ink" : dis ? "text-slate/30" : "rounded-full text-ink hover:bg-cloud");
+                  return <button key={iso} type="button" disabled={dis} onClick={() => pickDay(iso)} className={cls}>{i + 1}</button>;
+                })}
+              </div>
+              <button type="button" onClick={() => { setMonth("any"); setExactDepart(""); setExactReturn(""); setDOpen(false); }} className="mt-2 w-full rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-cloud">{t("anytime")}</button>
+            </div>
+          )}
         </div>
-        {month === "exact" && (
-          <div className="flex gap-2">
-            <input type="date" value={exactDepart} onChange={(e) => setExactDepart(e.target.value)} className="mt-1 rounded-lg border border-mist bg-white px-2 py-2 text-sm text-ink outline-none focus:border-amber" />
-            <input type="date" value={exactReturn} onChange={(e) => setExactReturn(e.target.value)} className="mt-1 rounded-lg border border-mist bg-white px-2 py-2 text-sm text-ink outline-none focus:border-amber" />
-          </div>
-        )}
         <label className="flex items-center gap-2 text-sm text-ink">
           <input type="checkbox" checked={directOnly} onChange={(e) => setDirectOnly(e.target.checked)} className="h-4 w-4 accent-amber" />
           {t("directOnly")}
@@ -387,10 +433,22 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
           ))}
         </div>
         <div className="flex items-center gap-2">
-          <select value={sort} onChange={(e) => setSort(e.target.value)} className="rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber">
-            <option value="cheapest">{t("sortCheapest")}</option>
-            <option value="direct">{t("sortDirect")}</option>
-          </select>
+          <div className="relative">
+            <button type="button" onClick={() => { setSOpen((o) => !o); setDOpen(false); }} aria-expanded={sOpen} className="mt-1 flex w-full items-center justify-between gap-2 rounded-lg border border-mist bg-white px-3 py-2 text-start text-sm text-ink outline-none focus:border-amber w-40">
+              <span className="truncate">{sortOpts.find((o) => o[0] === sort)?.[1]}</span>
+              <span aria-hidden className="text-slate">▾</span>
+            </button>
+            {sOpen && (
+              <div className="absolute end-0 z-[999] mt-1 w-48 max-w-[calc(100vw-2rem)] rounded-xl border border-mist bg-white p-1.5 shadow-xl">
+                {sortOpts.map((o) => (
+                  <button key={o[0]} type="button" onClick={() => { setSort(o[0]); setSOpen(false); }} className={"flex w-full items-center justify-between rounded-lg px-3 py-2 text-start text-sm " + (sort === o[0] ? "bg-amber/20 font-semibold text-ink" : "text-ink hover:bg-cloud")}>
+                    <span>{o[1]}</span>
+                    {sort === o[0] && <span aria-hidden>✓</span>}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
         <button type="button" onClick={() => { setMinTxt(""); setMaxTxt(""); setDirectOnly(false); setRegion("all"); setMonth("any"); setExactDepart(""); setExactReturn(""); setDestQuery(""); setSort("cheapest"); }} className="rounded-lg border border-mist bg-white px-3 py-2 text-sm font-medium text-ink hover:border-amber">{t("resetFilters")}</button>
         <p className="ms-auto text-xs text-slate">{status === "loading" ? t("loading") : t("count", { n: sortedPoints.length })}</p>
