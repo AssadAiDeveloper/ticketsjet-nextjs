@@ -337,7 +337,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
           {dOpen && (
             <>
               <button type="button" aria-label="×" className="fixed inset-0 z-[998] cursor-default" onClick={() => setDOpen(false)} />
-              <div className="absolute start-0 z-[999] mt-1 w-64 max-w-[calc(100vw-2rem)] rounded-xl border border-mist bg-white p-2 shadow-xl">
+              <div className="absolute end-0 z-[999] mt-1 w-64 lg:start-0 lg:end-auto max-w-[calc(100vw-2rem)] rounded-xl border border-mist bg-white p-2 shadow-xl">
                 <button type="button" onClick={() => { setDFrom(""); setDTo(""); setDOpen(false); }} className={`mb-1 w-full rounded-lg px-3 py-2 text-start text-sm font-semibold ${!dFrom && !dTo ? "bg-amber/20 text-ink" : "text-ink hover:bg-cloud"}`}>{DATE_ANY[locale] || DATE_ANY.en}</button>
                 <div className="grid grid-cols-2 gap-1">
                   {monthOpts.map((m) => (
