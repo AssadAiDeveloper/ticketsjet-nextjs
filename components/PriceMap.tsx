@@ -51,6 +51,8 @@ const REGION_LABELS: Record<string, string[]> = {
   he: ["כל האזורים", "אירופה", "המזרח התיכון", "אסיה", "אפריקה", "אמריקה", "אוקיאניה"],
 };
 
+const DATE_ANY: Record<string, string> = { en: "Any dates", ar: "أي تاريخ", nl: "Alle data", es: "Cualquier fecha", fr: "Toutes les dates", de: "Beliebiges Datum", it: "Qualsiasi data", pt: "Qualquer data", tr: "Herhangi bir tarih", ru: "Любые даты", pl: "Dowolna data", fa: "هر تاریخی", he: "כל תאריך" };
+
 export default function PriceMap({ names = {}, initialOrigin }: { names?: Record<string, string>; initialOrigin?: string }) {
   const t = useTranslations("map");
   const locale = useLocale();
@@ -79,6 +81,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
   const [maxTxt, setMaxTxt] = useState("");
   const [range, setRange] = useState<[number, number]>([0, 0]);
   const [extra, setExtra] = useState<Array<[string, string, number, number]>>([]);
+  const [dOpen, setDOpen] = useState(false);
   const num = (x: string) => { const n = parseFloat(x); return Number.isFinite(n) && rate > 0 ? n / rate : null; };
   const lo0 = num(minTxt);
   const hi0 = num(maxTxt);
@@ -267,6 +270,22 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
   // If prices can't be loaded (API token missing or service down), fall back to the stock map widget.
   if (status === "error") return <TpWidget src={WIDGETS.priceMap} minHeight={520} />;
 
+  const pad2 = (n: number) => String(n).padStart(2, "0");
+  const monthOpts = Array.from({ length: 12 }, (_, i) => {
+    const y0 = Number(today.slice(0, 4));
+    const m0 = Number(today.slice(5, 7)) - 1 + i;
+    const first = new Date(y0, m0, 1);
+    const last = new Date(y0, m0 + 1, 0);
+    const ym = first.getFullYear() + "-" + pad2(first.getMonth() + 1);
+    const from = i === 0 ? today : ym + "-01";
+    const to = ym + "-" + pad2(last.getDate());
+    let label = ym;
+    try { label = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }).format(first); } catch {}
+    return { from, to, label };
+  });
+  const dSel = monthOpts.find((m) => m.from === dFrom && m.to === dTo);
+  const dLabel = dSel ? dSel.label : dFrom || dTo ? (dFrom || "…") + " – " + (dTo || "…") : DATE_ANY[locale] || DATE_ANY.en;
+
   return (
     <div>
       <div className="mb-3 grid grid-cols-2 items-end gap-3 border-b border-mist pb-3 lg:flex lg:flex-wrap">
@@ -309,18 +328,30 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
             {REGION_ORDER.map((r) => <option key={r} value={r}>{regionName(r)}</option>)}
           </select>
         </div>
+        <div className="relative col-span-1">
+          <span className="mb-1 block font-mono text-[11px] uppercase tracking-widest text-slate" aria-hidden>✈</span>
+          <button type="button" onClick={() => setDOpen((o) => !o)} aria-expanded={dOpen} className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber flex w-full items-center justify-between gap-2 text-start">
+            <span className="truncate">{dLabel}</span>
+            <span aria-hidden className="text-slate">▾</span>
+          </button>
+          {dOpen && (
+            <>
+              <button type="button" aria-label="×" className="fixed inset-0 z-[998] cursor-default" onClick={() => setDOpen(false)} />
+              <div className="absolute start-0 z-[999] mt-1 w-64 max-w-[calc(100vw-2rem)] rounded-xl border border-mist bg-white p-2 shadow-xl">
+                <button type="button" onClick={() => { setDFrom(""); setDTo(""); setDOpen(false); }} className={`mb-1 w-full rounded-lg px-3 py-2 text-start text-sm font-semibold ${!dFrom && !dTo ? "bg-amber/20 text-ink" : "text-ink hover:bg-cloud"}`}>{DATE_ANY[locale] || DATE_ANY.en}</button>
+                <div className="grid grid-cols-2 gap-1">
+                  {monthOpts.map((m) => (
+                    <button key={m.from} type="button" onClick={() => { setDFrom(m.from); setDTo(m.to); setDOpen(false); }} className={`rounded-lg px-3 py-2 text-start text-sm ${dSel === m ? "bg-amber/20 font-semibold text-ink" : "text-ink hover:bg-cloud"}`}>{m.label}</button>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
         <label className="col-span-1 flex h-10 cursor-pointer items-center gap-2 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink">
           <input type="checkbox" checked={direct} onChange={(e) => setDirect(e.target.checked)} className="h-4 w-4 accent-amber" />
           {t("direct")}
         </label>
-        <div className="col-span-2 lg:col-span-1">
-          <label className="mb-1 block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-dfrom">✈</label>
-          <div className="flex items-center gap-2" dir="ltr">
-            <input id="pm-dfrom" type="date" value={dFrom} min={today} max={dTo || undefined} onChange={(e) => setDFrom(e.target.value)} aria-label="✈ ≥" className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full lg:w-40" />
-            <span className="text-slate">–</span>
-            <input type="date" value={dTo} min={dFrom || today} onChange={(e) => setDTo(e.target.value)} aria-label="✈ ≤" className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full lg:w-40" />
-          </div>
-        </div>
         {filtered && (
           <button type="button" onClick={() => { setMinTxt(""); setMaxTxt(""); setDirect(false); setRegion(""); setDFrom(""); setDTo(""); }} className="col-span-2 h-10 rounded-lg border border-slate/30 bg-white px-4 text-sm text-ink hover:bg-cloud lg:col-span-1" aria-label="×">×</button>
         )}
