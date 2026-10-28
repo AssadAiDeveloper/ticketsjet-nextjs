@@ -429,14 +429,14 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
         </label>
         <div className="relative lg:hidden">
           <button type="button" onClick={() => { setROpen((o) => !o); setDOpen(false); setSOpen(false); }} aria-expanded={rOpen} className="mt-1 flex w-full items-center justify-between gap-2 rounded-lg border border-mist bg-white px-3 py-2 text-start text-sm text-ink outline-none focus:border-amber">
-            <span className="truncate">{region === "all" ? t("allRegions") : t("region_" + region)}</span>
+            <span className="truncate">{region === "all" ? t("allRegions") : t(`region_${region as (typeof REGIONS)[number]}`)}</span>
             <span aria-hidden className="text-slate">▾</span>
           </button>
           {rOpen && (
             <div className="absolute start-0 z-[999] mt-1 max-h-72 w-full overflow-y-auto rounded-xl border border-mist bg-white p-1.5 shadow-xl">
               {["all", ...REGIONS].map((r) => (
                 <button key={r} type="button" onClick={() => { setRegion(r); setROpen(false); }} className={"flex w-full items-center justify-between rounded-lg px-3 py-2 text-start text-sm " + (region === r ? "bg-amber/20 font-semibold text-ink" : "text-ink hover:bg-cloud")}>
-                  <span>{r === "all" ? t("allRegions") : t("region_" + r)}</span>
+                  <span>{r === "all" ? t("allRegions") : t(`region_${r as (typeof REGIONS)[number]}`)}</span>
                   {region === r && <span aria-hidden>✓</span>}
                 </button>
               ))}
