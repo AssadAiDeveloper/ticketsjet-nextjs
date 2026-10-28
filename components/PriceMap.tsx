@@ -6,6 +6,7 @@ import "leaflet/dist/leaflet.css";
 import { useLocale, useTranslations } from "next-intl";
 import TpWidget from "@/components/TpWidget";
 import { useFormatPrice } from "@/components/Price";
+import { useCurrency } from "@/components/CurrencyProvider";
 import { fullDate } from "@/lib/format";
 import { WIDGETS } from "@/lib/config";
 
@@ -43,8 +44,14 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
   const [suggest, setSuggest] = useState<Suggest[]>([]);
   const [data, setData] = useState<Data | null>(null);
   const [status, setStatus] = useState<"loading" | "ok" | "error">("loading");
-  const [maxPrice, setMaxPrice] = useState(20000);
-  const [sliderMax, setSliderMax] = useState(20000);
+  const { rate, priceCurrency } = useCurrency();
+  const [minTxt, setMinTxt] = useState("");
+  const [maxTxt, setMaxTxt] = useState("");
+  const [range, setRange] = useState<[number, number]>([0, 0]);
+  const num = (x: string) => { const n = parseFloat(x); return Number.isFinite(n) && rate > 0 ? n / rate : null; };
+  const lo0 = num(minTxt);
+  const hi0 = num(maxTxt);
+  const [minPrice, maxPrice] = lo0 !== null && hi0 !== null && lo0 > hi0 ? [hi0, lo0] : [lo0 ?? 0, hi0 ?? Infinity];
 
   // load prices for the chosen origin
   useEffect(() => {
@@ -55,7 +62,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
       .then((d) => {
         if (off) return;
         setData(d);
-        { const ps = d.points.map((p) => p.price).sort((a, b) => a - b); const hi = ps.length ? ps[Math.min(ps.length - 1, Math.floor(ps.length * 0.99))] : 20000; const top = Math.max(200, Math.ceil(hi / 100) * 100); setSliderMax(top); setMaxPrice(top); }
+        { const ps = d.points.map((p) => p.price).sort((a, b) => a - b); const hi = ps.length ? ps[Math.min(ps.length - 1, Math.floor(ps.length * 0.99))] : 20000; setRange([ps.length ? ps[0] : 0, hi]); }
         setOriginLabel((names && names[d.origin.code]) || d.origin.name);
         setStatus(d.points.length ? "ok" : "error");
       })
@@ -100,7 +107,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
 
       const map = mapRef.current!;
       const layer = layerRef.current!;
-      const visible = data.points.filter((p) => p.price <= maxPrice); // already sorted cheapest first
+      const visible = data.points.filter((p) => p.price >= minPrice && p.price <= maxPrice); // already sorted cheapest first
 
       // Declutter: place cheapest first, skip any pin that would overlap one already placed.
       // Re-runs on zoom/pan, so more destinations appear as the map is zoomed in.
@@ -154,7 +161,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
     return () => {
       cancelled = true;
     };
-  }, [status, data, maxPrice, locale, fmtPrice, prefix]);
+  }, [status, data, minPrice, maxPrice, locale, fmtPrice, prefix]);
 
   // cleanup
   useEffect(
@@ -205,12 +212,14 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
           )}
         </div>
         <div>
-          <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-max">
-            {t("max", { price: fmtPrice(maxPrice) })}
-          </label>
-          <input id="pm-max" type="range" min={100} max={sliderMax} step={50} value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="mt-2 w-48 accent-amber" />
+          <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-min">{priceCurrency}</label>
+          <div className="mt-2 flex items-center gap-2" dir="ltr">
+            <input id="pm-min" type="text" inputMode="numeric" autoComplete="off" value={minTxt} onChange={(e) => setMinTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[0] * rate))} aria-label={`${priceCurrency} ≥`} className="w-24 rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
+            <span className="text-slate">–</span>
+            <input id="pm-max" type="text" inputMode="numeric" autoComplete="off" value={maxTxt} onChange={(e) => setMaxTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[1] * rate))} aria-label={`${priceCurrency} ≤`} className="w-24 rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
+          </div>
         </div>
-        <p className="ms-auto text-xs text-slate">{status === "loading" ? t("loading") : t("count", { n: data?.points.filter((p) => p.price <= maxPrice).length ?? 0 })}</p>
+        <p className="ms-auto text-xs text-slate">{status === "loading" ? t("loading") : t("count", { n: data?.points.filter((p) => p.price >= minPrice && p.price <= maxPrice).length ?? 0 })}</p>
       </div>
       <div ref={mapEl} className="isolate relative z-0 h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label={t("aria")} />
     </div>
