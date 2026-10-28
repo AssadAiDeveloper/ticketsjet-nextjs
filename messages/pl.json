@@ -240,8 +240,7 @@
     "a7": "Zmiany i anulacje obsługuje dostawca, u którego rezerwowałeś; sprawdź jego zasady przed płatnością.",
     "q8": "Czy śniadanie jest wliczone?",
     "a8": "Włączenie śniadania zależy od wybranej taryfy; jest pokazywane na stronie dostawcy.",
-    "heroTitle": "Znajdz miejsce, w ktorym chetnie sie zatrzymasz",
-    "heroSubtitle": "Porownaj hotele, apartamenty i wiecej na Booking.com, a potem rezerwuj z pewnoscia."
+    "heroTitle": "Znajdz miejsce, w ktorym chetnie sie zatrzymasz"
   },
   "tf": {
     "flexible": "Elastyczny miesiąc",
@@ -300,8 +299,7 @@
     "faq3a": "Wyświetlane ceny pochodzą od linii lotniczych i biur podróży. Ostateczna cena jest potwierdzana na stronie dostawcy podczas płatności, przed zapłatą.",
     "faq4q": "Czy mogę zarezerwować elastyczne lub zwrotne bilety?",
     "faq4a": "Wiele linii oferuje bilety z bezpłatną zmianą daty. Zastosuj w wynikach filtr elastycznych biletów, aby zobaczyć tylko takie taryfy.",
-    "heroTitle": "Find the cheapest flights, anywhere",
-    "heroSubtitle": "Compare prices from many airlines and booking sites, then book with the provider you choose."
+    "heroTitle": "Find the cheapest flights, anywhere"
   },
   "deals": {
     "aria": "Oferty lotów z {city}",
@@ -355,8 +353,7 @@
     "s2": "Wybierz elastyczny miesiąc z długością podróży lub dokładne daty.",
     "s3": "Wyświetlamy najniższe ostatnie ceny. Wybierz jedną, aby zobaczyć wyniki na żywo, i otwórz wyszukiwanie hoteli na te same daty.",
     "disclaimer": "Ceny pochodzą z ostatnich wyszukiwań podróżnych i mają charakter orientacyjny, nie są gwarancją. Ceny hoteli wyświetla strona hotelu.",
-    "heroTitle": "Not sure where to go?",
-    "heroSubtitle": "Tell us your budget and dates, and we'll show you where to fly."
+    "heroTitle": "Not sure where to go?"
   },
   "meta": {
     "tagline": "Porównaj loty. Bez dodatkowych opłat.",
@@ -590,8 +587,7 @@
     "q3": "Czy TicketsJet sprzedaje te usługi?",
     "a3": "Nie. Odsyłamy do dostawców, u których wybierasz daty i płacisz. Nie przyjmujemy płatności ani nie dodajemy opłat.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}",
-    "heroSubtitle": "See recent prices, the best months to go, and what to do when you land."
+    "heroTitle": "Cheap flights to {city}"
   },
   "aci": {
     "metaTitle": "Co robić — wycieczki, bilety i atrakcje według miast",
@@ -619,8 +615,7 @@
     "a2": "Wycieczki i bilety otwierają się na stronie dostawcy, gdzie wybierasz datę i płacisz. TicketsJet nie przyjmuje płatności ani nie dodaje opłat.",
     "q3": "Czy mogę anulować?",
     "a3": "Warunki anulowania różnią się w zależności od atrakcji i są pokazane przy każdej ofercie przed płatnością. Sprawdź je, jeśli Twoje plany mogą się zmienić.",
-    "heroTitle": "Things to do in {city}",
-    "heroSubtitle": "Tours, tickets and experiences, handpicked for your trip."
+    "heroTitle": "Things to do in {city}"
   },
   "svc": {
     "metaTitle": "Usługi podróżne — eSIM, transfery lotniskowe, odszkodowanie za lot",
@@ -778,8 +773,7 @@
     "anchorTips": "Rental tips",
     "anchorFaq": "FAQ",
     "anchorSearch": "Search",
-    "heroTitle": "Find the best car rental deals",
-    "heroSubtitle": "Compare trusted rental companies and check deposit, insurance and cancellation before you book."
+    "heroTitle": "Find the best car rental deals"
   },
   "exp": {
     "metaTitle": "Odkrywaj tanie loty na mapie cen — znajdź, dokąd lecieć",
@@ -806,8 +800,7 @@
     "a3": "Tak. Użyj pola wylotu na mapie, aby wybrać inne miasto, a ceny zaktualizują się dla tego punktu wylotu.",
     "q4": "Co się dzieje po kliknięciu ceny?",
     "a4": "Zobaczysz daty tej ceny i przycisk otwierający ofertę, gdzie sfinalizujesz rezerwację bezpośrednio u linii lotniczej lub biura podróży.",
-    "heroTitle": "Where can your budget take you?",
-    "heroSubtitle": "Start with the price, not the destination, and see the cheapest trips on one map."
+    "heroTitle": "Where can your budget take you?"
   },
   "map": {
     "from": "Wylot z",

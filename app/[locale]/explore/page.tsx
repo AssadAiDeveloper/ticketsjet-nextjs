@@ -29,7 +29,7 @@ export default async function ExplorePage({ params, searchParams }: { params: Pr
   const names = Object.fromEntries(cities.map((c) => [c.code, locCity(c.code, locale, c.name)]));
   return (
     <>
-      <PageHero title={t("heroTitle")} subtitle={t("heroSubtitle")} photoKey="explore" />
+      <PageHero title={t("heroTitle")} photoKey="explore" />
 
       <section className="mx-auto -mt-6 max-w-6xl px-4">
         <div className="boarding-pass p-2 sm:p-3">

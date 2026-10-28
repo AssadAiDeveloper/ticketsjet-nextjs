@@ -87,11 +87,7 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
           <h1 className={searching ? "sr-only" : "font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl"}>
             {t("heroTitle")}
           </h1>
-          {!searching && (
-            <p className="mt-4 max-w-xl text-white/70">
-              {t("heroSubtitle")}
-            </p>
-          )}
+
           <div className={`boarding-pass ${searching ? "" : "mt-9"} px-5 py-6 sm:px-7`}>
             <HeroFlightForm key={flightSearch ?? "new"} initial={initial} />
           </div>

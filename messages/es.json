@@ -240,8 +240,7 @@
     "a7": "Los cambios y cancelaciones los gestiona el proveedor con el que reservaste; revisa su política antes de pagar.",
     "q8": "¿El desayuno está incluido?",
     "a8": "La inclusión del desayuno depende de la tarifa que elijas; se muestra en la página del proveedor.",
-    "heroTitle": "Encuentra un lugar en el que te encantara alojarte",
-    "heroSubtitle": "Compara hoteles, apartamentos y mas en Booking.com, luego reserva con confianza."
+    "heroTitle": "Encuentra un lugar en el que te encantara alojarte"
   },
   "tf": {
     "flexible": "Mes flexible",
@@ -300,8 +299,7 @@
     "faq3a": "Los precios mostrados proceden de aerolíneas y agencias. El precio final se confirma en la web del proveedor durante el pago, antes de pagar.",
     "faq4q": "¿Puedo reservar billetes flexibles o reembolsables?",
     "faq4a": "Muchas aerolíneas ofrecen billetes con cambios de fecha gratuitos. Aplica el filtro de billete flexible en los resultados para ver solo esas tarifas.",
-    "heroTitle": "Find the cheapest flights, anywhere",
-    "heroSubtitle": "Compare prices from many airlines and booking sites, then book with the provider you choose."
+    "heroTitle": "Find the cheapest flights, anywhere"
   },
   "deals": {
     "aria": "Ofertas de vuelos desde {city}",
@@ -355,8 +353,7 @@
     "s2": "Elige un mes flexible con una duración de viaje, o fechas exactas.",
     "s3": "Listamos las tarifas recientes más bajas. Elige una para ver resultados en directo y abre una búsqueda de hoteles para las mismas fechas.",
     "disclaimer": "Las tarifas proceden de búsquedas recientes de viajeros y son orientativas, no una garantía. Los precios de hoteles se muestran en la web del hotel.",
-    "heroTitle": "Not sure where to go?",
-    "heroSubtitle": "Tell us your budget and dates, and we'll show you where to fly."
+    "heroTitle": "Not sure where to go?"
   },
   "meta": {
     "tagline": "Compara vuelos. Sin comisiones.",
@@ -590,8 +587,7 @@
     "q3": "¿TicketsJet vende estos servicios?",
     "a3": "No. Enlazamos con los proveedores, donde eliges las fechas y pagas. No cobramos pagos ni añadimos comisiones.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}",
-    "heroSubtitle": "See recent prices, the best months to go, and what to do when you land."
+    "heroTitle": "Cheap flights to {city}"
   },
   "aci": {
     "metaTitle": "Qué hacer — Tours, entradas y actividades por ciudad",
@@ -619,8 +615,7 @@
     "a2": "Los tours y entradas se abren en la web del proveedor, donde eliges fecha y pagas. TicketsJet no cobra pagos ni añade comisiones.",
     "q3": "¿Puedo cancelar?",
     "a3": "Las condiciones de cancelación varían según la actividad y se muestran en cada oferta antes de pagar. Revísalas si tus planes pueden cambiar.",
-    "heroTitle": "Things to do in {city}",
-    "heroSubtitle": "Tours, tickets and experiences, handpicked for your trip."
+    "heroTitle": "Things to do in {city}"
   },
   "svc": {
     "metaTitle": "Servicios de viaje — eSIM, traslados al aeropuerto, compensación de vuelos",
@@ -778,8 +773,7 @@
     "anchorTips": "Rental tips",
     "anchorFaq": "FAQ",
     "anchorSearch": "Search",
-    "heroTitle": "Find the best car rental deals",
-    "heroSubtitle": "Compare trusted rental companies and check deposit, insurance and cancellation before you book."
+    "heroTitle": "Find the best car rental deals"
   },
   "exp": {
     "metaTitle": "Explora vuelos baratos en un mapa de precios — Descubre a dónde volar",
@@ -806,8 +800,7 @@
     "a3": "Sí. Usa el campo de salida del mapa para elegir otra ciudad y los precios se actualizan para ese origen.",
     "q4": "¿Qué pasa al hacer clic en un precio?",
     "a4": "Verás las fechas de esa tarifa y un botón para abrir la oferta, donde completas la reserva directamente con la aerolínea o la agencia.",
-    "heroTitle": "Where can your budget take you?",
-    "heroSubtitle": "Start with the price, not the destination, and see the cheapest trips on one map."
+    "heroTitle": "Where can your budget take you?"
   },
   "map": {
     "from": "Volando desde",

@@ -35,7 +35,7 @@ export default async function StaysPage({ params }: { params: Promise<{ locale: 
   const faq = [1, 2, 3, 4, 5, 6].map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
   return (
     <>
-      <PageHero title={t("heroTitle")} subtitle={t("heroSubtitle")} photoKey="stays">
+      <PageHero title={t("heroTitle")} photoKey="stays">
         <div className="boarding-pass mt-6 max-w-3xl px-5 py-6 sm:px-7">
           <StaysForm />
         </div>

@@ -3,12 +3,10 @@ import heroPhotos from "../data/hero-photos.json";
 
 export default function PageHero({
   title,
-  subtitle,
   photoKey,
   children,
 }: {
   title: string;
-  subtitle?: string;
   photoKey?: keyof typeof heroPhotos;
   children?: React.ReactNode;
 }) {
@@ -38,10 +36,9 @@ export default function PageHero({
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" aria-hidden="true" />
-      <div className="relative mx-auto flex min-h-[260px] max-w-6xl flex-col justify-end px-4 pb-24 pt-16 sm:min-h-[320px] sm:pb-28 sm:pt-20">
+      <div className="relative mx-auto flex min-h-[220px] max-w-6xl flex-col justify-end px-4 pb-16 pt-12 sm:min-h-[260px] sm:pb-20 sm:pt-16">
         <h1 className="font-display max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl">{title}</h1>
-        {subtitle && <p className="mt-3 max-w-2xl text-base text-white/85 sm:text-lg">{subtitle}</p>}
-        {children && <div className="mt-6">{children}</div>}
+        {children && <div className="mt-4">{children}</div>}
       </div>
       {p && p.author && (
         <a

@@ -240,8 +240,7 @@
     "a7": "Änderungen und Stornierungen werden vom Anbieter abgewickelt, bei dem Sie gebucht haben; prüfen Sie dessen Richtlinien vor der Zahlung.",
     "q8": "Ist Frühstück inbegriffen?",
     "a8": "Die Inklusion von Frühstück hängt vom gewählten Tarif ab; sie wird auf der Anbieterseite angezeigt.",
-    "heroTitle": "Finde einen Ort, an dem du gerne uebernachtest",
-    "heroSubtitle": "Vergleiche Hotels, Apartments und mehr auf Booking.com, dann buche mit Vertrauen."
+    "heroTitle": "Finde einen Ort, an dem du gerne uebernachtest"
   },
   "tf": {
     "flexible": "Flexibler Monat",
@@ -300,8 +299,7 @@
     "faq3a": "Die angezeigten Preise stammen von Airlines und Reisebüros. Der Endpreis wird auf der Website des Anbieters beim Bezahlen bestätigt, bevor du zahlst.",
     "faq4q": "Kann ich flexible oder erstattbare Tickets buchen?",
     "faq4a": "Viele Airlines bieten Tickets mit kostenlosen Datumsänderungen an. Aktiviere in den Ergebnissen den Filter für flexible Tickets, um nur diese Preise zu sehen.",
-    "heroTitle": "Find the cheapest flights, anywhere",
-    "heroSubtitle": "Compare prices from many airlines and booking sites, then book with the provider you choose."
+    "heroTitle": "Find the cheapest flights, anywhere"
   },
   "deals": {
     "aria": "Flugangebote ab {city}",
@@ -355,8 +353,7 @@
     "s2": "Wähle einen flexiblen Monat mit Reisedauer oder genaue Daten.",
     "s3": "Wir listen die niedrigsten aktuellen Preise auf. Wähle einen, um Live-Ergebnisse zu sehen, und öffne eine Hotelsuche für dieselben Daten.",
     "disclaimer": "Die Preise stammen aus aktuellen Suchen von Reisenden und sind ein Richtwert, keine Garantie. Hotelpreise werden auf der Hotelseite angezeigt.",
-    "heroTitle": "Not sure where to go?",
-    "heroSubtitle": "Tell us your budget and dates, and we'll show you where to fly."
+    "heroTitle": "Not sure where to go?"
   },
   "meta": {
     "tagline": "Flüge vergleichen. Keine Aufschläge.",
@@ -590,8 +587,7 @@
     "q3": "Verkauft TicketsJet diese Leistungen?",
     "a3": "Nein. Wir verlinken zu den Anbietern, bei denen du Daten wählst und bezahlst. Wir nehmen keine Zahlungen entgegen und erheben keine Gebühren.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}",
-    "heroSubtitle": "See recent prices, the best months to go, and what to do when you land."
+    "heroTitle": "Cheap flights to {city}"
   },
   "aci": {
     "metaTitle": "Aktivitäten – Touren, Tickets & Erlebnisse nach Stadt",
@@ -619,8 +615,7 @@
     "a2": "Touren und Tickets öffnen sich auf der Website des Anbieters, wo du ein Datum wählst und bezahlst. TicketsJet nimmt keine Zahlungen entgegen und erhebt keine Gebühren.",
     "q3": "Kann ich stornieren?",
     "a3": "Stornobedingungen unterscheiden sich je nach Aktivität und werden vor der Zahlung bei jedem Angebot angezeigt. Prüfe sie, wenn sich deine Pläne ändern könnten.",
-    "heroTitle": "Things to do in {city}",
-    "heroSubtitle": "Tours, tickets and experiences, handpicked for your trip."
+    "heroTitle": "Things to do in {city}"
   },
   "svc": {
     "metaTitle": "Reiseleistungen – eSIM, Flughafentransfers, Fluggastentschädigung",
@@ -778,8 +773,7 @@
     "anchorTips": "Rental tips",
     "anchorFaq": "FAQ",
     "anchorSearch": "Search",
-    "heroTitle": "Find the best car rental deals",
-    "heroSubtitle": "Compare trusted rental companies and check deposit, insurance and cancellation before you book."
+    "heroTitle": "Find the best car rental deals"
   },
   "exp": {
     "metaTitle": "Günstige Flüge auf der Preiskarte entdecken – Finde dein Reiseziel",
@@ -806,8 +800,7 @@
     "a3": "Ja. Wähle im Abflugfeld der Karte eine andere Stadt, und die Preise werden für diesen Abflugort aktualisiert.",
     "q4": "Was passiert, wenn ich auf einen Preis klicke?",
     "a4": "Du siehst die Daten zu diesem Preis und eine Schaltfläche zum Öffnen des Angebots, wo du die Buchung direkt bei Airline oder Reisebüro abschließt.",
-    "heroTitle": "Where can your budget take you?",
-    "heroSubtitle": "Start with the price, not the destination, and see the cheapest trips on one map."
+    "heroTitle": "Where can your budget take you?"
   },
   "map": {
     "from": "Abflug von",

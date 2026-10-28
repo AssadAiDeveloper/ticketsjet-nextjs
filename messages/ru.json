@@ -240,8 +240,7 @@
     "a7": "Изменения и отмены обрабатывает поставщик, у которого вы бронировали; проверьте его политику до оплаты.",
     "q8": "Завтрак включён?",
     "a8": "Включение завтрака зависит от выбранного тарифа; оно показано на странице поставщика.",
-    "heroTitle": "Najdite mesto, v kotorom vam ponravitsya ostanovitsya",
-    "heroSubtitle": "Sravnite oteli, apartamenty i drugoe na Booking.com, zatem bronirujte s uverennostyu."
+    "heroTitle": "Najdite mesto, v kotorom vam ponravitsya ostanovitsya"
   },
   "tf": {
     "flexible": "Гибкий месяц",
@@ -300,8 +299,7 @@
     "faq3a": "Показанные цены поступают от авиакомпаний и агентств. Окончательная цена подтверждается на сайте поставщика при оформлении, до оплаты.",
     "faq4q": "Можно ли купить гибкие или возвратные билеты?",
     "faq4a": "Многие авиакомпании предлагают билеты с бесплатным изменением даты. Включите в результатах фильтр гибких билетов, чтобы видеть только такие тарифы.",
-    "heroTitle": "Find the cheapest flights, anywhere",
-    "heroSubtitle": "Compare prices from many airlines and booking sites, then book with the provider you choose."
+    "heroTitle": "Find the cheapest flights, anywhere"
   },
   "deals": {
     "aria": "Предложения авиабилетов из {city}",
@@ -355,8 +353,7 @@
     "s2": "Выберите гибкий месяц с длительностью поездки или точные даты.",
     "s3": "Мы показываем самые низкие недавние цены. Выберите одну, чтобы увидеть актуальные результаты, и откройте поиск отелей на те же даты.",
     "disclaimer": "Цены берутся из недавних поисков путешественников и носят справочный характер, это не гарантия. Цены на отели показаны на сайте отеля.",
-    "heroTitle": "Not sure where to go?",
-    "heroSubtitle": "Tell us your budget and dates, and we'll show you where to fly."
+    "heroTitle": "Not sure where to go?"
   },
   "meta": {
     "tagline": "Сравнивайте рейсы. Без наценок.",
@@ -590,8 +587,7 @@
     "q3": "Продаёт ли TicketsJet эти услуги?",
     "a3": "Нет. Мы даём ссылки на поставщиков, где вы выбираете даты и платите. Мы не принимаем платежи и не добавляем комиссий.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}",
-    "heroSubtitle": "See recent prices, the best months to go, and what to do when you land."
+    "heroTitle": "Cheap flights to {city}"
   },
   "aci": {
     "metaTitle": "Чем заняться — экскурсии, билеты и занятия по городам",
@@ -619,8 +615,7 @@
     "a2": "Экскурсии и билеты открываются на сайте поставщика, где вы выбираете дату и платите. TicketsJet не принимает платежи и не добавляет комиссий.",
     "q3": "Можно ли отменить?",
     "a3": "Условия отмены зависят от занятия и показываются в каждом предложении до оплаты. Проверьте их, если ваши планы могут измениться.",
-    "heroTitle": "Things to do in {city}",
-    "heroSubtitle": "Tours, tickets and experiences, handpicked for your trip."
+    "heroTitle": "Things to do in {city}"
   },
   "svc": {
     "metaTitle": "Туристические услуги — eSIM, трансферы, компенсация за рейс",
@@ -778,8 +773,7 @@
     "anchorTips": "Rental tips",
     "anchorFaq": "FAQ",
     "anchorSearch": "Search",
-    "heroTitle": "Find the best car rental deals",
-    "heroSubtitle": "Compare trusted rental companies and check deposit, insurance and cancellation before you book."
+    "heroTitle": "Find the best car rental deals"
   },
   "exp": {
     "metaTitle": "Дешёвые билеты на карте цен — найдите, куда лететь",
@@ -806,8 +800,7 @@
     "a3": "Да. Используйте поле вылета на карте, чтобы выбрать другой город, и цены обновятся для этого пункта отправления.",
     "q4": "Что произойдёт, если нажать на цену?",
     "a4": "Вы увидите даты этого тарифа и кнопку открытия предложения, где завершите бронирование напрямую у авиакомпании или агентства.",
-    "heroTitle": "Where can your budget take you?",
-    "heroSubtitle": "Start with the price, not the destination, and see the cheapest trips on one map."
+    "heroTitle": "Where can your budget take you?"
   },
   "map": {
     "from": "Вылет из",
