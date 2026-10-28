@@ -11,7 +11,7 @@ export async function GET(req: Request) {
   try {
     const fares = await getFares(origin);
     if (!fares) return NextResponse.json({ error: "upstream" }, { status: 502 });
-    return NextResponse.json(fares, { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" } });
+    return NextResponse.json(fares, { headers: { "Cache-Control": "public, s-maxage=21600, stale-while-revalidate=86400" } });
   } catch {
     return NextResponse.json({ error: "failed" }, { status: 502 });
   }

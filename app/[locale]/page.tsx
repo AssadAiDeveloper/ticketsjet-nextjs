@@ -12,7 +12,7 @@ import DestinationCards, { type Dest } from "@/components/DestinationCards";
 import { POPULAR } from "@/lib/destinations";
 import { countryName } from "@/lib/format";
 
-export const revalidate = 3600; // refresh the fare board hourly
+export const revalidate = 21600; // refresh the fare board every 6 hours
 
 async function loadBoard(locale: string) {
   try {

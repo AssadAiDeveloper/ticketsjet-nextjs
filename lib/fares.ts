@@ -23,7 +23,7 @@ const API = "https://api.travelpayouts.com";
 // Current API: cheapest fare per destination, up to 1000 rows (unique=true).
 async function fromPricesForDates(origin: string, token: string): Promise<Row[]> {
   const url = `${API}/aviasales/v3/prices_for_dates?origin=${origin}&unique=true&sorting=price&one_way=false&limit=1000&currency=usd`;
-  const res = await fetch(url, { headers: { "X-Access-Token": token }, next: { revalidate: 3600 } });
+  const res = await fetch(url, { headers: { "X-Access-Token": token }, next: { revalidate: 21600 } });
   if (!res.ok) return [];
   const json = (await res.json()) as { data?: Row[] };
   return Array.isArray(json.data) ? json.data : [];
@@ -33,7 +33,7 @@ async function fromPricesForDates(origin: string, token: string): Promise<Row[]>
 async function fromCityDirections(origin: string, token: string): Promise<Row[]> {
   const res = await fetch(`${API}/v1/city-directions?origin=${origin}&currency=usd`, {
     headers: { "X-Access-Token": token },
-    next: { revalidate: 3600 },
+    next: { revalidate: 21600 },
   });
   if (!res.ok) return [];
   const json = (await res.json()) as { data?: Record<string, Row> };

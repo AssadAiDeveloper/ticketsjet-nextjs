@@ -18,7 +18,7 @@ async function rows(token: string, q: TripQuery, dest: string | null, unique: bo
     if (q.ret) p.set("return_at", q.ret);
   } else if (q.month) p.set("departure_at", q.month);
   try {
-    const res = await fetch(`${API}?${p}`, { headers: { "X-Access-Token": token }, next: { revalidate: 3600 } });
+    const res = await fetch(`${API}?${p}`, { headers: { "X-Access-Token": token }, next: { revalidate: 21600 } });
     if (!res.ok) return [];
     const json = (await res.json()) as { data?: Row[] };
     return Array.isArray(json.data) ? json.data : [];

@@ -8,17 +8,16 @@ import { dayMonth, monthName } from "@/lib/format";
 import { PHOTOS } from "@/lib/destinations";
 import DestPhoto from "@/components/DestPhoto";
 
-import { allPhotos } from "@/lib/destinationPhotos";
+import type { DestinationPhoto } from "@/lib/destinationPhotos";
 import type { Deal } from "@/lib/deals";
 
 const GRADS = ["from-[#16324a] to-[#0b1b2b]", "from-[#3b2f5c] to-[#0b1b2b]", "from-[#0f4a55] to-[#0b1b2b]", "from-[#5a3a1c] to-[#0b1b2b]", "from-[#1f4d3a] to-[#0b1b2b]", "from-[#4a2438] to-[#0b1b2b]"];
 
-export default function DealsGrid({ origin, items }: { origin: { code: string; name: string }; items: Deal[] }) {
+export default function DealsGrid({ origin, items, photos = {} }: { origin: { code: string; name: string }; items: Deal[]; photos?: Record<string, DestinationPhoto> }) {
   const t = useTranslations("deals");
   const td = useTranslations("dest");
   const tc = useTranslations("common");
   const locale = useLocale();
-  const photos = allPhotos();
   const when = (iso: string | null) => (iso ? dayMonth(iso, locale) : null);
   const [filter, setFilter] = useState<string>("all");
   const months = useMemo(() => [...new Set(items.map((d) => d.month).filter((m): m is string => !!m))].sort().slice(0, 3), [items]);

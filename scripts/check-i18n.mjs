@@ -7,7 +7,7 @@ function walk(dir) {
   for (const f of readdirSync(dir)) {
     const p = path.join(dir, f);
     const s = statSync(p);
-    if (s.isDirectory()) { if (f === "node_modules" || f === ".next" || f === ".git") continue; out.push(...walk(p)); }
+    if (s.isDirectory()) { if (f === "node_modules" || f === ".next" || f === ".open-next" || f === ".vercel" || f === ".git") continue; out.push(...walk(p)); }
     else if (/\.(tsx?|json|css|mjs|cjs)$/.test(f)) out.push(p);
   }
   return out;

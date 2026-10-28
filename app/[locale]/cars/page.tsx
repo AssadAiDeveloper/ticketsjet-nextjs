@@ -12,6 +12,8 @@ import { countryName } from "@/lib/format";
 import { DEST_CC } from "@/lib/richPrice";
 import { ACTIVITY_CITIES } from "@/lib/activities";
 
+export const revalidate = 86400;
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "cars" });

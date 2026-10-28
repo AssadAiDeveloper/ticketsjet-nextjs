@@ -12,6 +12,8 @@ import DestPhoto from "@/components/DestPhoto";
 import PhotoCredit from "@/components/PhotoCredit";
 import { allPhotos } from "@/lib/destinationPhotos";
 
+export const revalidate = 86400;
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "stays" });

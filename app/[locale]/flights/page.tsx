@@ -130,7 +130,7 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
 
           {deals && (
             <div className="mx-auto max-w-6xl px-4 pt-14">
-              <DealsGrid origin={deals.origin} items={deals.items} />
+              <DealsGrid origin={deals.origin} items={deals.items} photos={Object.fromEntries(Object.entries(allPhotos()).filter(([code]) => deals.items.some((d) => d.code === code)))} />
             </div>
           )}
 

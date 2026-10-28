@@ -17,7 +17,7 @@ import { DEST_CC, fillTokens, usdText } from "@/lib/richPrice";
 import DestPhoto from "@/components/DestPhoto";
 import { allPhotos } from "@/lib/destinationPhotos";
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 export const dynamicParams = false;
 
 export function generateStaticParams() {

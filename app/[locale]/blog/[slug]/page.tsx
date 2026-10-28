@@ -8,6 +8,8 @@ import AdSlot from "@/components/AdSlot";
 import { alternatesFor } from "@/lib/i18nPages";
 import { fullDate } from "@/lib/format";
 
+export const revalidate = 86400;
+
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams() {

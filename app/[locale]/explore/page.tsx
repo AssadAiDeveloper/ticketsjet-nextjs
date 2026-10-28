@@ -8,6 +8,8 @@ import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
 import { alternatesFor } from "@/lib/i18nPages";
 
+export const revalidate = 86400;
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "exp" });

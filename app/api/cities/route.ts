@@ -31,7 +31,7 @@ export async function GET(req: Request) {
         .map((c) => ({ code: c.code, name: c.name, country: c.code, kind: "country" as const }));
       cities = [...hit, ...cities].slice(0, 7);
     }
-    return NextResponse.json({ cities }, { headers: { "Cache-Control": "public, s-maxage=86400" } });
+    return NextResponse.json({ cities }, { headers: { "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800" } });
   } catch {
     return NextResponse.json({ cities: [] }, { status: 502 });
   }

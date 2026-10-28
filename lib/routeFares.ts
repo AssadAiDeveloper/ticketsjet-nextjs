@@ -10,7 +10,7 @@ export async function getRouteFares(origin: string, dest: string): Promise<DateF
     `https://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=${origin.toUpperCase()}` +
     `&destination=${dest.toUpperCase()}&unique=false&sorting=price&one_way=false&limit=60&currency=usd`;
   try {
-    const res = await fetch(url, { headers: { "X-Access-Token": token }, next: { revalidate: 3600 } });
+    const res = await fetch(url, { headers: { "X-Access-Token": token }, next: { revalidate: 21600 } });
     if (!res.ok) return null;
     const json = (await res.json()) as { data?: Row[] };
     const seen = new Set<string>();
@@ -36,7 +36,7 @@ export async function getMonthFares(origin: string, dest: string, month: string)
     `https://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=${origin.toUpperCase()}` +
     `&destination=${dest.toUpperCase()}&departure_at=${month}&unique=false&sorting=price&one_way=false&limit=1000&currency=usd`;
   try {
-    const res = await fetch(url, { headers: { "X-Access-Token": token }, next: { revalidate: 3600 } });
+    const res = await fetch(url, { headers: { "X-Access-Token": token }, next: { revalidate: 21600 } });
     if (!res.ok) return {};
     const json = (await res.json()) as { data?: Row[] };
     const out: Record<string, { p: number; b: string | null }> = {};

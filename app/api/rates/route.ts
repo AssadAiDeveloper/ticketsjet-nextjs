@@ -9,7 +9,7 @@ export async function GET() {
     const json = (await res.json()) as { rates?: Record<string, number> };
     const rates: Record<string, number> = { USD: 1 };
     for (const c of CURRENCIES) if (typeof json.rates?.[c] === "number") rates[c] = json.rates[c];
-    return NextResponse.json({ base: "USD", rates }, { headers: { "Cache-Control": "public, s-maxage=43200" } });
+    return NextResponse.json({ base: "USD", rates }, { headers: { "Cache-Control": "public, s-maxage=43200, stale-while-revalidate=86400" } });
   } catch {
     return NextResponse.json({ base: "USD", rates: { USD: 1 } }, { status: 502 });
   }
