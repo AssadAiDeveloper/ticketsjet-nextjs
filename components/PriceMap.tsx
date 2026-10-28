@@ -36,6 +36,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
   const layerRef = useRef<LType.LayerGroup | null>(null);
   const leafletRef = useRef<typeof LType | null>(null);
   const drawRef = useRef<(() => void) | null>(null);
+  const viewOriginRef = useRef("");
   const closeRef = useRef<(() => void) | null>(null);
 
   const [origin, setOrigin] = useState(initialOrigin && /^[A-Z]{3}$/.test(initialOrigin) ? initialOrigin : "AMS");
@@ -48,6 +49,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
   const [minTxt, setMinTxt] = useState("");
   const [maxTxt, setMaxTxt] = useState("");
   const [range, setRange] = useState<[number, number]>([0, 0]);
+  const [extra, setExtra] = useState<Array<[string, string, number, number]>>([]);
   const num = (x: string) => { const n = parseFloat(x); return Number.isFinite(n) && rate > 0 ? n / rate : null; };
   const lo0 = num(minTxt);
   const hi0 = num(maxTxt);
@@ -71,6 +73,17 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
       off = true;
     };
   }, [origin]);
+
+  // every other city (no recent fare) - shown as grey pins when zoomed in
+  useEffect(() => {
+    if (status !== "ok") return;
+    let off = false;
+    fetch("/api/map-cities")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((d) => { if (!off && Array.isArray(d)) setExtra(d as Array<[string, string, number, number]>); })
+      .catch(() => {});
+    return () => { off = true; };
+  }, [status]);
 
   // departure autocomplete
   useEffect(() => {
@@ -101,8 +114,12 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
         }).addTo(map);
         mapRef.current = map;
         layerRef.current = L.layerGroup().addTo(map);
+        viewOriginRef.current = data.origin.code;
       } else {
-        mapRef.current.setView([data.origin.lat, data.origin.lng], 3);
+        if (viewOriginRef.current !== data.origin.code) {
+          mapRef.current.setView([data.origin.lat, data.origin.lng], 3);
+          viewOriginRef.current = data.origin.code;
+        }
       }
 
       const map = mapRef.current!;
@@ -146,8 +163,36 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
           box.append(h, price, dates, a);
           m.bindPopup(box, { closeButton: false, offset: [0, -6] });
           m.addTo(layer);
+      }
+
+      // Open map: cities without a recent fare, grey pins, only when zoomed in and no price filter is active
+      if (map.getZoom() >= 5 && !minTxt && !maxTxt && extra.length) {
+        const priced = new Set(data.points.map((q) => q.code));
+        priced.add(data.origin.code);
+        for (const c of extra) {
+          const [code, cname, lat, lng] = c;
+          if (priced.has(code) || !bounds.contains([lat, lng])) continue;
+          const pt = map.latLngToContainerPoint([lat, lng]);
+          if (taken.some((t) => Math.abs(t.x - pt.x) < 58 && Math.abs(t.y - pt.y) < 28)) continue;
+          taken.push({ x: pt.x, y: pt.y });
+          const el = document.createElement("div");
+          el.className = "tj-pin";
+          el.style.cssText = "background:#e2e8f0;color:#334155;border-color:#94a3b8;font-size:11px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 6px;";
+          el.textContent = (names && names[code]) || cname;
+          const gm = L.marker([lat, lng], { icon: L.divIcon({ className: "", html: el, iconSize: [54, 24], iconAnchor: [27, 12] }), title: (names && names[code]) || cname });
+          const gbox = document.createElement("div");
+          gbox.className = "tj-pop";
+          const gh = document.createElement("strong");
+          gh.textContent = ((names && names[data.origin.code]) || data.origin.name) + " → " + ((names && names[code]) || cname);
+          const ga = document.createElement("a");
+          ga.href = flightsHref(data.origin.code, { code, name: cname, lat, lng, price: 0, stops: 0, depart: null, back: null }, prefix);
+          ga.textContent = tRef.current("see");
+          gbox.append(gh, ga);
+          gm.bindPopup(gbox, { closeButton: false, offset: [0, -6] });
+          gm.addTo(layer);
         }
-      };
+      }
+    };
 
       const afterClose = () => setTimeout(draw, 80);
       if (drawRef.current) map.off("zoomend moveend", drawRef.current);
@@ -161,7 +206,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
     return () => {
       cancelled = true;
     };
-  }, [status, data, minPrice, maxPrice, locale, fmtPrice, prefix]);
+  }, [status, data, minPrice, maxPrice, minTxt, maxTxt, extra, locale, fmtPrice, prefix]);
 
   // cleanup
   useEffect(
