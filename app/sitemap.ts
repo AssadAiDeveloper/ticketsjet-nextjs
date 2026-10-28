@@ -4,6 +4,7 @@ import { posts } from "@/lib/posts";
 import { ROUTES, slug } from "@/lib/routes";
 import { ACTIVITY_CITIES } from "@/lib/activities";
 import { LOCALES } from "@/i18n/routing";
+import { INDEXED_LOCALES } from "@/lib/seo";
 import { isTranslated } from "@/lib/i18nPages";
 
 const loc = (l: string, p: string) => (l === "en" ? p : p === "" ? `/${l}` : `/${l}${p}`);
@@ -11,8 +12,8 @@ const loc = (l: string, p: string) => (l === "en" ? p : p === "" ? `/${l}` : `/$
 function entry(p: string, freq: "daily" | "weekly" | "monthly", priority: number, lastModified: Date) {
   const path = p === "" ? "/" : p;
   if (!isTranslated(path)) return [{ url: `${SITE.url}${p}`, lastModified, changeFrequency: freq, priority }];
-  const languages = Object.fromEntries(LOCALES.map((l) => [l, `${SITE.url}${loc(l, p)}`]));
-  return LOCALES.map((l) => ({ url: `${SITE.url}${loc(l, p)}`, lastModified, changeFrequency: freq, priority, alternates: { languages } }));
+  const languages = Object.fromEntries(INDEXED_LOCALES.map((l) => [l, `${SITE.url}${loc(l, p)}`]));
+  return INDEXED_LOCALES.map((l) => ({ url: `${SITE.url}${loc(l, p)}`, lastModified, changeFrequency: freq, priority, alternates: { languages } }));
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { alternatesFor } from "@/lib/i18nPages";
+import { robotsFor } from "@/lib/seo";
 import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
 import { WlSearchForm, WlResults } from "@/components/WhiteLabel";
@@ -45,7 +46,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     description: t("metaDesc"),
     alternates: alternatesFor(locale, "/flights"),
     // Individual search result pages aren't useful in Google; only the plain /flights page is indexed.
-    robots: flightSearch ? { index: false, follow: true } : undefined,
+    robots: flightSearch ? { index: false, follow: true } : robotsFor(locale),
   };
 }
 

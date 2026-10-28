@@ -113,6 +113,19 @@ for (const locale of locales) {
         if (clientLang !== locale) extraIssues.push(`client lang=${clientLang} (expected ${locale})`);
         if (expectRtl && clientDir !== "rtl") extraIssues.push(`client dir=${clientDir} (expected rtl)`);
         if (!expectRtl && clientDir === "rtl") extraIssues.push(`client dir=rtl (expected ltr)`);
+        // robots: non-indexed locales must be noindex,follow
+        const robotsMatch = html.match(/<meta[^>]*name="robots"[^>]*content="([^"]*)"/);
+        const robotsContent = robotsMatch ? robotsMatch[1] : "";
+        const indexedSet = new Set(["en", "ar", "nl"]);
+        if (!indexedSet.has(locale) && !robotsContent.includes("noindex")) extraIssues.push(`expected noindex for ${locale}`);
+        if (indexedSet.has(locale) && robotsContent.includes("noindex")) extraIssues.push(`unexpected noindex for ${locale}`);
+        // hreflang on home: only indexed locales + x-default
+        if (p === "/") {
+          const hreflangs = [...html.matchAll(/hreflang="([^"]*)"/g)].map((m) => m[1]);
+          const allowed = new Set(["en", "ar", "nl", "x-default"]);
+          const bad = hreflangs.filter((h) => !allowed.has(h));
+          if (bad.length) extraIssues.push(`unexpected hreflang: ${bad.join(",")}`);
+        }
         const nonLatinLocales = new Set(["ar", "fa", "he", "ru"]);
         if ((p === "/destinations" || p === "/") && locale !== "en") {
           const html = await page.content();
@@ -185,6 +198,20 @@ for (const locale of locales) {
             if (!hasShadow) console.log("WARNING: #eb-widget has no shadowRoot with input/button (CDN may be unreachable)");
           } catch (e) {
             console.log("WARNING: #eb-widget not found within 10s (CDN may be unreachable)");
+          }
+        }
+        if (p === "/" && locale === "en" && vp.w === 1280) {
+          // sitemap check
+          try {
+            const sm = await page.goto(`${BASE}/sitemap.xml`, { waitUntil: "domcontentloaded", timeout: 30000 });
+            const smText = sm ? await sm.text() : "";
+            const badLocales = ["/de/", "/fr/", "/es/", "/it/", "/pt/", "/tr/", "/ru/", "/pl/", "/fa/", "/he/"];
+            for (const bl of badLocales) {
+              if (smText.includes(bl)) extraIssues.push(`sitemap contains ${bl}`);
+            }
+            await page.goto(`${BASE}/`, { waitUntil: "domcontentloaded", timeout: 30000 });
+          } catch (e) {
+            extraIssues.push(`sitemap fetch error: ${e}`);
           }
         }
         if (p === "/" && (locale === "en" || (locale === "he" && vp.w === 375))) {

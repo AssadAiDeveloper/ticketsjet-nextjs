@@ -12,6 +12,7 @@ import { getMonthFares, getRouteFares } from "@/lib/routeFares";
 import { ACTIVITY_CITIES } from "@/lib/activities";
 import { DESTS, ROUTES, parseRoute, slug } from "@/lib/routes";
 import { alternatesFor } from "@/lib/i18nPages";
+import { robotsFor } from "@/lib/seo";
 import { fullDate, countryName } from "@/lib/format";
 import { DEST_CC, fillTokens, usdText } from "@/lib/richPrice";
 import DestPhoto from "@/components/DestPhoto";
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: tr("metaDesc", { from, to }),
     alternates: alternatesFor(locale, `/cheap-flights/${slug(r.o, r.d)}`),
     // Without real price data the page is thin, so keep it out of the index.
-    robots: fares ? undefined : { index: false, follow: true },
+    robots: fares ? robotsFor(locale) : { index: false, follow: true },
   };
 }
 

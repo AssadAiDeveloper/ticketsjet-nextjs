@@ -5,6 +5,7 @@ import StaysForm from "@/components/StaysForm";
 import Faq from "@/components/Faq";
 import { bookingUrl } from "@/lib/config";
 import { alternatesFor } from "@/lib/i18nPages";
+import { robotsFor } from "@/lib/seo";
 import { cityName as locCity } from "@/lib/cityName";
 import { getCities } from "@/lib/places";
 import { countryName } from "@/lib/format";
@@ -18,7 +19,7 @@ export const revalidate = 21600;
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "stays" });
-  return { title: t("metaTitle"), description: t("metaDesc"), alternates: alternatesFor(locale, "/stays"), robots: { index: false, follow: true } };
+  return { title: t("metaTitle"), description: t("metaDesc"), alternates: alternatesFor(locale, "/stays"), robots: robotsFor(locale) ?? { index: false, follow: true } };
 }
 
 const cities: [string, string][] = [["Rome", "rom"], ["Dubai", "dxb"], ["Barcelona", "bcn"], ["Amsterdam", "ams"], ["New York", "nyc"], ["London", "lon"], ["Paris", "par"], ["Istanbul", "ist"]];

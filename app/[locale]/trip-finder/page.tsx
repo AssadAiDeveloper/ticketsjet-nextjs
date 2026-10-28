@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import PageHero from "@/components/PageHero";
 import { alternatesFor } from "@/lib/i18nPages";
+import { robotsFor } from "@/lib/seo";
 import TripForm, { type TripInitial } from "@/components/TripForm";
 import AdSlot from "@/components/AdSlot";
 import { bookingUrl } from "@/lib/config";
@@ -37,7 +38,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     title: t("metaTitle"),
     description: t("metaDesc"),
     alternates: alternatesFor(locale, "/trip-finder"),
-    robots: searching ? { index: false, follow: true } : undefined,
+    robots: searching ? { index: false, follow: true } : robotsFor(locale),
   };
 }
 

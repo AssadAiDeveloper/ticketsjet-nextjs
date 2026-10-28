@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { alternatesFor } from "@/lib/i18nPages";
+import { robotsFor } from "@/lib/seo";
 import UntranslatedGuard from "@/components/UntranslatedGuard";
 import { LOCALES, isLocale } from "@/i18n/routing";
 import { CurrencyProvider } from "@/components/CurrencyProvider";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     alternates: alternatesFor(locale, "/"),
     openGraph: { type: "website", siteName: SITE.name, url: SITE.url, title, description: t("description"), locale: locale === "ar" ? "ar_AR" : locale === "nl" ? "nl_NL" : "en_US" },
     twitter: { card: "summary_large_image", title, description: t("description") },
-    robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
+    robots: robotsFor(locale) ?? { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   };
 }
 
