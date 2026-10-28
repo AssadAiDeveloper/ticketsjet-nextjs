@@ -330,7 +330,24 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
         </div>
         <p className="ms-auto text-xs text-slate">{status === "loading" ? t("loading") : t("count", { n: data?.points.filter((p) => pass(p)).length ?? 0 })}</p>
       </div>
-      <div ref={mapEl} className="isolate relative z-0 h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label={t("aria")} />
+      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
+        <div ref={mapEl} className="isolate relative z-0 h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label={t("aria")} />
+        {status !== "loading" && data && (
+          <ul className="mt-3 max-h-[520px] divide-y divide-slate/10 overflow-y-auto rounded-xl border border-slate/15 bg-white lg:mt-0" aria-label={t("count", { n: data.points.filter((p) => pass(p)).length })}>
+            {data.points.filter((p) => pass(p)).slice(0, 200).map((p) => (
+              <li key={p.code}>
+                <a href={flightsHref(data.origin.code, p, prefix)} className="flex items-center justify-between gap-3 px-3 py-2.5 text-sm hover:bg-cloud">
+                  <span className="min-w-0">
+                    <span className="block truncate font-semibold text-ink">{names[p.code] || p.name}</span>
+                    <span className="block truncate text-xs text-slate">{p.country ? p.country + " · " : ""}{p.stops === 0 ? t("direct") : p.stops + "×"}{p.depart ? " · " + p.depart : ""}</span>
+                  </span>
+                  <span className="shrink-0 font-bold text-ink">{fmtPrice(p.price)}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
