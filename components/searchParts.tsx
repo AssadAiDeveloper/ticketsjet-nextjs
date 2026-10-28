@@ -36,18 +36,22 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
           setText(e.target.value);
           setOpen(true);
         }}
-        onFocus={(e) => value && e.currentTarget.select()}
+        onFocus={(e) => {
+          setOpen(true);
+          if (value) e.currentTarget.select();
+        }}
         onBlur={() => setTimeout(() => setOpen(false), 150)}
         placeholder={placeholder}
         autoComplete="off"
         className={`${compact ? "mt-0.5 rounded-lg py-2" : "mt-1 rounded-xl py-3"} w-full border border-mist bg-white px-3 text-sm font-medium text-ink outline-none transition focus:border-amber`}
       />
-      {open && !value && (list.length > 0 || allowEverywhere) && (
+      {open && (allowEverywhere || (!value && list.length > 0)) && (
         <ul className="absolute z-50 mt-1 w-full overflow-hidden rounded-xl border border-mist bg-white shadow-xl">
           {allowEverywhere && (
             <li>
               <button
                 type="button"
+                data-everywhere
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => {
                   onPick(everywhereCity);

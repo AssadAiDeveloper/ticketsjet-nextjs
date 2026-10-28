@@ -181,8 +181,6 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
     if (!from) return setErr(t("errCities"));
     const isEverywhere = !to || to.kind === "everywhere";
     if (!isEverywhere && from.code === to!.code) return setErr(t("errSameCity"));
-    if (!depart) return setErr(t("errDates"));
-    if (trip === "round" && !back) return setErr(t("errReturn"));
     setErr("");
 
     if (isEverywhere) {
@@ -191,6 +189,9 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
       window.location.href = `${prefix}/explore?${params.toString()}`;
       return;
     }
+
+    if (!depart) return setErr(t("errDates"));
+    if (trip === "round" && !back) return setErr(t("errReturn"));
 
     // Search code in the widget's own format:
     // ORIGIN DDMM DEST [DDMM] [c = business] ADULTS [CHILDREN] [INFANTS]

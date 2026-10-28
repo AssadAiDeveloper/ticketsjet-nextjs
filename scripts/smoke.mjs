@@ -187,9 +187,38 @@ for (const locale of locales) {
             console.log("WARNING: #eb-widget not found within 10s (CDN may be unreachable)");
           }
         }
-        if (p === "/" && locale === "en") {
-          // Everywhere option present in the form bundle
-          if (!html.includes("everywhere")) extraIssues.push("Everywhere key missing from home page bundle");
+        if (p === "/" && (locale === "en" || (locale === "he" && vp.w === 375))) {
+          // Everywhere flow: type a from city, set To=Everywhere, leave dates empty, submit -> /explore?origin=XXX
+          try {
+            // dismiss cookie banner
+            const accept = page.getByRole("button", { name: /accept all/i });
+            if (await accept.isVisible().catch(() => false)) { await accept.click(); await page.waitForTimeout(500); }
+            // type from city
+            const fromInput = page.locator('input[placeholder="City or airport"]').first();
+            await fromInput.click();
+            await fromInput.type("Amsterdam", { delay: 80 });
+            await page.waitForTimeout(800);
+            const firstSugg = page.locator('ul li button').first();
+            if (await firstSugg.isVisible().catch(() => false)) await firstSugg.click();
+            await page.waitForTimeout(500);
+            // set To = Everywhere
+            const toInput = page.locator('input[placeholder="City or airport"]').nth(1);
+            await toInput.click();
+            await page.waitForTimeout(400);
+            const everywhereBtn = page.locator('[data-everywhere]').first();
+            if (await everywhereBtn.isVisible().catch(() => false)) await everywhereBtn.click();
+            await page.waitForTimeout(300);
+            // submit
+            await page.getByRole("button", { name: /search flights/i }).first().click();
+            await page.waitForURL(/\/explore/, { timeout: 15000 }).catch(() => {});
+            const url = page.url();
+            if (!url.includes("/explore")) extraIssues.push(`Everywhere submit did not land on /explore (url=${url})`);
+            if (!/[?&]origin=[A-Z]{3}/.test(url)) extraIssues.push(`origin missing in URL (url=${url})`);
+            const noErr = !(await page.getByText("Pick your travel dates").isVisible().catch(() => false));
+            if (!noErr) extraIssues.push("date error shown for Everywhere flow");
+          } catch (e) {
+            extraIssues.push(`Everywhere flow error: ${e}`);
+          }
         }
         if (p === "/") {
           const html = await page.content();
