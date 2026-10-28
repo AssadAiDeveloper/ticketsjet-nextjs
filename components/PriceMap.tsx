@@ -173,13 +173,13 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
           const [code, cname, lat, lng] = c;
           if (priced.has(code) || !bounds.contains([lat, lng])) continue;
           const pt = map.latLngToContainerPoint([lat, lng]);
-          if (taken.some((t) => Math.abs(t.x - pt.x) < 58 && Math.abs(t.y - pt.y) < 28)) continue;
+          if (taken.some((t) => Math.abs(t.x - pt.x) < 104 && Math.abs(t.y - pt.y) < 28)) continue;
           taken.push({ x: pt.x, y: pt.y });
           const el = document.createElement("div");
           el.className = "tj-pin";
-          el.style.cssText = "background:#e2e8f0;color:#334155;border-color:#94a3b8;font-size:11px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 6px;";
+          el.style.cssText = "background:#e2e8f0;color:#334155;border-color:#94a3b8;font-size:11px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 8px;width:100px;box-sizing:border-box;text-align:center;";
           el.textContent = (names && names[code]) || cname;
-          const gm = L.marker([lat, lng], { icon: L.divIcon({ className: "", html: el, iconSize: [54, 24], iconAnchor: [27, 12] }), title: (names && names[code]) || cname });
+          const gm = L.marker([lat, lng], { icon: L.divIcon({ className: "", html: el, iconSize: [100, 24], iconAnchor: [50, 12] }), title: (names && names[code]) || cname });
           const gbox = document.createElement("div");
           gbox.className = "tj-pop";
           const gh = document.createElement("strong");
