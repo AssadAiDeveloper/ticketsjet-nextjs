@@ -62,7 +62,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
       .then((d) => {
         if (off) return;
         setData(d);
-        { const ps = d.points.map((p) => p.price).sort((a, b) => a - b); const hi = ps.length ? ps[Math.min(ps.length - 1, Math.floor(ps.length * 0.99))] : 20000; setRange([ps.length ? ps[0] : 0, hi]); }
+        { const ps = d.points.map((p) => p.price).sort((a, b) => a - b); setRange([ps.length ? ps[0] : 0, ps.length ? ps[ps.length - 1] : 0]); }
         setOriginLabel((names && names[d.origin.code]) || d.origin.name);
         setStatus(d.points.length ? "ok" : "error");
       })
