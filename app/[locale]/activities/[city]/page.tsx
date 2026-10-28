@@ -10,7 +10,7 @@ import { ACTIVITY_CITIES, activityCity } from "@/lib/activities";
 import { ROUTES, slug as routeSlug } from "@/lib/routes";
 
 export const dynamicParams = false;
-export const revalidate = 86400;
+export const revalidate = 21600;
 export function generateStaticParams() {
   return ACTIVITY_CITIES.map((c) => ({ city: c.slug }));
 }
