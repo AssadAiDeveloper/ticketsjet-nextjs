@@ -34,6 +34,22 @@ const REGION_CODES: Record<string, string> = {};
   ] as Array<[string, string]>
 ).forEach(([r, list]) => list.split(" ").forEach((c) => { REGION_CODES[c] = r; }));
 const REGION_ORDER = ["150", "145", "142", "002", "019", "009"];
+// order: all, Europe, Middle East, Asia, Africa, Americas, Oceania
+const REGION_LABELS: Record<string, string[]> = {
+  en: ["All regions", "Europe", "Middle East", "Asia", "Africa", "Americas", "Oceania"],
+  ar: ["كل المناطق", "أوروبا", "الشرق الأوسط", "آسيا", "أفريقيا", "الأمريكتان", "أوقيانوسيا"],
+  nl: ["Alle regio's", "Europa", "Midden-Oosten", "Azië", "Afrika", "Amerika", "Oceanië"],
+  es: ["Todas las regiones", "Europa", "Oriente Medio", "Asia", "África", "América", "Oceanía"],
+  fr: ["Toutes les régions", "Europe", "Moyen-Orient", "Asie", "Afrique", "Amériques", "Océanie"],
+  de: ["Alle Regionen", "Europa", "Naher Osten", "Asien", "Afrika", "Amerika", "Ozeanien"],
+  it: ["Tutte le regioni", "Europa", "Medio Oriente", "Asia", "Africa", "Americhe", "Oceania"],
+  pt: ["Todas as regiões", "Europa", "Oriente Médio", "Ásia", "África", "Américas", "Oceania"],
+  tr: ["Tüm bölgeler", "Avrupa", "Orta Doğu", "Asya", "Afrika", "Amerika", "Okyanusya"],
+  ru: ["Все регионы", "Европа", "Ближний Восток", "Азия", "Африка", "Америка", "Океания"],
+  pl: ["Wszystkie regiony", "Europa", "Bliski Wschód", "Azja", "Afryka", "Ameryki", "Oceania"],
+  fa: ["همه مناطق", "اروپا", "خاورمیانه", "آسیا", "آفریقا", "قاره آمریکا", "اقیانوسیه"],
+  he: ["כל האזורים", "אירופה", "המזרח התיכון", "אסיה", "אפריקה", "אמריקה", "אוקיאניה"],
+};
 
 export default function PriceMap({ names = {}, initialOrigin }: { names?: Record<string, string>; initialOrigin?: string }) {
   const t = useTranslations("map");
@@ -80,7 +96,9 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
     (!dTo || (!!p.depart && p.depart <= dTo));
   const filtered = !!(minTxt || maxTxt || direct || region || dFrom || dTo);
   const regionName = (code: string) => {
-    try { return new Intl.DisplayNames([locale], { type: "region" }).of(code) || code; } catch { return code; }
+    const names = REGION_LABELS[locale] || REGION_LABELS.en;
+    const i = ["001", ...REGION_ORDER].indexOf(code);
+    return names[i] ?? code;
   };
   const today = new Date().toISOString().slice(0, 10);
 
