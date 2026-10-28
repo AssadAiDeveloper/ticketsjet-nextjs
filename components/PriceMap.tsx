@@ -10,7 +10,7 @@ import { useCurrency } from "@/components/CurrencyProvider";
 import { fullDate } from "@/lib/format";
 import { WIDGETS } from "@/lib/config";
 
-type Point = { code: string; name: string; lat: number; lng: number; price: number; stops: number; depart: string | null; back: string | null };
+type Point = { code: string; name: string; country?: string; lat: number; lng: number; price: number; stops: number; depart: string | null; back: string | null };
 type Data = { origin: { code: string; name: string; lat: number; lng: number }; points: Point[] };
 type Suggest = { code: string; name: string; country: string };
 
@@ -21,6 +21,19 @@ function flightsHref(origin: string, p: Point, prefix: string) {
   if (p.back) q.set("return_date", p.back);
   return `${prefix}/flights?${q.toString()}#results`;
 }
+
+const REGION_CODES: Record<string, string> = {};
+(
+  [
+    ["150", "AL AD AT BY BE BA BG HR CZ DK EE FI FR DE GR HU IS IE IT XK LV LI LT LU MT MD MC ME NL MK NO PL PT RO RU SM RS SK SI ES SE CH UA GB VA GI FO JE GG IM AX SJ CY"],
+    ["145", "AE BH EG IL IQ IR JO KW LB OM PS QA SA SY TR YE GE AM AZ"],
+    ["142", "AF BD BT BN KH CN HK IN ID JP KZ KG LA MO MY MV MN MM NP KP PK PH SG KR LK TW TJ TH TL TM UZ VN"],
+    ["002", "DZ AO BJ BW BF BI CM CV CF TD KM CG CD CI DJ GQ ER SZ ET GA GM GH GN GW KE LS LR LY MG MW ML MR MU MA MZ NA NE NG RW ST SN SC SL SO ZA SS SD TZ TG TN UG ZM ZW RE YT EH SH"],
+    ["019", "AG AR AW BS BB BZ BO BR CA CL CO CR CU CW DM DO EC SV GD GT GY HT HN JM MX NI PA PY PE PR KN LC VC SR TT US UY VE BM GL GP MQ BQ BL MF PM TC VG VI KY AI MS FK GF SX"],
+    ["009", "AU NZ FJ PG SB VU WS TO KI FM MH NR PW TV NC PF GU MP CK NU TK WF AS NF"],
+  ] as Array<[string, string]>
+).forEach(([r, list]) => list.split(" ").forEach((c) => { REGION_CODES[c] = r; }));
+const REGION_ORDER = ["150", "145", "142", "002", "019", "009"];
 
 export default function PriceMap({ names = {}, initialOrigin }: { names?: Record<string, string>; initialOrigin?: string }) {
   const t = useTranslations("map");
@@ -54,6 +67,22 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
   const lo0 = num(minTxt);
   const hi0 = num(maxTxt);
   const [minPrice, maxPrice] = lo0 !== null && hi0 !== null && lo0 > hi0 ? [hi0, lo0] : [lo0 ?? 0, hi0 ?? Infinity];
+  const [direct, setDirect] = useState(false);
+  const [region, setRegion] = useState("");
+  const [dFrom, setDFrom] = useState("");
+  const [dTo, setDTo] = useState("");
+  const pass = (p: Point & { country?: string }) =>
+    p.price >= minPrice &&
+    p.price <= maxPrice &&
+    (!direct || p.stops === 0) &&
+    (!region || (p.country ? REGION_CODES[p.country] : "") === region) &&
+    (!dFrom || (!!p.depart && p.depart >= dFrom)) &&
+    (!dTo || (!!p.depart && p.depart <= dTo));
+  const filtered = !!(minTxt || maxTxt || direct || region || dFrom || dTo);
+  const regionName = (code: string) => {
+    try { return new Intl.DisplayNames([locale], { type: "region" }).of(code) || code; } catch { return code; }
+  };
+  const today = new Date().toISOString().slice(0, 10);
 
   // load prices for the chosen origin
   useEffect(() => {
@@ -124,7 +153,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
 
       const map = mapRef.current!;
       const layer = layerRef.current!;
-      const visible = data.points.filter((p) => p.price >= minPrice && p.price <= maxPrice); // already sorted cheapest first
+      const visible = data.points.filter((p) => pass(p)); // already sorted cheapest first
 
       // Declutter: place cheapest first, skip any pin that would overlap one already placed.
       // Re-runs on zoom/pan, so more destinations appear as the map is zoomed in.
@@ -166,7 +195,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
       }
 
       // Open map: cities without a recent fare, grey pins, only when zoomed in and no price filter is active
-      if (map.getZoom() >= 5 && !minTxt && !maxTxt && extra.length) {
+      if (map.getZoom() >= 5 && !filtered && extra.length) {
         const priced = new Set(data.points.map((q) => q.code));
         priced.add(data.origin.code);
         for (const c of extra) {
@@ -206,7 +235,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
     return () => {
       cancelled = true;
     };
-  }, [status, data, minPrice, maxPrice, minTxt, maxTxt, extra, locale, fmtPrice, prefix]);
+  }, [status, data, minPrice, maxPrice, minTxt, maxTxt, direct, region, dFrom, dTo, extra, locale, fmtPrice, prefix]);
 
   // cleanup
   useEffect(
@@ -264,7 +293,24 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
             <input id="pm-max" type="text" inputMode="numeric" autoComplete="off" value={maxTxt} onChange={(e) => setMaxTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[1] * rate))} aria-label={`${priceCurrency} ≤`} className="w-24 rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
           </div>
         </div>
-        <p className="ms-auto text-xs text-slate">{status === "loading" ? t("loading") : t("count", { n: data?.points.filter((p) => p.price >= minPrice && p.price <= maxPrice).length ?? 0 })}</p>
+        <div className="flex flex-wrap items-center gap-2" dir="ltr">
+          <label className="flex items-center gap-2 text-sm text-ink" dir="auto">
+            <input type="checkbox" checked={direct} onChange={(e) => setDirect(e.target.checked)} className="h-4 w-4 accent-amber" />
+            {t("direct")}
+          </label>
+          <select value={region} onChange={(e) => setRegion(e.target.value)} aria-label={regionName("001")} className="rounded-lg border border-slate/30 bg-white px-2 py-2 text-sm">
+            <option value="">{regionName("001")}</option>
+            {REGION_ORDER.map((r) => <option key={r} value={r}>{regionName(r)}</option>)}
+          </select>
+          <span aria-hidden className="text-slate">✈</span>
+          <input type="date" value={dFrom} min={today} max={dTo || undefined} onChange={(e) => setDFrom(e.target.value)} aria-label="✈ ≥" className="rounded-lg border border-slate/30 bg-white px-2 py-2 text-sm" />
+          <span className="text-slate">–</span>
+          <input type="date" value={dTo} min={dFrom || today} onChange={(e) => setDTo(e.target.value)} aria-label="✈ ≤" className="rounded-lg border border-slate/30 bg-white px-2 py-2 text-sm" />
+          {filtered && (
+            <button type="button" onClick={() => { setMinTxt(""); setMaxTxt(""); setDirect(false); setRegion(""); setDFrom(""); setDTo(""); }} className="rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm text-ink" aria-label="×">×</button>
+          )}
+        </div>
+        <p className="ms-auto text-xs text-slate">{status === "loading" ? t("loading") : t("count", { n: data?.points.filter((p) => pass(p)).length ?? 0 })}</p>
       </div>
       <div ref={mapEl} className="isolate relative z-0 h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label={t("aria")} />
     </div>
