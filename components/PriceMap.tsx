@@ -193,7 +193,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
           taken.push({ x: pt.x, y: pt.y });
 
           const m = L.marker([p.lat, p.lng], {
-            icon: L.divIcon({ className: "tj-pin", html: fmtRef.current(p.price), iconSize: [54, 24], iconAnchor: [27, 12] }),
+            icon: L.divIcon({ className: "tj-pin", html: `<span dir="ltr" style="unicode-bidi:isolate">${fmtRef.current(p.price)}</span>`, iconSize: [54, 24], iconAnchor: [27, 12] }),
             title: (names && names[p.code]) || p.name,
           });
           const box = document.createElement("div");
@@ -269,19 +269,10 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
 
   return (
     <div>
-      <div className="flex flex-wrap items-end gap-4 pb-3">
-        <div className="relative">
-          <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-from">
-            {t("from")}
-          </label>
-          <input
-            id="pm-from"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={`${originLabel} (${origin})`}
-            autoComplete="off"
-            className="mt-1 w-56 rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber"
-          />
+      <div className="mb-3 grid grid-cols-2 items-end gap-3 border-b border-mist pb-3 lg:flex lg:flex-wrap">
+        <div className="relative col-span-2 lg:col-span-1">
+          <label className="mb-1 block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-from">{t("from")}</label>
+          <input id="pm-from" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={`${originLabel} (${origin})`} autoComplete="off" className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full lg:w-56" />
           {suggest.length > 0 && (
             <ul className="absolute z-[1000] mt-1 w-56 overflow-hidden rounded-lg border border-mist bg-white shadow-lg">
               {suggest.map((c) => (
@@ -303,32 +294,37 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
             </ul>
           )}
         </div>
-        <div>
-          <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-min">{priceCurrency}</label>
-          <div className="mt-2 flex items-center gap-2" dir="ltr">
-            <input id="pm-min" type="text" inputMode="numeric" autoComplete="off" value={minTxt} onChange={(e) => setMinTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[0] * rate))} aria-label={`${priceCurrency} ≥`} className="w-24 rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
+        <div className="col-span-2 lg:col-span-1">
+          <label className="mb-1 block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-min">{priceCurrency}</label>
+          <div className="flex items-center gap-2" dir="ltr">
+            <input id="pm-min" type="text" inputMode="numeric" autoComplete="off" value={minTxt} onChange={(e) => setMinTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[0] * rate))} aria-label={`${priceCurrency} ≥`} className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full lg:w-24" />
             <span className="text-slate">–</span>
-            <input id="pm-max" type="text" inputMode="numeric" autoComplete="off" value={maxTxt} onChange={(e) => setMaxTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[1] * rate))} aria-label={`${priceCurrency} ≤`} className="w-24 rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
+            <input id="pm-max" type="text" inputMode="numeric" autoComplete="off" value={maxTxt} onChange={(e) => setMaxTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[1] * rate))} aria-label={`${priceCurrency} ≤`} className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full lg:w-24" />
           </div>
         </div>
-        <div className="flex flex-wrap items-center gap-2" dir="ltr">
-          <label className="flex items-center gap-2 text-sm text-ink" dir="auto">
-            <input type="checkbox" checked={direct} onChange={(e) => setDirect(e.target.checked)} className="h-4 w-4 accent-amber" />
-            {t("direct")}
-          </label>
-          <select value={region} onChange={(e) => setRegion(e.target.value)} aria-label={regionName("001")} className="rounded-lg border border-slate/30 bg-white px-2 py-2 text-sm">
+        <div className="col-span-1">
+          <label className="sr-only" htmlFor="pm-region">{regionName("001")}</label>
+          <select id="pm-region" value={region} onChange={(e) => setRegion(e.target.value)} aria-label={regionName("001")} className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full">
             <option value="">{regionName("001")}</option>
             {REGION_ORDER.map((r) => <option key={r} value={r}>{regionName(r)}</option>)}
           </select>
-          <span aria-hidden className="text-slate">✈</span>
-          <input type="date" value={dFrom} min={today} max={dTo || undefined} onChange={(e) => setDFrom(e.target.value)} aria-label="✈ ≥" className="rounded-lg border border-slate/30 bg-white px-2 py-2 text-sm" />
-          <span className="text-slate">–</span>
-          <input type="date" value={dTo} min={dFrom || today} onChange={(e) => setDTo(e.target.value)} aria-label="✈ ≤" className="rounded-lg border border-slate/30 bg-white px-2 py-2 text-sm" />
-          {filtered && (
-            <button type="button" onClick={() => { setMinTxt(""); setMaxTxt(""); setDirect(false); setRegion(""); setDFrom(""); setDTo(""); }} className="rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm text-ink" aria-label="×">×</button>
-          )}
         </div>
-        <p className="ms-auto text-xs text-slate">{status === "loading" ? t("loading") : t("count", { n: data?.points.filter((p) => pass(p)).length ?? 0 })}</p>
+        <label className="col-span-1 flex h-10 cursor-pointer items-center gap-2 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink">
+          <input type="checkbox" checked={direct} onChange={(e) => setDirect(e.target.checked)} className="h-4 w-4 accent-amber" />
+          {t("direct")}
+        </label>
+        <div className="col-span-2 lg:col-span-1">
+          <label className="mb-1 block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-dfrom">✈</label>
+          <div className="flex items-center gap-2" dir="ltr">
+            <input id="pm-dfrom" type="date" value={dFrom} min={today} max={dTo || undefined} onChange={(e) => setDFrom(e.target.value)} aria-label="✈ ≥" className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full lg:w-40" />
+            <span className="text-slate">–</span>
+            <input type="date" value={dTo} min={dFrom || today} onChange={(e) => setDTo(e.target.value)} aria-label="✈ ≤" className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full lg:w-40" />
+          </div>
+        </div>
+        {filtered && (
+          <button type="button" onClick={() => { setMinTxt(""); setMaxTxt(""); setDirect(false); setRegion(""); setDFrom(""); setDTo(""); }} className="col-span-2 h-10 rounded-lg border border-slate/30 bg-white px-4 text-sm text-ink hover:bg-cloud lg:col-span-1" aria-label="×">×</button>
+        )}
+        <p className="col-span-2 text-xs text-slate lg:ms-auto lg:self-center">{status === "loading" ? t("loading") : t("count", { n: data?.points.filter((p) => pass(p)).length ?? 0 })}</p>
       </div>
       <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
         <div ref={mapEl} className="isolate relative z-0 h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label={t("aria")} />
@@ -341,7 +337,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
                     <span className="block truncate font-semibold text-ink">{names[p.code] || p.name}</span>
                     <span className="block truncate text-xs text-slate">{p.country ? p.country + " · " : ""}{p.stops === 0 ? t("direct") : p.stops + "×"}{p.depart ? " · " + p.depart : ""}</span>
                   </span>
-                  <span className="shrink-0 font-bold text-ink">{fmtPrice(p.price)}</span>
+                  <span dir="ltr" className="shrink-0 font-bold text-ink" style={{ unicodeBidi: "isolate" }}>{fmtPrice(p.price)}</span>
                 </a>
               </li>
             ))}
