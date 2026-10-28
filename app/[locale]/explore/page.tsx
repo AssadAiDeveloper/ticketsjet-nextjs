@@ -17,8 +17,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return { title: t("metaTitle"), description: t("metaDesc"), alternates: alternatesFor(locale, "/explore") };
 }
 
-export default async function ExplorePage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function ExplorePage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ origin?: string }> }) {
   const { locale } = await params;
+  const sp = await searchParams;
+  const rawOrigin = (sp?.origin || "").toUpperCase();
+  const origin = /^[A-Z]{3}$/.test(rawOrigin) ? rawOrigin : "AMS";
   setRequestLocale(locale);
   const t = await getTranslations("exp");
   const faq = [1, 2, 3, 4].map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
@@ -30,7 +33,7 @@ export default async function ExplorePage({ params }: { params: Promise<{ locale
 
       <section className="mx-auto -mt-6 max-w-6xl px-4">
         <div className="boarding-pass p-2 sm:p-3">
-          <PriceMap names={names} />
+          <PriceMap names={names} initialOrigin={origin} />
         </div>
         <p className="mt-3 text-xs text-slate">
           {t("note")}

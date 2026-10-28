@@ -178,11 +178,19 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
       go(code);
       return;
     }
-    if (!from || !to) return setErr(t("errCities"));
-    if (from.code === to.code) return setErr(t("errSameCity"));
+    if (!from) return setErr(t("errCities"));
+    const isEverywhere = !to || to.kind === "everywhere";
+    if (!isEverywhere && from.code === to!.code) return setErr(t("errSameCity"));
     if (!depart) return setErr(t("errDates"));
     if (trip === "round" && !back) return setErr(t("errReturn"));
     setErr("");
+
+    if (isEverywhere) {
+      try { localStorage.setItem("tj-last-search", JSON.stringify({ from, to: null, trip, adults, children, infants, cabin })); } catch {}
+      const params = new URLSearchParams({ origin: from.code });
+      window.location.href = `${prefix}/explore?${params.toString()}`;
+      return;
+    }
 
     // Search code in the widget's own format:
     // ORIGIN DDMM DEST [DDMM] [c = business] ADULTS [CHILDREN] [INFANTS]
@@ -293,7 +301,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
                   <div className={`${fieldBtn} cursor-default bg-cloud/60 text-slate`}>{legs[i - 1].to ? <><bdi>{legs[i - 1].to!.name}</bdi> <span dir="ltr" className="text-slate">({legs[i - 1].to!.code})</span></> : t("previousDest")}</div>
                 </div>
               )}
-              <CityField label={t("to")} value={leg.to} onPick={(c) => setLegs((ls) => ls.map((l, k) => (k === i ? { ...l, to: c } : l)))} placeholder={t("cityPlaceholder")} />
+              <CityField label={t("to")} value={leg.to} onPick={(c) => setLegs((ls) => ls.map((l, k) => (k === i ? { ...l, to: c } : l)))} placeholder={t("cityPlaceholder")} allowEverywhere />
               <LegDate label={t("flightDate", { n: i + 1 })} value={leg.date} min={legs[i - 1]?.date ?? today} onPick={(d) => setLegs((ls) => ls.map((l, k) => (k === i ? { ...l, date: d } : l)))} />
               {legs.length > 2 ? (
                 <button type="button" onClick={() => setLegs((ls) => ls.filter((_, k) => k !== i))} aria-label={t("removeFlight", { n: i + 1 })} className="grid h-8 w-8 place-items-center rounded-full border border-mist text-slate transition hover:border-red-400 hover:text-red-500 md:mb-2">
@@ -318,7 +326,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
         <div className="grid gap-1.5 md:grid-cols-[2fr_1.35fr_minmax(11rem,1fr)_auto] md:items-end">
           <div className="relative grid gap-1.5 sm:grid-cols-2">
             <CityField label={t("from")} value={from} onPick={setFrom} placeholder={t("cityPlaceholder")} />
-            <CityField label={t("to")} value={to} onPick={setTo} placeholder={t("cityPlaceholder")} />
+            <CityField label={t("to")} value={to} onPick={setTo} placeholder={t("cityPlaceholder")} allowEverywhere />
             <button
               type="button"
               onClick={() => {

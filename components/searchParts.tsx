@@ -4,15 +4,16 @@ import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { pickerDate } from "@/lib/format";
 
-export type City = { code: string; name: string; country: string; kind?: "country" };
+export type City = { code: string; name: string; country: string; kind?: "country" | "everywhere" };
 
 /** Autocomplete city field backed by /api/cities */
-export function CityField({ label, value, onPick, placeholder, withCountries, compact }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string; withCountries?: boolean; compact?: boolean }) {
+export function CityField({ label, value, onPick, placeholder, withCountries, compact, allowEverywhere }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string; withCountries?: boolean; compact?: boolean; allowEverywhere?: boolean }) {
   const t = useTranslations("form");
   const locale = useLocale();
   const [text, setText] = useState("");
   const [list, setList] = useState<City[]>([]);
   const [open, setOpen] = useState(false);
+  const everywhereCity: City = { code: "", name: t("everywhere"), country: "", kind: "everywhere" };
 
   useEffect(() => {
     if (value || text.trim().length < 2) return setList([]);
@@ -29,7 +30,7 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
     <div className="relative">
       <label className="block font-mono text-[10px] uppercase tracking-widest text-slate">{label}</label>
       <input
-        value={value ? (value.kind === "country" ? `${value.name} — ${t("anyCity")}` : `${value.name} (${value.code})`) : text}
+        value={value ? (value.kind === "everywhere" ? `\u{1F30D} ${value.name}` : value.kind === "country" ? `${value.name} - ${t("anyCity")}` : `${value.name} (${value.code})`) : text}
         onChange={(e) => {
           onPick(null);
           setText(e.target.value);
@@ -41,8 +42,29 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
         autoComplete="off"
         className={`${compact ? "mt-0.5 rounded-lg py-2" : "mt-1 rounded-xl py-3"} w-full border border-mist bg-white px-3 text-sm font-medium text-ink outline-none transition focus:border-amber`}
       />
-      {open && list.length > 0 && !value && (
+      {open && !value && (list.length > 0 || allowEverywhere) && (
         <ul className="absolute z-50 mt-1 w-full overflow-hidden rounded-xl border border-mist bg-white shadow-xl">
+          {allowEverywhere && (
+            <li>
+              <button
+                type="button"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => {
+                  onPick(everywhereCity);
+                  setText("");
+                  setOpen(false);
+                }}
+                aria-label={`${t("everywhere")}, ${t("everywhereSubtitle")}`}
+                className="flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-sm hover:bg-cloud"
+              >
+                <span className="flex items-center gap-2 text-ink">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" /></svg>
+                  <bdi>{t("everywhere")}</bdi>
+                </span>
+                <span className="font-mono text-xs text-slate">{t("everywhereSubtitle")}</span>
+              </button>
+            </li>
+          )}
           {list.map((c) => (
             <li key={c.code}>
               <button

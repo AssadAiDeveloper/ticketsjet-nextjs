@@ -187,6 +187,10 @@ for (const locale of locales) {
             console.log("WARNING: #eb-widget not found within 10s (CDN may be unreachable)");
           }
         }
+        if (p === "/" && locale === "en") {
+          // Everywhere option present in the form bundle
+          if (!html.includes("everywhere")) extraIssues.push("Everywhere key missing from home page bundle");
+        }
         if (p === "/") {
           const html = await page.content();
           const SITE_URL = "https://ticketsjet.com";

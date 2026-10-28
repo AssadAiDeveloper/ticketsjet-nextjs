@@ -179,7 +179,9 @@
     "errReturn": "בחרו תאריך חזרה או עברו לכיוון אחד.",
     "fewer": "פחות {label}",
     "more": "עוד {label}",
-    "paxCompact": "{n} · {cabin}"
+    "paxCompact": "{n} · {cabin}",
+    "everywhere": "הכל",
+    "everywhereSubtitle": "מצא את היעדים הזולים ביותר"
   },
   "stays": {
     "destination": "יעד",

@@ -179,7 +179,9 @@
     "errReturn": "اختر تاريخ العودة، أو بدّل إلى ذهاب فقط.",
     "fewer": "أقل {label}",
     "more": "المزيد {label}",
-    "paxCompact": "{n} · {cabin}"
+    "paxCompact": "{n} · {cabin}",
+    "everywhere": "كل الأماكن",
+    "everywhereSubtitle": "ابحث عن أرخص الوجهات"
   },
   "stays": {
     "destination": "الوجهة",

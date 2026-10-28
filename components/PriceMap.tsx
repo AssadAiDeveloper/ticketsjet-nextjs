@@ -21,7 +21,7 @@ function flightsHref(origin: string, p: Point, prefix: string) {
   return `${prefix}/flights?${q.toString()}#results`;
 }
 
-export default function PriceMap({ names = {} }: { names?: Record<string, string> }) {
+export default function PriceMap({ names = {}, initialOrigin }: { names?: Record<string, string>; initialOrigin?: string }) {
   const t = useTranslations("map");
   const locale = useLocale();
   const fmtPrice = useFormatPrice();
@@ -37,7 +37,7 @@ export default function PriceMap({ names = {} }: { names?: Record<string, string
   const drawRef = useRef<(() => void) | null>(null);
   const closeRef = useRef<(() => void) | null>(null);
 
-  const [origin, setOrigin] = useState("AMS");
+  const [origin, setOrigin] = useState(initialOrigin && /^[A-Z]{3}$/.test(initialOrigin) ? initialOrigin : "AMS");
   const [originLabel, setOriginLabel] = useState("Amsterdam");
   const [query, setQuery] = useState("");
   const [suggest, setSuggest] = useState<Suggest[]>([]);

@@ -179,7 +179,9 @@
     "errReturn": "Choisissez une date de retour ou passez à l'aller simple.",
     "fewer": "Fewer {label}",
     "more": "More {label}",
-    "paxCompact": "{n} · {cabin}"
+    "paxCompact": "{n} · {cabin}",
+    "everywhere": "Everywhere",
+    "everywhereSubtitle": "Find the cheapest destinations"
   },
   "stays": {
     "destination": "Destination",

@@ -179,7 +179,9 @@
     "errReturn": "تاریخ برگشت را انتخاب کنید یا به «فقط رفت» بروید.",
     "fewer": "کمتر {label}",
     "more": "بیشتر {label}",
-    "paxCompact": "{n} · {cabin}"
+    "paxCompact": "{n} · {cabin}",
+    "everywhere": "همه جاها",
+    "everywhereSubtitle": "ارزان‌ترین مقاصد را بیابید"
   },
   "stays": {
     "destination": "مقصد",
