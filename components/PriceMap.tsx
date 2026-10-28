@@ -99,6 +99,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
   const [touchHint, setTouchHint] = useState(false);
   const [dOpen, setDOpen] = useState(false);
   const [sOpen, setSOpen] = useState(false);
+  const [rOpen, setROpen] = useState(false);
   const [calY, setCalY] = useState(() => new Date().getFullYear());
   const [calM, setCalM] = useState(() => new Date().getMonth());
 
@@ -357,7 +358,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
         </div>
       )}
       {/* Filter bar */}
-      <div className="grid grid-cols-2 items-end gap-3 pb-3 lg:flex lg:flex-wrap [&>*:nth-child(1)]:col-span-2 [&>*:nth-child(2)]:col-span-2 [&>*:nth-child(3)]:col-span-2 [&>*:nth-child(6)]:col-span-2 [&>*:nth-child(9)]:col-span-2">
+      <div className="grid grid-cols-2 items-end gap-3 pb-3 lg:flex lg:flex-wrap [&>*:nth-child(1)]:col-span-2 [&>*:nth-child(2)]:col-span-2 [&>*:nth-child(3)]:col-span-2 [&>*:nth-child(6)]:col-span-2 [&>*:nth-child(10)]:col-span-2">
         <div className="relative">
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-from">{t("from")}</label>
           <input id="pm-from" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={`${originLabel} (${origin})`} autoComplete="off"
@@ -394,7 +395,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
             <span className="truncate">{dLabel}</span>
             <span aria-hidden className="text-slate">▾</span>
           </button>
-          {(dOpen || sOpen) && <button type="button" aria-label="×" className="fixed inset-0 z-[998] cursor-default" onClick={() => { setDOpen(false); setSOpen(false); }} />}
+          {(dOpen || sOpen || rOpen) && <button type="button" aria-label="×" className="fixed inset-0 z-[998] cursor-default" onClick={() => { setDOpen(false); setSOpen(false); }} />}
           {dOpen && (
             <div className="absolute start-0 z-[999] mt-1 w-72 max-w-[calc(100vw-2rem)] rounded-xl border border-mist bg-white p-3 shadow-xl">
               <div className="mb-2 flex items-center justify-between">
@@ -426,7 +427,23 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
           <input type="checkbox" checked={directOnly} onChange={(e) => setDirectOnly(e.target.checked)} className="h-4 w-4 accent-amber" />
           {t("directOnly")}
         </label>
-        <div className="flex gap-1 overflow-x-auto pb-1 lg:flex-wrap lg:overflow-visible [&>button]:shrink-0 [&>button]:whitespace-nowrap">
+        <div className="relative lg:hidden">
+          <button type="button" onClick={() => { setROpen((o) => !o); setDOpen(false); setSOpen(false); }} aria-expanded={rOpen} className="mt-1 flex w-full items-center justify-between gap-2 rounded-lg border border-mist bg-white px-3 py-2 text-start text-sm text-ink outline-none focus:border-amber">
+            <span className="truncate">{region === "all" ? t("allRegions") : t("region_" + region)}</span>
+            <span aria-hidden className="text-slate">▾</span>
+          </button>
+          {rOpen && (
+            <div className="absolute start-0 z-[999] mt-1 max-h-72 w-full overflow-y-auto rounded-xl border border-mist bg-white p-1.5 shadow-xl">
+              {["all", ...REGIONS].map((r) => (
+                <button key={r} type="button" onClick={() => { setRegion(r); setROpen(false); }} className={"flex w-full items-center justify-between rounded-lg px-3 py-2 text-start text-sm " + (region === r ? "bg-amber/20 font-semibold text-ink" : "text-ink hover:bg-cloud")}>
+                  <span>{r === "all" ? t("allRegions") : t("region_" + r)}</span>
+                  {region === r && <span aria-hidden>✓</span>}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="hidden gap-1 lg:flex lg:flex-wrap">
           <button type="button" onClick={() => setRegion("all")} className={`rounded-full border px-3 py-1 text-xs font-medium ${region === "all" ? "border-amber bg-amber/15 text-ink" : "border-mist bg-white text-slate"}`}>{t("allRegions")}</button>
           {REGIONS.map((r) => (
             <button key={r} type="button" onClick={() => setRegion(r)} className={`rounded-full border px-3 py-1 text-xs font-medium ${region === r ? "border-amber bg-amber/15 text-ink" : "border-mist bg-white text-slate"}`}>{t(`region_${r}`)}</button>
