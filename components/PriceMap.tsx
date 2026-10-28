@@ -9,12 +9,13 @@ import { useFormatPrice } from "@/components/Price";
 import { useCurrency } from "@/components/CurrencyProvider";
 import { fullDate } from "@/lib/format";
 import { WIDGETS } from "@/lib/config";
+import DestPhoto from "@/components/DestPhoto";
+import heroPhotos from "../data/destination-photos.json";
 
-type Point = { code: string; name: string; country?: string; lat: number; lng: number; price: number; stops: number; depart: string | null; back: string | null };
+type Point = { code: string; name: string; lat: number; lng: number; price: number; stops: number; depart: string | null; back: string | null };
 type Data = { origin: { code: string; name: string; lat: number; lng: number }; points: Point[] };
 type Suggest = { code: string; name: string; country: string };
 
-/** Link into our own flight search page; the search widget there does the rest. */
 function flightsHref(origin: string, p: Point, prefix: string) {
   const q = new URLSearchParams({ origin_iata: origin, destination_iata: p.code, adults: "1" });
   if (p.depart) q.set("depart_date", p.depart);
@@ -22,41 +23,47 @@ function flightsHref(origin: string, p: Point, prefix: string) {
   return `${prefix}/flights?${q.toString()}#results`;
 }
 
-const REGION_CODES: Record<string, string> = {};
-(
-  [
-    ["150", "AL AD AT BY BE BA BG HR CZ DK EE FI FR DE GR HU IS IE IT XK LV LI LT LU MT MD MC ME NL MK NO PL PT RO RU SM RS SK SI ES SE CH UA GB VA GI FO JE GG IM AX SJ CY"],
-    ["145", "AE BH EG IL IQ IR JO KW LB OM PS QA SA SY TR YE GE AM AZ"],
-    ["142", "AF BD BT BN KH CN HK IN ID JP KZ KG LA MO MY MV MN MM NP KP PK PH SG KR LK TW TJ TH TL TM UZ VN"],
-    ["002", "DZ AO BJ BW BF BI CM CV CF TD KM CG CD CI DJ GQ ER SZ ET GA GM GH GN GW KE LS LR LY MG MW ML MR MU MA MZ NA NE NG RW ST SN SC SL SO ZA SS SD TZ TG TN UG ZM ZW RE YT EH SH"],
-    ["019", "AG AR AW BS BB BZ BO BR CA CL CO CR CU CW DM DO EC SV GD GT GY HT HN JM MX NI PA PY PE PR KN LC VC SR TT US UY VE BM GL GP MQ BQ BL MF PM TC VG VI KY AI MS FK GF SX"],
-    ["009", "AU NZ FJ PG SB VU WS TO KI FM MH NR PW TV NC PF GU MP CK NU TK WF AS NF"],
-  ] as Array<[string, string]>
-).forEach(([r, list]) => list.split(" ").forEach((c) => { REGION_CODES[c] = r; }));
-const REGION_ORDER = ["150", "145", "142", "002", "019", "009"];
-// order: all, Europe, Middle East, Asia, Africa, Americas, Oceania
-const REGION_LABELS: Record<string, string[]> = {
-  en: ["All regions", "Europe", "Middle East", "Asia", "Africa", "Americas", "Oceania"],
-  ar: ["كل المناطق", "أوروبا", "الشرق الأوسط", "آسيا", "أفريقيا", "الأمريكتان", "أوقيانوسيا"],
-  nl: ["Alle regio's", "Europa", "Midden-Oosten", "Azië", "Afrika", "Amerika", "Oceanië"],
-  es: ["Todas las regiones", "Europa", "Oriente Medio", "Asia", "África", "América", "Oceanía"],
-  fr: ["Toutes les régions", "Europe", "Moyen-Orient", "Asie", "Afrique", "Amériques", "Océanie"],
-  de: ["Alle Regionen", "Europa", "Naher Osten", "Asien", "Afrika", "Amerika", "Ozeanien"],
-  it: ["Tutte le regioni", "Europa", "Medio Oriente", "Asia", "Africa", "Americhe", "Oceania"],
-  pt: ["Todas as regiões", "Europa", "Oriente Médio", "Ásia", "África", "Américas", "Oceania"],
-  tr: ["Tüm bölgeler", "Avrupa", "Orta Doğu", "Asya", "Afrika", "Amerika", "Okyanusya"],
-  ru: ["Все регионы", "Европа", "Ближний Восток", "Азия", "Африка", "Америка", "Океания"],
-  pl: ["Wszystkie regiony", "Europa", "Bliski Wschód", "Azja", "Afryka", "Ameryki", "Oceania"],
-  fa: ["همه مناطق", "اروپا", "خاورمیانه", "آسیا", "آفریقا", "قاره آمریکا", "اقیانوسیه"],
-  he: ["כל האזורים", "אירופה", "המזרח התיכון", "אסיה", "אפריקה", "אמריקה", "אוקיאניה"],
-};
+const REGIONS = ["europe", "asia", "africa", "northamerica", "southamerica", "oceania", "middleeast"] as const;
+function regionOf(lat: number, lng: number): string {
+  if (lat > 35 && lng > -30 && lng < 60) return "europe";
+  if (lat > 10 && lng >= 30 && lng < 60) return "middleeast";
+  if (lat > 0 && lng >= 60 && lng < 180) return "asia";
+  if (lat >= -35 && lat <= 35 && lng >= -20 && lng <= 55) return "africa";
+  if (lat > 0 && lng < -30) return "northamerica";
+  if (lat < 0 && lng < -30) return "southamerica";
+  if (lat < 0 && lng >= 100) return "oceania";
+  return "other";
+}
 
-const DATE_ANY: Record<string, string> = { en: "Any dates", ar: "أي تاريخ", nl: "Alle data", es: "Cualquier fecha", fr: "Toutes les dates", de: "Beliebiges Datum", it: "Qualsiasi data", pt: "Qualquer data", tr: "Herhangi bir tarih", ru: "Любые даты", pl: "Dowolna data", fa: "هر تاریخی", he: "כל תאריך" };
+function niceStep(v: number) {
+  if (v <= 0) return 50;
+  const mag = Math.pow(10, Math.floor(Math.log10(v)));
+  const n = v / mag;
+  let step = mag;
+  if (n > 5) step = mag * 5;
+  else if (n > 2) step = mag * 2;
+  return step;
+}
+
+function readUrl() {
+  if (typeof window === "undefined") return {};
+  const u = new URL(window.location.href);
+  return {
+    origin: u.searchParams.get("origin") || undefined,
+    max: u.searchParams.get("max") ? Number(u.searchParams.get("max")) : undefined,
+    month: u.searchParams.get("month") || undefined,
+    direct: u.searchParams.get("direct") === "1",
+    region: u.searchParams.get("region") || undefined,
+    q: u.searchParams.get("q") || undefined,
+    sort: u.searchParams.get("sort") || undefined,
+  };
+}
 
 export default function PriceMap({ names = {}, initialOrigin }: { names?: Record<string, string>; initialOrigin?: string }) {
   const t = useTranslations("map");
   const locale = useLocale();
   const fmtPrice = useFormatPrice();
+  const { rate, priceCurrency } = useCurrency();
   const fmtRef = useRef(fmtPrice);
   fmtRef.current = fmtPrice;
   const tRef = useRef(t);
@@ -67,43 +74,50 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
   const layerRef = useRef<LType.LayerGroup | null>(null);
   const leafletRef = useRef<typeof LType | null>(null);
   const drawRef = useRef<(() => void) | null>(null);
-  const viewOriginRef = useRef("");
   const closeRef = useRef<(() => void) | null>(null);
+  const viewOriginRef = useRef("");
 
-  const [origin, setOrigin] = useState(initialOrigin && /^[A-Z]{3}$/.test(initialOrigin) ? initialOrigin : "AMS");
+  const url0 = readUrl();
+  const [origin, setOrigin] = useState(initialOrigin && /^[A-Z]{3}$/.test(initialOrigin) ? initialOrigin : (url0.origin && /^[A-Z]{3}$/.test(url0.origin) ? url0.origin : "AMS"));
   const [originLabel, setOriginLabel] = useState("Amsterdam");
   const [query, setQuery] = useState("");
   const [suggest, setSuggest] = useState<Suggest[]>([]);
   const [data, setData] = useState<Data | null>(null);
   const [status, setStatus] = useState<"loading" | "ok" | "error">("loading");
-  const { rate, priceCurrency } = useCurrency();
   const [minTxt, setMinTxt] = useState("");
   const [maxTxt, setMaxTxt] = useState("");
   const [range, setRange] = useState<[number, number]>([0, 0]);
   const [extra, setExtra] = useState<Array<[string, string, number, number]>>([]);
-  const [dOpen, setDOpen] = useState(false);
+  const [directOnly, setDirectOnly] = useState(url0.direct || false);
+  const [region, setRegion] = useState<string>(url0.region || "all");
+  const [month, setMonth] = useState<string>(url0.month || "any");
+  const [exactDepart, setExactDepart] = useState("");
+  const [exactReturn, setExactReturn] = useState("");
+  const [sort, setSort] = useState<string>(url0.sort || "cheapest");
+  const [destQuery, setDestQuery] = useState(url0.q || "");
+  const [hovered, setHovered] = useState<string | null>(null);
+  const [touchHint, setTouchHint] = useState(false);
+
   const num = (x: string) => { const n = parseFloat(x); return Number.isFinite(n) && rate > 0 ? n / rate : null; };
   const lo0 = num(minTxt);
   const hi0 = num(maxTxt);
-  const [minPrice, maxPrice] = lo0 !== null && hi0 !== null && lo0 > hi0 ? [hi0, lo0] : [lo0 ?? 0, hi0 ?? Infinity];
-  const [direct, setDirect] = useState(false);
-  const [region, setRegion] = useState("");
-  const [dFrom, setDFrom] = useState("");
-  const [dTo, setDTo] = useState("");
-  const pass = (p: Point & { country?: string }) =>
-    p.price >= minPrice &&
-    p.price <= maxPrice &&
-    (!direct || p.stops === 0) &&
-    (!region || (p.country ? REGION_CODES[p.country] : "") === region) &&
-    (!dFrom || (!!p.depart && p.depart >= dFrom)) &&
-    (!dTo || (!!p.depart && p.depart <= dTo));
-  const filtered = !!(minTxt || maxTxt || direct || region || dFrom || dTo);
-  const regionName = (code: string) => {
-    const names = REGION_LABELS[locale] || REGION_LABELS.en;
-    const i = ["001", ...REGION_ORDER].indexOf(code);
-    return names[i] ?? code;
-  };
-  const today = new Date().toISOString().slice(0, 10);
+  const minPrice = lo0 !== null && hi0 !== null && lo0 > hi0 ? hi0 : (lo0 ?? 0);
+  const maxPrice = lo0 !== null && hi0 !== null && lo0 > hi0 ? lo0 : (hi0 ?? Infinity);
+
+  // sync filter state to URL
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const u = new URL(window.location.href);
+    u.searchParams.set("origin", origin);
+    if (minTxt) u.searchParams.set("min", minTxt); else u.searchParams.delete("min");
+    if (maxTxt) u.searchParams.set("max", maxTxt); else u.searchParams.delete("max");
+    if (month && month !== "any") u.searchParams.set("month", month); else u.searchParams.delete("month");
+    if (directOnly) u.searchParams.set("direct", "1"); else u.searchParams.delete("direct");
+    if (region && region !== "all") u.searchParams.set("region", region); else u.searchParams.delete("region");
+    if (destQuery) u.searchParams.set("q", destQuery); else u.searchParams.delete("q");
+    if (sort && sort !== "cheapest") u.searchParams.set("sort", sort); else u.searchParams.delete("sort");
+    window.history.replaceState({}, "", u.toString());
+  }, [origin, minTxt, maxTxt, month, directOnly, region, destQuery, sort]);
 
   // load prices for the chosen origin
   useEffect(() => {
@@ -119,12 +133,10 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
         setStatus(d.points.length ? "ok" : "error");
       })
       .catch(() => !off && setStatus("error"));
-    return () => {
-      off = true;
-    };
+    return () => { off = true; };
   }, [origin]);
 
-  // every other city (no recent fare) - shown as grey pins when zoomed in
+  // grey pins (cities without recent fare)
   useEffect(() => {
     if (status !== "ok") return;
     let off = false;
@@ -147,7 +159,43 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
     return () => clearTimeout(t);
   }, [query, locale]);
 
-  // draw / redraw markers
+  // filter points
+  const filteredPoints = (data?.points || []).filter((p) => {
+    if (p.price < minPrice || p.price > maxPrice) return false;
+    if (directOnly && p.stops !== 0) return false;
+    if (region !== "all" && regionOf(p.lat, p.lng) !== region) return false;
+    if (destQuery.trim()) {
+      const q = destQuery.toLowerCase();
+      if (!((p.name || "").toLowerCase().includes(q) || (names[p.code] || "").toLowerCase().includes(q))) return false;
+    }
+    if (month !== "any" && month !== "exact") {
+      if (!p.depart || !p.depart.startsWith(month)) return false;
+    }
+    if (month === "exact") {
+      if (exactDepart && p.depart && p.depart < exactDepart) return false;
+      if (exactReturn && p.back && p.back > exactReturn) return false;
+      if (exactDepart && !p.depart) return false;
+    }
+    return true;
+  });
+
+  const sortedPoints = [...filteredPoints].sort((a, b) => {
+    if (sort === "direct" && a.stops !== b.stops) return a.stops - b.stops;
+    return a.price - b.price;
+  });
+
+  const priceTier = (price: number) => {
+    if (!data || !data.points.length) return "mid";
+    const prices = data.points.map((p) => p.price).sort((a, b) => a - b);
+    const lo = prices[Math.floor(prices.length * 0.33)];
+    const hi = prices[Math.floor(prices.length * 0.66)];
+    if (price <= lo) return "cheap";
+    if (price >= hi) return "expensive";
+    return "mid";
+  };
+  const tierColor = (tier: string) => tier === "cheap" ? "#22c55e" : tier === "expensive" ? "#ef4444" : "#f59e0b";
+
+  // draw markers
   useEffect(() => {
     if (status !== "ok" || !data || !mapEl.current) return;
     let cancelled = false;
@@ -165,6 +213,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
         mapRef.current = map;
         layerRef.current = L.layerGroup().addTo(map);
         viewOriginRef.current = data.origin.code;
+        if ("ontouchstart" in window) setTouchHint(true);
       } else {
         if (viewOriginRef.current !== data.origin.code) {
           mapRef.current.setView([data.origin.lat, data.origin.lng], 3);
@@ -174,12 +223,9 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
 
       const map = mapRef.current!;
       const layer = layerRef.current!;
-      const visible = data.points.filter((p) => pass(p)); // already sorted cheapest first
+      const visible = sortedPoints;
 
-      // Declutter: place cheapest first, skip any pin that would overlap one already placed.
-      // Re-runs on zoom/pan, so more destinations appear as the map is zoomed in.
       const draw = () => {
-        // don't wipe the markers while a popup is open (opening one pans the map and fires moveend)
         if (mapEl.current?.querySelector(".leaflet-popup")) return;
         layer.clearLayers();
         L.marker([data.origin.lat, data.origin.lng], {
@@ -195,14 +241,17 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
           if (taken.some((t) => Math.abs(t.x - pt.x) < 58 && Math.abs(t.y - pt.y) < 28)) continue;
           taken.push({ x: pt.x, y: pt.y });
 
+          const tier = priceTier(p.price);
+          const color = tierColor(tier);
+          const html = `<span style="background:${color};color:#fff;border-radius:6px;padding:2px 6px;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;font-family:inherit">${fmtRef.current(p.price)}</span>`;
           const m = L.marker([p.lat, p.lng], {
-            icon: L.divIcon({ className: "tj-pin", html: `<span dir="ltr" style="unicode-bidi:isolate">${fmtRef.current(p.price)}</span>`, iconSize: [54, 24], iconAnchor: [27, 12] }),
+            icon: L.divIcon({ className: "tj-pin", html, iconSize: [54, 24], iconAnchor: [27, 12] }),
             title: (names && names[p.code]) || p.name,
           });
           const box = document.createElement("div");
           box.className = "tj-pop";
           const h = document.createElement("strong");
-          h.textContent = ((names && names[data.origin.code]) || data.origin.name) + " ? " + ((names && names[p.code]) || p.name);
+          h.textContent = ((names && names[data.origin.code]) || data.origin.name) + " → " + ((names && names[p.code]) || p.name);
           const price = document.createElement("div");
           price.textContent = `${tRef.current("fromReturn", { price: fmtRef.current(p.price) })} · ${p.stops === 0 ? tRef.current("direct") : tRef.current("stops", { n: p.stops })}`;
           const dates = document.createElement("small");
@@ -213,36 +262,41 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
           box.append(h, price, dates, a);
           m.bindPopup(box, { closeButton: false, offset: [0, -6] });
           m.addTo(layer);
-      }
 
-      // Open map: cities without a recent fare, grey pins, only when zoomed in and no price filter is active
-      if (map.getZoom() >= 5 && !filtered && extra.length) {
-        const priced = new Set(data.points.map((q) => q.code));
-        priced.add(data.origin.code);
-        for (const c of extra) {
-          const [code, cname, lat, lng] = c;
-          if (priced.has(code) || !bounds.contains([lat, lng])) continue;
-          const pt = map.latLngToContainerPoint([lat, lng]);
-          if (taken.some((t) => Math.abs(t.x - pt.x) < 104 && Math.abs(t.y - pt.y) < 28)) continue;
-          taken.push({ x: pt.x, y: pt.y });
-          const el = document.createElement("div");
-          el.className = "tj-pin";
-          el.style.cssText = "background:#e2e8f0;color:#334155;border-color:#94a3b8;font-size:11px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 8px;width:100px;box-sizing:border-box;text-align:center;";
-          el.textContent = (names && names[code]) || cname;
-          const gm = L.marker([lat, lng], { icon: L.divIcon({ className: "", html: el, iconSize: [100, 24], iconAnchor: [50, 12] }), title: (names && names[code]) || cname });
-          const gbox = document.createElement("div");
-          gbox.className = "tj-pop";
-          const gh = document.createElement("strong");
-          gh.textContent = ((names && names[data.origin.code]) || data.origin.name) + " → " + ((names && names[code]) || cname);
-          const ga = document.createElement("a");
-          ga.href = flightsHref(data.origin.code, { code, name: cname, lat, lng, price: 0, stops: 0, depart: null, back: null }, prefix);
-          ga.textContent = tRef.current("see");
-          gbox.append(gh, ga);
-          gm.bindPopup(gbox, { closeButton: false, offset: [0, -6] });
-          gm.addTo(layer);
+          m.on("click", () => {
+            const row = document.getElementById(`row-${p.code}`);
+            if (row) row.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          });
         }
-      }
-    };
+
+        // grey pins: cities without a recent fare (only when no price filter active)
+        if (map.getZoom() >= 5 && !minTxt && !maxTxt && extra.length) {
+          const priced = new Set(data.points.map((q) => q.code));
+          priced.add(data.origin.code);
+          for (const c of extra) {
+            const [code, cname, lat, lng] = c;
+            if (priced.has(code) || !bounds.contains([lat, lng])) continue;
+            const pt = map.latLngToContainerPoint([lat, lng]);
+            if (taken.some((t) => Math.abs(t.x - pt.x) < 58 && Math.abs(t.y - pt.y) < 28)) continue;
+            taken.push({ x: pt.x, y: pt.y });
+            const el = document.createElement("div");
+            el.className = "tj-pin";
+            el.style.cssText = "background:#e2e8f0;color:#334155;border-color:#94a3b8;font-size:11px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 6px;";
+            el.textContent = (names && names[code]) || cname;
+            const gm = L.marker([lat, lng], { icon: L.divIcon({ className: "", html: el, iconSize: [54, 24], iconAnchor: [27, 12] }), title: (names && names[code]) || cname });
+            const gbox = document.createElement("div");
+            gbox.className = "tj-pop";
+            const gh = document.createElement("strong");
+            gh.textContent = ((names && names[data.origin.code]) || data.origin.name) + " → " + ((names && names[code]) || cname);
+            const ga = document.createElement("a");
+            ga.href = flightsHref(data.origin.code, { code, name: cname, lat, lng, price: 0, stops: 0, depart: null, back: null }, prefix);
+            ga.textContent = tRef.current("see");
+            gbox.append(gh, ga);
+            gm.bindPopup(gbox, { closeButton: false, offset: [0, -6] });
+            gm.addTo(layer);
+          }
+        }
+      };
 
       const afterClose = () => setTimeout(draw, 80);
       if (drawRef.current) map.off("zoomend moveend", drawRef.current);
@@ -253,127 +307,143 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
       map.on("popupclose", afterClose);
       draw();
     })();
-    return () => {
-      cancelled = true;
-    };
-  }, [status, data, minPrice, maxPrice, minTxt, maxTxt, direct, region, dFrom, dTo, extra, locale, fmtPrice, prefix]);
+    return () => { cancelled = true; };
+  }, [status, data, minPrice, maxPrice, minTxt, maxTxt, extra, directOnly, region, destQuery, month, exactDepart, exactReturn, sort, locale, fmtPrice, prefix]);
 
-  // cleanup
-  useEffect(
-    () => () => {
-      mapRef.current?.remove();
-      mapRef.current = null;
-    },
-    [],
-  );
+  useEffect(() => () => { mapRef.current?.remove(); mapRef.current = null; }, []);
 
-  // If prices can't be loaded (API token missing or service down), fall back to the stock map widget.
   if (status === "error") return <TpWidget src={WIDGETS.priceMap} minHeight={520} />;
 
-  const pad2 = (n: number) => String(n).padStart(2, "0");
-  const monthOpts = Array.from({ length: 12 }, (_, i) => {
-    const y0 = Number(today.slice(0, 4));
-    const m0 = Number(today.slice(5, 7)) - 1 + i;
-    const first = new Date(y0, m0, 1);
-    const last = new Date(y0, m0 + 1, 0);
-    const ym = first.getFullYear() + "-" + pad2(first.getMonth() + 1);
-    const from = i === 0 ? today : ym + "-01";
-    const to = ym + "-" + pad2(last.getDate());
-    let label = ym;
-    try { label = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }).format(first); } catch {}
-    return { from, to, label };
-  });
-  const dSel = monthOpts.find((m) => m.from === dFrom && m.to === dTo);
-  const dLabel = dSel ? dSel.label : dFrom || dTo ? (dFrom || "…") + " – " + (dTo || "…") : DATE_ANY[locale] || DATE_ANY.en;
+  const months = [];
+  const now = new Date();
+  for (let i = 0; i < 12; i++) {
+    const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+    months.push({ value: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`, label: d.toLocaleString(locale, { month: "long", year: "numeric" }) });
+  }
+
+  const photoFor = (code: string) => (heroPhotos as any)[code?.toUpperCase?.()] || null;
 
   return (
-    <div>
-      <div className="mb-3 grid grid-cols-2 items-end gap-3 border-b border-mist pb-3 lg:flex lg:flex-wrap">
-        <div className="relative col-span-2 lg:col-span-1">
-          <label className="mb-1 block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-from">{t("from")}</label>
-          <input id="pm-from" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={`${originLabel} (${origin})`} autoComplete="off" className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full lg:w-56" />
+    <div style={{ position: "relative", isolation: "isolate", zIndex: 0 }}>
+      {touchHint && (
+        <div className="absolute inset-0 z-[500] flex items-center justify-center bg-black/30 text-sm font-semibold text-white" onClick={() => setTouchHint(false)}>
+          {t("touchHint")}
+        </div>
+      )}
+      {/* Filter bar */}
+      <div className="flex flex-wrap items-end gap-3 pb-3">
+        <div className="relative">
+          <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-from">{t("from")}</label>
+          <input id="pm-from" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={`${originLabel} (${origin})`} autoComplete="off"
+            className="mt-1 w-56 rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber" />
           {suggest.length > 0 && (
             <ul className="absolute z-[1000] mt-1 w-56 overflow-hidden rounded-lg border border-mist bg-white shadow-lg">
               {suggest.map((c) => (
-                <li key={c.code}>
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-between px-3 py-2 text-start text-sm hover:bg-cloud"
-                    onClick={() => {
-                      setOrigin(c.code);
-                      setQuery("");
-                      setSuggest([]);
-                    }}
-                  >
-                    <span className="text-ink">{c.name}</span>
-                    <span className="font-mono text-xs text-slate">{c.code}</span>
-                  </button>
-                </li>
+                <li key={c.code}><button type="button" className="flex w-full items-center justify-between px-3 py-2 text-start text-sm hover:bg-cloud"
+                  onClick={() => { setOrigin(c.code); setQuery(""); setSuggest([]); }}>
+                  <span className="text-ink">{c.name}</span><span className="font-mono text-xs text-slate">{c.code}</span>
+                </button></li>
               ))}
             </ul>
           )}
         </div>
-        <div className="col-span-2 lg:col-span-1">
-          <label className="mb-1 block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-min">{priceCurrency}</label>
-          <div className="flex items-center gap-2" dir="ltr">
-            <input id="pm-min" type="text" inputMode="numeric" autoComplete="off" value={minTxt} onChange={(e) => setMinTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[0] * rate))} aria-label={`${priceCurrency} ≥`} className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full lg:w-24" />
-            <span className="text-slate">–</span>
-            <input id="pm-max" type="text" inputMode="numeric" autoComplete="off" value={maxTxt} onChange={(e) => setMaxTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[1] * rate))} aria-label={`${priceCurrency} ≤`} className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full lg:w-24" />
+        <div>
+          <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-dest">{t("destinationSearch")}</label>
+          <div className="mt-1 flex gap-1">
+            <input id="pm-dest" value={destQuery} onChange={(e) => setDestQuery(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { const q = destQuery.toLowerCase(); const m = (data?.points || []).find((p) => (p.name || "").toLowerCase().includes(q) || (names[p.code] || "").toLowerCase().includes(q)); if (m && mapRef.current) { mapRef.current.setView([m.lat, m.lng], 6); const mk = (window as any).__m; } } }} placeholder={t("destinationPlaceholder")} autoComplete="off"
+              className="w-40 rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber" />
           </div>
         </div>
-        <div className="col-span-1">
-          <label className="sr-only" htmlFor="pm-region">{regionName("001")}</label>
-          <select id="pm-region" value={region} onChange={(e) => setRegion(e.target.value)} aria-label={regionName("001")} className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber w-full">
-            <option value="">{regionName("001")}</option>
-            {REGION_ORDER.map((r) => <option key={r} value={r}>{regionName(r)}</option>)}
+        <div>
+          <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-min">{priceCurrency}</label>
+          <div className="mt-2 flex items-center gap-2" dir="ltr">
+            <input id="pm-min" type="text" inputMode="numeric" autoComplete="off" value={minTxt} onChange={(e) => setMinTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[0] * rate))} aria-label={`${priceCurrency} min`} className="w-24 rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
+            <span className="text-slate">-</span>
+            <input id="pm-max" type="text" inputMode="numeric" autoComplete="off" value={maxTxt} onChange={(e) => setMaxTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[1] * rate))} aria-label={`${priceCurrency} max`} className="w-24 rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
+          </div>
+        </div>
+        <div>
+          <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-when">{t("when")}</label>
+          <select id="pm-when" value={month} onChange={(e) => setMonth(e.target.value)} className="mt-1 rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber">
+            <option value="any">{t("anytime")}</option>
+            {months.map((m) => <option key={m.value} value={m.value}>{m.label}</option>)}
+            <option value="exact">{t("exactDates")}</option>
           </select>
         </div>
-        <div className="relative col-span-1">
-          <span className="mb-1 block font-mono text-[11px] uppercase tracking-widest text-slate" aria-hidden>✈</span>
-          <button type="button" onClick={() => setDOpen((o) => !o)} aria-expanded={dOpen} className="h-10 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink outline-none focus:border-amber flex w-full items-center justify-between gap-2 text-start">
-            <span className="truncate">{dLabel}</span>
-            <span aria-hidden className="text-slate">▾</span>
-          </button>
-          {dOpen && (
-            <>
-              <button type="button" aria-label="×" className="fixed inset-0 z-[998] cursor-default" onClick={() => setDOpen(false)} />
-              <div className="absolute end-0 z-[999] mt-1 w-64 lg:start-0 lg:end-auto max-w-[calc(100vw-2rem)] rounded-xl border border-mist bg-white p-2 shadow-xl">
-                <button type="button" onClick={() => { setDFrom(""); setDTo(""); setDOpen(false); }} className={`mb-1 w-full rounded-lg px-3 py-2 text-start text-sm font-semibold ${!dFrom && !dTo ? "bg-amber/20 text-ink" : "text-ink hover:bg-cloud"}`}>{DATE_ANY[locale] || DATE_ANY.en}</button>
-                <div className="grid grid-cols-2 gap-1">
-                  {monthOpts.map((m) => (
-                    <button key={m.from} type="button" onClick={() => { setDFrom(m.from); setDTo(m.to); setDOpen(false); }} className={`rounded-lg px-3 py-2 text-start text-sm ${dSel === m ? "bg-amber/20 font-semibold text-ink" : "text-ink hover:bg-cloud"}`}>{m.label}</button>
-                  ))}
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-        <label className="col-span-1 flex h-10 cursor-pointer items-center gap-2 rounded-lg border border-slate/30 bg-white px-3 text-sm text-ink">
-          <input type="checkbox" checked={direct} onChange={(e) => setDirect(e.target.checked)} className="h-4 w-4 accent-amber" />
-          {t("direct")}
+        {month === "exact" && (
+          <div className="flex gap-2">
+            <input type="date" value={exactDepart} onChange={(e) => setExactDepart(e.target.value)} className="mt-1 rounded-lg border border-mist bg-white px-2 py-2 text-sm text-ink outline-none focus:border-amber" />
+            <input type="date" value={exactReturn} onChange={(e) => setExactReturn(e.target.value)} className="mt-1 rounded-lg border border-mist bg-white px-2 py-2 text-sm text-ink outline-none focus:border-amber" />
+          </div>
+        )}
+        <label className="flex items-center gap-2 text-sm text-ink">
+          <input type="checkbox" checked={directOnly} onChange={(e) => setDirectOnly(e.target.checked)} className="h-4 w-4 accent-amber" />
+          {t("directOnly")}
         </label>
-        {filtered && (
-          <button type="button" onClick={() => { setMinTxt(""); setMaxTxt(""); setDirect(false); setRegion(""); setDFrom(""); setDTo(""); }} className="col-span-2 h-10 rounded-lg border border-slate/30 bg-white px-4 text-sm text-ink hover:bg-cloud lg:col-span-1" aria-label="×">×</button>
-        )}
-        <p className="col-span-2 text-xs text-slate lg:ms-auto lg:self-center">{status === "loading" ? t("loading") : t("count", { n: data?.points.filter((p) => pass(p)).length ?? 0 })}</p>
+        <div className="flex flex-wrap gap-1">
+          <button type="button" onClick={() => setRegion("all")} className={`rounded-full border px-3 py-1 text-xs font-medium ${region === "all" ? "border-amber bg-amber/15 text-ink" : "border-mist bg-white text-slate"}`}>{t("allRegions")}</button>
+          {REGIONS.map((r) => (
+            <button key={r} type="button" onClick={() => setRegion(r)} className={`rounded-full border px-3 py-1 text-xs font-medium ${region === r ? "border-amber bg-amber/15 text-ink" : "border-mist bg-white text-slate"}`}>{t(`region_${r}`)}</button>
+          ))}
+        </div>
+        <div className="flex items-center gap-2">
+          <select value={sort} onChange={(e) => setSort(e.target.value)} className="rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber">
+            <option value="cheapest">{t("sortCheapest")}</option>
+            <option value="direct">{t("sortDirect")}</option>
+          </select>
+        </div>
+        <button type="button" onClick={() => { setMinTxt(""); setMaxTxt(""); setDirectOnly(false); setRegion("all"); setMonth("any"); setExactDepart(""); setExactReturn(""); setDestQuery(""); setSort("cheapest"); }} className="rounded-lg border border-mist bg-white px-3 py-2 text-sm font-medium text-ink hover:border-amber">{t("resetFilters")}</button>
+        <p className="ms-auto text-xs text-slate">{status === "loading" ? t("loading") : t("count", { n: sortedPoints.length })}</p>
       </div>
-      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-4">
-        <div ref={mapEl} className="isolate relative z-0 h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label={t("aria")} />
-        {status !== "loading" && data && (
-          <ul className="mt-3 max-h-[520px] divide-y divide-slate/10 overflow-y-auto rounded-xl border border-slate/15 bg-white lg:mt-0" aria-label={t("count", { n: data.points.filter((p) => pass(p)).length })}>
-            {data.points.filter((p) => pass(p)).slice(0, 200).map((p) => (
-              <li key={p.code}>
-                <a href={flightsHref(data.origin.code, p, prefix)} className="flex items-center justify-between gap-3 px-3 py-2.5 text-sm hover:bg-cloud">
-                  <span className="min-w-0">
-                    <span className="block truncate font-semibold text-ink">{names[p.code] || p.name}</span>
-                    <span className="block truncate text-xs text-slate">{p.country ? p.country + " · " : ""}{p.stops === 0 ? t("direct") : p.stops + "×"}{p.depart ? " · " + p.depart : ""}</span>
-                  </span>
-                  <span dir="ltr" className="shrink-0 font-bold text-ink" style={{ unicodeBidi: "isolate" }}>{fmtPrice(p.price)}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
+
+      {/* Map + results list */}
+      <div className="grid gap-4 lg:grid-cols-[1fr_360px]">
+        <div className="relative">
+          {touchHint && (
+            <div className="absolute inset-0 z-[500] flex items-center justify-center bg-black/30 text-sm font-semibold text-white" onClick={() => setTouchHint(false)}>
+              {t("touchHint")}
+            </div>
+          )}
+          <div ref={mapEl} className="isolate relative z-0 h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label={t("aria")} />
+          <div className="mt-2 flex gap-3 text-xs text-slate">
+            <span className="flex items-center gap-1"><span className="inline-block h-3 w-3 rounded" style={{ background: "#22c55e" }} />{t("legendCheap")}</span>
+            <span className="flex items-center gap-1"><span className="inline-block h-3 w-3 rounded" style={{ background: "#f59e0b" }} />{t("legendMid")}</span>
+            <span className="flex items-center gap-1"><span className="inline-block h-3 w-3 rounded" style={{ background: "#ef4444" }} />{t("legendExpensive")}</span>
+          </div>
+        </div>
+        <div className="max-h-[520px] overflow-y-auto rounded-xl border border-mist bg-white">
+          {status === "loading" && (
+            <div className="space-y-2 p-3">
+              {Array.from({ length: 6 }).map((_, i) => <div key={i} className="h-14 animate-pulse rounded-lg bg-cloud" />)}
+            </div>
+          )}
+          {status === "ok" && sortedPoints.length === 0 && (
+            <div className="p-6 text-center text-sm text-slate">
+              <p>{t("emptyState")}</p>
+              <button type="button" onClick={() => { setMinTxt(""); setMaxTxt(""); setDirectOnly(false); setRegion("all"); setMonth("any"); setDestQuery(""); setSort("cheapest"); }} className="mt-3 rounded-lg border border-mist bg-white px-3 py-2 text-sm font-medium text-ink hover:border-amber">{t("resetFilters")}</button>
+            </div>
+          )}
+          {status === "ok" && sortedPoints.map((p) => {
+            const photo = (heroPhotos as any)[p.code?.toUpperCase?.()] || null;
+            return (
+              <a key={p.code} id={`row-${p.code}`} href={flightsHref(data!.origin.code, p, prefix)}
+                onMouseEnter={() => setHovered(p.code)} onMouseLeave={() => setHovered(null)}
+                className={`flex items-center gap-3 border-b border-mist p-3 transition hover:bg-cloud ${hovered === p.code ? "bg-cloud" : ""}`}>
+                <div className="h-10 w-14 shrink-0 overflow-hidden rounded-lg bg-cloud">
+                  {photo && photo.url ? <img src={photo.url + "?w=120&q=60"} alt={photo.alt || p.name} className="h-full w-full object-cover" loading="lazy" /> : <div className="h-full w-full bg-gradient-to-br from-[#16324a] to-[#0b1b2b]" />}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="truncate text-sm font-semibold text-ink">{(names && names[p.code]) || p.name}</span>
+                    <span className="text-xs text-slate">{p.code}</span>
+                  </div>
+                  <div className="text-xs text-slate">{p.stops === 0 ? t("direct") : t("stops", { n: p.stops })} · {p.depart ? fullDate(p.depart, locale) : t("flex")}</div>
+                </div>
+                <div className="text-sm font-bold text-ink" style={{ fontVariantNumeric: "tabular-nums" }}>{fmtPrice(p.price)}</div>
+              </a>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
