@@ -91,12 +91,12 @@ export default function LocaleSwitcher() {
                 </label>
               </div>
               <div className="relative mt-2">
-                <button id={id + "-l"} type="button" onClick={() => { setLangOpen((o) => !o); setCurOpen(false); }} aria-haspopup="listbox" aria-expanded={langOpen} className={field + " text-start"}>
+                <div className="relative"><button id={id + "-l"} type="button" onClick={() => { setLangOpen((o) => !o); setCurOpen(false); }} aria-haspopup="listbox" aria-expanded={langOpen} className={field + " text-start"}>
                   <span lang={lang}>{LOCALE_NAMES[lang]}</span>
                 </button>
-                {chevron}
+                {chevron}</div>
                 {langOpen && (
-                  <ul role="listbox" className="absolute inset-x-0 z-10 mt-1 max-h-56 overflow-y-auto rounded-xl border border-mist bg-white p-1.5 shadow-xl">
+                  <ul role="listbox" className="mt-1 max-h-52 overflow-y-auto rounded-xl border border-mist bg-white p-1.5 shadow-xl">
                     {LOCALES.map((l) => (
                       <li key={l} role="option" aria-selected={l === lang}>
                         <button type="button" lang={l} onClick={() => { setLang(l); setLangOpen(false); }} className={"flex w-full items-center justify-between rounded-lg px-3 py-2 text-start text-sm " + (l === lang ? "bg-amber/20 font-semibold" : "hover:bg-cloud")}>
@@ -121,12 +121,12 @@ export default function LocaleSwitcher() {
                 ))}
               </div>
               <div className="relative mt-2">
-                <button id={id + "-c"} type="button" onClick={() => { setCurOpen((o) => !o); setLangOpen(false); }} aria-haspopup="listbox" aria-expanded={curOpen} className={field + " text-start"}>
+                <div className="relative"><button id={id + "-c"} type="button" onClick={() => { setCurOpen((o) => !o); setLangOpen(false); }} aria-haspopup="listbox" aria-expanded={curOpen} className={field + " text-start"}>
                   <span>{cur}{cname(cur) ? " — " + cname(cur) : ""}</span>
                 </button>
-                {chevron}
+                {chevron}</div>
                 {curOpen && (
-                  <ul role="listbox" className="absolute inset-x-0 z-10 mt-1 max-h-56 overflow-y-auto rounded-xl border border-mist bg-white p-1.5 shadow-xl">
+                  <ul role="listbox" className="mt-1 max-h-52 overflow-y-auto rounded-xl border border-mist bg-white p-1.5 shadow-xl">
                     {[...POPULAR, ...CURRENCIES.filter((c) => !(POPULAR as readonly string[]).includes(c))].map((c) => (
                       <li key={c} role="option" aria-selected={c === cur}>
                         <button type="button" onClick={() => { setCur(c as Currency); setCurOpen(false); }} className={"flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-start text-sm " + (c === cur ? "bg-amber/20 font-semibold" : "hover:bg-cloud")}>
