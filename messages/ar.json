@@ -180,8 +180,7 @@
     "fewer": "أقل {label}",
     "more": "المزيد {label}",
     "paxCompact": "{n} · {cabin}",
-    "everywhere": "كل الأماكن",
-    "everywhereSubtitle": "ابحث عن أرخص الوجهات"
+    "everywhere": "كل الأماكن"
   },
   "stays": {
     "destination": "الوجهة",

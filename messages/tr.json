@@ -180,8 +180,7 @@
     "fewer": "Fewer {label}",
     "more": "More {label}",
     "paxCompact": "{n} · {cabin}",
-    "everywhere": "Everywhere",
-    "everywhereSubtitle": "Find the cheapest destinations"
+    "everywhere": "Everywhere"
   },
   "stays": {
     "destination": "Varış noktası",

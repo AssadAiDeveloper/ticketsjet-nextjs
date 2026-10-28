@@ -180,8 +180,7 @@
     "fewer": "פחות {label}",
     "more": "עוד {label}",
     "paxCompact": "{n} · {cabin}",
-    "everywhere": "הכל",
-    "everywhereSubtitle": "מצא את היעדים הזולים ביותר"
+    "everywhere": "הכל"
   },
   "stays": {
     "destination": "יעד",
