@@ -44,6 +44,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
   const [data, setData] = useState<Data | null>(null);
   const [status, setStatus] = useState<"loading" | "ok" | "error">("loading");
   const [maxPrice, setMaxPrice] = useState(20000);
+  const [sliderMax, setSliderMax] = useState(20000);
 
   // load prices for the chosen origin
   useEffect(() => {
@@ -54,6 +55,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
       .then((d) => {
         if (off) return;
         setData(d);
+        { const ps = d.points.map((p) => p.price).sort((a, b) => a - b); const hi = ps.length ? ps[Math.min(ps.length - 1, Math.floor(ps.length * 0.99))] : 20000; const top = Math.max(200, Math.ceil(hi / 100) * 100); setSliderMax(top); setMaxPrice(top); }
         setOriginLabel((names && names[d.origin.code]) || d.origin.name);
         setStatus(d.points.length ? "ok" : "error");
       })
@@ -85,7 +87,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
       if (cancelled || !mapEl.current) return;
 
       if (!mapRef.current) {
-        const map = L.map(mapEl.current, { worldCopyJump: true, minZoom: 2, zoomControl: true, scrollWheelZoom: false }).setView([data.origin.lat, data.origin.lng], 3);
+        const map = L.map(mapEl.current, { worldCopyJump: true, minZoom: 2, zoomControl: true, scrollWheelZoom: true, wheelPxPerZoomLevel: 100, zoomSnap: 0.5 }).setView([data.origin.lat, data.origin.lng], 3);
         L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           maxZoom: 12,
@@ -206,11 +208,11 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-max">
             {t("max", { price: fmtPrice(maxPrice) })}
           </label>
-          <input id="pm-max" type="range" min={100} max={20000} step={100} value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="mt-2 w-48 accent-amber" />
+          <input id="pm-max" type="range" min={100} max={sliderMax} step={50} value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))} className="mt-2 w-48 accent-amber" />
         </div>
         <p className="ms-auto text-xs text-slate">{status === "loading" ? t("loading") : t("count", { n: data?.points.filter((p) => p.price <= maxPrice).length ?? 0 })}</p>
       </div>
-      <div ref={mapEl} className="h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label={t("aria")} />
+      <div ref={mapEl} className="isolate relative z-0 h-[520px] w-full overflow-hidden rounded-xl bg-cloud" aria-label={t("aria")} />
     </div>
   );
 }
