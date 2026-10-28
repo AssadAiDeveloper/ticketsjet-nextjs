@@ -7,6 +7,7 @@ import { getCities } from "@/lib/places";
 import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
 import { alternatesFor } from "@/lib/i18nPages";
+import PageHero from "@/components/PageHero";
 
 export const revalidate = 86400;
 
@@ -25,17 +26,7 @@ export default async function ExplorePage({ params }: { params: Promise<{ locale
   const names = Object.fromEntries(cities.map((c) => [c.code, locCity(c.code, locale, c.name)]));
   return (
     <>
-      <section className="bg-ink pb-14 pt-14">
-        <div className="mx-auto max-w-6xl px-4">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker")}</p>
-          <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-            {t("h1")}
-          </h1>
-          <p className="mt-4 max-w-xl text-white/70">
-            {t("lead")}
-          </p>
-        </div>
-      </section>
+      <PageHero title={t("heroTitle")} subtitle={t("heroSubtitle")} photoKey="explore" />
 
       <section className="mx-auto -mt-6 max-w-6xl px-4">
         <div className="boarding-pass p-2 sm:p-3">

@@ -83,7 +83,7 @@ export default async function DestinationPage({ params }: Props) {
         {photos[c.iata] && <div className="absolute inset-0 z-[1] bg-gradient-to-r from-ink/80 via-ink/30 to-transparent pointer-events-none" aria-hidden="true" />}
         <div className="relative z-10 mx-auto max-w-6xl px-4">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker", { country })}</p>
-          <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{t("h1", { city: name })}</h1>
+          <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{t("heroTitle", { city: name })}</h1>
         </div>
       </section>
 

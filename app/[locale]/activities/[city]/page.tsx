@@ -65,8 +65,8 @@ export default async function ActivityCityPage({ params }: Props) {
       <section className="bg-ink pb-14 pt-14">
         <div className="mx-auto max-w-6xl px-4">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker", { country })}</p>
-          <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{t("h1", { city: name })}</h1>
-          <p className="mt-4 max-w-xl text-white/70">{ta(`${c.slug}.blurb`)}</p>
+          <h1 className="font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{t("heroTitle", { city: name })}</h1>
+          <p className="mt-4 max-w-xl text-white/70">{t("heroSubtitle")}</p>
         </div>
       </section>
 

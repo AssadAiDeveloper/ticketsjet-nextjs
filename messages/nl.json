@@ -237,7 +237,9 @@
     "q7": "Kan ik mijn boeking wijzigen of annuleren?",
     "a7": "Wijzigingen en annuleringen worden afgehandeld door de aanbieder bij wie je boekte; controleer hun beleid voor je betaalt.",
     "q8": "Is ontbijt inbegrepen?",
-    "a8": "Of ontbijt inbegrepen is, hangt af van het tarief dat je kiest; het wordt getoond op de pagina van de aanbieder."
+    "a8": "Of ontbijt inbegrepen is, hangt af van het tarief dat je kiest; het wordt getoond op de pagina van de aanbieder.",
+    "heroTitle": "Vind een plek waar je graag verblijft",
+    "heroSubtitle": "Vergelijk hotels, appartementen en meer op Booking.com, boek met vertrouwen."
   },
   "tf": {
     "flexible": "Flexibele maand",
@@ -295,7 +297,9 @@
     "faq3q": "Zijn de prijzen definitief?",
     "faq3a": "De getoonde prijzen komen van airlines en reisbureaus. De definitieve prijs zie je op de eigen site van de aanbieder tijdens het afrekenen, vóór je betaalt.",
     "faq4q": "Kan ik flexibele of restitueerbare tickets boeken?",
-    "faq4a": "Veel airlines bieden tickets met gratis datumwijziging. Gebruik het filter voor flexibele tickets in je zoekresultaten om alleen die tarieven te zien."
+    "faq4a": "Veel airlines bieden tickets met gratis datumwijziging. Gebruik het filter voor flexibele tickets in je zoekresultaten om alleen die tarieven te zien.",
+    "heroTitle": "Find the cheapest flights, anywhere",
+    "heroSubtitle": "Compare prices from many airlines and booking sites, then book with the provider you choose."
   },
   "deals": {
     "aria": "Vluchtdeals vanaf {city}",
@@ -348,7 +352,9 @@
     "s1": "Kies waar je vandaan vliegt en een stad of heel land als bestemming.",
     "s2": "Kies een flexibele maand met reisduur, of vaste data.",
     "s3": "We tonen de laagste recente tarieven. Kies er een voor live resultaten en open een hotelzoekopdracht voor dezelfde data.",
-    "disclaimer": "Tarieven komen uit recente zoekopdrachten van reizigers en zijn een richtlijn, geen garantie. Hotelprijzen zie je op de hotelsite."
+    "disclaimer": "Tarieven komen uit recente zoekopdrachten van reizigers en zijn een richtlijn, geen garantie. Hotelprijzen zie je op de hotelsite.",
+    "heroTitle": "Not sure where to go?",
+    "heroSubtitle": "Tell us your budget and dates, and we'll show you where to fly."
   },
   "meta": {
     "tagline": "Vergelijk vluchten. Geen toeslagen.",
@@ -581,7 +587,9 @@
     "a2": "Voor de populairste bezienswaardigheden wel. Veel werken met tijdslots en kunnen uitverkocht raken in schoolvakanties en weekenden.",
     "q3": "Verkoopt TicketsJet deze diensten?",
     "a3": "Nee. We verwijzen naar de aanbieders, waar je data kiest en betaalt. We nemen geen betalingen aan en rekenen geen kosten.",
-    "noFares": "No recent fares found for this route."
+    "noFares": "No recent fares found for this route.",
+    "heroTitle": "Cheap flights to {city}",
+    "heroSubtitle": "See recent prices, the best months to go, and what to do when you land."
   },
   "aci": {
     "metaTitle": "Doen & zien — tours, tickets en activiteiten per stad",
@@ -608,7 +616,9 @@
     "q2": "Waar rond ik de boeking af?",
     "a2": "Tours en tickets openen op de site van de aanbieder, waar je een datum kiest en betaalt. TicketsJet neemt geen betalingen aan en rekent geen kosten.",
     "q3": "Kan ik annuleren?",
-    "a3": "Annuleringsvoorwaarden verschillen per activiteit en staan bij elk aanbod voordat je betaalt. Controleer ze als je plannen kunnen veranderen."
+    "a3": "Annuleringsvoorwaarden verschillen per activiteit en staan bij elk aanbod voordat je betaalt. Controleer ze als je plannen kunnen veranderen.",
+    "heroTitle": "Things to do in {city}",
+    "heroSubtitle": "Tours, tickets and experiences, handpicked for your trip."
   },
   "svc": {
     "metaTitle": "Reisdiensten — eSIM, vliegveldtransfers, vluchtcompensatie",
@@ -765,7 +775,9 @@
     "anchorDest": "Popular destinations",
     "anchorTips": "Rental tips",
     "anchorFaq": "FAQ",
-    "anchorSearch": "Search"
+    "anchorSearch": "Search",
+    "heroTitle": "Find the best car rental deals",
+    "heroSubtitle": "Compare trusted rental companies and check deposit, insurance and cancellation before you book."
   },
   "exp": {
     "metaTitle": "Ontdek goedkope vluchten op een prijskaart — kies waarheen je vliegt",
@@ -791,7 +803,9 @@
     "q3": "Kan ik de vertrekstad wijzigen?",
     "a3": "Ja. Gebruik het vertrekveld op de kaart om een andere stad te kiezen; de prijzen worden voor die plaats bijgewerkt.",
     "q4": "Wat gebeurt er als ik op een prijs klik?",
-    "a4": "Je ziet de data van dat tarief en een knop om het aanbod te openen, waar je de boeking rechtstreeks bij de airline of het reisbureau afrondt."
+    "a4": "Je ziet de data van dat tarief en een knop om het aanbod te openen, waar je de boeking rechtstreeks bij de airline of het reisbureau afrondt.",
+    "heroTitle": "Where can your budget take you?",
+    "heroSubtitle": "Start with the price, not the destination, and see the cheapest trips on one map."
   },
   "map": {
     "from": "Vliegen vanaf",

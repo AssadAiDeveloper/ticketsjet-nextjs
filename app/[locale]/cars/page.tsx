@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
 import EconomyBookingsWidget from "@/components/EconomyBookingsWidget";
+import PageHero from "@/components/PageHero";
 import DestPhoto from "@/components/DestPhoto";
 import PhotoCredit from "@/components/PhotoCredit";
 import { allPhotos } from "@/lib/destinationPhotos";
@@ -40,13 +41,7 @@ export default async function CarsPage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-      <section className="bg-ink pb-14 pt-14">
-        <div className="mx-auto max-w-3xl px-4">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker")}</p>
-          <h1 className="font-display mt-3 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{t("h1")}</h1>
-          <p className="mt-4 text-white/70">{t("lead")}</p>
-        </div>
-      </section>
+      <PageHero title={t("heroTitle")} subtitle={t("heroSubtitle")} photoKey="cars" />
 
       <section className="mx-auto -mt-6 max-w-[900px] px-4">
         <div className="boarding-pass p-3 sm:p-5">

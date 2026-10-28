@@ -85,11 +85,11 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
         <div className="mx-auto max-w-6xl px-4">
           {!searching && <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker")}</p>}
           <h1 className={searching ? "sr-only" : "font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl"}>
-            {t("h1")}
+            {t("heroTitle")}
           </h1>
           {!searching && (
             <p className="mt-4 max-w-xl text-white/70">
-              {t("sub")}
+              {t("heroSubtitle")}
             </p>
           )}
           <div className={`boarding-pass ${searching ? "" : "mt-9"} px-5 py-6 sm:px-7`}>

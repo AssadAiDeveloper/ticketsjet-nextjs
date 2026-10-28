@@ -237,7 +237,9 @@
     "q7": "Can I change or cancel my booking?",
     "a7": "Changes and cancellations are handled by the provider you booked with; check their policy before paying.",
     "q8": "Is breakfast included?",
-    "a8": "Inclusion of breakfast depends on the rate you choose; it is shown on the provider's page."
+    "a8": "Inclusion of breakfast depends on the rate you choose; it is shown on the provider's page.",
+    "heroTitle": "Find a place you'll love to stay",
+    "heroSubtitle": "Compare hotels, apartments and more on Booking.com, then book with confidence."
   },
   "tf": {
     "flexible": "Flexible month",
@@ -295,7 +297,9 @@
     "faq3q": "Are the prices final?",
     "faq3a": "Prices shown come from airlines and agencies. The final price is confirmed on the provider's own site during checkout, before you pay.",
     "faq4q": "Can I book flexible or refundable tickets?",
-    "faq4a": "Many airlines offer tickets with free date changes. Apply the flexible-ticket filter in your search results to see only those fares."
+    "faq4a": "Many airlines offer tickets with free date changes. Apply the flexible-ticket filter in your search results to see only those fares.",
+    "heroTitle": "Find the cheapest flights, anywhere",
+    "heroSubtitle": "Compare prices from many airlines and booking sites, then book with the provider you choose."
   },
   "deals": {
     "aria": "Flight deals from {city}",
@@ -348,7 +352,9 @@
     "s1": "Choose where you're flying from, and a city or a whole country as the destination.",
     "s2": "Pick a flexible month with a trip length, or exact dates.",
     "s3": "We list the lowest recent fares. Pick one to see live results, and open a hotel search for the same dates.",
-    "disclaimer": "Fares come from recent searches by travellers and are a guide, not a guarantee. Hotel prices are shown on the hotel site."
+    "disclaimer": "Fares come from recent searches by travellers and are a guide, not a guarantee. Hotel prices are shown on the hotel site.",
+    "heroTitle": "Not sure where to go?",
+    "heroSubtitle": "Tell us your budget and dates, and we'll show you where to fly."
   },
   "meta": {
     "tagline": "Compare flights. Skip the markup.",
@@ -581,7 +587,9 @@
     "a2": "For the most popular sights, yes. Many use timed entry and can sell out in school holidays and at weekends.",
     "q3": "Does TicketsJet sell these services?",
     "a3": "No. We link to the providers, where you choose dates and pay. We don't take payments or add fees.",
-    "noFares": "No recent fares found for this route."
+    "noFares": "No recent fares found for this route.",
+    "heroTitle": "Cheap flights to {city}",
+    "heroSubtitle": "See recent prices, the best months to go, and what to do when you land."
   },
   "aci": {
     "metaTitle": "Things to Do — Tours, Tickets & Activities by City",
@@ -608,7 +616,9 @@
     "q2": "Where do I complete the booking?",
     "a2": "Tours and tickets open on the provider's site, where you choose a date and pay. TicketsJet doesn't take payments or add fees.",
     "q3": "Can I cancel?",
-    "a3": "Cancellation terms differ by activity and are shown on each listing before you pay. Check them if your plans might change."
+    "a3": "Cancellation terms differ by activity and are shown on each listing before you pay. Check them if your plans might change.",
+    "heroTitle": "Things to do in {city}",
+    "heroSubtitle": "Tours, tickets and experiences, handpicked for your trip."
   },
   "svc": {
     "metaTitle": "Travel Services — eSIM, Airport Transfers, Flight Compensation",
@@ -765,7 +775,9 @@
     "anchorDest": "Popular destinations",
     "anchorTips": "Rental tips",
     "anchorFaq": "FAQ",
-    "anchorSearch": "Search"
+    "anchorSearch": "Search",
+    "heroTitle": "Find the best car rental deals",
+    "heroSubtitle": "Compare trusted rental companies and check deposit, insurance and cancellation before you book."
   },
   "exp": {
     "metaTitle": "Explore Cheap Flights on a Price Map — Find Where to Fly",
@@ -791,7 +803,9 @@
     "q3": "Can I change the departure city?",
     "a3": "Yes. Use the departure field on the map to choose another city and the prices update for that origin.",
     "q4": "What happens when I click a price?",
-    "a4": "You'll see the dates for that fare and a button to open the offer, where you complete your booking directly with the airline or travel agent."
+    "a4": "You'll see the dates for that fare and a button to open the offer, where you complete your booking directly with the airline or travel agent.",
+    "heroTitle": "Where can your budget take you?",
+    "heroSubtitle": "Start with the price, not the destination, and see the cheapest trips on one map."
   },
   "map": {
     "from": "Flying from",

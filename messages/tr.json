@@ -237,7 +237,9 @@
     "q7": "Rezervasyonumu değiştirebilir veya iptal edebilir miyim?",
     "a7": "Değişiklik ve iptaller rezervasyon yaptığınız sağlayıcı tarafından yönetilir; ödemeden önce politikalarını kontrol edin.",
     "q8": "Kahvaltı dahil mi?",
-    "a8": "Kahvaltı dahil olup olmaması seçtiğiniz tarifeye bağlıdır; sağlayıcının sayfasında gösterilir."
+    "a8": "Kahvaltı dahil olup olmaması seçtiğiniz tarifeye bağlıdır; sağlayıcının sayfasında gösterilir.",
+    "heroTitle": "Kalmaktan keyif alacaginiz bir yer bulun",
+    "heroSubtitle": "Booking.com'da otelleri, daireleri ve daha fazlasini karsilastirin, sonra guvenle rezervasyon yapin."
   },
   "tf": {
     "flexible": "Esnek ay",
@@ -295,7 +297,9 @@
     "faq3q": "Fiyatlar kesin mi?",
     "faq3a": "Gösterilen fiyatlar havayolları ve acentelerden gelir. Nihai fiyat, ödemeden önce sağlayıcının kendi sitesinde ödeme sırasında doğrulanır.",
     "faq4q": "Esnek veya iade edilebilir bilet alabilir miyim?",
-    "faq4a": "Birçok havayolu ücretsiz tarih değişikliğine izin veren biletler sunar. Yalnızca bu fiyatları görmek için sonuçlarda esnek bilet filtresini uygulayın."
+    "faq4a": "Birçok havayolu ücretsiz tarih değişikliğine izin veren biletler sunar. Yalnızca bu fiyatları görmek için sonuçlarda esnek bilet filtresini uygulayın.",
+    "heroTitle": "Find the cheapest flights, anywhere",
+    "heroSubtitle": "Compare prices from many airlines and booking sites, then book with the provider you choose."
   },
   "deals": {
     "aria": "{city} çıkışlı uçuş fırsatları",
@@ -348,7 +352,9 @@
     "s1": "Nereden uçacağınızı ve varış olarak bir şehri veya tüm bir ülkeyi seçin.",
     "s2": "Seyahat süresiyle birlikte esnek bir ay veya kesin tarihler seçin.",
     "s3": "En düşük güncel fiyatları listeleriz. Canlı sonuçları görmek için birini seçin ve aynı tarihler için otel araması açın.",
-    "disclaimer": "Fiyatlar yolcuların son aramalarından gelir ve bir rehberdir, garanti değildir. Otel fiyatları otel sitesinde gösterilir."
+    "disclaimer": "Fiyatlar yolcuların son aramalarından gelir ve bir rehberdir, garanti değildir. Otel fiyatları otel sitesinde gösterilir.",
+    "heroTitle": "Not sure where to go?",
+    "heroSubtitle": "Tell us your budget and dates, and we'll show you where to fly."
   },
   "meta": {
     "tagline": "Uçuşları karşılaştır. Ek ücret yok.",
@@ -581,7 +587,9 @@
     "a2": "En popüler yerler için evet. Çoğunda saatli giriş vardır ve okul tatillerinde ve hafta sonları biletler tükenebilir.",
     "q3": "TicketsJet bu hizmetleri satıyor mu?",
     "a3": "Hayır. Tarihleri seçip ödeme yaptığınız sağlayıcılara bağlantı veririz. Ödeme almaz, ücret eklemeyiz.",
-    "noFares": "No recent fares found for this route."
+    "noFares": "No recent fares found for this route.",
+    "heroTitle": "Cheap flights to {city}",
+    "heroSubtitle": "See recent prices, the best months to go, and what to do when you land."
   },
   "aci": {
     "metaTitle": "Yapılacaklar — Şehre Göre Turlar, Biletler ve Etkinlikler",
@@ -608,7 +616,9 @@
     "q2": "Rezervasyonu nerede tamamlarım?",
     "a2": "Turlar ve biletler, tarih seçip ödeme yaptığınız sağlayıcının sitesinde açılır. TicketsJet ödeme almaz ve ücret eklemez.",
     "q3": "İptal edebilir miyim?",
-    "a3": "İptal koşulları etkinliğe göre değişir ve ödemeden önce her ilanda gösterilir. Planlarınız değişebilirse bunlara göz atın."
+    "a3": "İptal koşulları etkinliğe göre değişir ve ödemeden önce her ilanda gösterilir. Planlarınız değişebilirse bunlara göz atın.",
+    "heroTitle": "Things to do in {city}",
+    "heroSubtitle": "Tours, tickets and experiences, handpicked for your trip."
   },
   "svc": {
     "metaTitle": "Seyahat Hizmetleri — eSIM, Havalimanı Transferi, Uçuş Tazminatı",
@@ -765,7 +775,9 @@
     "anchorDest": "Popular destinations",
     "anchorTips": "Rental tips",
     "anchorFaq": "FAQ",
-    "anchorSearch": "Search"
+    "anchorSearch": "Search",
+    "heroTitle": "Find the best car rental deals",
+    "heroSubtitle": "Compare trusted rental companies and check deposit, insurance and cancellation before you book."
   },
   "exp": {
     "metaTitle": "Fiyat Haritasında Ucuz Uçuşları Keşfedin — Nereye Uçacağınızı Bulun",
@@ -791,7 +803,9 @@
     "q3": "Kalkış şehrini değiştirebilir miyim?",
     "a3": "Evet. Haritadaki kalkış alanını kullanarak başka bir şehir seçin; fiyatlar o çıkış noktası için güncellenir.",
     "q4": "Bir fiyata tıkladığımda ne olur?",
-    "a4": "O fiyatın tarihlerini ve teklifi açan bir düğmeyi görürsünüz; rezervasyonu orada doğrudan havayolu veya acenteyle tamamlarsınız."
+    "a4": "O fiyatın tarihlerini ve teklifi açan bir düğmeyi görürsünüz; rezervasyonu orada doğrudan havayolu veya acenteyle tamamlarsınız.",
+    "heroTitle": "Where can your budget take you?",
+    "heroSubtitle": "Start with the price, not the destination, and see the cheapest trips on one map."
   },
   "map": {
     "from": "Kalkış",

@@ -9,6 +9,7 @@ import { cityName as locCity } from "@/lib/cityName";
 import { getCities } from "@/lib/places";
 import { countryName } from "@/lib/format";
 import DestPhoto from "@/components/DestPhoto";
+import PageHero from "@/components/PageHero";
 import PhotoCredit from "@/components/PhotoCredit";
 import { allPhotos } from "@/lib/destinationPhotos";
 
@@ -34,15 +35,11 @@ export default async function StaysPage({ params }: { params: Promise<{ locale: 
   const faq = [1, 2, 3, 4, 5, 6].map((i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
   return (
     <>
-      <section className="relative bg-ink pb-8 pt-8 sm:pb-12 sm:pt-12">
-        <div className="mx-auto max-w-5xl px-4">
-          <h1 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">{t("h1")}</h1>
-          <p className="mt-3 max-w-xl text-white/70">{t("lead")}</p>
-          <div className="boarding-pass mt-6 px-5 py-6 sm:px-7">
-            <StaysForm />
-          </div>
+      <PageHero title={t("heroTitle")} subtitle={t("heroSubtitle")} photoKey="stays">
+        <div className="boarding-pass mt-6 max-w-3xl px-5 py-6 sm:px-7">
+          <StaysForm />
         </div>
-      </section>
+      </PageHero>
 
       <div className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
         <nav className="text-xs text-slate">

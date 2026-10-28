@@ -2,6 +2,7 @@ import { isRtl } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
+import PageHero from "@/components/PageHero";
 import { alternatesFor } from "@/lib/i18nPages";
 import TripForm, { type TripInitial } from "@/components/TripForm";
 import AdSlot from "@/components/AdSlot";
@@ -74,13 +75,7 @@ export default async function TripFinderPage({ params, searchParams }: { params:
 
   return (
     <>
-      <section className="bg-ink pb-16 pt-10">
-        <div className="mx-auto max-w-6xl px-4">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker")}</p>
-          <h1 className="font-display mt-3 max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl">{t("h1")}</h1>
-          <p className="mt-3 max-w-xl text-sm text-white/70">{t("lead")}</p>
-        </div>
-      </section>
+      <PageHero title={t("heroTitle")} subtitle={t("heroSubtitle")} photoKey="trip-finder" />
 
       <div className="mx-auto -mt-10 max-w-6xl px-4 pb-14">
         <TripForm key={parsed ? JSON.stringify(parsed.q) : "new"} initial={initial} />

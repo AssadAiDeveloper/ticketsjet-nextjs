@@ -237,7 +237,9 @@
     "q7": "Posso modificare o annullare la prenotazione?",
     "a7": "Modifiche e cancellazioni sono gestite dal fornitore con cui hai prenotato; verifica la sua politica prima di pagare.",
     "q8": "La colazione è inclusa?",
-    "a8": "L'inclusione della colazione dipende dalla tariffa scelta; è indicata sulla pagina del fornitore."
+    "a8": "L'inclusione della colazione dipende dalla tariffa scelta; è indicata sulla pagina del fornitore.",
+    "heroTitle": "Trova un posto in cui ti piacera soggiornare",
+    "heroSubtitle": "Confronta hotel, appartamenti e altro su Booking.com, poi prenota con fiducia."
   },
   "tf": {
     "flexible": "Mese flessibile",
@@ -295,7 +297,9 @@
     "faq3q": "I prezzi sono definitivi?",
     "faq3a": "I prezzi mostrati provengono da compagnie e agenzie. Il prezzo finale viene confermato sul sito del fornitore durante il pagamento, prima di pagare.",
     "faq4q": "Posso prenotare biglietti flessibili o rimborsabili?",
-    "faq4a": "Molte compagnie offrono biglietti con cambio data gratuito. Applica il filtro biglietto flessibile nei risultati per vedere solo queste tariffe."
+    "faq4a": "Molte compagnie offrono biglietti con cambio data gratuito. Applica il filtro biglietto flessibile nei risultati per vedere solo queste tariffe.",
+    "heroTitle": "Find the cheapest flights, anywhere",
+    "heroSubtitle": "Compare prices from many airlines and booking sites, then book with the provider you choose."
   },
   "deals": {
     "aria": "Offerte voli da {city}",
@@ -348,7 +352,9 @@
     "s1": "Scegli da dove parti e una città o un intero paese come destinazione.",
     "s2": "Scegli un mese flessibile con una durata del viaggio, o date esatte.",
     "s3": "Elenchiamo le tariffe recenti più basse. Sceglierne una per vedere i risultati in tempo reale e apri una ricerca hotel per le stesse date.",
-    "disclaimer": "Le tariffe provengono da ricerche recenti dei viaggiatori e sono indicative, non una garanzia. I prezzi degli hotel sono mostrati sul sito dell'hotel."
+    "disclaimer": "Le tariffe provengono da ricerche recenti dei viaggiatori e sono indicative, non una garanzia. I prezzi degli hotel sono mostrati sul sito dell'hotel.",
+    "heroTitle": "Not sure where to go?",
+    "heroSubtitle": "Tell us your budget and dates, and we'll show you where to fly."
   },
   "meta": {
     "tagline": "Confronta voli. Senza sovrapprezzi.",
@@ -581,7 +587,9 @@
     "a2": "Per le attrazioni più popolari, sì. Molte usano ingressi a orario e possono esaurirsi durante le vacanze scolastiche e nei weekend.",
     "q3": "TicketsJet vende questi servizi?",
     "a3": "No. Rimandiamo ai fornitori, dove scegli le date e paghi. Non riscuotiamo pagamenti né aggiungiamo commissioni.",
-    "noFares": "No recent fares found for this route."
+    "noFares": "No recent fares found for this route.",
+    "heroTitle": "Cheap flights to {city}",
+    "heroSubtitle": "See recent prices, the best months to go, and what to do when you land."
   },
   "aci": {
     "metaTitle": "Cosa fare — Tour, biglietti e attività per città",
@@ -608,7 +616,9 @@
     "q2": "Dove completo la prenotazione?",
     "a2": "Tour e biglietti si aprono sul sito del fornitore, dove scegli la data e paghi. TicketsJet non riscuote pagamenti né aggiunge commissioni.",
     "q3": "Posso cancellare?",
-    "a3": "Le condizioni di cancellazione variano in base all'attività e sono indicate su ogni offerta prima del pagamento. Controllale se i tuoi piani potrebbero cambiare."
+    "a3": "Le condizioni di cancellazione variano in base all'attività e sono indicate su ogni offerta prima del pagamento. Controllale se i tuoi piani potrebbero cambiare.",
+    "heroTitle": "Things to do in {city}",
+    "heroSubtitle": "Tours, tickets and experiences, handpicked for your trip."
   },
   "svc": {
     "metaTitle": "Servizi di viaggio — eSIM, transfer aeroportuali, risarcimento voli",
@@ -765,7 +775,9 @@
     "anchorDest": "Popular destinations",
     "anchorTips": "Rental tips",
     "anchorFaq": "FAQ",
-    "anchorSearch": "Search"
+    "anchorSearch": "Search",
+    "heroTitle": "Find the best car rental deals",
+    "heroSubtitle": "Compare trusted rental companies and check deposit, insurance and cancellation before you book."
   },
   "exp": {
     "metaTitle": "Esplora voli economici su una mappa dei prezzi — Scopri dove volare",
@@ -791,7 +803,9 @@
     "q3": "Posso cambiare la città di partenza?",
     "a3": "Sì. Usa il campo di partenza sulla mappa per scegliere un'altra città e i prezzi si aggiornano per quella origine.",
     "q4": "Cosa succede quando clicco su un prezzo?",
-    "a4": "Vedrai le date di quella tariffa e un pulsante per aprire l'offerta, dove completi la prenotazione direttamente con la compagnia o l'agenzia."
+    "a4": "Vedrai le date di quella tariffa e un pulsante per aprire l'offerta, dove completi la prenotazione direttamente con la compagnia o l'agenzia.",
+    "heroTitle": "Where can your budget take you?",
+    "heroSubtitle": "Start with the price, not the destination, and see the cheapest trips on one map."
   },
   "map": {
     "from": "Partenza da",
