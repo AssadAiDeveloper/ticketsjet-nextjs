@@ -66,7 +66,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
 
         <div className="relative mx-auto max-w-6xl px-4">
-          <h1 className="font-display mt-2 max-w-3xl text-3xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl">
+          <h1 className="max-sm:sr-only font-display mt-2 max-w-3xl text-3xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl">
             {t("h1")}
           </h1>
 
