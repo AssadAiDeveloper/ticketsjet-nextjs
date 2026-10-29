@@ -45,7 +45,6 @@ export default async function CarsPage({ params }: { params: Promise<{ locale: s
         <div className="boarding-pass mt-6 p-3 sm:p-5">
           <EconomyBookingsWidget />
         </div>
-        <p data-disclosure className="mt-3 text-xs text-white/80">{t("affiliateNote")}</p>
       </PageHero>
 
       <div className="sticky top-0 z-30 mt-6 border-b border-mist bg-white/95 backdrop-blur">
