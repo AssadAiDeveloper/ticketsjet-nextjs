@@ -10,7 +10,7 @@ import PostBody from "@/components/PostBody";
 import { alternatesFor } from "@/lib/i18nPages";
 import { fullDate } from "@/lib/format";
 import { isIndexed } from "@/lib/seo";
-import { getPhoto } from "@/lib/destinationPhotos";
+import { getPhoto, unsplashSized } from "@/lib/destinationPhotos";
 
 export const revalidate = 86400;
 
@@ -41,7 +41,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? { canonical: `/${actualLocale === "en" ? "" : actualLocale + "/"}blog/${slug}`.replace("//", "/"), languages }
       : { canonical: `/${locale === "en" ? "" : locale + "/"}blog/${slug}`.replace("//", "/"), languages },
     robots: isFallback ? { index: false, follow: true } : undefined,
-    openGraph: { type: "article", title, description, publishedTime: meta.published, modifiedTime: meta.updated ?? meta.published, images: photo && photo.url ? [photo.url] : (meta.image ? [meta.image.src] : [`${prefix}/opengraph-image`]) },
+    openGraph: { type: "article", title, description, publishedTime: meta.published, modifiedTime: meta.updated ?? meta.published, images: photo && photo.url ? [{ url: unsplashSized(photo.url, 1200, 630), width: 1200, height: 630, alt: photo.alt || title }] : (meta.image ? [meta.image.src] : [`${prefix}/opengraph-image`]) },
+    twitter: { card: "summary_large_image", title, description, images: photo && photo.url ? [unsplashSized(photo.url, 1200, 630)] : undefined },
   };
 }
 
@@ -69,7 +70,7 @@ export default async function PostPage({ params }: Props) {
     author: { "@type": "Organization", name: SITE.name, url: SITE.url },
     publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
     mainEntityOfPage: `${SITE.url}${canonicalPrefix}/blog/${slug}`,
-    ...(photo && photo.url ? { image: photo.url } : (meta.image ? { image: meta.image.src } : {})),
+    ...(photo && photo.url ? { image: unsplashSized(photo.url, 1600) } : (meta.image ? { image: meta.image.src } : {})),
   };
   const faqLd = content.faq?.length
     ? {
