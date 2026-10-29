@@ -155,6 +155,8 @@ details.faq[open] .faq-chevron { transform: rotate(180deg); }
 }
 .tj-cal .rdp-selected:not(.rdp-range_middle) .rdp-day_button { background: #0b1b2b; color: #fff; border-color: #0b1b2b; font-weight: 700; }
 .tj-cal .rdp-range_middle .rdp-day_button { background: transparent; color: #0b1b2b; border-color: transparent; }
+.tj-cal .rdp-today:not(.rdp-outside) { color: #b07800; font-weight: 700; }
+.tj-cal .rdp-today.rdp-selected:not(.rdp-range_middle) .rdp-day_button { color: #fff; }
 .tj-cal .rdp-month_caption { font-weight: 700; color: #0b1b2b; }
 .tj-cal .rdp-weekday { font-family: ui-monospace, "IBM Plex Mono", monospace; font-size: 11px; text-transform: uppercase; color: #55677a; }
 @media (max-width: 767px) { .tj-cal .rdp-months { flex-direction: column; } }
