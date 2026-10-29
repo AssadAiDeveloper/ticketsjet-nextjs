@@ -169,3 +169,10 @@ html[dir="rtl"] body, html[dir="rtl"] .font-display, html[dir="rtl"] .font-mono 
 html[dir="rtl"] .font-mono { letter-spacing: 0; text-transform: none; }
 html[lang="he"] body, html[lang="he"] .font-display, html[lang="he"] .font-mono { font-family: "IBM Plex Sans Hebrew", "Inter", system-ui, sans-serif; }
 html[dir="rtl"] .tj-cal { direction: ltr; }
+
+
+/* ---- Search fields: clearer borders + popover edge/shadow ---- */
+.boarding-pass input.border-mist, .boarding-pass select.border-mist, .boarding-pass button.border-mist, form input.border-mist, form select.border-mist, form button.border-mist { border-color: #9aa9b8; }
+.boarding-pass input.border-mist:hover, .boarding-pass button.border-mist:hover, form input.border-mist:hover, form button.border-mist:hover { border-color: #55677a; }
+.boarding-pass input.border-mist:focus, .boarding-pass select.border-mist:focus, .boarding-pass button.border-mist:focus, form input.border-mist:focus, form select.border-mist:focus, form button.border-mist:focus { border-color: var(--color-amber); }
+.absolute.z-50.border-mist, .tj-cal { border-color: #b8c4d0; box-shadow: 0 12px 32px -8px rgba(11,27,43,.28), 0 2px 8px rgba(11,27,43,.12); }
