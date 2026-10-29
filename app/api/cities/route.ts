@@ -3,6 +3,7 @@ import { getCities } from "@/lib/places";
 import { cityName as localizeCity, norm } from "@/lib/cityName";
 import { isLocale } from "@/i18n/routing";
 import { intlTag } from "@/lib/format";
+import { getPhoto } from "@/lib/destinationPhotos";
 
 // GET /api/cities?q=ams&locale=ar ? up to 6 matching cities, matched by English or localized name and returned in the visitor's language
 export async function GET(req: Request) {
@@ -17,6 +18,10 @@ export async function GET(req: Request) {
     const names = (c: { code: string; name: string }) => [c.name, localizeCity(c.code, locale, c.name)].map(norm);
     const starts = all.filter((c) => names(c).some((n) => n.startsWith(q)) || c.code.toLowerCase() === q);
     const rest = all.filter((c) => !starts.includes(c) && names(c).some((n) => n.includes(q)));
+    // rank: exact match first, then well-known destinations (those we have photos for), then the rest in source order
+    const rank = (c: { code: string; name: string }) => (c.code.toLowerCase() === q || names(c).includes(q) ? 0 : 2) + (getPhoto(c.code) ? 0 : 1);
+    starts.sort((a, b) => rank(a) - rank(b));
+    rest.sort((a, b) => rank(a) - rank(b));
     let cities: Array<{ code: string; name: string; country: string; kind?: "country" }> = [...starts, ...rest]
       .slice(0, 6)
       .map(({ code, name, country }) => ({ code, name: localizeCity(code, locale, name), country }));
