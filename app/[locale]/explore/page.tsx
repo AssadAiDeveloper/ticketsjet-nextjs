@@ -75,7 +75,7 @@ export default async function ExplorePage({ params, searchParams }: { params: Pr
                     <p className="font-display text-lg font-bold text-ink">{names[p.code] || p.name}</p>
                     <p className="text-xs text-slate">{p.code}</p>
                     <div className="mt-2 flex items-center justify-between">
-                      <span className="text-sm font-bold text-ink">{t.rich("fromPrice", { price: <Price usd={p.price} /> })}</span>
+                      <span className="text-sm font-bold text-ink">{t.rich("fromPrice", { price: (<Price usd={p.price} />) as unknown as string })}</span>
                       <span className="text-xs text-slate">{p.stops === 0 ? t("direct") : t("stops", { n: p.stops })}</span>
                     </div>
                   </div>
@@ -100,7 +100,7 @@ export default async function ExplorePage({ params, searchParams }: { params: Pr
                   {items.map((p) => (
                     <li key={p.code} className="flex items-center justify-between text-sm">
                       <span className="text-ink">{names[p.code] || p.name}</span>
-                      <span className="font-bold text-ink">{t.rich("fromPrice", { price: <Price usd={p.price} /> })}</span>
+                      <span className="font-bold text-ink">{t.rich("fromPrice", { price: (<Price usd={p.price} />) as unknown as string })}</span>
                     </li>
                   ))}
                 </ul>
