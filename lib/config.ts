@@ -66,4 +66,4 @@ export function bookingUrl(o: { city: string; checkin?: string; checkout?: strin
 
 // --- AdSense ---
 // ضع معرّف AdSense في متغير البيئة NEXT_PUBLIC_ADSENSE_CLIENT (مثال: ca-pub-1234567890123456)
-export const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "";
+export const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-6572349186702622";
