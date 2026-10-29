@@ -43,7 +43,7 @@ export default async function CarsPage({ params }: { params: Promise<{ locale: s
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <PageHero title={t("heroTitle")} photoKey="cars" />
 
-      <section className="mx-auto -mt-6 max-w-[900px] px-4">
+      <section className="mx-auto -mt-6 max-w-6xl px-4">
         <div className="boarding-pass p-3 sm:p-5">
           <EconomyBookingsWidget />
         </div>
