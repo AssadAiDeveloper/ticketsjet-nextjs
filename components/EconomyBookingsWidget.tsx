@@ -28,7 +28,7 @@ export default function EconomyBookingsWidget() {
         theme: {
           layout: "horizontal",
           backgroundColor: "#ffffff",
-          borderColor: "#e2e8f0",
+          borderColor: "transparent",
           borderRadius: "12px",
           textColor: "#0b1b2b",
           textFontFamily: "Inter, sans-serif",
@@ -72,10 +72,10 @@ export default function EconomyBookingsWidget() {
       <div
         id="eb-widget"
         ref={containerRef}
-        className="w-full max-w-[900px] min-h-[430px] md:min-h-[230px]"
+        className="w-full min-h-[430px] md:min-h-[230px]"
       />
       {!loaded && !failed && (
-        <div className="w-full max-w-[900px] min-h-[430px] md:min-h-[230px] animate-pulse rounded-xl bg-cloud" />
+        <div className="w-full min-h-[430px] md:min-h-[230px] animate-pulse rounded-xl bg-cloud" />
       )}
       <a
         href={ECONOMYBOOKINGS_FALLBACK_URL}
