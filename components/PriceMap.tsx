@@ -50,6 +50,9 @@ function readUrl() {
   };
 }
 
+// Grey name-only pins for cities without a recent fare are disabled: the map shows real prices only.
+const SHOW_UNPRICED = false as boolean;
+
 export default function PriceMap({ names = {}, initialOrigin }: { names?: Record<string, string>; initialOrigin?: string }) {
   const t = useTranslations("map");
   const locale = useLocale();
@@ -266,7 +269,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
         }
 
         // grey pins: cities without a recent fare (only when no price filter active)
-        if (map.getZoom() >= 5 && !minTxt && !maxTxt && extra.length) {
+        if (SHOW_UNPRICED && map.getZoom() >= 5 && !minTxt && !maxTxt && extra.length) {
           const priced = new Set(data.points.map((q) => q.code));
           priced.add(data.origin.code);
           for (const c of extra) {
