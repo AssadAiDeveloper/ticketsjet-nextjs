@@ -110,7 +110,8 @@
     "faq6a": "Your confirmation email comes directly from the airline or provider you booked with. For changes or support, contact them directly. They hold your reservation.",
     "bannerTitle": "Explore the price map",
     "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
-    "bannerCta": "Open the price map"
+    "bannerCta": "Open the price map",
+    "allGuides": "All guides"
   },
   "dest": {
     "from": "from",

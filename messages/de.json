@@ -110,7 +110,8 @@
     "faq6a": "Die Bestätigungs-E-Mail kommt direkt von der Airline oder dem Anbieter, bei dem du gebucht hast. Für Änderungen oder Support wende dich direkt an sie – sie verwalten deine Reservierung.",
     "bannerTitle": "Explore the price map",
     "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
-    "bannerCta": "Open the price map"
+    "bannerCta": "Open the price map",
+    "allGuides": "All guides"
   },
   "dest": {
     "from": "ab",

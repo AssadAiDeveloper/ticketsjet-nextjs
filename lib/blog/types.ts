@@ -12,6 +12,7 @@ export type PostMeta = {
   updated?: string;
   minutes: number;
   image?: { src: string; alt: string };
+  heroPhoto?: string;
   related?: string[];
 };
 

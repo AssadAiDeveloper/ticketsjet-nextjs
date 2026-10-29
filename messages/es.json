@@ -110,7 +110,8 @@
     "faq6a": "El correo de confirmación te llega directamente de la aerolínea o del proveedor con el que reservaste. Para cambios o ayuda, contacta con ellos directamente: son quienes tienen tu reserva.",
     "bannerTitle": "Explore the price map",
     "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
-    "bannerCta": "Open the price map"
+    "bannerCta": "Open the price map",
+    "allGuides": "All guides"
   },
   "dest": {
     "from": "desde",

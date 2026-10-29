@@ -4,5 +4,6 @@ export const meta: PostMeta = {
   slug: "first-hour-after-landing",
   published: "2026-10-29",
   minutes: 7,
+  heroPhoto: "BKK",
   related: ["esim-vs-local-sim-vs-roaming", "schiphol-airport-guide"],
 };

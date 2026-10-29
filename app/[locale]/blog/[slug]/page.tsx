@@ -10,6 +10,7 @@ import PostBody from "@/components/PostBody";
 import { alternatesFor } from "@/lib/i18nPages";
 import { fullDate } from "@/lib/format";
 import { isIndexed } from "@/lib/seo";
+import { getPhoto } from "@/lib/destinationPhotos";
 
 export const revalidate = 86400;
 
@@ -30,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isFallback = actualLocale !== locale;
   const prefix = locale === "en" ? "" : `/${locale}`;
   const locs = localesForPost(slug);
+  const photo = meta.heroPhoto ? getPhoto(meta.heroPhoto) : null;
   const languages = Object.fromEntries(locs.map((l) => [l, l === "en" ? `/blog/${slug}` : `/${l}/blog/${slug}`]));
   languages["x-default"] = `/blog/${slug}`;
   return {
@@ -39,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? { canonical: `/${actualLocale === "en" ? "" : actualLocale + "/"}blog/${slug}`.replace("//", "/"), languages }
       : { canonical: `/${locale === "en" ? "" : locale + "/"}blog/${slug}`.replace("//", "/"), languages },
     robots: isFallback ? { index: false, follow: true } : undefined,
-    openGraph: { type: "article", title, description, publishedTime: meta.published, modifiedTime: meta.updated ?? meta.published, images: meta.image ? [meta.image.src] : [`${prefix}/opengraph-image`] },
+    openGraph: { type: "article", title, description, publishedTime: meta.published, modifiedTime: meta.updated ?? meta.published, images: photo && photo.url ? [photo.url] : (meta.image ? [meta.image.src] : [`${prefix}/opengraph-image`]) },
   };
 }
 
@@ -51,6 +53,7 @@ export default async function PostPage({ params }: Props) {
 
   const { content, locale: actualLocale } = getPostContent(slug, locale);
   const t = await getTranslations("blog");
+  const photo = meta.heroPhoto ? getPhoto(meta.heroPhoto) : null;
   const title = content.title;
   const description = content.description;
   const prefix = locale === "en" ? "" : `/${locale}`;
@@ -66,7 +69,7 @@ export default async function PostPage({ params }: Props) {
     author: { "@type": "Organization", name: SITE.name, url: SITE.url },
     publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
     mainEntityOfPage: `${SITE.url}${canonicalPrefix}/blog/${slug}`,
-    ...(meta.image ? { image: meta.image.src } : {}),
+    ...(photo && photo.url ? { image: photo.url } : (meta.image ? { image: meta.image.src } : {})),
   };
   const faqLd = content.faq?.length
     ? {
@@ -105,6 +108,32 @@ export default async function PostPage({ params }: Props) {
           {title}
         </h1>
         <p className="mt-4 text-lg text-slate">{description}</p>
+        {photo && photo.url && (
+          <figure className="my-6">
+            <img
+              src={`${photo.url}?w=960&q=70&auto=format&fit=crop`}
+              srcSet={[640, 960, 1280].map((w) => `${photo.url}?w=${w}&q=70&auto=format&fit=crop ${w}w`).join(", ")}
+              sizes="(min-width: 768px) 768px, 100vw"
+              alt={photo.alt || title}
+              width={photo.width || 1600}
+              height={photo.height || 900}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full rounded-2xl"
+              style={{ backgroundColor: photo.color || undefined }}
+            />
+            {photo.author && (
+              <figcaption className="mt-2 text-xs text-slate">
+                Photo:{" "}
+                <a href={photo.authorUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-deep">
+                  {photo.author}
+                </a>{" "}
+                on Unsplash
+              </figcaption>
+            )}
+          </figure>
+        )}
         <PostBody blocks={content.blocks} />
         {content.faq && content.faq.length > 0 && (
           <section className="mt-10">

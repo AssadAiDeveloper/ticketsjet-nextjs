@@ -4,7 +4,8 @@ import { Link } from "@/i18n/navigation";
 import SearchTabs from "@/components/SearchTabs";
 import Faq from "@/components/Faq";
 import { CARS_LINK } from "@/lib/config";
-import { allPosts, getPostContent } from "@/lib/blog";
+import { allPosts, getPostContent, HOME_SLUGS, getPostMeta } from "@/lib/blog";
+import { getPhoto } from "@/lib/destinationPhotos";
 import { getFares, searchCode } from "@/lib/fares";
 import { cityName as locCity } from "@/lib/cityName";
 import DestinationCards, { type Dest } from "@/components/DestinationCards";
@@ -156,17 +157,28 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           {t("guidesTitle")}
         </h2>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {allPosts().map((p) => {
-            const c = getPostContent(p.slug, locale).content;
+          {HOME_SLUGS.map((slug) => {
+            const meta = getPostMeta(slug);
+            if (!meta) return null;
+            const c = getPostContent(slug, locale).content;
+            const photo = meta.heroPhoto ? getPhoto(meta.heroPhoto) : null;
             return (
-            <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex flex-col rounded-2xl border border-mist bg-white p-6 transition hover:border-amber hover:shadow-lg">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-slate">{tb("minutes", { n: p.minutes })}</p>
+            <Link key={slug} href={`/blog/${slug}`} className="group flex flex-col rounded-2xl border border-mist bg-white p-6 transition hover:border-amber hover:shadow-lg">
+              {photo && photo.url && (
+                <div className="mb-4 aspect-[16/9] w-full overflow-hidden rounded-xl bg-cloud">
+                  <img src={`${photo.url}?w=400&q=60&auto=format&fit=crop`} alt={photo.alt || c.title} className="h-full w-full object-cover" loading="lazy" />
+                </div>
+              )}
+              <p className="font-mono text-[11px] uppercase tracking-widest text-slate">{tb("minutes", { n: meta.minutes })}</p>
               <h3 className="font-display mt-2 text-lg font-bold leading-snug text-ink group-hover:text-amber-deep">{c.title}</h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-slate">{c.description}</p>
               <p className="mt-4 text-sm font-semibold text-amber-deep">{t("readGuide")} {arrow}</p>
             </Link>
             );
           })}
+        </div>
+        <div className="mt-6 text-center">
+          <Link href="/blog" className="text-sm font-semibold text-amber-deep underline">{t("allGuides")}</Link>
         </div>
       </section>
 

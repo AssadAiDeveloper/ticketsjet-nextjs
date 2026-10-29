@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { allPosts, getPostContent } from "@/lib/blog";
 import { SITE } from "@/lib/config";
+import { getPhoto } from "@/lib/destinationPhotos";
 import { alternatesFor } from "@/lib/i18nPages";
 import { fullDate } from "@/lib/format";
 
@@ -45,8 +46,15 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
       </section>
       <section className="mx-auto max-w-6xl px-4 py-14">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {items.map(({ meta, content }) => (
+          {items.map(({ meta, content }) => {
+            const photo = meta.heroPhoto ? getPhoto(meta.heroPhoto) : null;
+            return (
             <Link key={meta.slug} href={`/blog/${meta.slug}`} className="group flex flex-col rounded-2xl border border-mist bg-white p-6 transition hover:border-amber hover:shadow-lg">
+              {photo && photo.url && (
+                <div className="mb-4 aspect-[16/9] w-full overflow-hidden rounded-xl bg-cloud">
+                  <img src={`${photo.url}?w=400&q=60&auto=format&fit=crop`} alt={photo.alt || content.title} className="h-full w-full object-cover" loading="lazy" />
+                </div>
+              )}
               <p className="font-mono text-[11px] uppercase tracking-widest text-slate">
                 {fullDate(meta.published, locale)} · {t("minutes", { n: meta.minutes })}
               </p>
@@ -54,7 +62,8 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
               <p className="mt-3 flex-1 text-sm leading-relaxed text-slate">{content.description}</p>
               <p className="mt-4 text-sm font-semibold text-amber-deep">{t("read")}</p>
             </Link>
-          ))}
+          );
+          })}
         </div>
       </section>
     </>

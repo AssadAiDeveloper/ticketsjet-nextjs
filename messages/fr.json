@@ -110,7 +110,8 @@
     "faq6a": "Votre e-mail de confirmation vient directement de la compagnie ou du fournisseur chez qui vous avez réservé. Pour toute modification ou assistance, contactez-les directement : c'est eux qui détiennent votre réservation.",
     "bannerTitle": "Explore the price map",
     "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
-    "bannerCta": "Open the price map"
+    "bannerCta": "Open the price map",
+    "allGuides": "All guides"
   },
   "dest": {
     "from": "à partir de",

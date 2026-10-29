@@ -14,6 +14,8 @@ import { meta as m10 } from "../../content/posts/first-hour-after-landing/meta";
 
 export const POST_SLUGS = ["how-to-find-cheap-flights", "hotel-booking-mistakes", "car-rental-guide", "flight-delay-compensation-eu261", "esim-vs-local-sim-vs-roaming", "schiphol-airport-guide", "baggage-fees-cabin-bag-guide", "train-vs-flight-europe", "multi-city-open-jaw-flights", "first-hour-after-landing"] as const;
 
+export const HOME_SLUGS = ["how-to-find-cheap-flights", "baggage-fees-cabin-bag-guide", "flight-delay-compensation-eu261"] as const;
+
 const METAS: Record<string, PostMeta> = {
   "how-to-find-cheap-flights": m1,
   "hotel-booking-mistakes": m2,

@@ -5,5 +5,6 @@ export const meta: PostMeta = {
   published: "2026-07-01",
   updated: "2026-10-29",
   minutes: 9,
+  heroPhoto: "DXB",
   related: ["hotel-booking-mistakes", "car-rental-guide", "flight-delay-compensation-eu261"],
 };

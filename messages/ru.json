@@ -110,7 +110,8 @@
     "faq6a": "Письмо с подтверждением придёт напрямую от авиакомпании или поставщика, у которого вы бронировали. По вопросам изменений и поддержки обращайтесь к ним – бронь хранится у них.",
     "bannerTitle": "Explore the price map",
     "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
-    "bannerCta": "Open the price map"
+    "bannerCta": "Open the price map",
+    "allGuides": "All guides"
   },
   "dest": {
     "from": "от",
