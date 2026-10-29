@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import { useLocale, useTranslations } from "next-intl";
 import { ECONOMYBOOKINGS_WIDGET_URL, ECONOMYBOOKINGS_FALLBACK_URL } from "@/lib/affiliates";
+import { goHref } from "@/lib/partners";
 
 const SUPPORTED_LANGS = new Set(["en", "pl"]);
 
@@ -120,6 +121,11 @@ export default function EconomyBookingsWidget() {
   useEffect(() => {
     // handle case where script already loaded (client-side nav)
     if ((window as any).EBWidget) initWidget();
+    // if the partner script is blocked or very slow, show a plain link instead of an empty box
+    const id = window.setTimeout(() => {
+      if (!initialized.current) setFailed(true);
+    }, 6000);
+    return () => window.clearTimeout(id);
   }, []);
 
   return (
@@ -134,10 +140,20 @@ export default function EconomyBookingsWidget() {
       <div
         id="eb-widget"
         ref={containerRef}
-        className="w-full min-h-[430px] md:min-h-[230px]"
+        className={failed && !loaded ? "w-full" : "w-full min-h-[430px] md:min-h-[230px]"}
       />
       {!loaded && !failed && (
         <div className="w-full min-h-[430px] md:min-h-[230px] animate-pulse rounded-xl bg-cloud" />
+      )}
+      {failed && !loaded && (
+        <a
+          href={goHref("economybookings")}
+          target="_blank"
+          rel="noopener noreferrer sponsored nofollow"
+          className="my-6 inline-flex items-center justify-center rounded-xl bg-amber px-6 py-3.5 text-base font-bold text-ink shadow-sm transition hover:brightness-95"
+        >
+          {t("widgetFallback")}
+        </a>
       )}
     </div>
   );
