@@ -335,7 +335,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
                 setTo(from);
               }}
               aria-label={t("swap")}
-              className="absolute start-1/2 top-[calc(50%+10px)] group z-10 hidden h-9 w-9 -translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-mist bg-white text-ink shadow-md ring-4 ring-white transition hover:border-amber hover:bg-amber sm:grid"
+              className="absolute end-2 top-[calc(50%+10px)] group z-10 grid h-9 w-9 -translate-y-1/2 place-items-center sm:end-auto sm:start-1/2 sm:-translate-x-1/2 sm:rtl:translate-x-1/2 rounded-full border border-mist bg-white text-ink shadow-md ring-4 ring-white transition hover:border-amber hover:bg-amber"
             >
               <svg className="transition-transform duration-300 group-hover:rotate-180" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7" /></svg>
             </button>
