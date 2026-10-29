@@ -1,71 +1,67 @@
-﻿import { getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import CookieSettingsButton from "@/components/CookieSettingsButton";
-import { CARS_LINK } from "@/lib/config";
 
 const year = new Date().getFullYear();
 
 export default async function Footer() {
   const t = await getTranslations("footer");
+  const heading = "font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-amber";
+  const list = "mt-5 space-y-3 text-sm text-white/70";
+  const link = "transition hover:text-white";
   return (
-    <footer className="bg-ink text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <div className="flex items-center gap-2.5">
+    <footer className="border-t-4 border-amber bg-ink text-white">
+      <div className="mx-auto grid max-w-6xl gap-x-12 gap-y-10 px-4 pb-12 pt-14 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <div className="sm:col-span-2 lg:col-span-1">
+          <Link href="/" className="inline-flex items-center gap-2.5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo.svg" alt="" width={44} height={32} className="h-8 w-auto" />
-            <p className="font-display text-lg font-bold">
+            <span className="font-display text-xl font-bold">
               Tickets<span className="text-amber">Jet</span>
-            </p>
-          </div>
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/60">
-            {t("about")}
-          </p>
+            </span>
+          </Link>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/60">{t("about")}</p>
         </div>
 
-        <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-amber">{t("search")}</p>
-          <ul className="mt-4 space-y-2.5 text-sm text-white/75">
-            <li><Link className="hover:text-white" href="/flights">{t("cheapFlights")}</Link></li>
-            <li><Link className="hover:text-white" href="/explore">{t("explore")}</Link></li>
-            <li><Link className="hover:text-white" href="/cheap-flights">{t("byRoute")}</Link></li>
-            <li><Link className="hover:text-white" href="/stays">{t("hotels")}</Link></li>
-            <li><Link className="hover:text-white" href="/trip-finder">{t("tripFinder")}</Link></li>
-            <li><Link className="hover:text-white" href="/destinations">{t("planTrip")}</Link></li>
-            <li><Link className="hover:text-white" href="/activities">{t("thingsToDo")}</Link></li>
-            <li><Link className="hover:text-white" href="/services">{t("services")}</Link></li>
-            <li><Link className="hover:text-white" href="/cars">{t("carRentals")}</Link></li>
-            <li><Link className="hover:text-white" href="/blog">{t("guides")}</Link></li>
+        <nav aria-label={t("search")}>
+          <p className={heading}>{t("search")}</p>
+          <ul className={list}>
+            <li><Link className={link} href="/flights">{t("cheapFlights")}</Link></li>
+            <li><Link className={link} href="/explore">{t("explore")}</Link></li>
+            <li><Link className={link} href="/cheap-flights">{t("byRoute")}</Link></li>
+            <li><Link className={link} href="/trip-finder">{t("tripFinder")}</Link></li>
+            <li><Link className={link} href="/destinations">{t("planTrip")}</Link></li>
           </ul>
-        </div>
+        </nav>
 
-        <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-amber">{t("more")}</p>
-          <ul className="mt-4 space-y-2.5 text-sm text-white/75">
-            <li>
-              <Link className="hover:text-white" href={CARS_LINK}>
-                {t("rentalCars")}
-              </Link>
-            </li>
+        <nav aria-label={t("more")}>
+          <p className={heading}>{t("more")}</p>
+          <ul className={list}>
+            <li><Link className={link} href="/stays">{t("hotels")}</Link></li>
+            <li><Link className={link} href="/cars">{t("carRentals")}</Link></li>
+            <li><Link className={link} href="/activities">{t("thingsToDo")}</Link></li>
+            <li><Link className={link} href="/services">{t("services")}</Link></li>
+            <li><Link className={link} href="/blog">{t("guides")}</Link></li>
           </ul>
-        </div>
+        </nav>
 
-        <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-amber">{t("company")}</p>
-          <ul className="mt-4 space-y-2.5 text-sm text-white/75">
-            <li><Link className="hover:text-white" href="/about-us">{t("aboutUs")}</Link></li>
-            <li><Link className="hover:text-white" href="/help">{t("help")}</Link></li>
-            <li><Link className="hover:text-white" href="/privacy-policy">{t("privacy")}</Link></li>
-            <li><Link className="hover:text-white" href="/terms-and-conditions">{t("terms")}</Link></li>
-            <li><Link className="hover:text-white" href="/affiliate-disclosure">{t("affiliate")}</Link></li>
-            <li><CookieSettingsButton /></li>
+        <nav aria-label={t("company")}>
+          <p className={heading}>{t("company")}</p>
+          <ul className={list}>
+            <li><Link className={link} href="/about-us">{t("aboutUs")}</Link></li>
+            <li><Link className={link} href="/help">{t("help")}</Link></li>
+            <li><Link className={link} href="/privacy-policy">{t("privacy")}</Link></li>
+            <li><Link className={link} href="/terms-and-conditions">{t("terms")}</Link></li>
+            <li><Link className={link} href="/affiliate-disclosure">{t("affiliate")}</Link></li>
+            <li className="[&_button]:no-underline [&_button]:transition [&_button:hover]:text-white"><CookieSettingsButton /></li>
           </ul>
-        </div>
+        </nav>
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-4 py-5 text-xs text-white/50">
+        <div className="mx-auto flex max-w-6xl flex-col gap-1.5 px-4 py-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} TicketsJet. {t("tagline")}</p>
+          <p>{t("geoNames")}</p>
         </div>
       </div>
     </footer>
