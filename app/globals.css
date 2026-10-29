@@ -146,10 +146,10 @@ details.faq[open] .faq-chevron { transform: rotate(180deg); }
   --rdp-range_middle-color: #0b1b2b;
   --rdp-today-color: #e09f00;
   --rdp-day_button-border-radius: 10px;
-  --rdp-day-height: 40px;
-  --rdp-day-width: 40px;
-  --rdp-day_button-height: 38px;
-  --rdp-day_button-width: 38px;
+  --rdp-day-height: 34px;
+  --rdp-day-width: 34px;
+  --rdp-day_button-height: 32px;
+  --rdp-day_button-width: 32px;
   font-family: Inter, system-ui, sans-serif;
   max-width: calc(100vw - 2rem);
 }
