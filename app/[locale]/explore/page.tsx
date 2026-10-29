@@ -48,7 +48,7 @@ export default async function ExplorePage({ params, searchParams }: { params: Pr
     <>
       <PageHero title={t("heroTitle")} photoKey="explore" />
 
-      <section className="mx-auto -mt-6 max-w-6xl px-4">
+      <section className="relative z-30 mx-auto -mt-6 max-w-6xl px-4">
         <div className="boarding-pass p-2 sm:p-3">
           <PriceMap names={names} initialOrigin={origin} />
         </div>
