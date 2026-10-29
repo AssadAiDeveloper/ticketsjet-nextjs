@@ -325,7 +325,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
         </div>
       ) : (
         <div className="grid gap-1.5 md:grid-cols-[2fr_1.35fr_minmax(11rem,1fr)_auto] md:items-end">
-          <div className="relative grid gap-1.5 sm:grid-cols-2 sm:gap-x-9">
+          <div className="relative grid gap-1.5 sm:grid-cols-2 sm:gap-x-12">
             <CityField label={t("from")} value={from} onPick={setFrom} placeholder={t("cityPlaceholder")} />
             <CityField label={t("to")} value={to} onPick={setTo} placeholder={t("cityPlaceholder")} allowEverywhere />
             <button
@@ -335,9 +335,9 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
                 setTo(from);
               }}
               aria-label={t("swap")}
-              className="absolute start-1/2 top-[calc(50%+10px)] z-10 hidden h-8 w-8 -translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-mist bg-white text-ink shadow transition hover:border-amber sm:grid"
+              className="absolute start-1/2 top-[calc(50%+10px)] group z-10 hidden h-9 w-9 -translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-mist bg-white text-ink shadow-md ring-4 ring-white transition hover:border-amber hover:bg-amber sm:grid"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7" /></svg>
+              <svg className="transition-transform duration-300 group-hover:rotate-180" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7" /></svg>
             </button>
           </div>
 
