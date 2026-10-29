@@ -220,9 +220,8 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
       if (!mapRef.current) {
         const map = L.map(mapEl.current, { worldCopyJump: true, minZoom: 2, zoomControl: true, scrollWheelZoom: true, wheelPxPerZoomLevel: 100, zoomSnap: 0.5 }).setView([data.origin.lat, data.origin.lng], 3);
         map.attributionControl.setPrefix(false);
-        L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-          subdomains: "abcd",
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           maxZoom: 12,
         }).addTo(map);
         mapRef.current = map;
