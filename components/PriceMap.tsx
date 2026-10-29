@@ -370,7 +370,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
         <div className="relative">
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-from">{t("from")}</label>
           <input id="pm-from" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={`${originLabel} (${origin})`} autoComplete="off"
-            className="mt-1 w-full lg:w-56 rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber" />
+            className="mt-1 w-full lg:w-44 rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber" />
           {suggest.length > 0 && (
             <ul className="absolute z-[1000] mt-1 w-56 overflow-hidden rounded-lg border border-mist bg-white shadow-lg">
               {suggest.map((c) => (
