@@ -116,7 +116,7 @@ export function usePopover() {
 }
 
 export const fieldBtn =
-  "mt-1 flex w-full items-center justify-between gap-2 rounded-xl border border-mist bg-white px-3 py-1.5 text-left text-sm font-medium text-ink outline-none transition hover:border-slate/40 focus:border-amber";
+  "mt-1 flex w-full items-center justify-between gap-2 rounded-xl border border-mist bg-white px-3 py-3 text-left text-sm font-medium text-ink outline-none transition hover:border-slate/40 focus:border-amber";
 export const labelCls = "block font-mono text-[10px] uppercase tracking-widest text-slate";
 
 export function Stepper({ label, hint, value, min, max, onChange }: { label: string; hint: string; value: number; min: number; max: number; onChange: (n: number) => void }) {
