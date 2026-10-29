@@ -77,14 +77,6 @@ export default function EconomyBookingsWidget() {
       {!loaded && !failed && (
         <div className="w-full min-h-[430px] md:min-h-[230px] animate-pulse rounded-xl bg-cloud" />
       )}
-      <a
-        href={ECONOMYBOOKINGS_FALLBACK_URL}
-        target="_blank"
-        rel="sponsored nofollow noopener"
-        className="mt-4 text-sm font-semibold text-amber-deep underline"
-      >
-        {t("widgetFallback")}
-      </a>
     </div>
   );
 }
