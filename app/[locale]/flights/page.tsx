@@ -17,6 +17,7 @@ import { getCities } from "@/lib/places";
 import DealsGrid from "@/components/DealsGrid";
 import { getDeals } from "@/lib/deals";
 import { allPhotos } from "@/lib/destinationPhotos";
+import heroPhotos from "@/data/hero-photos.json";
 import { ROUTES, DESTS, originName, slug } from "@/lib/routes";
 
 type SP = Promise<{ flightSearch?: string; direct?: string; bags?: string }>;
@@ -80,10 +81,16 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
         bags: bags === "1",
       }
     : undefined;
+  const hp = (heroPhotos as any).flights as { url: string; alt?: string; color?: string; width?: number; height?: number } | undefined;
+  const hpSrc = (w: number) => (hp ? hp.url + (hp.url.includes("?") ? "&" : "?") + "w=" + w + "&q=70&auto=format&fit=crop&crop=entropy" : "");
   return (
     <>
-      <section className={searching ? "bg-ink pb-8 pt-6" : "bg-ink pb-16 pt-14"}>
-        <div className="mx-auto max-w-6xl px-4">
+      <section className={"relative z-20 isolate overflow-x-clip bg-ink " + (searching ? "pb-8 pt-6" : "pb-16 pt-14")}>
+        {hp && (
+          <img src={hpSrc(960)} srcSet={hpSrc(640) + " 640w, " + hpSrc(960) + " 960w, " + hpSrc(1280) + " 1280w"} sizes="100vw" alt="" width={hp.width || 1600} height={hp.height || 900} loading="eager" fetchPriority="high" decoding="async" className="absolute inset-0 h-full w-full object-cover" style={{ backgroundColor: hp.color || undefined, objectPosition: "center 35%" }} />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" aria-hidden="true" />
+        <div className="relative mx-auto max-w-6xl px-4">
           {!searching && <p className="font-mono text-xs uppercase tracking-[0.3em] text-amber">{t("kicker")}</p>}
           <h1 className={searching ? "sr-only" : "font-display mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl"}>
             {t("heroTitle")}
