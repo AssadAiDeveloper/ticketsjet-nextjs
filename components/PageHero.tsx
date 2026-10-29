@@ -19,7 +19,7 @@ export default function PageHero({
   const srcSet = p ? widths.map((w) => `${buildSrc(p.url, w)} ${w}w`).join(", ") : "";
   const src = p ? buildSrc(p.url, 960) : "";
   return (
-    <section className="relative isolate overflow-hidden bg-ink">
+    <section className="relative isolate overflow-x-clip bg-ink">
       {p && (
         <img
           src={src}
