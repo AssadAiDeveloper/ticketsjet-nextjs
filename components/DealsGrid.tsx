@@ -73,7 +73,6 @@ export default function DealsGrid({ origin, items, photos = {} }: { origin: { co
                     <span className="font-display block text-xl font-semibold leading-tight drop-shadow"><bdi>{d.name}</bdi></span>
                     <span className="block text-sm text-white/80 drop-shadow">{d.country}</span>
                   </span>
-                  {photos[d.code]?.author && <span className="absolute bottom-2 end-2 z-20 text-[10px] text-white/70">Photo: {photos[d.code].author}</span>}
                 </Link>
               </li>
             );
