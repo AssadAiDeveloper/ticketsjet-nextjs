@@ -325,7 +325,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
         </div>
       ) : (
         <div className="grid gap-1.5 md:grid-cols-[2fr_1.35fr_minmax(11rem,1fr)_auto] md:items-end">
-          <div className="relative grid gap-1.5 sm:grid-cols-2">
+          <div className="relative grid gap-1.5 sm:grid-cols-2 sm:gap-x-9">
             <CityField label={t("from")} value={from} onPick={setFrom} placeholder={t("cityPlaceholder")} />
             <CityField label={t("to")} value={to} onPick={setTo} placeholder={t("cityPlaceholder")} allowEverywhere />
             <button
