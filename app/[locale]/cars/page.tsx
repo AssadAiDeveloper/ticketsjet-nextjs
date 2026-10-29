@@ -41,14 +41,12 @@ export default async function CarsPage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-      <PageHero title={t("heroTitle")} photoKey="cars" />
-
-      <section className="mx-auto -mt-6 max-w-6xl px-4">
-        <div className="boarding-pass p-3 sm:p-5">
+      <PageHero title={t("heroTitle")} photoKey="cars">
+        <div className="boarding-pass mt-6 p-3 sm:p-5">
           <EconomyBookingsWidget />
         </div>
-        <p data-disclosure className="mt-3 text-center text-xs text-slate">{t("affiliateNote")}</p>
-      </section>
+        <p data-disclosure className="mt-3 text-xs text-white/80">{t("affiliateNote")}</p>
+      </PageHero>
 
       <div className="sticky top-0 z-30 mt-6 border-b border-mist bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-3xl gap-2 overflow-x-auto px-4 py-3">
