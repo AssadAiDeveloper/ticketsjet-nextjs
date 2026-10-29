@@ -183,3 +183,12 @@ html[dir="rtl"] .tj-cal { direction: ltr; }
 .boarding-pass input.border-mist:focus, .boarding-pass select.border-mist:focus, .boarding-pass button.border-mist:focus, form input.border-mist:focus, form select.border-mist:focus, form button.border-mist:focus { border-color: var(--color-amber) !important; }
 .absolute.z-50.border-mist, .tj-cal { border-color: #b8c4d0 !important; box-shadow: 0 12px 32px -8px rgba(11,27,43,.28), 0 2px 8px rgba(11,27,43,.12) !important; }
 }
+
+
+/* Explore filter bar: consistent field borders + clearer dropdown popovers */
+@layer base {
+  #pm-min, #pm-max { border-color: #9aa9b8 !important; }
+  #pm-min:hover, #pm-max:hover { border-color: #55677a !important; }
+  #pm-min:focus, #pm-max:focus { border-color: var(--color-amber) !important; }
+  .absolute.z-\[999\] { border: 1px solid #9aa9b8 !important; box-shadow: 0 14px 34px -8px rgba(11,27,43,.32), 0 2px 8px rgba(11,27,43,.14) !important; }
+}
