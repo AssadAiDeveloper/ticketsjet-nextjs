@@ -59,9 +59,8 @@ export default async function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-1.5 px-4 py-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto max-w-6xl px-4 py-5 text-center text-xs text-white/45">
           <p>© {year} TicketsJet. {t("tagline")}</p>
-          <p>{t("geoNames")}</p>
         </div>
       </div>
     </footer>
