@@ -366,7 +366,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
         </div>
       )}
       {/* Filter bar */}
-      <div className="grid grid-cols-2 items-end gap-3 pb-3 lg:flex lg:flex-wrap [&>*:nth-child(1)]:col-span-2 [&>*:nth-child(2)]:col-span-2 [&>*:nth-child(3)]:col-span-2 [&>*:nth-child(6)]:col-span-2 [&>*:nth-child(10)]:col-span-2 lg:[&>*:nth-child(5)]:order-1 lg:[&>*:nth-child(7)]:order-1 lg:[&>*:nth-child(9)]:order-1 lg:[&>*:nth-child(10)]:order-1">
+      <div className="grid grid-cols-2 items-end gap-3 pb-3 lg:flex lg:flex-wrap [&>*:nth-child(1)]:col-span-2 [&>*:nth-child(2)]:col-span-2 [&>*:nth-child(3)]:col-span-2 [&>*:nth-child(6)]:col-span-2 [&>*:nth-child(10)]:col-span-2 lg:[&>*:nth-child(7)]:order-1 lg:[&>*:nth-child(10)]:order-2 lg:[&>*:nth-child(5)]:order-3">
         <div className="relative">
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-from">{t("from")}</label>
           <input id="pm-from" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={`${originLabel} (${origin})`} autoComplete="off"
