@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = content.title;
   const description = content.description;
   const isFallback = actualLocale !== locale;
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const locs = localesForPost(slug);
   const languages = Object.fromEntries(locs.map((l) => [l, l === "en" ? `/blog/${slug}` : `/${l}/blog/${slug}`]));
   languages["x-default"] = `/blog/${slug}`;
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? { canonical: `/${actualLocale === "en" ? "" : actualLocale + "/"}blog/${slug}`.replace("//", "/"), languages }
       : { canonical: `/${locale === "en" ? "" : locale + "/"}blog/${slug}`.replace("//", "/"), languages },
     robots: isFallback ? { index: false, follow: true } : undefined,
-    openGraph: { type: "article", title, description, publishedTime: meta.published, modifiedTime: meta.updated ?? meta.published },
+    openGraph: { type: "article", title, description, publishedTime: meta.published, modifiedTime: meta.updated ?? meta.published, images: meta.image ? [meta.image.src] : [`${prefix}/opengraph-image`] },
   };
 }
 
@@ -81,6 +82,15 @@ export default async function PostPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}${prefix}` },
+          { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE.url}${prefix}/blog` },
+          { "@type": "ListItem", position: 3, name: title, item: `${SITE.url}${prefix}/blog/${slug}` },
+        ],
+      }) }} />
       <article className="mx-auto max-w-3xl px-4 py-14">
         {meta.image && (
           <img src={meta.image.src} alt={meta.image.alt} width={1200} height={630} className="mb-6 w-full rounded-2xl" loading="eager" />

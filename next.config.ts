@@ -6,7 +6,7 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 const legacyRedirects = [
   { source: "/hotels", destination: "/stays" },
   { source: "/stay", destination: "/stays" },
-  { source: "/contact-us", destination: "/help" },
+  { source: "/contact-us", destination: "/contact" },
   { source: "/privacy-policy-2", destination: "/privacy-policy" },
   { source: "/guides", destination: "/blog" },
   { source: "/travel-guide", destination: "/blog" },

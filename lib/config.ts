@@ -12,6 +12,9 @@ export const SITE = {
     "TicketsJet compares airlines, travel agencies and car rental companies to help you find good travel deals. No booking fees. You book directly with the provider.",
 };
 
+// Bump this when the site content changes meaningfully (used as lastModified for static pages in sitemap).
+export const SITE_UPDATED = "2026-10-29";
+
 export const AUTHOR = {
   name: "TicketsJet Editorial",
   role: "Editorial team",

@@ -5,13 +5,14 @@ import Faq from "@/components/Faq";
 
 import { SITE } from "@/lib/config";
 import { alternatesFor } from "@/lib/i18nPages";
+import { robotsFor } from "@/lib/seo";
 
 type Ns = "esim" | "tr" | "comp";
 
 /** Shared metadata for the service pages (copy lives in messages under the same namespace). */
 export async function serviceMetadata(locale: string, ns: Ns, path: string): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: ns });
-  return { title: t("metaTitle"), description: t("metaDesc"), alternates: alternatesFor(locale, path) };
+  return { title: t("metaTitle"), description: t("metaDesc"), alternates: alternatesFor(locale, path), robots: robotsFor(locale) };
 }
 
 /** Server component: every string comes from messages[ns] (eyebrow, title, intro, cta, s1-3, h/p 1-3, q/a 1-4). */

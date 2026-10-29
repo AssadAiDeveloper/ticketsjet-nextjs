@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: t("description"),
     keywords: ["cheap flights", "flight comparison", "hotel deals", "car rental", "travel search engine"],
     alternates: alternatesFor(locale, "/"),
-    openGraph: { type: "website", siteName: SITE.name, url: SITE.url, title, description: t("description"), locale: locale === "ar" ? "ar_AR" : locale === "nl" ? "nl_NL" : "en_US" },
+    openGraph: { type: "website", siteName: SITE.name, title, description: t("description"), locale: locale === "ar" ? "ar_AR" : locale === "nl" ? "nl_NL" : "en_US" },
     other: { "google-adsense-account": "ca-pub-6572349186702622" },
     twitter: { card: "summary_large_image", title, description: t("description") },
     robots: robotsFor(locale) ?? { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
