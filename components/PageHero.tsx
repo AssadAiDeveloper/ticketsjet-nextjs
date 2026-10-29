@@ -40,17 +40,6 @@ export default function PageHero({
         <h1 className="font-display max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl">{title}</h1>
         {children && <div className="mt-4">{children}</div>}
       </div>
-      {p && p.author && (
-        <a
-          href={p.photoUrl || p.authorUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute bottom-2 end-2 z-10 rounded-md bg-black/40 px-2 py-1 text-[10px] text-white/80 backdrop-blur hover:text-white"
-          title={`Photo by ${p.author} on Unsplash`}
-        >
-          {p.author}
-        </a>
-      )}
     </section>
   );
 }
