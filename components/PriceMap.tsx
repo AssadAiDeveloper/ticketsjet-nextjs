@@ -53,6 +53,20 @@ function readUrl() {
 // Grey name-only pins for cities without a recent fare are disabled: the map shows real prices only.
 const SHOW_UNPRICED = false as boolean;
 
+const dnCache: Record<string, Intl.DisplayNames> = {};
+// matches a typed query against a country name (visitor language and English) so "Spain" finds Madrid, Barcelona...
+function countryHit(cc: string | undefined, q: string, loc: string): boolean {
+  if (!cc || !/^[A-Za-z]{2}$/.test(cc)) return false;
+  try {
+    return [loc, "en"].some((l) => {
+      const dn = (dnCache[l] ||= new Intl.DisplayNames([l], { type: "region" }));
+      return (dn.of(cc.toUpperCase()) || "").toLowerCase().includes(q);
+    });
+  } catch {
+    return false;
+  }
+}
+
 export default function PriceMap({ names = {}, initialOrigin }: { names?: Record<string, string>; initialOrigin?: string }) {
   const t = useTranslations("map");
   const locale = useLocale();
@@ -165,7 +179,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
     if (region !== "all" && regionOf(p.lat, p.lng) !== region) return false;
     if (destQuery.trim()) {
       const q = destQuery.toLowerCase();
-      if (!((p.name || "").toLowerCase().includes(q) || (names[p.code] || "").toLowerCase().includes(q))) return false;
+      if (!((p.name || "").toLowerCase().includes(q) || (names[p.code] || "").toLowerCase().includes(q) || countryHit(p.country, q, locale))) return false;
     }
     if (month !== "any" && month !== "exact") {
       if (!p.depart || !p.depart.startsWith(month)) return false;
