@@ -4,7 +4,6 @@ import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import ActivitiesWidget from "@/components/ActivitiesWidget";
 import Faq from "@/components/Faq";
-import AdSlot from "@/components/AdSlot";
 import { SITE, bookingUrl } from "@/lib/config";
 import { ACTIVITY_CITIES, activityCity } from "@/lib/activities";
 import { ROUTES, slug as routeSlug } from "@/lib/routes";
@@ -104,7 +103,6 @@ export default async function ActivityCityPage({ params }: Props) {
         </section>
 
         <div className="my-10">
-          <AdSlot slot="8888888888" />
         </div>
 
         <section className="max-w-3xl">

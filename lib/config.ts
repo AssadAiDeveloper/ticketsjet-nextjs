@@ -6,15 +6,16 @@
 export const SITE = {
   name: "TicketsJet",
   url: "https://ticketsjet.com",
+  email: "info@ticketsjet.com",
   tagline: "Cheap flights, compared in one search.",
   description:
     "TicketsJet compares airlines, travel agencies and car rental companies to help you find good travel deals. No booking fees. You book directly with the provider.",
 };
 
 export const AUTHOR = {
-  name: "Salim Assad",
-  role: "Founder of TicketsJet",
-  bio: "Salim Assad is the founder of TicketsJet, a travel search engine that compares flights and car rentals.",
+  name: "TicketsJet Editorial",
+  role: "Editorial team",
+  bio: "Travel guides written and updated by the TicketsJet team.",
 };
 
 // --- Partner credentials (من لوحة الشريك: ID 271745) ---

@@ -4,7 +4,6 @@ import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import ActivitiesWidget from "@/components/ActivitiesWidget";
 import Faq from "@/components/Faq";
-import AdSlot from "@/components/AdSlot";
 import { SITE, bookingUrl } from "@/lib/config";
 import { ACTIVITY_CITIES, activityCity } from "@/lib/activities";
 import { ROUTES, slug as routeSlug } from "@/lib/routes";
@@ -130,7 +129,6 @@ export default async function DestinationPage({ params }: Props) {
         )}
       </div>
 
-      <AdSlot slot="6666666666" className="mt-6" />
     </>
   );
 }

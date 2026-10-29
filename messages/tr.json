@@ -46,7 +46,8 @@
     "tagline": "Her yerden her yere ucuz uçuşları karşılaştırın ve rezerve edin.",
     "notSeller": "TicketsJet bir arama motorudur, satıcı değildir. Bazı bağlantılar ortaklık bağlantılarıdır, ",
     "learnMore": "daha fazla bilgi",
-    "geoNames": "City names: GeoNames, CC BY 4.0"
+    "geoNames": "City names: GeoNames, CC BY 4.0",
+    "contact": "Contact"
   },
   "cookie": {
     "aria": "Çerez tercihleri",
@@ -867,10 +868,12 @@
     "ctaBtn": "Uçuş ara →",
     "updated": "Updated {date}",
     "faqTitle": "Frequently asked questions",
-    "authorName": "By {name}",
+    "authorName": "TicketsJet Editorial",
     "affiliateLine": "Some links on this page are affiliate links.",
     "affiliateLink": "Affiliate disclosure",
-    "relatedTitle": "Related articles"
+    "relatedTitle": "Related articles",
+    "contactLine": "Questions or corrections?",
+    "contactLink": "Contact us"
   },
   "help": {
     "metaTitle": "Yardım ve SSS",
@@ -934,7 +937,8 @@
     "p3": "Arama araçlarımız ve dış bağlantılarımız, rezervasyonları ilişkilendirmek için çerez yerleştirebilen seyahat ortaklarıyla birlikte sağlanır. Bu sitedeki reklamlar, ilgili reklamları göstermek için çerez kullanan Google AdSense tarafından sunulabilir. Reklam kişiselleştirmesini Google ayarlarınızdan, çerezleri tarayıcı ayarlarınızdan yönetebilirsiniz.",
     "h2e": "Haklarınız",
     "p4": "GDPR ve benzeri düzenlemeler uyarınca, elimizdeki kişisel verilere erişim veya silinmesini talep edebilirsiniz. Bu web sitesindeki bilgiler üzerinden bize ulaşın, 30 gün içinde yanıt vereceğiz.",
-    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",
+    "contactLine": "Contact us at"
   },
   "legal": {
     "updated": "Son güncelleme: Temmuz 2026"
@@ -973,5 +977,17 @@
     "h1": "Bu kapı mevcut değil",
     "text": "Aradığınız sayfa kalkıp gitti ya da hiç binmedi. Aramaya dönün ve bir sonraki seyahatinizi bulun.",
     "back": "Aramaya dön →"
+  },
+  "contact": {
+    "metaTitle": "Contact us",
+    "metaDesc": "Get in touch with TicketsJet. Send feedback, corrections, partnership enquiries or privacy requests by email.",
+    "h1": "Contact us",
+    "intro": "The fastest way to reach us is by email:",
+    "topic1": "Feedback or a correction about a page or article",
+    "topic2": "A partnership or advertising enquiry",
+    "topic3": "A privacy or data request (access or deletion)",
+    "topic4": "A problem with the site",
+    "noBooking": "We cannot change, cancel or refund bookings. Your reservation is held by the airline or provider you booked with, so contact them directly.",
+    "helpLink": "Help & FAQ"
   }
 }

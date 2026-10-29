@@ -2,7 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import Faq from "@/components/Faq";
-import AdSlot from "@/components/AdSlot";
+
 import { SITE } from "@/lib/config";
 import { alternatesFor } from "@/lib/i18nPages";
 
@@ -79,7 +79,7 @@ export default async function ServicePage({ ns, ctaHref, path, slot }: { ns: Ns;
         </div>
 
         <div className="my-10">
-          <AdSlot slot={slot} />
+
         </div>
 
         <section className="max-w-3xl">

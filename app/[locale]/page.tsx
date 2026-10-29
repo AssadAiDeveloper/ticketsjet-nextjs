@@ -2,7 +2,6 @@ import { isRtl } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import SearchTabs from "@/components/SearchTabs";
-import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
 import { CARS_LINK } from "@/lib/config";
 import { allPosts, getPostContent } from "@/lib/blog";
@@ -98,7 +97,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <AdSlot slot="1111111111" className="mt-10" />
 
       {board && <DestinationCards origin={board.origin} items={board.items} />}
 
@@ -150,7 +148,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <AdSlot slot="2222222222" />
 
       {/* ============ GUIDES ============ */}
       <section className="mx-auto max-w-5xl px-4 py-10 sm:py-14">

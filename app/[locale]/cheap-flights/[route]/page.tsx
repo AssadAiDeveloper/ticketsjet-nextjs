@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import Faq from "@/components/Faq";
-import AdSlot from "@/components/AdSlot";
 import Price from "@/components/Price";
 import { SITE } from "@/lib/config";
 import { searchCode } from "@/lib/fares";
@@ -204,7 +203,6 @@ export default async function RoutePage({ params }: Props) {
         )}
 
         <div className="my-10">
-          <AdSlot slot="3333333333" />
         </div>
 
         <section className="max-w-3xl">

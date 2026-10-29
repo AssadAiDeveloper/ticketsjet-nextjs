@@ -1,7 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
-import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
 import EconomyBookingsWidget from "@/components/EconomyBookingsWidget";
 import PageHero from "@/components/PageHero";
@@ -124,7 +123,6 @@ export default async function CarsPage({ params }: { params: Promise<{ locale: s
         </p>
       </section>
 
-      <AdSlot slot="5555555555" className="mt-10" />
     </>
   );
 }

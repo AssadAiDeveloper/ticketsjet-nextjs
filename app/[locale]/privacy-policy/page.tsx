@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { alternatesFor } from "@/lib/i18nPages";
+import { SITE } from "@/lib/config";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -37,6 +38,10 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
         <h2>{t("h2e")}</h2>
         <p>{t("p4")}</p>
         <p>{t("unsplash")}</p>
+        <p className="mt-6 text-sm text-slate">
+          {t("contactLine")}{" "}
+          <a href={`mailto:${SITE.email}`} className="font-semibold text-amber-deep underline">{SITE.email}</a>
+        </p>
       </section>
     </>
   );

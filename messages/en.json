@@ -46,7 +46,8 @@
     "tagline": "Compare and book cheap flights from anywhere, to everywhere.",
     "notSeller": "TicketsJet is a search engine, not a seller. Some links are affiliate links, ",
     "learnMore": "learn more",
-    "geoNames": "City names: GeoNames, CC BY 4.0"
+    "geoNames": "City names: GeoNames, CC BY 4.0",
+    "contact": "Contact"
   },
   "cookie": {
     "aria": "Cookie preferences",
@@ -867,10 +868,12 @@
     "ctaBtn": "Search flights →",
     "updated": "Updated {date}",
     "faqTitle": "Frequently asked questions",
-    "authorName": "By {name}",
+    "authorName": "TicketsJet Editorial",
     "affiliateLine": "Some links on this page are affiliate links.",
     "affiliateLink": "Affiliate disclosure",
-    "relatedTitle": "Related articles"
+    "relatedTitle": "Related articles",
+    "contactLine": "Questions or corrections?",
+    "contactLink": "Contact us"
   },
   "help": {
     "metaTitle": "Help & FAQ",
@@ -934,7 +937,8 @@
     "p3": "Our search tools and outbound links are provided together with travel partners who may set cookies to attribute bookings. Advertising on this site may be served by Google AdSense, which uses cookies to show relevant ads. You can manage ad personalisation in your Google settings and cookies in your browser settings.",
     "h2e": "Your rights",
     "p4": "Under the GDPR and similar regulations, you may request access to or deletion of any personal data we hold. Contact us via the details on this website and we will respond within 30 days.",
-    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",
+    "contactLine": "Contact us at"
   },
   "legal": {
     "updated": "Last updated: July 2026"
@@ -973,5 +977,17 @@
     "h1": "This gate doesn't exist",
     "text": "The page you're looking for has departed or never boarded. Head back to search and find your next trip.",
     "back": "Back to search →"
+  },
+  "contact": {
+    "metaTitle": "Contact us",
+    "metaDesc": "Get in touch with TicketsJet. Send feedback, corrections, partnership enquiries or privacy requests by email.",
+    "h1": "Contact us",
+    "intro": "The fastest way to reach us is by email:",
+    "topic1": "Feedback or a correction about a page or article",
+    "topic2": "A partnership or advertising enquiry",
+    "topic3": "A privacy or data request (access or deletion)",
+    "topic4": "A problem with the site",
+    "noBooking": "We cannot change, cancel or refund bookings. Your reservation is held by the airline or provider you booked with, so contact them directly.",
+    "helpLink": "Help & FAQ"
   }
 }

@@ -6,7 +6,6 @@ import PageHero from "@/components/PageHero";
 import { alternatesFor } from "@/lib/i18nPages";
 import { robotsFor } from "@/lib/seo";
 import TripForm, { type TripInitial } from "@/components/TripForm";
-import AdSlot from "@/components/AdSlot";
 import { bookingUrl } from "@/lib/config";
 import { cityName as locCity } from "@/lib/cityName";
 import { searchTrips, type TripQuery } from "@/lib/tripSearch";
@@ -144,7 +143,6 @@ export default async function TripFinderPage({ params, searchParams }: { params:
             <p className="mt-4 text-sm">{t("disclaimer")}</p>
           </section>
         )}
-        <div className="my-10"><AdSlot slot="3333333333" /></div>
       </div>
     </>
   );

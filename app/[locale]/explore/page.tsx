@@ -7,7 +7,6 @@ import { Link } from "@/i18n/navigation";
 import PriceMap from "@/components/PriceMap";
 import { cityName as locCity } from "@/lib/cityName";
 import { getCities } from "@/lib/places";
-import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
 import { alternatesFor } from "@/lib/i18nPages";
 import PageHero from "@/components/PageHero";
@@ -54,7 +53,6 @@ export default async function ExplorePage({ params, searchParams }: { params: Pr
         </div>
       </section>
 
-      <AdSlot slot="7777777777" className="mt-10" />
 
       {cheapest.length > 0 && (
         <section className="mx-auto max-w-6xl px-4 py-14">

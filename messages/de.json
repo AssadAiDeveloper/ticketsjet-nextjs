@@ -46,7 +46,8 @@
     "tagline": "Vergleiche und buche günstige Flüge von überall nach überallhin.",
     "notSeller": "TicketsJet ist eine Suchmaschine, kein Verkäufer. Einige Links sind Affiliate-Links –",
     "learnMore": "mehr erfahren",
-    "geoNames": "City names: GeoNames, CC BY 4.0"
+    "geoNames": "City names: GeoNames, CC BY 4.0",
+    "contact": "Contact"
   },
   "cookie": {
     "aria": "Cookie-Einstellungen",
@@ -867,10 +868,12 @@
     "ctaBtn": "Flüge suchen →",
     "updated": "Updated {date}",
     "faqTitle": "Frequently asked questions",
-    "authorName": "By {name}",
+    "authorName": "TicketsJet Editorial",
     "affiliateLine": "Some links on this page are affiliate links.",
     "affiliateLink": "Affiliate disclosure",
-    "relatedTitle": "Related articles"
+    "relatedTitle": "Related articles",
+    "contactLine": "Questions or corrections?",
+    "contactLink": "Contact us"
   },
   "help": {
     "metaTitle": "Hilfe & FAQ",
@@ -934,7 +937,8 @@
     "p3": "Unsere Suchwerkzeuge und ausgehenden Links werden zusammen mit Reisepartnern bereitgestellt, die Cookies setzen können, um Buchungen zuzuordnen. Werbung auf dieser Website kann von Google AdSense ausgeliefert werden, das Cookies nutzt, um relevante Anzeigen zu zeigen. Die Anzeigenpersonalisierung kannst du in deinen Google-Einstellungen und Cookies in deinen Browsereinstellungen verwalten.",
     "h2e": "Deine Rechte",
     "p4": "Nach der DSGVO und ähnlichen Vorschriften kannst du Auskunft über oder Löschung der von uns gespeicherten personenbezogenen Daten verlangen. Kontaktiere uns über die Angaben auf dieser Website, wir antworten innerhalb von 30 Tagen.",
-    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",
+    "contactLine": "Contact us at"
   },
   "legal": {
     "updated": "Zuletzt aktualisiert: Juli 2026"
@@ -973,5 +977,17 @@
     "h1": "Dieses Gate gibt es nicht",
     "text": "Die gesuchte Seite ist abgeflogen oder nie eingestiegen. Geh zurück zur Suche und finde deine nächste Reise.",
     "back": "Zurück zur Suche →"
+  },
+  "contact": {
+    "metaTitle": "Contact us",
+    "metaDesc": "Get in touch with TicketsJet. Send feedback, corrections, partnership enquiries or privacy requests by email.",
+    "h1": "Contact us",
+    "intro": "The fastest way to reach us is by email:",
+    "topic1": "Feedback or a correction about a page or article",
+    "topic2": "A partnership or advertising enquiry",
+    "topic3": "A privacy or data request (access or deletion)",
+    "topic4": "A problem with the site",
+    "noBooking": "We cannot change, cancel or refund bookings. Your reservation is held by the airline or provider you booked with, so contact them directly.",
+    "helpLink": "Help & FAQ"
   }
 }

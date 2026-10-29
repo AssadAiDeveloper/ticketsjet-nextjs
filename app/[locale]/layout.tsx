@@ -38,8 +38,10 @@ const orgJsonLd = {
   "@type": "Organization",
   name: SITE.name,
   url: SITE.url,
+  email: SITE.email,
   logo: `${SITE.url}/icon.svg`,
   description: SITE.description,
+  contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: SITE.email },
 };
 
 const siteJsonLd = {

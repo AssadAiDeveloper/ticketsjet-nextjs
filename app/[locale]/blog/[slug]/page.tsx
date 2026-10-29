@@ -62,7 +62,7 @@ export default async function PostPage({ params }: Props) {
     inLanguage: actualLocale,
     datePublished: meta.published,
     dateModified: meta.updated ?? meta.published,
-    author: { "@type": "Person", name: AUTHOR.name },
+    author: { "@type": "Organization", name: SITE.name, url: SITE.url },
     publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
     mainEntityOfPage: `${SITE.url}${canonicalPrefix}/blog/${slug}`,
     ...(meta.image ? { image: meta.image.src } : {}),
@@ -104,9 +104,11 @@ export default async function PostPage({ params }: Props) {
         )}
         <AdSlot slot="6666666666" className="my-10 !px-0" />
         <div className="mt-10 rounded-2xl bg-cloud p-6">
-          <p className="font-display text-lg font-bold text-ink">{t("authorName", { name: AUTHOR.name })}</p>
-          <p className="mt-1 text-sm text-slate">{AUTHOR.bio}</p>
-          <p className="mt-2 text-xs text-slate">{AUTHOR.role}</p>
+          <p className="font-display text-lg font-bold text-ink">{t("authorName")}</p>
+          <p className="mt-2 text-xs text-slate">
+            {t("contactLine")}{" "}
+            <Link href="/contact" className="font-semibold text-amber-deep underline">{t("contactLink")}</Link>
+          </p>
         </div>
         <p className="mt-6 text-xs text-slate">
           {t("affiliateLine")}{" "}

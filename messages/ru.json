@@ -46,7 +46,8 @@
     "tagline": "Сравнивайте и бронируйте дешёвые авиабилеты откуда угодно и куда угодно.",
     "notSeller": "TicketsJet – поисковая система, а не продавец. Некоторые ссылки – партнёрские –",
     "learnMore": "подробнее",
-    "geoNames": "City names: GeoNames, CC BY 4.0"
+    "geoNames": "City names: GeoNames, CC BY 4.0",
+    "contact": "Contact"
   },
   "cookie": {
     "aria": "Настройки cookie",
@@ -867,10 +868,12 @@
     "ctaBtn": "Найти билеты →",
     "updated": "Обновлено {date}",
     "faqTitle": "Частые вопросы",
-    "authorName": "Автор: {name}",
+    "authorName": "TicketsJet Editorial",
     "affiliateLine": "Некоторые ссылки на этой странице являются партнёрскими.",
     "affiliateLink": "Партнёрское раскрытие",
-    "relatedTitle": "Похожие статьи"
+    "relatedTitle": "Похожие статьи",
+    "contactLine": "Questions or corrections?",
+    "contactLink": "Contact us"
   },
   "help": {
     "metaTitle": "Помощь и частые вопросы",
@@ -934,7 +937,8 @@
     "p3": "Наши инструменты поиска и исходящие ссылки предоставляются совместно с туристическими партнёрами, которые могут устанавливать cookie для учёта бронирований. Реклама на этом сайте может показываться через Google AdSense, который использует cookie для показа релевантных объявлений. Персонализацией рекламы можно управлять в настройках Google, а cookie – в настройках браузера.",
     "h2e": "Ваши права",
     "p4": "В соответствии с GDPR и аналогичными нормами вы можете запросить доступ к любым хранящимся у нас персональным данным или их удаление. Свяжитесь с нами по контактам на этом сайте, и мы ответим в течение 30 дней.",
-    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",
+    "contactLine": "Contact us at"
   },
   "legal": {
     "updated": "Последнее обновление: июль 2026"
@@ -973,5 +977,17 @@
     "h1": "Такого выхода на посадку не существует",
     "text": "Страница, которую вы ищете, улетела или так и не села на борт. Вернитесь к поиску и найдите свою следующую поездку.",
     "back": "Вернуться к поиску →"
+  },
+  "contact": {
+    "metaTitle": "Contact us",
+    "metaDesc": "Get in touch with TicketsJet. Send feedback, corrections, partnership enquiries or privacy requests by email.",
+    "h1": "Contact us",
+    "intro": "The fastest way to reach us is by email:",
+    "topic1": "Feedback or a correction about a page or article",
+    "topic2": "A partnership or advertising enquiry",
+    "topic3": "A privacy or data request (access or deletion)",
+    "topic4": "A problem with the site",
+    "noBooking": "We cannot change, cancel or refund bookings. Your reservation is held by the airline or provider you booked with, so contact them directly.",
+    "helpLink": "Help & FAQ"
   }
 }

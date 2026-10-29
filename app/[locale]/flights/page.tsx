@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { alternatesFor } from "@/lib/i18nPages";
 import { robotsFor } from "@/lib/seo";
-import AdSlot from "@/components/AdSlot";
 import Faq from "@/components/Faq";
 import { WlSearchForm, WlResults } from "@/components/WhiteLabel";
 import HeroFlightForm, { type Initial } from "@/components/HeroFlightForm";
@@ -156,7 +155,6 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
         </>
       )}
 
-      <AdSlot slot="3333333333" className="mt-10" />
 
       <section className="mx-auto max-w-6xl px-4 py-16">
         <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">{t("tipsTitle")}</h2>

@@ -46,7 +46,8 @@
     "tagline": "Vergelijk en boek goedkope vluchten van overal naar overal.",
     "notSeller": "TicketsJet is een zoekmachine, geen verkoper. Sommige links zijn affiliatelinks, ",
     "learnMore": "meer informatie",
-    "geoNames": "City names: GeoNames, CC BY 4.0"
+    "geoNames": "City names: GeoNames, CC BY 4.0",
+    "contact": "Contact"
   },
   "cookie": {
     "aria": "Cookievoorkeuren",
@@ -867,10 +868,12 @@
     "ctaBtn": "Zoek vluchten →",
     "updated": "Bijgewerkt {date}",
     "faqTitle": "Veelgestelde vragen",
-    "authorName": "Door {name}",
+    "authorName": "TicketsJet Editorial",
     "affiliateLine": "Sommige links op deze pagina zijn affiliate links.",
     "affiliateLink": "Affiliate disclosure",
-    "relatedTitle": "Gerelateerde artikelen"
+    "relatedTitle": "Gerelateerde artikelen",
+    "contactLine": "Questions or corrections?",
+    "contactLink": "Contact us"
   },
   "help": {
     "metaTitle": "Hulp & veelgestelde vragen",
@@ -934,7 +937,8 @@
     "p3": "Onze zoekhulpmiddelen en uitgaande links worden aangeboden samen met reispartners die cookies kunnen plaatsen om boekingen toe te wijzen. Advertenties op deze site kunnen worden getoond door Google AdSense, dat cookies gebruikt om relevante advertenties te tonen. Je kunt advertentiepersonalisatie beheren in je Google-instellingen en cookies in je browserinstellingen.",
     "h2e": "Je rechten",
     "p4": "Op grond van de AVG en vergelijkbare regelgeving kun je inzage in of verwijdering van persoonsgegevens vragen die wij bewaren. Neem contact met ons op via de gegevens op deze website en we reageren binnen 30 dagen.",
-    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash."
+    "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",
+    "contactLine": "Contact us at"
   },
   "legal": {
     "updated": "Laatst bijgewerkt: juli 2026"
@@ -973,5 +977,17 @@
     "h1": "Deze gate bestaat niet",
     "text": "De pagina die je zoekt is vertrokken of nooit ingestapt. Ga terug naar zoeken en vind je volgende reis.",
     "back": "Terug naar zoeken →"
+  },
+  "contact": {
+    "metaTitle": "Contact",
+    "metaDesc": "Neem contact op met TicketsJet. Stuur feedback, correcties, samenwerkingsverzoeken of privacyverzoeken per e-mail.",
+    "h1": "Contact",
+    "intro": "De snelste manier om ons te bereiken is per e-mail:",
+    "topic1": "Feedback of een correctie over een pagina of artikel",
+    "topic2": "Een samenwerkings- of advertentieverzoek",
+    "topic3": "Een privacy- of gegevensverzoek (inzage of verwijdering)",
+    "topic4": "Een probleem met de site",
+    "noBooking": "We kunnen boekingen niet wijzigen, annuleren of terugbetalen. Uw reservering wordt aangehouden door de luchtvaartmaatschappij of aanbieder waarmee u boekte, neem dus rechtstreeks contact met hen op.",
+    "helpLink": "Hulp & FAQ"
   }
 }
