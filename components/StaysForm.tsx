@@ -21,6 +21,7 @@ export default function StaysForm() {
   const [children, setChildren] = useState(0);
   const [rooms, setRooms] = useState(1);
   const [err, setErr] = useState("");
+  const [typed, setTyped] = useState("");
   const dates = usePopover();
   const guests = usePopover();
   const today = new Date(new Date().setHours(0, 0, 0, 0));
@@ -28,16 +29,17 @@ export default function StaysForm() {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!to) return setErr(t("errDest"));
+    const dest = to ? to.name : typed.trim();
+    if (!dest) return setErr(t("errDest"));
     if (!range?.from || !range.to) return setErr(t("errDates"));
     setErr("");
-    window.open(bookingUrl({ city: to.name, checkin: iso(range.from), checkout: iso(range.to), adults, children, rooms }), "_blank", "noopener,noreferrer");
+    window.open(bookingUrl({ city: dest, checkin: iso(range.from), checkout: iso(range.to), adults, children, rooms }), "_blank", "noopener,noreferrer");
   }
 
   return (
     <form onSubmit={submit} noValidate>
       <div className="grid gap-3 md:grid-cols-[1.4fr_1.4fr_1fr_auto] md:items-end">
-        <CityField label={t("destination")} value={to} onPick={setTo} placeholder={t("city")} />
+        <CityField label={t("destination")} value={to} onPick={setTo} onTyped={setTyped} hideCode placeholder={t("city")} />
 
         <div className="relative" ref={dates.ref}>
           <span className={labelCls}>{t("checkInOut")}</span>
