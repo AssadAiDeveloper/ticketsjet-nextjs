@@ -31,18 +31,26 @@ const METAS: Record<string, PostMeta> = {
 
 // Content registry: slug -> locale -> PostContent
 import { content as c1_en } from "../../content/posts/how-to-find-cheap-flights/en";
+import { content as c1_ar } from "../../content/posts/how-to-find-cheap-flights/ar";
+import { content as c1_nl } from "../../content/posts/how-to-find-cheap-flights/nl";
 
 import { content as c2_en } from "../../content/posts/hotel-booking-mistakes/en";
 
 import { content as c3_en } from "../../content/posts/car-rental-guide/en";
 
 import { content as c4_en } from "../../content/posts/flight-delay-compensation-eu261/en";
+import { content as c4_ar } from "../../content/posts/flight-delay-compensation-eu261/ar";
+import { content as c4_nl } from "../../content/posts/flight-delay-compensation-eu261/nl";
 
 import { content as c5_en } from "../../content/posts/esim-vs-local-sim-vs-roaming/en";
+import { content as c5_ar } from "../../content/posts/esim-vs-local-sim-vs-roaming/ar";
+import { content as c5_nl } from "../../content/posts/esim-vs-local-sim-vs-roaming/nl";
 
 import { content as c6_en } from "../../content/posts/schiphol-airport-guide/en";
 
 import { content as c7_en } from "../../content/posts/baggage-fees-cabin-bag-guide/en";
+import { content as c7_ar } from "../../content/posts/baggage-fees-cabin-bag-guide/ar";
+import { content as c7_nl } from "../../content/posts/baggage-fees-cabin-bag-guide/nl";
 
 import { content as c8_en } from "../../content/posts/train-vs-flight-europe/en";
 
@@ -51,13 +59,13 @@ import { content as c9_en } from "../../content/posts/multi-city-open-jaw-flight
 import { content as c10_en } from "../../content/posts/first-hour-after-landing/en";
 
 const CONTENT: Record<string, Record<string, PostContent>> = {
-  "how-to-find-cheap-flights": { en: c1_en },
+  "how-to-find-cheap-flights": { en: c1_en, ar: c1_ar, nl: c1_nl },
   "hotel-booking-mistakes": { en: c2_en },
   "car-rental-guide": { en: c3_en },
-  "flight-delay-compensation-eu261": { en: c4_en },
-  "esim-vs-local-sim-vs-roaming": { en: c5_en },
+  "flight-delay-compensation-eu261": { en: c4_en, ar: c4_ar, nl: c4_nl },
+  "esim-vs-local-sim-vs-roaming": { en: c5_en, ar: c5_ar, nl: c5_nl },
   "schiphol-airport-guide": { en: c6_en },
-  "baggage-fees-cabin-bag-guide": { en: c7_en },
+  "baggage-fees-cabin-bag-guide": { en: c7_en, ar: c7_ar, nl: c7_nl },
   "train-vs-flight-europe": { en: c8_en },
   "multi-city-open-jaw-flights": { en: c9_en },
   "first-hour-after-landing": { en: c10_en },
