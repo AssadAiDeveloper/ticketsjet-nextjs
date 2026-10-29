@@ -19,7 +19,7 @@ export default function AdSlot({ slot, className = "" }: { slot: string; classNa
   const consent = useConsent();
 
   useEffect(() => {
-    if (!ADSENSE_CLIENT || consent !== "granted" || pushed.current) return;
+    if (!ADSENSE_CLIENT || consent !== "granted" || /^(\d)\1{9}$/.test(slot) || pushed.current) return;
     pushed.current = true;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -28,7 +28,9 @@ export default function AdSlot({ slot, className = "" }: { slot: string; classNa
     }
   }, [consent]);
 
-  if (!ADSENSE_CLIENT || consent !== "granted") return null;
+  // Placeholder slot ids (1111111111, 2222222222 …) are not real ad units: render nothing so no empty gap appears.
+  const isPlaceholder = /^(\d)\1{9}$/.test(slot);
+  if (!ADSENSE_CLIENT || consent !== "granted" || isPlaceholder) return null;
 
   return (
     <div className={`mx-auto w-full max-w-5xl px-4 ${className}`}>
