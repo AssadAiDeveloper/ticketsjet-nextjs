@@ -12,7 +12,7 @@ import { WIDGETS } from "@/lib/config";
 import DestPhoto from "@/components/DestPhoto";
 import heroPhotos from "../data/destination-photos.json";
 
-type Point = { code: string; name: string; lat: number; lng: number; price: number; stops: number; depart: string | null; back: string | null };
+type Point = { code: string; name: string; country?: string; lat: number; lng: number; price: number; stops: number; depart: string | null; back: string | null };
 type Data = { origin: { code: string; name: string; lat: number; lng: number }; points: Point[] };
 type Suggest = { code: string; name: string; country: string };
 
