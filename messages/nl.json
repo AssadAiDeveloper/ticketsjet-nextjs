@@ -864,7 +864,13 @@
     "minutes": "{n} min leestijd",
     "ctaTitle": "Klaar om het in de praktijk te brengen?",
     "ctaText": "Vergelijk airlines en reisbureaus in één zoekopdracht. Wij rekenen geen kosten.",
-    "ctaBtn": "Zoek vluchten →"
+    "ctaBtn": "Zoek vluchten →",
+    "updated": "Bijgewerkt {date}",
+    "faqTitle": "Veelgestelde vragen",
+    "authorName": "Door {name}",
+    "affiliateLine": "Sommige links op deze pagina zijn affiliate links.",
+    "affiliateLink": "Affiliate disclosure",
+    "relatedTitle": "Gerelateerde artikelen"
   },
   "help": {
     "metaTitle": "Hulp & veelgestelde vragen",
@@ -967,31 +973,5 @@
     "h1": "Deze gate bestaat niet",
     "text": "De pagina die je zoekt is vertrokken of nooit ingestapt. Ga terug naar zoeken en vind je volgende reis.",
     "back": "Terug naar zoeken →"
-  },
-  "post": {
-    "how-to-find-cheap-flights": {
-      "title": "Goedkope vluchten vinden in 2026: 9 tactieken die echt werken",
-      "desc": "Van zoeken met flexibele data tot 'Overal'-bestemmingen: bewezen manieren om je vliegticket goedkoper te maken. Zonder concessies.",
-      "p1": "De grootste hefboom op de prijs is flexibiliteit. Kun je je vertrek twee of drie dagen verschuiven, dan toont zoeken in kalenderweergave vaak tarieven die 20–40% lager liggen dan je oorspronkelijke data. Vertrekken midden in de week (dinsdag en woensdag) blijven consequent goedkoper dan vrijdag en zondag.",
-      "p2": "Ten tweede: zoek per regio, niet per stad. Zoeken op 'Overal' of een heel land laat de tariefdata vertellen waar de koopjes zijn, in plaats van een route af te dwingen en te betalen wat die kost. Veel van de beste reizen beginnen met een prijs, niet met een bestemming.",
-      "p3": "Ten derde: boek op het juiste moment. Voor korte vluchten verschijnen de beste tarieven meestal 3–8 weken voor vertrek; voor lange vluchten 2–5 maanden. Last-minuteaanbiedingen zijn op populaire routes grotendeels een mythe.",
-      "p4": "Vergelijk ten slotte altijd tussen aanbieders. TicketsJet zoekt bij veel airlines en bureaus tegelijk en rekent nooit boekingskosten. Je boekt rechtstreeks bij de aanbieder tegen zijn prijs."
-    },
-    "hotel-booking-mistakes": {
-      "title": "7 fouten bij het boeken van hotels die je geld kosten",
-      "desc": "Valkuilen bij gratis annuleren, resortkosten en de kaarttruc die de meeste reizigers missen. Zo boek je slimmer.",
-      "p1": "Fout één: boeken op de eerste prijs die je ziet. Hotelprijzen verschillen sterk tussen platforms voor exact dezelfde kamer. Een vergelijking tussen aanbieders vindt routinematig verschillen van 10–25% per nacht.",
-      "p2": "Fout twee: de totaalprijs negeren. Resortkosten, stadsbelasting en schoonmaakkosten kunnen 15–30% bovenop het getoonde tarief komen. Vergelijk altijd de eindprijs bij het afrekenen, niet de lokprijs per nacht.",
-      "p3": "Fout drie: te vroeg niet-restitueerbaar boeken. Kunnen je plannen veranderen, dan is een tarief met gratis annuleren dat een paar euro duurder is bijna altijd de betere keuze. Je kunt opnieuw boeken als de prijzen dalen.",
-      "p4": "Gebruik de kaartweergave. Hotels één metrohalte buiten het toeristische centrum zijn vaak 30–40% goedkoper voor een kamer van hetzelfde niveau, en de reistijd is meestal enkele minuten."
-    },
-    "car-rental-guide": {
-      "title": "De autohuurgids zonder verrassingen: verzekering, brandstof en borg uitgelegd",
-      "desc": "Wat vol-vol echt betekent, wanneer extra verzekering de moeite waard is en hoe je de opdringerige verkoop aan de balie vermijdt.",
-      "p1": "Het brandstofbeleid is het eerste om te controleren. 'Vol-vol'. Vol ophalen, vol terugbrengen. Is bijna altijd de eerlijkste deal. Bij 'vol-leeg' betaal je een opslag op de brandstof en krijg je niets terug voor wat je niet gebruikt.",
-      "p2": "Over verzekering: het basistarief bevat meestal een Collision Damage Waiver met een hoog eigen risico. Een eigen-risicoverzekering van een derde partij die je vooraf online koopt, is doorgaans veel goedkoper dan dezelfde dekking aan de verhuurbalie.",
-      "p3": "Zorg voor een creditcard op naam van de hoofdbestuurder. De meeste verhuurbalies eisen er een voor de borg; pinpassen worden vaak geweigerd of leiden tot verplichte verzekeringsaankopen.",
-      "p4": "Fotografeer de auto. Elk paneel, de wielen, de voorruit en de brandstofmeter. Bij het ophalen en terugbrengen. Het kost negentig seconden en is de beste bescherming tegen schadegeschillen."
-    }
   }
 }

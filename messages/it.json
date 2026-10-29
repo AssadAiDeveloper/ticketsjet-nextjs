@@ -864,7 +864,13 @@
     "minutes": "{n} min di lettura",
     "ctaTitle": "Pronto a metterlo in pratica?",
     "ctaText": "Confronta compagnie aeree e agenzie di viaggio in un'unica ricerca. Non aggiungiamo commissioni.",
-    "ctaBtn": "Cerca voli →"
+    "ctaBtn": "Cerca voli →",
+    "updated": "Updated {date}",
+    "faqTitle": "Frequently asked questions",
+    "authorName": "By {name}",
+    "affiliateLine": "Some links on this page are affiliate links.",
+    "affiliateLink": "Affiliate disclosure",
+    "relatedTitle": "Related articles"
   },
   "help": {
     "metaTitle": "Aiuto e FAQ",
@@ -967,31 +973,5 @@
     "h1": "Questo gate non esiste",
     "text": "La pagina che cerchi è partita o non è mai salita a bordo. Torna alla ricerca e trova il tuo prossimo viaggio.",
     "back": "Torna alla ricerca →"
-  },
-  "post": {
-    "how-to-find-cheap-flights": {
-      "title": "Come trovare voli economici nel 2026: 9 tattiche che funzionano davvero",
-      "desc": "Dalla ricerca con date flessibili alle destinazioni «Ovunque», ecco i modi collaudati per ridurre il costo dei voli senza sacrificare l'essenziale.",
-      "p1": "La leva più grande sul prezzo del volo è la flessibilità. Se puoi spostare la partenza anche solo di due o tre giorni, la ricerca in vista calendario spesso mostra tariffe inferiori del 20–40% rispetto alle date originali. Le partenze infrasettimanali (martedì e mercoledì) restano costantemente più economiche di venerdì e domenica.",
-      "p2": "Secondo: cerca per regione, non per città. Cercare «Ovunque» o un intero paese permette ai dati sulle tariffe di dirti dove sono le offerte, invece di forzare una tratta e pagare quello che costa. Molti dei viaggi migliori nascono da un prezzo, non da una destinazione.",
-      "p3": "Terzo: prenota nel momento giusto. Per i voli a breve raggio, le tariffe migliori compaiono di solito 3–8 settimane prima della partenza; per il lungo raggio, 2–5 mesi. Le offerte last minute sono per lo più un mito sulle tratte popolari.",
-      "p4": "Infine, confronta sempre tra più fornitori. TicketsJet cerca tra molte compagnie e agenzie contemporaneamente e non aggiunge mai commissioni di prenotazione: prenoti direttamente con il fornitore al suo prezzo."
-    },
-    "hotel-booking-mistakes": {
-      "title": "7 errori nella prenotazione di hotel che ti costano denaro",
-      "desc": "Trappole della cancellazione gratuita, resort fee e il trucco della mappa che la maggior parte dei viaggiatori ignora: ecco come prenotare alloggi in modo più intelligente.",
-      "p1": "Errore uno: prenotare al primo prezzo che vedi. Le tariffe degli hotel variano molto tra piattaforme per la stessa identica camera. Una ricerca comparativa tra fornitori trova regolarmente differenze del 10–25% a notte.",
-      "p2": "Errore due: ignorare il prezzo totale. Resort fee, tasse di soggiorno e costi di pulizia possono aggiungere il 15–30% alla tariffa in evidenza. Confronta sempre il prezzo finale al checkout, non l'esca a notte.",
-      "p3": "Errore tre: prenotare non rimborsabile troppo presto. Se i tuoi piani hanno anche solo una possibilità di cambiare, una tariffa con cancellazione gratuita di qualche euro più cara è quasi sempre la scelta migliore: puoi riprenotare se i prezzi scendono.",
-      "p4": "Usa la vista mappa. Gli hotel a una fermata di metro dal centro turistico sono spesso più economici del 30–40% per una camera di pari livello, e il tragitto richiede di solito pochi minuti."
-    },
-    "car-rental-guide": {
-      "title": "La guida al noleggio auto senza sorprese: assicurazione, carburante e cauzione spiegati",
-      "desc": "Cosa significa davvero pieno-pieno, quando conviene un'assicurazione extra e come evitare l'upselling al banco.",
-      "p1": "La politica carburante è la prima cosa da controllare. «Pieno-pieno» (ritiri pieno, restituisci pieno) è quasi sempre l'offerta più equa. Le politiche «pieno-vuoto» addebitano il carburante a tariffe maggiorate e non rimborsano nulla di ciò che non usi.",
-      "p2": "Sull'assicurazione: la tariffa base di solito include la copertura danni da collisione (CDW) con franchigia alta. L'assicurazione sulla franchigia di terzi acquistata online in anticipo è in genere molto più economica della stessa copertura venduta al banco.",
-      "p3": "Porta una carta di credito intestata al conducente principale. La maggior parte dei banchi la richiede per la cauzione; le carte di debito vengono spesso rifiutate o comportano l'acquisto forzato di un'assicurazione.",
-      "p4": "Fotografa l'auto. Ogni pannello, ruote, parabrezza e indicatore del carburante. Al ritiro e alla riconsegna. Richiede novanta secondi ed è la migliore protezione contro le contestazioni sui danni."
-    }
   }
 }

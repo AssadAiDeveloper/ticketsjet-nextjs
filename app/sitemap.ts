@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/config";
 import { posts } from "@/lib/posts";
+import { localesForPost } from "@/lib/blog";
 import { ROUTES, slug } from "@/lib/routes";
 import { ACTIVITY_CITIES } from "@/lib/activities";
 import { LOCALES } from "@/i18n/routing";
@@ -24,6 +25,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...ROUTES.flatMap(([o, d]) => entry(`/cheap-flights/${slug(o, d)}`, "daily", 0.7, now)),
     ...ACTIVITY_CITIES.flatMap((c) => entry(`/activities/${c.slug}`, "weekly", 0.7, now)),
     ...ACTIVITY_CITIES.flatMap((c) => entry(`/destinations/${c.slug}`, "weekly", 0.7, now)),
-    ...posts.flatMap((post) => entry(`/blog/${post.slug}`, "monthly", 0.6, new Date(post.date))),
+    ...posts.flatMap((post) => {
+      const locs = localesForPost(post.slug);
+      const path = `/blog/${post.slug}`;
+      const lastModified = new Date(post.date);
+      if (!isTranslated(path)) return [{ url: `${SITE.url}${path}`, lastModified, changeFrequency: "monthly" as const, priority: 0.6 }];
+      const languages = Object.fromEntries(locs.map((l) => [l, `${SITE.url}${loc(l, path)}`]));
+      return locs.map((l) => ({ url: `${SITE.url}${loc(l, path)}`, lastModified, changeFrequency: "monthly" as const, priority: 0.6, alternates: { languages } }));
+    }),
   ];
 }

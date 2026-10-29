@@ -864,7 +864,13 @@
     "minutes": "{n} min de leitura",
     "ctaTitle": "Pronto para pôr em prática?",
     "ctaText": "Compare companhias aéreas e agências de viagens numa só pesquisa. Não acrescentamos taxas.",
-    "ctaBtn": "Pesquisar voos →"
+    "ctaBtn": "Pesquisar voos →",
+    "updated": "Updated {date}",
+    "faqTitle": "Frequently asked questions",
+    "authorName": "By {name}",
+    "affiliateLine": "Some links on this page are affiliate links.",
+    "affiliateLink": "Affiliate disclosure",
+    "relatedTitle": "Related articles"
   },
   "help": {
     "metaTitle": "Ajuda e perguntas frequentes",
@@ -967,31 +973,5 @@
     "h1": "Este portão não existe",
     "text": "A página que procura descolou ou nunca embarcou. Volte à pesquisa e encontre a sua próxima viagem.",
     "back": "Voltar à pesquisa →"
-  },
-  "post": {
-    "how-to-find-cheap-flights": {
-      "title": "Como encontrar voos baratos em 2026: 9 táticas que realmente funcionam",
-      "desc": "Da pesquisa com datas flexíveis aos destinos «Qualquer lugar», estas são as formas comprovadas de reduzir o preço dos bilhetes sem cortar no essencial.",
-      "p1": "A maior alavanca no preço dos voos é a flexibilidade. Se puder deslocar a partida mesmo dois ou três dias, a pesquisa em vista de calendário costuma revelar tarifas 20–40% mais baixas do que as datas originais. As partidas a meio da semana (terça e quarta) continuam a ser sistematicamente mais baratas do que sexta e domingo.",
-      "p2": "Segundo: pesquise por região, não por cidade. Pesquisar «Qualquer lugar» ou um país inteiro deixa os dados de tarifas dizerem-lhe onde estão as ofertas, em vez de forçar uma rota e pagar o que custar. Muitas das melhores viagens começam com um preço, não com um destino.",
-      "p3": "Terceiro: reserve na altura certa. Nos voos de curta distância, as melhores tarifas costumam surgir 3–8 semanas antes da partida; nos de longa distância, 2–5 meses. As ofertas de última hora são, na sua maioria, um mito nas rotas populares.",
-      "p4": "Por fim, compare sempre entre fornecedores. O TicketsJet pesquisa muitas companhias aéreas e agências ao mesmo tempo e nunca acrescenta taxas de reserva. Reserva diretamente com o fornecedor, ao preço dele."
-    },
-    "hotel-booking-mistakes": {
-      "title": "7 erros na reserva de hotéis que lhe custam dinheiro",
-      "desc": "Armadilhas do cancelamento gratuito, taxas de resort e o truque do mapa que a maioria dos viajantes ignora. Eis como reservar alojamento de forma mais inteligente.",
-      "p1": "Erro um: reservar ao primeiro preço que vê. As tarifas de hotel variam muito entre plataformas para exatamente o mesmo quarto. Uma pesquisa comparativa entre fornecedores encontra regularmente diferenças de 10–25% por noite.",
-      "p2": "Erro dois: ignorar o preço total. Taxas de resort, taxas municipais e custos de limpeza podem acrescentar 15–30% à tarifa anunciada. Compare sempre o preço final no pagamento, não o preço-isco por noite.",
-      "p3": "Erro três: reservar não reembolsável demasiado cedo. Se os seus planos tiverem alguma hipótese de mudar, uma tarifa com cancelamento gratuito uns euros mais cara é quase sempre a melhor aposta. Pode reservar de novo se os preços baixarem.",
-      "p4": "Use a vista de mapa. Os hotéis a uma paragem de metro do núcleo turístico são muitas vezes 30–40% mais baratos por um quarto de padrão idêntico, e o trajeto costuma demorar poucos minutos."
-    },
-    "car-rental-guide": {
-      "title": "O guia de aluguer de carros sem surpresas: seguro, combustível e caução explicados",
-      "desc": "O que significa realmente cheio-cheio, quando compensa um seguro extra e como evitar a venda adicional no balcão.",
-      "p1": "A política de combustível é a primeira coisa a verificar. «Cheio-cheio» (levanta cheio, devolve cheio) é quase sempre o negócio mais justo. As políticas «cheio-vazio» cobram o combustível a taxas premium e não reembolsam nada do que não usa.",
-      "p2": "Quanto ao seguro: a tarifa base costuma incluir a isenção de danos por colisão (CDW) com franquia elevada. O seguro de franquia de terceiros comprado online com antecedência é normalmente muito mais barato do que a mesma cobertura vendida ao balcão.",
-      "p3": "Tenha um cartão de crédito em nome do condutor principal. A maioria dos balcões exige-o para a caução; os cartões de débito são frequentemente recusados ou levam à compra forçada de seguro.",
-      "p4": "Fotografe o carro. Cada painel, rodas, para-brisas e indicador de combustível. Na recolha e na devolução. Demora noventa segundos e é a melhor proteção contra disputas de danos."
-    }
   }
 }

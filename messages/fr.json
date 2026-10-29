@@ -864,7 +864,13 @@
     "minutes": "{n} min de lecture",
     "ctaTitle": "Prêt à passer à l'action ?",
     "ctaText": "Comparez compagnies aériennes et agences de voyage en une seule recherche. Nous n'ajoutons aucuns frais.",
-    "ctaBtn": "Rechercher des vols →"
+    "ctaBtn": "Rechercher des vols →",
+    "updated": "Updated {date}",
+    "faqTitle": "Frequently asked questions",
+    "authorName": "By {name}",
+    "affiliateLine": "Some links on this page are affiliate links.",
+    "affiliateLink": "Affiliate disclosure",
+    "relatedTitle": "Related articles"
   },
   "help": {
     "metaTitle": "Aide et FAQ",
@@ -967,31 +973,5 @@
     "h1": "Cette porte n'existe pas",
     "text": "La page que vous cherchez a décollé ou n'a jamais embarqué. Retournez à la recherche pour trouver votre prochain voyage.",
     "back": "Retour à la recherche →"
-  },
-  "post": {
-    "how-to-find-cheap-flights": {
-      "title": "Comment trouver des vols pas chers en 2026 : 9 tactiques qui marchent vraiment",
-      "desc": "De la recherche à dates flexibles aux destinations « Partout », voici les méthodes éprouvées pour réduire le prix de vos billets sans rogner sur l'essentiel.",
-      "p1": "Le principal levier sur le prix d'un billet est la flexibilité. Si vous pouvez décaler votre départ ne serait-ce que de deux ou trois jours, la recherche en vue calendrier fait souvent apparaître des tarifs 20 à 40 % moins chers que vos dates initiales. Les départs en milieu de semaine (mardi et mercredi) restent systématiquement moins chers que le vendredi et le dimanche.",
-      "p2": "Deuxièmement : cherchez par région, pas par ville. Chercher « Partout » ou un pays entier laisse les données tarifaires vous dire où sont les bonnes affaires, plutôt que d'imposer un trajet et de payer ce qu'il coûte. Beaucoup des plus beaux voyages commencent par un prix, pas par une destination.",
-      "p3": "Troisièmement : réservez au bon moment. Pour le court-courrier, les meilleurs tarifs apparaissent généralement 3 à 8 semaines avant le départ ; pour le long-courrier, 2 à 5 mois. Les offres de dernière minute sont surtout un mythe sur les trajets populaires.",
-      "p4": "Enfin, comparez toujours entre fournisseurs. TicketsJet interroge de nombreuses compagnies et agences à la fois et n'ajoute jamais de frais de réservation. Vous réservez directement chez le fournisseur, à son prix."
-    },
-    "hotel-booking-mistakes": {
-      "title": "7 erreurs de réservation d'hôtel qui vous coûtent de l'argent",
-      "desc": "Pièges de l'annulation gratuite, frais de resort et l'astuce de la carte que la plupart des voyageurs ignorent : voici comment mieux réserver vos séjours.",
-      "p1": "Erreur n° 1 : réserver au premier prix que vous voyez. Les tarifs d'hôtel varient largement d'une plateforme à l'autre pour exactement la même chambre. Une recherche comparative entre fournisseurs trouve régulièrement des écarts de 10 à 25 % par nuit.",
-      "p2": "Erreur n° 2 : ignorer le prix total. Les frais de resort, les taxes de séjour et les frais de ménage peuvent ajouter 15 à 30 % au tarif affiché. Comparez toujours le prix final au paiement, pas l'appât du prix par nuit.",
-      "p3": "Erreur n° 3 : réserver un tarif non remboursable trop tôt. Si vos plans peuvent tant soit peu changer, un tarif à annulation gratuite quelques euros plus cher est presque toujours le meilleur choix. Vous pouvez rebooker si les prix baissent.",
-      "p4": "Utilisez la vue carte. Les hôtels situés à une station de métro du cœur touristique sont souvent 30 à 40 % moins chers pour une chambre de standing identique, et le trajet ne prend généralement que quelques minutes."
-    },
-    "car-rental-guide": {
-      "title": "Le guide de la location de voiture sans mauvaises surprises : assurance, carburant et caution expliqués",
-      "desc": "Ce que signifie vraiment plein-plein, quand une assurance supplémentaire vaut le coup et comment éviter la vente forcée au comptoir.",
-      "p1": "La politique de carburant est la première chose à vérifier. « Plein-plein » (vous récupérez plein, vous rendez plein) est presque toujours l'offre la plus équitable. Les politiques « plein-vide » facturent le carburant à un tarif majoré et ne remboursent rien de ce que vous n'utilisez pas.",
-      "p2": "Côté assurance : le tarif de base inclut généralement la protection contre les dommages de collision (CDW) avec une franchise élevée. Une assurance de franchise tierce souscrite en ligne à l'avance est en général bien moins chère que la même couverture vendue au comptoir.",
-      "p3": "Ayez une carte de crédit au nom du conducteur principal. La plupart des comptoirs en exigent une pour la caution ; les cartes de débit sont fréquemment refusées ou entraînent l'achat forcé d'une assurance.",
-      "p4": "Photographiez la voiture. Chaque panneau, les roues, le pare-brise et la jauge de carburant. À la prise en charge et au retour. Cela prend quatre-vingt-dix secondes et c'est la meilleure protection contre les litiges de dommages."
-    }
   }
 }

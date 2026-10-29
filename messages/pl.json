@@ -864,7 +864,13 @@
     "minutes": "{n} min czytania",
     "ctaTitle": "Gotowy, by wcielić to w życie?",
     "ctaText": "Porównaj linie lotnicze i biura podróży w jednym wyszukiwaniu. Nie dodajemy opłat.",
-    "ctaBtn": "Szukaj lotów →"
+    "ctaBtn": "Szukaj lotów →",
+    "updated": "Updated {date}",
+    "faqTitle": "Frequently asked questions",
+    "authorName": "By {name}",
+    "affiliateLine": "Some links on this page are affiliate links.",
+    "affiliateLink": "Affiliate disclosure",
+    "relatedTitle": "Related articles"
   },
   "help": {
     "metaTitle": "Pomoc i FAQ",
@@ -967,31 +973,5 @@
     "h1": "Ta bramka nie istnieje",
     "text": "Strona, której szukasz, odleciała albo nigdy nie weszła na pokład. Wróć do wyszukiwania i znajdź swoją następną podróż.",
     "back": "Wróć do wyszukiwania →"
-  },
-  "post": {
-    "how-to-find-cheap-flights": {
-      "title": "Jak znaleźć tanie loty w 2026: 9 taktyk, które naprawdę działają",
-      "desc": "Od wyszukiwania z elastycznymi datami po kierunki „Gdziekolwiek”. Sprawdzone sposoby na obniżenie ceny biletów bez rezygnowania z tego, co ważne.",
-      "p1": "Największym czynnikiem ceny biletu jest elastyczność. Jeśli możesz przesunąć wylot choćby o dwa-trzy dni, wyszukiwanie w widoku kalendarza często pokazuje ceny o 20–40% niższe niż w pierwotnych terminach. Loty w środku tygodnia (wtorek i środa) są konsekwentnie tańsze niż w piątek i niedzielę.",
-      "p2": "Po drugie: szukaj według regionu, nie miasta. Wyszukiwanie „Gdziekolwiek” lub całego kraju pozwala danym o cenach wskazać, gdzie są okazje, zamiast narzucać trasę i płacić, ile każą. Wiele najlepszych podróży zaczyna się od ceny, a nie od celu.",
-      "p3": "Po trzecie: rezerwuj w najlepszym momencie. Na krótkich trasach najlepsze ceny zwykle pojawiają się 3–8 tygodni przed wylotem, na długich, 2–5 miesięcy. Oferty last minute na popularnych trasach to w większości mit.",
-      "p4": "Na koniec zawsze porównuj różnych dostawców. TicketsJet przeszukuje wiele linii lotniczych i biur jednocześnie i nigdy nie dodaje opłat za rezerwację. Rezerwujesz bezpośrednio u dostawcy, po jego cenie."
-    },
-    "hotel-booking-mistakes": {
-      "title": "7 błędów przy rezerwacji hoteli, które kosztują Cię pieniądze",
-      "desc": "Pułapki bezpłatnego anulowania, opłaty kurortowe i trik z mapą, który pomija większość podróżnych. Oto jak mądrzej rezerwować noclegi.",
-      "p1": "Błąd pierwszy: rezerwacja po pierwszej zobaczonej cenie. Stawki hotelowe za dokładnie ten sam pokój znacznie różnią się między platformami. Porównanie u różnych dostawców regularnie znajduje różnice rzędu 10–25% za noc.",
-      "p2": "Błąd drugi: ignorowanie ceny całkowitej. Opłaty kurortowe, podatki miejskie i opłaty za sprzątanie mogą dodać 15–30% do ceny reklamowej. Zawsze porównuj ostateczną cenę przy płatności, a nie wabik za noc.",
-      "p3": "Błąd trzeci: zbyt wczesna rezerwacja bez możliwości zwrotu. Jeśli Twoje plany mają choćby cień szansy na zmianę, stawka z bezpłatnym anulowaniem o kilka euro droższa jest prawie zawsze lepszym wyborem. Możesz zarezerwować ponownie, gdy ceny spadną.",
-      "p4": "Korzystaj z widoku mapy. Hotele położone jedną stację metra od turystycznego centrum są często o 30–40% tańsze przy identycznym standardzie pokoju, a dojazd zwykle zajmuje kilka minut."
-    },
-    "car-rental-guide": {
-      "title": "Przewodnik po wynajmie samochodów bez niespodzianek: ubezpieczenie, paliwo i kaucja",
-      "desc": "Co naprawdę oznacza „pełny–pełny”, kiedy dodatkowe ubezpieczenie się opłaca i jak uniknąć dosprzedaży przy okienku.",
-      "p1": "Polityka paliwowa to pierwsza rzecz do sprawdzenia. „Pełny–pełny” (odbierasz pełny, oddajesz pełny) to prawie zawsze najuczciwsza opcja. Polityki „pełny–pusty” liczą paliwo po zawyżonych stawkach i nie zwracają niczego za niewykorzystane.",
-      "p2": "Odnośnie do ubezpieczenia: stawka podstawowa zwykle obejmuje ochronę od szkód kolizyjnych (CDW) z wysokim udziałem własnym. Ubezpieczenie udziału własnego od osoby trzeciej kupione online z wyprzedzeniem jest zwykle znacznie tańsze niż to samo pokrycie sprzedawane przy okienku.",
-      "p3": "Miej kartę kredytową na nazwisko głównego kierowcy. Większość punktów wynajmu wymaga jej na poczet kaucji; karty debetowe są często odrzucane lub wymuszają zakup ubezpieczenia.",
-      "p4": "Sfotografuj samochód. Każdy element nadwozia, koła, szybę czołową i wskaźnik paliwa. Przy odbiorze i zwrocie. Zajmuje to dziewięćdziesiąt sekund i jest najlepszą ochroną przed sporami o szkody."
-    }
   }
 }

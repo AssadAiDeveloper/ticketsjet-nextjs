@@ -864,7 +864,13 @@
     "minutes": "{n} min de lectura",
     "ctaTitle": "¿Listo para ponerlo en práctica?",
     "ctaText": "Compara aerolíneas y agencias de viajes en una sola búsqueda. No añadimos comisiones.",
-    "ctaBtn": "Buscar vuelos →"
+    "ctaBtn": "Buscar vuelos →",
+    "updated": "Updated {date}",
+    "faqTitle": "Frequently asked questions",
+    "authorName": "By {name}",
+    "affiliateLine": "Some links on this page are affiliate links.",
+    "affiliateLink": "Affiliate disclosure",
+    "relatedTitle": "Related articles"
   },
   "help": {
     "metaTitle": "Ayuda y preguntas frecuentes",
@@ -967,31 +973,5 @@
     "h1": "Esta puerta de embarque no existe",
     "text": "La página que buscas ha despegado o nunca embarcó. Vuelve a la búsqueda y encuentra tu próximo viaje.",
     "back": "Volver a la búsqueda →"
-  },
-  "post": {
-    "how-to-find-cheap-flights": {
-      "title": "Cómo encontrar vuelos baratos en 2026: 9 tácticas que funcionan de verdad",
-      "desc": "Desde la búsqueda con fechas flexibles hasta los destinos «Cualquier lugar», estas son las formas probadas de recortar el precio de tus billetes sin renunciar a lo importante.",
-      "p1": "La mayor palanca sobre el precio del billete es la flexibilidad. Si puedes mover tu salida aunque sea dos o tres días, la búsqueda en vista de calendario suele sacar tarifas un 20–40 % más bajas que tus fechas originales. Las salidas entre semana (martes y miércoles) siguen siendo sistemáticamente más baratas que las del viernes y el domingo.",
-      "p2": "Segundo: busca por región, no por ciudad. Buscar «Cualquier lugar» o un país entero deja que los datos de tarifas te digan dónde están las ofertas, en lugar de forzar una ruta y pagar lo que cueste. Muchos de los mejores viajes empiezan por un precio, no por un destino.",
-      "p3": "Tercero: reserva en el punto óptimo. En vuelos de corto radio, las mejores tarifas suelen aparecer entre 3 y 8 semanas antes de la salida; en largo radio, entre 2 y 5 meses. Las ofertas de última hora son en su mayoría un mito en rutas populares.",
-      "p4": "Por último, compara siempre entre proveedores. TicketsJet busca en muchas aerolíneas y agencias a la vez y nunca añade comisiones de reserva: reservas directamente con el proveedor a su precio."
-    },
-    "hotel-booking-mistakes": {
-      "title": "7 errores al reservar hotel que te cuestan dinero",
-      "desc": "Trampas de la cancelación gratuita, tasas de resort y el truco del mapa que casi todos los viajeros pasan por alto: así se reserva mejor el alojamiento.",
-      "p1": "Error uno: reservar con el primer precio que ves. Las tarifas de hotel varían mucho entre plataformas para exactamente la misma habitación. Una búsqueda comparativa entre proveedores encuentra con frecuencia diferencias del 10–25 % por noche.",
-      "p2": "Error dos: ignorar el precio total. Las tasas de resort, los impuestos municipales y los cargos de limpieza pueden añadir un 15–30 % a la tarifa anunciada. Compara siempre el precio final del pago, no el reclamo por noche.",
-      "p3": "Error tres: reservar tarifa no reembolsable demasiado pronto. Si tus planes pueden cambiar en algo, una tarifa con cancelación gratuita unos euros más cara casi siempre es la mejor apuesta: puedes volver a reservar si bajan los precios.",
-      "p4": "Usa la vista de mapa. Los hoteles a una parada de metro del centro turístico suelen ser un 30–40 % más baratos por una habitación de idéntico nivel, y el trayecto suele ser de unos minutos."
-    },
-    "car-rental-guide": {
-      "title": "La guía de alquiler de coches sin sorpresas: seguro, combustible y fianza explicados",
-      "desc": "Qué significa de verdad lleno a lleno, cuándo merece la pena un seguro adicional y cómo evitar la venta cruzada en el mostrador.",
-      "p1": "La política de combustible es lo primero que hay que revisar. «Lleno a lleno» (recoges lleno, devuelves lleno) es casi siempre el trato más justo. Las políticas «lleno a vacío» cobran el combustible a tarifa premium y no devuelven nada de lo que no usas.",
-      "p2": "Sobre el seguro: la tarifa básica suele incluir la exención por colisión (CDW) con una franquicia alta. El seguro de franquicia de terceros contratado online con antelación suele ser mucho más barato que la misma cobertura vendida en el mostrador.",
-      "p3": "Ten una tarjeta de crédito a nombre del conductor principal. La mayoría de los mostradores la exigen para la fianza; las tarjetas de débito se rechazan con frecuencia o provocan la compra de seguros obligatorios.",
-      "p4": "Fotografía el coche. Cada panel, las ruedas, el parabrisas y el indicador de combustible. Al recogerlo y al devolverlo. Lleva noventa segundos y es la mejor protección contra disputas por daños."
-    }
   }
 }

@@ -864,7 +864,13 @@
     "minutes": "{n} dk okuma",
     "ctaTitle": "Uygulamaya hazır mısınız?",
     "ctaText": "Havayollarını ve seyahat acentelerini tek aramada karşılaştırın. Ücret eklemeyiz.",
-    "ctaBtn": "Uçuş ara →"
+    "ctaBtn": "Uçuş ara →",
+    "updated": "Updated {date}",
+    "faqTitle": "Frequently asked questions",
+    "authorName": "By {name}",
+    "affiliateLine": "Some links on this page are affiliate links.",
+    "affiliateLink": "Affiliate disclosure",
+    "relatedTitle": "Related articles"
   },
   "help": {
     "metaTitle": "Yardım ve SSS",
@@ -967,31 +973,5 @@
     "h1": "Bu kapı mevcut değil",
     "text": "Aradığınız sayfa kalkıp gitti ya da hiç binmedi. Aramaya dönün ve bir sonraki seyahatinizi bulun.",
     "back": "Aramaya dön →"
-  },
-  "post": {
-    "how-to-find-cheap-flights": {
-      "title": "2026'da Ucuz Uçuşlar Nasıl Bulunur: Gerçekten İşe Yarayan 9 Taktik",
-      "desc": "Esnek tarihli aramadan «Her yer» varış noktalarına kadar, uçak bileti maliyetinizi düşürmenin kanıtlanmış yolları. Önemli ödünler vermeden.",
-      "p1": "Uçak bileti fiyatındaki en büyük kaldıraç esnekliktir. Kalkışınızı iki üç gün bile kaydırabilirseniz, takvim görünümlü arama sıklıkla ilk tarihlerinize göre %20–40 daha düşük fiyatlar ortaya çıkarır. Hafta ortası kalkışlar (salı ve çarşamba) cuma ve pazara göre sürekli olarak daha ucuz kalmaktadır.",
-      "p2": "İkincisi: şehre göre değil bölgeye göre arayın. «Her yer» veya bütün bir ülkeyi aramak, bir rotayı zorlayıp ne kadarsa ödemek yerine fırsatların nerede olduğunu fiyat verilerinin söylemesini sağlar. En iyi seyahatlerin çoğu bir varış noktasıyla değil bir fiyatla başlar.",
-      "p3": "Üçüncüsü: doğru zamanda rezervasyon yapın. Kısa mesafe uçuşlarda en iyi fiyatlar genellikle kalkıştan 3–8 hafta önce, uzun mesafede 2–5 ay önce görünür. Son dakika fırsatları, popüler rotalarda çoğunlukla bir efsanedir.",
-      "p4": "Son olarak her zaman sağlayıcılar arasında karşılaştırın. TicketsJet birçok havayolu ve acentede aynı anda arama yapar ve asla rezervasyon ücreti eklemez. Doğrudan sağlayıcıdan onun fiyatıyla rezervasyon yaparsınız."
-    },
-    "hotel-booking-mistakes": {
-      "title": "Size Para Kaybettiren 7 Otel Rezervasyonu Hatası",
-      "desc": "Ücretsiz iptal tuzakları, tesis ücretleri ve çoğu yolcunun gözden kaçırdığı harita püf noktası. Daha akıllı konaklama ayırtmanın yolu.",
-      "p1": "Hata bir: gördüğünüz ilk fiyattan rezervasyon yapmak. Aynı oda için otel fiyatları platformlar arasında çok değişir. Sağlayıcılar arasında karşılaştırmalı arama, gecelik %10–25 farkları düzenli olarak bulur.",
-      "p2": "Hata iki: toplam fiyatı göz ardı etmek. Tesis ücretleri, şehir vergileri ve temizlik ücretleri ilan edilen fiyata %15–30 ekleyebilir. Gecelik cazip fiyatı değil, ödeme sırasındaki nihai fiyatı karşılaştırın.",
-      "p3": "Hata üç: iade edilemez fiyatı çok erken ayırtmak. Planlarınızın değişme ihtimali varsa, birkaç euro daha pahalı ücretsiz iptal fiyatı hemen her zaman daha iyi bir tercihtir. Fiyatlar düşerse yeniden rezervasyon yapabilirsiniz.",
-      "p4": "Harita görünümünü kullanın. Turistik merkezin bir metro durağı dışındaki oteller, aynı standartta oda için genellikle %30–40 daha ucuzdur ve yolculuk çoğunlukla dakikalar sürer."
-    },
-    "car-rental-guide": {
-      "title": "Sürprizsiz Araç Kiralama Rehberi: Sigorta, Yakıt ve Depozito Açıklandı",
-      "desc": "Dolu-dolu gerçekte ne demek, ek sigorta ne zaman değer ve gişedeki ek satıştan nasıl kaçınılır.",
-      "p1": "Yakıt politikası kontrol edilecek ilk şeydir. «Dolu-dolu» (dolu al, dolu teslim et) neredeyse her zaman en adil anlaşmadır. «Dolu-boş» politikaları yakıtı yüksek fiyattan ücretlendirir ve kullanmadığınız kısım için iade yapmaz.",
-      "p2": "Sigortaya gelince: temel fiyat genellikle yüksek muafiyetli Çarpışma Hasar Muafiyeti (CDW) içerir. Önceden çevrimiçi satın alınan üçüncü taraf muafiyet sigortası, gişede satılan aynı teminattan genellikle çok daha ucuzdur.",
-      "p3": "Ana sürücü adına bir kredi kartı bulundurun. Çoğu kiralama bürosu teminat için bunu ister; banka kartları sıklıkla reddedilir veya zorunlu sigorta satın almaya yol açar.",
-      "p4": "Aracı. Her paneli, tekerlekleri, ön camı ve yakıt göstergesini. Teslim alırken ve iade ederken fotoğraflayın. Doksan saniye sürer ve hasar anlaşmazlıklarına karşı en iyi korumadır."
-    }
   }
 }
