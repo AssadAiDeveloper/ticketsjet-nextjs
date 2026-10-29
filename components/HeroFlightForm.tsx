@@ -280,11 +280,11 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
           </ul>
         )}
       </div>
-      <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink">
+      <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink max-md:hidden">
         <input type="checkbox" checked={direct} onChange={(e) => setDirect(e.target.checked)} className="h-4 w-4 accent-[#FFB703]" />
         {t("direct")}
       </label>
-      <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink">
+      <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink max-md:hidden">
         <input type="checkbox" checked={bags} onChange={(e) => setBags(e.target.checked)} className="h-4 w-4 accent-[#FFB703]" />
         {t("bags")}
       </label>
@@ -313,6 +313,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
               )}
             </div>
           ))}
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1 py-1 md:hidden"><label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink"><input type="checkbox" checked={direct} onChange={(e) => setDirect(e.target.checked)} className="h-4 w-4 accent-[#FFB703]" />{t("direct")}</label><label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink"><input type="checkbox" checked={bags} onChange={(e) => setBags(e.target.checked)} className="h-4 w-4 accent-[#FFB703]" />{t("bags")}</label></div>
           <div className="flex flex-wrap items-end gap-1.5">
             {legs.length < 5 && (
               <button type="button" onClick={() => setLegs((ls) => [...ls, { to: null, date: undefined }])} className="rounded-xl border border-dashed border-slate/40 px-4 py-3 text-sm font-semibold text-ink transition hover:border-amber">
@@ -325,7 +326,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
         </div>
       ) : (
         <div className="grid gap-1.5 md:grid-cols-[2fr_1.35fr_minmax(11rem,1fr)_auto] md:items-end">
-          <div className="relative grid gap-1.5 sm:grid-cols-2 sm:gap-x-12">
+          <div className="relative grid gap-1.5 sm:grid-cols-2 sm:gap-x-0 sm:[&>div:nth-child(1)_input]:rounded-e-none sm:[&>div:nth-child(1)_input]:pe-6 sm:[&>div:nth-child(2)_input]:rounded-s-none sm:[&>div:nth-child(2)_input]:border-s-0 sm:[&>div:nth-child(2)_input]:ps-6">
             <CityField label={t("from")} value={from} onPick={setFrom} placeholder={t("cityPlaceholder")} />
             <CityField label={t("to")} value={to} onPick={setTo} placeholder={t("cityPlaceholder")} allowEverywhere />
             <button
@@ -335,9 +336,9 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
                 setTo(from);
               }}
               aria-label={t("swap")}
-              className="absolute end-2 top-[calc(50%+10px)] group z-10 grid h-9 w-9 -translate-y-1/2 place-items-center sm:end-auto sm:start-1/2 sm:-translate-x-1/2 sm:rtl:translate-x-1/2 rounded-full border border-mist bg-white text-ink shadow-md ring-4 ring-white transition hover:border-amber hover:bg-amber"
+              className="absolute end-2 top-[calc(50%+10px)] group z-10 grid h-8 w-8 -translate-y-1/2 place-items-center sm:end-auto sm:start-1/2 sm:-translate-x-1/2 sm:rtl:translate-x-1/2 rounded-full border border-mist bg-white text-ink shadow-sm ring-4 ring-white transition hover:border-amber hover:bg-amber"
             >
-              <svg className="transition-transform duration-300 group-hover:rotate-180" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7" /></svg>
+              <svg className="transition-transform duration-300 group-hover:rotate-180" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7" /></svg>
             </button>
           </div>
 
@@ -382,6 +383,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
           </div>
 
           {paxField}
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1 py-1 md:hidden"><label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink"><input type="checkbox" checked={direct} onChange={(e) => setDirect(e.target.checked)} className="h-4 w-4 accent-[#FFB703]" />{t("direct")}</label><label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink"><input type="checkbox" checked={bags} onChange={(e) => setBags(e.target.checked)} className="h-4 w-4 accent-[#FFB703]" />{t("bags")}</label></div>
           {submitBtn}
         </div>
       )}
