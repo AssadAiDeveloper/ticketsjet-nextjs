@@ -19,7 +19,7 @@ export async function GET(req: Request) {
     const starts = all.filter((c) => names(c).some((n) => n.startsWith(q)) || c.code.toLowerCase() === q);
     const rest = all.filter((c) => !starts.includes(c) && names(c).some((n) => n.includes(q)));
     // rank: exact match first, then well-known destinations (those we have photos for), then the rest in source order
-    const rank = (c: { code: string; name: string }) => (c.code.toLowerCase() === q || names(c).includes(q) ? 0 : 2) + (getPhoto(c.code) ? 0 : 1);
+    const rank = (c: { code: string; name: string }) => (names(c).includes(q) ? 0 : getPhoto(c.code) ? 1 : c.code.toLowerCase() === q ? 2 : 3);
     starts.sort((a, b) => rank(a) - rank(b));
     rest.sort((a, b) => rank(a) - rank(b));
     let cities: Array<{ code: string; name: string; country: string; kind?: "country" }> = [...starts, ...rest]
