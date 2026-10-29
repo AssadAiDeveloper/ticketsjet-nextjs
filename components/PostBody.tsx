@@ -5,14 +5,33 @@ function slugifyText(s: string) {
 }
 
 export default function PostBody({ blocks }: { blocks: Block[] }) {
+  const h2s = blocks.filter((b) => b.t === "h2");
+  const showToc = h2s.length >= 3;
   return (
     <div className="prose-tj mt-9">
+      {showToc && (
+        <nav className="mb-8 rounded-2xl border border-mist bg-cloud p-5">
+          <p className="font-display text-sm font-bold text-ink">In this article</p>
+          <ul className="mt-2 space-y-1 text-sm">
+            {h2s.map((b, i) => {
+              const bb = b as { t: "h2"; text: string; id?: string };
+              const id = bb.id || slugifyText(bb.text);
+              return (
+                <li key={i}>
+                  <a href={`#${id}`} className="text-slate hover:text-amber-deep">{bb.text}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      )}
       {blocks.map((b, i) => {
         if (b.t === "p") return <p key={i}>{b.text}</p>;
         if (b.t === "h2" || b.t === "h3") {
-          const id = b.id || slugifyText(b.text);
-          const Tag = b.t === "h2" ? "h2" : "h3";
-          return <Tag key={i} id={id} className={b.t === "h2" ? "font-display mt-8 text-2xl font-bold text-ink" : "font-display mt-6 text-xl font-bold text-ink"}>{b.text}</Tag>;
+          const bb = b as { t: "h2" | "h3"; text: string; id?: string };
+          const id = bb.id || slugifyText(bb.text);
+          const Tag = bb.t === "h2" ? "h2" : "h3";
+          return <Tag key={i} id={id} className={bb.t === "h2" ? "font-display mt-8 text-2xl font-bold text-ink" : "font-display mt-6 text-xl font-bold text-ink"}>{bb.text}</Tag>;
         }
         if (b.t === "ul" || b.t === "ol") {
           const Tag = b.t === "ul" ? "ul" : "ol";
