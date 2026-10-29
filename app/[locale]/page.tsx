@@ -69,9 +69,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <h1 className="font-display mt-2 max-w-3xl text-3xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl">
             {t("h1")}
           </h1>
-          <p className="mt-3 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
-            {t("sub")}
-          </p>
 
           <div className="relative z-30 mt-6">
             <SearchTabs />
