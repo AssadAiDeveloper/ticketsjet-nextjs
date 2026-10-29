@@ -31,7 +31,7 @@ export default function StaysForm() {
     e.preventDefault();
     const dest = to ? to.name : typed.trim();
     if (!dest) return setErr(t("errDest"));
-    if (!range?.from || !range.to) return setErr(t("errDates"));
+    if (!range?.from || !range.to || range.to.getTime() <= range.from.getTime()) return setErr(t("errDates"));
     setErr("");
     window.open(bookingUrl({ city: dest, checkin: iso(range.from), checkout: iso(range.to), adults, children, rooms }), "_blank", "noopener,noreferrer");
   }
