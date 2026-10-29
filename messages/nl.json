@@ -44,7 +44,7 @@
     "terms": "Servicevoorwaarden",
     "affiliate": "Affiliate-verklaring",
     "tagline": "Vergelijk en boek goedkope vluchten van overal naar overal.",
-    "notSeller": "TicketsJet is een zoekmachine, geen verkoper. Sommige links zijn affiliatelinks —",
+    "notSeller": "TicketsJet is een zoekmachine, geen verkoper. Sommige links zijn affiliatelinks, ",
     "learnMore": "meer informatie",
     "geoNames": "City names: GeoNames, CC BY 4.0"
   },
@@ -148,7 +148,7 @@
     "removeFlight": "Vlucht {n} verwijderen",
     "addFlight": "+ Nog een vlucht toevoegen",
     "swap": "Vertrek en aankomst omwisselen",
-    "departReturn": "Heen — Terug",
+    "departReturn": "Heen - Terug",
     "depart": "Heen",
     "addDates": "Data toevoegen",
     "addDate": "Datum toevoegen",
@@ -185,7 +185,7 @@
   "stays": {
     "destination": "Bestemming",
     "city": "Stad",
-    "checkInOut": "Inchecken — Uitchecken",
+    "checkInOut": "Inchecken - Uitchecken",
     "checkOutWord": "Uitchecken",
     "guestsRooms": "Gasten & kamers",
     "guestsLabel": "{n, plural, one {# gast} other {# gasten}} · {r, plural, one {# kamer} other {# kamers}}",
@@ -196,7 +196,7 @@
     "note": "Resultaten openen op Booking.com in een nieuw tabblad, waar je de boeking afrondt.",
     "errDest": "Kies een bestemming uit de lijst.",
     "errDates": "Kies je in- en uitcheckdatum.",
-    "metaTitle": "Hotels & verblijf — zoek op Booking.com",
+    "metaTitle": "Hotels & verblijf | zoek op Booking.com",
     "metaDesc": "Vind een plek om te verblijven tijdens je reis. Kies een stad en data en ga verder naar Booking.com om kamers te vergelijken en te boeken.",
     "kicker": "Verblijf",
     "h1": "Vind een plek om te verblijven",
@@ -264,11 +264,11 @@
     "placeholderTo": "Stad of land"
   },
   "flights": {
-    "metaTitle": "Goedkope vluchten — vergelijk airlines in één zoekopdracht",
+    "metaTitle": "Goedkope vluchten | vergelijk airlines in één zoekopdracht",
     "metaDesc": "Vergelijk goedkope vluchten bij airlines en reisbureaus. Flexibele data, een ontdekkaart en geen boekingskosten van ons.",
     "kicker": "Vluchten",
     "h1": "Vergelijk goedkope vluchten bij veel airlines",
-    "sub": "Eén zoekopdracht bij airlines en reisbureaus. Boek rechtstreeks bij de aanbieder — TicketsJet voegt nooit kosten toe.",
+    "sub": "Eén zoekopdracht bij airlines en reisbureaus. Boek rechtstreeks bij de aanbieder. TicketsJet voegt nooit kosten toe.",
     "breadcrumb": "Kruimelpad",
     "home": "Home",
     "v1t": "Vergelijk veel aanbieders",
@@ -293,7 +293,7 @@
     "faq1q": "Wanneer boek je een vlucht het goedkoopst?",
     "faq1a": "Op korte routes verschijnen de beste tarieven meestal 3–8 weken voor vertrek. Mik voor lange afstanden op 2–5 maanden vooruit. Dinsdag en woensdag zijn steevast de goedkoopste dagen om te vliegen.",
     "faq2q": "Kan ik met flexibele data zoeken?",
-    "faq2a": "Ja — de strook met nabije data onder je zoekopdracht toont tarieven rond je vertrekdag, en de reisfinder vergelijkt een hele maand.",
+    "faq2a": "Ja. De strook met nabije data onder je zoekopdracht toont tarieven rond je vertrekdag, en de reisfinder vergelijkt een hele maand.",
     "faq3q": "Zijn de prijzen definitief?",
     "faq3a": "De getoonde prijzen komen van airlines en reisbureaus. De definitieve prijs zie je op de eigen site van de aanbieder tijdens het afrekenen, vóór je betaalt.",
     "faq4q": "Kan ik flexibele of restitueerbare tickets boeken?",
@@ -328,7 +328,7 @@
     "learnMore": "Meer informatie"
   },
   "tfp": {
-    "metaTitle": "Reisfinder — goedkoopste vluchten naar een stad of land",
+    "metaTitle": "Reisfinder | goedkoopste vluchten naar een stad of land",
     "metaDesc": "Kies waar je vandaan en waarheen vliegt, een maand of vaste data, en zie de laagste tarieven. Vergelijk daarna hotels voor dezelfde data.",
     "kicker": "Reisfinder",
     "h1": "Waarheen wil je, en wanneer?",
@@ -356,7 +356,7 @@
   },
   "meta": {
     "tagline": "Vergelijk vluchten. Geen toeslagen.",
-    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. TicketsJet vergelijkt airlines, reisbureaus en autoverhuurbedrijven om je te helpen goede reisdeals te vinden. Geen boekingskosten — je boekt rechtstreeks bij de aanbieder."
+    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. TicketsJet vergelijkt airlines, reisbureaus en autoverhuurbedrijven om je te helpen goede reisdeals te vinden. Geen boekingskosten. Je boekt rechtstreeks bij de aanbieder."
   },
   "notice": {
     "untranslated": "Deze pagina is nog niet in jouw taal beschikbaar en wordt in het Engels getoond."
@@ -408,7 +408,7 @@
     },
     "nyc": {
       "name": "New York",
-      "blurb": "Vluchten gaan naar JFK, Newark en LaGuardia — vergelijk ze alle drie in één zoekopdracht."
+      "blurb": "Vluchten gaan naar JFK, Newark en LaGuardia. Vergelijk ze alle drie in één zoekopdracht."
     },
     "bkk": {
       "name": "Bangkok",
@@ -475,7 +475,7 @@
     "a2": "Het laagste recente tarief vertrekt op {date}. Vertrekken midden in de week buiten schoolvakanties is meestal goedkoper, en flexibele data helpen het meest.",
     "a2none": "Vertrekken midden in de week buiten schoolvakanties is meestal goedkoper, en flexibele data helpen het meest.",
     "q3": "Zijn er directe vluchten van {from} naar {to}?",
-    "a3yes": "Ja — een aantal van de recente tarieven die we vonden waren direct. Gebruik de kolom overstappen om te vergelijken.",
+    "a3yes": "Ja. Een aantal van de recente tarieven die we vonden waren direct. Gebruik de kolom overstappen om te vergelijken.",
     "a3no": "De recente lage tarieven die we vonden hebben een overstap. Directe vluchten kunnen er tegen een hogere prijs nog zijn; zoek om te vergelijken.",
     "a3unk": "Dat hangt af van de data. Zoek om directe vluchten en vluchten met één overstap naast elkaar te zien.",
     "q4": "Rekenen jullie kosten?",
@@ -547,14 +547,14 @@
     }
   },
   "dpi": {
-    "metaTitle": "Plan een reis — bestemmingsgidsen",
+    "metaTitle": "Plan een reis | bestemmingsgidsen",
     "metaDesc": "Eén pagina per bestemming: vluchten, een plek om te slapen, activiteiten en reisbenodigdheden op één plek.",
     "kicker": "Plan een reis",
     "h1": "Kies een bestemming en plan de hele reis",
     "lead": "Vluchten, hotels, activiteiten en reisbenodigdheden per stad, op één pagina."
   },
   "dp": {
-    "metaTitle": "Plan een reis naar {city} — vluchten, hotels & activiteiten",
+    "metaTitle": "Plan een reis naar {city} | vluchten, hotels & activiteiten",
     "metaDesc": "Alles voor een reis naar {city}, {country}: vluchtprijzen, waar te slapen, tours en tickets en reisbenodigdheden op één plek.",
     "kicker": "Plan een reis · {country}",
     "h1": "Plan je reis naar {city}",
@@ -589,14 +589,14 @@
     "heroTitle": "Cheap flights to {city}"
   },
   "aci": {
-    "metaTitle": "Doen & zien — tours, tickets en activiteiten per stad",
+    "metaTitle": "Doen & zien | tours, tickets en activiteiten per stad",
     "metaDesc": "Vind populaire tours, attractietickets en activiteiten in topreissteden, met tips om vooruit te boeken.",
     "kicker": "Activiteiten",
     "h1": "Doen & zien",
     "lead": "Kies een stad voor populaire tours en tickets, plus tips om je bezoek te plannen."
   },
   "ac": {
-    "metaTitle": "Doen & zien in {city} — tours, tickets en activiteiten",
+    "metaTitle": "Doen & zien in {city} | tours, tickets en activiteiten",
     "metaDesc": "Populaire tours, attractietickets en activiteiten in {city}, {country}. Tips om vooruit te boeken, plus vluchten en verblijf.",
     "kicker": "Doen & zien · {country}",
     "h1": "Doen & zien in {city}",
@@ -617,7 +617,7 @@
     "heroTitle": "Things to do in {city}"
   },
   "svc": {
-    "metaTitle": "Reisdiensten — eSIM, vliegveldtransfers, vluchtcompensatie",
+    "metaTitle": "Reisdiensten | eSIM, vliegveldtransfers, vluchtcompensatie",
     "metaDesc": "Handige extra's voor je reis: mobiel internet in het buitenland, ophalen van het vliegveld en compensatie bij vluchtvertraging.",
     "h1": "Reisdiensten",
     "lead": "Handige extra's bij een vluchtboeking.",
@@ -628,7 +628,7 @@
     "compT": "Vluchtcompensatie",
     "compD": "Controleer of een vertraging of annulering je recht geeft op een uitkering.",
     "how": "Hoe het werkt",
-    "disclosure": "Opent de site van de aanbieder. Affiliatelink — het kost jou niets extra.",
+    "disclosure": "Opent de site van de aanbieder. Affiliatelink. Het kost jou niets extra.",
     "lookingFlights": "Op zoek naar vluchten?",
     "searchFlights": "Zoek vluchten",
     "or": "of bekijk",
@@ -636,11 +636,11 @@
     "crumb": "Diensten"
   },
   "esim": {
-    "metaTitle": "Reis-eSIM — mobiel internet in het buitenland zonder roamingkosten",
+    "metaTitle": "Reis-eSIM | mobiel internet in het buitenland zonder roamingkosten",
     "metaDesc": "Hoe een reis-eSIM werkt, voor wie hij geschikt is en waar je op let voor je koopt. Vergelijk hem met roaming en lokale simkaarten.",
     "eyebrow": "Reis-eSIM",
     "title": "Mobiel internet in het buitenland, zonder roamingrekening",
-    "intro": "Een reis-eSIM is een databundel die je vóór je vlucht op je telefoon installeert. Je landt met verbinding — geen rij voor een simkaart op het vliegveld en geen verrassende roamingkosten.",
+    "intro": "Een reis-eSIM is een databundel die je vóór je vlucht op je telefoon installeert. Je landt met verbinding. Geen rij voor een simkaart op het vliegveld en geen verrassende roamingkosten.",
     "cta": "Bekijk eSIM-bundels",
     "s1t": "Controleer je telefoon",
     "s1d": "Je telefoon moet eSIM ondersteunen en netwerkvrij zijn. De meeste telefoons van de laatste jaren kunnen dat.",
@@ -664,7 +664,7 @@
     "a4": "Dan werkt een eSIM niet. Kijk in de instellingen van je telefoon of op de site van de fabrikant, of overweeg een lokale sim of pocket-wifi."
   },
   "tr": {
-    "metaTitle": "Vliegveldtransfers — boek je ophaalservice voor je vliegt",
+    "metaTitle": "Vliegveldtransfers | boek je ophaalservice voor je vliegt",
     "metaDesc": "Vooraf geboekte vliegveldtransfers: hoe ze werken, wanneer ze beter zijn dan taxi's en openbaar vervoer en waar je op let bij het boeken.",
     "eyebrow": "Vliegveldtransfers",
     "title": "Een chauffeur die op je wacht als je landt",
@@ -692,7 +692,7 @@
     "a4": "Je betaalt de aanbieder bij het boeken. TicketsJet neemt geen betalingen aan en rekent geen kosten."
   },
   "comp": {
-    "metaTitle": "Compensatie bij vertraging en annulering — controleer je claim",
+    "metaTitle": "Compensatie bij vertraging en annulering | controleer je claim",
     "metaDesc": "Was je vlucht vertraagd of geannuleerd? Lees hoe de EU-compensatieregels werken en controleer of je kunt claimen.",
     "eyebrow": "Vluchtcompensatie",
     "title": "Vlucht vertraagd of geannuleerd? Controleer of je kunt claimen",
@@ -720,8 +720,8 @@
     "a4": "Nee. We verwijzen naar een externe claimdienst. TicketsJet is geen partij bij je claim en geeft geen juridisch advies."
   },
   "cars": {
-    "metaTitle": "Autohuur vergelijken — vergelijk borg, verzekering en annulering",
-    "metaDesc": "Zoek huurauto's van lokale en internationale bedrijven. Filter op borg, verzekering, nieuwe auto's en gratis annuleren — allemaal op TicketsJet.",
+    "metaTitle": "Autohuur vergelijken | vergelijk borg, verzekering en annulering",
+    "metaDesc": "Zoek huurauto's van lokale en internationale bedrijven. Filter op borg, verzekering, nieuwe auto's en gratis annuleren. Allemaal op TicketsJet.",
     "kicker": "Auto's",
     "h1": "Huurauto's vergeleken",
     "lead": "Zoek auto's van lokale en internationale verhuurbedrijven en filter op borg, verzekering en gratis annuleren.",
@@ -731,9 +731,9 @@
     "guideLink": "De gids voor autohuur zonder verrassingen",
     "faqTitle": "Veelgestelde vragen over autohuur",
     "q1": "Wat betekent vol-vol?",
-    "a1": "Je haalt de auto op met een volle tank en brengt hem vol terug. Meestal het eerlijkste brandstofbeleid — je betaalt alleen pompprijzen voor de brandstof die je echt gebruikt.",
+    "a1": "Je haalt de auto op met een volle tank en brengt hem vol terug. Meestal het eerlijkste brandstofbeleid. Je betaalt alleen pompprijzen voor de brandstof die je echt gebruikt.",
     "q2": "Heb ik een creditcard nodig?",
-    "a2": "Veel verhuurbalies eisen een creditcard op naam van de hoofdbestuurder voor de borg. Sommige aanbiedingen staan als zonder creditcard gemarkeerd — gebruik het filter in de zoekopdracht hierboven.",
+    "a2": "Veel verhuurbalies eisen een creditcard op naam van de hoofdbestuurder voor de borg. Sommige aanbiedingen staan als zonder creditcard gemarkeerd. Gebruik het filter in de zoekopdracht hierboven.",
     "q3": "Moet ik extra verzekering nemen?",
     "a3": "Basistarieven bevatten meestal een schadevrijwaring met een hoog eigen risico. Vergelijk wat elk aanbod omvat en overweeg een volledige verzekering als je een lager eigen risico wilt.",
     "q4": "Kan ik gratis annuleren?",
@@ -775,7 +775,7 @@
     "heroTitle": "Find the best car rental deals"
   },
   "exp": {
-    "metaTitle": "Ontdek goedkope vluchten op een prijskaart — kies waarheen je vliegt",
+    "metaTitle": "Ontdek goedkope vluchten op een prijskaart | kies waarheen je vliegt",
     "metaDesc": "Begin bij je budget, niet bij de bestemming. Zie de goedkoopste vluchtprijzen vanuit jouw stad naar bestemmingen over de hele wereld op één interactieve kaart.",
     "kicker": "Ontdek",
     "h1": "Waar brengt je budget je heen?",
@@ -855,7 +855,7 @@
     "legendExpensive": "Expensive"
   },
   "blog": {
-    "metaTitle": "Reisgidsen & tips — de TicketsJet-blog",
+    "metaTitle": "Reisgidsen & tips | de TicketsJet-blog",
     "metaDesc": "Praktische gidsen over goedkope vluchten vinden, slimmer verblijf boeken en auto's huren zonder verrassingen.",
     "kicker": "Blog",
     "h1": "Reis slimmer, geef minder uit",
@@ -871,25 +871,25 @@
     "metaDesc": "Antwoorden op veelgestelde vragen over het zoeken en boeken van vluchten en huurauto's via TicketsJet.",
     "kicker": "Helpcentrum",
     "h1": "Waarmee kunnen we helpen?",
-    "booked": "Al geboekt? Je reservering staat bij de airline of aanbieder bij wie je hebt geboekt — neem rechtstreeks contact met hen op voor wijzigingen, annuleringen of terugbetalingen.",
+    "booked": "Al geboekt? Je reservering staat bij de airline of aanbieder bij wie je hebt geboekt. Neem rechtstreeks contact met hen op voor wijzigingen, annuleringen of terugbetalingen.",
     "q1": "Hoe werkt TicketsJet?",
-    "a1": "We zoeken bij airlines en reisbureaus naar de beste vluchtopties. We rekenen geen boekingskosten — je boekt rechtstreeks bij de aanbieder.",
+    "a1": "We zoeken bij airlines en reisbureaus naar de beste vluchtopties. We rekenen geen boekingskosten. Je boekt rechtstreeks bij de aanbieder.",
     "q2": "Hoe vind ik de goedkoopste vlucht met TicketsJet?",
     "a2": "Zoek op 'Overal' om de goedkoopste bestemmingen te ontdekken, gebruik de kalender met flexibele data en vergelijk vertrekken midden in de week, die meestal het goedkoopst zijn.",
     "q3": "Waarheen kan ik nu het best een vlucht boeken?",
     "a3": "Bekijk het tarievenbord op onze homepage of zoek op 'Overal' vanaf je thuisluchthaven om de actuele voordelige aanbiedingen in Europa, de VS en Azië te zien.",
     "q4": "Boek ik mijn vlucht bij TicketsJet?",
-    "a4": "Nee — je boekt rechtstreeks bij de airline of het reisbureau op hun platform. TicketsJet is uitsluitend een zoekmachine die je de gebundelde keuzes toont.",
+    "a4": "Nee. Je boekt rechtstreeks bij de airline of het reisbureau op hun platform. TicketsJet is uitsluitend een zoekmachine die je de gebundelde keuzes toont.",
     "q5": "Doet TicketsJet ook hotels?",
     "a5": "Onze focus ligt op vluchten en huurauto's. Voor hotels opent onze verblijfszoeker Booking.com in een nieuw tabblad, waar je vergelijkt en boekt. TicketsJet vergelijkt nog geen hotelprijzen.",
     "q6": "Wat met autohuur?",
     "a6": "TicketsJet vergelijkt toonaangevende autoverhuurders en biedt je scherpe prijzen, gratis annuleren en duidelijk brandstofbeleid.",
     "q7": "Wat gebeurt er nadat ik mijn vlucht heb geboekt?",
-    "a7": "Je ontvangt een bevestigingsmail rechtstreeks van de verkoper of airline bij wie je hebt gekocht. Neem voor vragen rechtstreeks contact met hen op — zij beheren je reservering.",
+    "a7": "Je ontvangt een bevestigingsmail rechtstreeks van de verkoper of airline bij wie je hebt gekocht. Neem voor vragen rechtstreeks contact met hen op. Zij beheren je reservering.",
     "q8": "Kan ik een flexibel vliegticket boeken?",
     "a8": "Ja. Veel airlines bieden tickets waarbij je zonder kosten de datum kunt wijzigen. Zoek naar het flexibel-filter tijdens je zoekopdracht.",
     "q9": "Rekent TicketsJet kosten?",
-    "a9": "Nooit. Onze dienst is gratis voor reizigers. We ontvangen een commissie van aanbieders als je via onze links boekt — zonder extra kosten voor jou.",
+    "a9": "Nooit. Onze dienst is gratis voor reizigers. We ontvangen een commissie van aanbieders als je via onze links boekt. Zonder extra kosten voor jou.",
     "q10": "Verwerkt TicketsJet mijn betaling?",
     "a10": "Nee. Alle betalingen gebeuren rechtstreeks op het beveiligde platform van de aanbieder. We zien of bewaren je betaalgegevens nooit."
   },
@@ -899,14 +899,14 @@
     "kicker": "Over",
     "h1": "Een zoekmachine die voor reizigers werkt",
     "p1": "TicketsJet is een onafhankelijke reiszoekmachine. We vergelijken vluchten bij veel airlines en reisbureaus en huurauto's bij toonaangevende verhuurders, met meer reishulpmiddelen onderweg.",
-    "h2": "Wat we doen — en wat niet",
+    "h2": "Wat we doen. En wat niet",
     "p2": "We tonen je de markt naast elkaar en sturen je rechtstreeks naar de aanbieder om tegen de exacte prijs te boeken. We rekenen nooit boekingskosten, verhogen nooit prijzen en verwerken nooit je betaling. Je reservering blijft altijd bij de airline of verhuurder bij wie je boekt.",
     "h3": "Hoe we geld verdienen",
     "p3": "Als je boekt via links op TicketsJet, kan de aanbieder ons een commissie betalen. Dat kost jou niets extra en heeft nooit invloed op de prijzen die je ziet. Lees onze <a>affiliate-vermelding</a> voor het volledige verhaal.",
     "h4": "Onze belofte",
     "l1": "Prijzen afkomstig van airlines en reisbureaus",
     "l2": "Geen boekingskosten of opslagen van onze kant",
-    "l3": "Duidelijk, eerlijk advies — ook als het ons niets oplevert",
+    "l3": "Duidelijk, eerlijk advies. Ook als het ons niets oplevert",
     "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
     "creditsH": "Credits",
     "photoCredits": "Photo credits",
@@ -917,11 +917,11 @@
     "metaDesc": "Hoe TicketsJet je gegevens verzamelt, gebruikt en beschermt.",
     "h1": "Privacybeleid",
     "h2a": "Wie we zijn",
-    "p1": "TicketsJet ('wij') beheert ticketsjet.com, een zoekmachine voor reisvergelijking. Wij verwerken geen boekingen of betalingen — die verlopen rechtstreeks met de aanbieders bij wie je boekt.",
+    "p1": "TicketsJet ('wij') beheert ticketsjet.com, een zoekmachine voor reisvergelijking. Wij verwerken geen boekingen of betalingen. Die verlopen rechtstreeks met de aanbieders bij wie je boekt.",
     "h2b": "Gegevens die we verzamelen",
-    "l1": "<b>Zoekgegevens</b> — routes, data en bestemmingen waarop je zoekt, gebruikt om resultaten te tonen.",
-    "l2": "<b>Gebruiksgegevens</b> — anonieme analyses zoals bezochte pagina's en apparaattype, gebruikt om de site te verbeteren.",
-    "l3": "<b>Cookies</b> — gebruikt voor sitefunctionaliteit, analyses en advertenties (waaronder Google AdSense) en voor affiliate-tracking door onze reispartners.",
+    "l1": "<b>Zoekgegevens</b>. Routes, data en bestemmingen waarop je zoekt, gebruikt om resultaten te tonen.",
+    "l2": "<b>Gebruiksgegevens</b>. Anonieme analyses zoals bezochte pagina's en apparaattype, gebruikt om de site te verbeteren.",
+    "l3": "<b>Cookies</b>. Gebruikt voor sitefunctionaliteit, analyses en advertenties (waaronder Google AdSense) en voor affiliate-tracking door onze reispartners.",
     "h2c": "Wat we nooit verzamelen",
     "p2": "We zien of bewaren nooit je betaalgegevens, paspoortgegevens of boekingsgegevens. Die worden volledig verwerkt door de airline, het hotel of de verhuurder bij wie je boekt.",
     "h2d": "Derden",
@@ -956,7 +956,7 @@
     "h1": "Affiliate-vermelding",
     "p1": "TicketsJet is een gratis vergelijkingsdienst. Om dat zo te houden doen we mee aan affiliateprogramma's van airlines, online reisbureaus, hotelboekingsplatforms en autoverhuurders.",
     "h2": "Wat dit in de praktijk betekent",
-    "p2": "Als je op een link op TicketsJet klikt en een boeking afrondt op de site van een aanbieder, kan die aanbieder ons een commissie betalen. Die commissie komt uit het marketingbudget van de aanbieder — <b>ze wordt nooit aan jouw prijs toegevoegd</b>. Je betaalt precies wat je ook rechtstreeks bij de aanbieder zou betalen.",
+    "p2": "Als je op een link op TicketsJet klikt en een boeking afrondt op de site van een aanbieder, kan die aanbieder ons een commissie betalen. Die commissie komt uit het marketingbudget van de aanbieder, <b>ze wordt nooit aan jouw prijs toegevoegd</b>. Je betaalt precies wat je ook rechtstreeks bij de aanbieder zou betalen.",
     "h3": "Onze redactionele onafhankelijkheid",
     "p3": "Commissies hebben geen invloed op de volgorde of inhoud van zoekresultaten, die worden bepaald door prijs en relevantie. Onze gidsen en aanbevelingen weerspiegelen wat wij oprecht denken dat reizigers helpt, ongeacht commerciële relaties.",
     "h4": "Affiliatelinks herkennen",
@@ -971,27 +971,27 @@
   "post": {
     "how-to-find-cheap-flights": {
       "title": "Goedkope vluchten vinden in 2026: 9 tactieken die echt werken",
-      "desc": "Van zoeken met flexibele data tot 'Overal'-bestemmingen: bewezen manieren om je vliegticket goedkoper te maken — zonder concessies.",
+      "desc": "Van zoeken met flexibele data tot 'Overal'-bestemmingen: bewezen manieren om je vliegticket goedkoper te maken. Zonder concessies.",
       "p1": "De grootste hefboom op de prijs is flexibiliteit. Kun je je vertrek twee of drie dagen verschuiven, dan toont zoeken in kalenderweergave vaak tarieven die 20–40% lager liggen dan je oorspronkelijke data. Vertrekken midden in de week (dinsdag en woensdag) blijven consequent goedkoper dan vrijdag en zondag.",
       "p2": "Ten tweede: zoek per regio, niet per stad. Zoeken op 'Overal' of een heel land laat de tariefdata vertellen waar de koopjes zijn, in plaats van een route af te dwingen en te betalen wat die kost. Veel van de beste reizen beginnen met een prijs, niet met een bestemming.",
       "p3": "Ten derde: boek op het juiste moment. Voor korte vluchten verschijnen de beste tarieven meestal 3–8 weken voor vertrek; voor lange vluchten 2–5 maanden. Last-minuteaanbiedingen zijn op populaire routes grotendeels een mythe.",
-      "p4": "Vergelijk ten slotte altijd tussen aanbieders. TicketsJet zoekt bij veel airlines en bureaus tegelijk en rekent nooit boekingskosten — je boekt rechtstreeks bij de aanbieder tegen zijn prijs."
+      "p4": "Vergelijk ten slotte altijd tussen aanbieders. TicketsJet zoekt bij veel airlines en bureaus tegelijk en rekent nooit boekingskosten. Je boekt rechtstreeks bij de aanbieder tegen zijn prijs."
     },
     "hotel-booking-mistakes": {
       "title": "7 fouten bij het boeken van hotels die je geld kosten",
-      "desc": "Valkuilen bij gratis annuleren, resortkosten en de kaarttruc die de meeste reizigers missen — zo boek je slimmer.",
+      "desc": "Valkuilen bij gratis annuleren, resortkosten en de kaarttruc die de meeste reizigers missen. Zo boek je slimmer.",
       "p1": "Fout één: boeken op de eerste prijs die je ziet. Hotelprijzen verschillen sterk tussen platforms voor exact dezelfde kamer. Een vergelijking tussen aanbieders vindt routinematig verschillen van 10–25% per nacht.",
       "p2": "Fout twee: de totaalprijs negeren. Resortkosten, stadsbelasting en schoonmaakkosten kunnen 15–30% bovenop het getoonde tarief komen. Vergelijk altijd de eindprijs bij het afrekenen, niet de lokprijs per nacht.",
-      "p3": "Fout drie: te vroeg niet-restitueerbaar boeken. Kunnen je plannen veranderen, dan is een tarief met gratis annuleren dat een paar euro duurder is bijna altijd de betere keuze — je kunt opnieuw boeken als de prijzen dalen.",
+      "p3": "Fout drie: te vroeg niet-restitueerbaar boeken. Kunnen je plannen veranderen, dan is een tarief met gratis annuleren dat een paar euro duurder is bijna altijd de betere keuze. Je kunt opnieuw boeken als de prijzen dalen.",
       "p4": "Gebruik de kaartweergave. Hotels één metrohalte buiten het toeristische centrum zijn vaak 30–40% goedkoper voor een kamer van hetzelfde niveau, en de reistijd is meestal enkele minuten."
     },
     "car-rental-guide": {
       "title": "De autohuurgids zonder verrassingen: verzekering, brandstof en borg uitgelegd",
       "desc": "Wat vol-vol echt betekent, wanneer extra verzekering de moeite waard is en hoe je de opdringerige verkoop aan de balie vermijdt.",
-      "p1": "Het brandstofbeleid is het eerste om te controleren. 'Vol-vol' — vol ophalen, vol terugbrengen — is bijna altijd de eerlijkste deal. Bij 'vol-leeg' betaal je een opslag op de brandstof en krijg je niets terug voor wat je niet gebruikt.",
+      "p1": "Het brandstofbeleid is het eerste om te controleren. 'Vol-vol'. Vol ophalen, vol terugbrengen. Is bijna altijd de eerlijkste deal. Bij 'vol-leeg' betaal je een opslag op de brandstof en krijg je niets terug voor wat je niet gebruikt.",
       "p2": "Over verzekering: het basistarief bevat meestal een Collision Damage Waiver met een hoog eigen risico. Een eigen-risicoverzekering van een derde partij die je vooraf online koopt, is doorgaans veel goedkoper dan dezelfde dekking aan de verhuurbalie.",
       "p3": "Zorg voor een creditcard op naam van de hoofdbestuurder. De meeste verhuurbalies eisen er een voor de borg; pinpassen worden vaak geweigerd of leiden tot verplichte verzekeringsaankopen.",
-      "p4": "Fotografeer de auto — elk paneel, de wielen, de voorruit en de brandstofmeter — bij het ophalen en terugbrengen. Het kost negentig seconden en is de beste bescherming tegen schadegeschillen."
+      "p4": "Fotografeer de auto. Elk paneel, de wielen, de voorruit en de brandstofmeter. Bij het ophalen en terugbrengen. Het kost negentig seconden en is de beste bescherming tegen schadegeschillen."
     }
   }
 }

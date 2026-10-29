@@ -44,7 +44,7 @@
     "terms": "Termini di servizio",
     "affiliate": "Informativa sull'affiliazione",
     "tagline": "Confronta e prenota voli economici da qualsiasi luogo, verso qualsiasi luogo.",
-    "notSeller": "TicketsJet è un motore di ricerca, non un venditore. Alcuni link sono link di affiliazione —",
+    "notSeller": "TicketsJet è un motore di ricerca, non un venditore. Alcuni link sono link di affiliazione, ",
     "learnMore": "scopri di più",
     "geoNames": "City names: GeoNames, CC BY 4.0"
   },
@@ -148,7 +148,7 @@
     "removeFlight": "Rimuovi il volo {n}",
     "addFlight": "+ Aggiungi un altro volo",
     "swap": "Scambia partenza e arrivo",
-    "departReturn": "Andata — Ritorno",
+    "departReturn": "Andata - Ritorno",
     "depart": "Andata",
     "addDates": "Aggiungi date",
     "addDate": "Aggiungi data",
@@ -185,7 +185,7 @@
   "stays": {
     "destination": "Destinazione",
     "city": "Città",
-    "checkInOut": "Arrivo — Partenza",
+    "checkInOut": "Arrivo - Partenza",
     "checkOutWord": "Partenza",
     "guestsRooms": "Ospiti e camere",
     "guestsLabel": "{n, plural, one {# ospite} other {# ospiti}} · {r, plural, one {# camera} other {# camere}}",
@@ -196,7 +196,7 @@
     "note": "I risultati si aprono su Booking.com in una nuova scheda, dove completi la prenotazione.",
     "errDest": "Scegli una destinazione dall'elenco.",
     "errDates": "Scegli le date di check-in e check-out.",
-    "metaTitle": "Hotel e alloggi — Cerca su Booking.com",
+    "metaTitle": "Hotel e alloggi | Cerca su Booking.com",
     "metaDesc": "Trova dove alloggiare per il tuo viaggio. Scegli una città e le date e continua su Booking.com per confrontare le camere e prenotare.",
     "kicker": "Alloggi",
     "h1": "Trova dove alloggiare",
@@ -264,7 +264,7 @@
     "placeholderTo": "Città o paese"
   },
   "flights": {
-    "metaTitle": "Voli economici — Confronta le compagnie in una ricerca",
+    "metaTitle": "Voli economici | Confronta le compagnie in una ricerca",
     "metaDesc": "Confronta voli economici tra compagnie aeree e agenzie di viaggio. Date flessibili, mappa Esplora e nessuna commissione di prenotazione aggiunta da noi.",
     "kicker": "Voli",
     "h1": "Confronta voli economici di molte compagnie",
@@ -328,7 +328,7 @@
     "learnMore": "Scopri di più"
   },
   "tfp": {
-    "metaTitle": "Ricerca viaggio — Voli più economici per una città o un paese",
+    "metaTitle": "Ricerca viaggio | Voli più economici per una città o un paese",
     "metaDesc": "Scegli da dove parti e dove vai, un mese o date esatte, e guarda le tariffe più basse trovate. Poi confronta gli hotel per le stesse date.",
     "kicker": "Ricerca viaggio",
     "h1": "Dove vuoi andare e quando?",
@@ -547,14 +547,14 @@
     }
   },
   "dpi": {
-    "metaTitle": "Pianifica un viaggio — Guide alle destinazioni",
+    "metaTitle": "Pianifica un viaggio | Guide alle destinazioni",
     "metaDesc": "Una pagina per destinazione: voli, dove dormire, cosa fare e tutto l'essenziale per viaggiare, in un unico posto.",
     "kicker": "Pianifica un viaggio",
     "h1": "Scegli una destinazione e pianifica tutto il viaggio",
     "lead": "Voli, hotel, cose da fare e tutto l'essenziale per viaggiare per ogni città, riuniti in un'unica pagina."
   },
   "dp": {
-    "metaTitle": "Pianifica un viaggio a {city} — Voli, hotel e cose da fare",
+    "metaTitle": "Pianifica un viaggio a {city} | Voli, hotel e cose da fare",
     "metaDesc": "Tutto per un viaggio a {city}, {country}: prezzi dei voli, dove dormire, tour e biglietti, e l'essenziale per viaggiare in un unico posto.",
     "kicker": "Pianifica un viaggio · {country}",
     "h1": "Pianifica il tuo viaggio a {city}",
@@ -589,14 +589,14 @@
     "heroTitle": "Cheap flights to {city}"
   },
   "aci": {
-    "metaTitle": "Cosa fare — Tour, biglietti e attività per città",
+    "metaTitle": "Cosa fare | Tour, biglietti e attività per città",
     "metaDesc": "Trova tour popolari, biglietti per le attrazioni e attività nelle principali città, con consigli per prenotare in anticipo.",
     "kicker": "Attività",
     "h1": "Cosa fare",
     "lead": "Scegli una città per vedere tour e biglietti popolari, più consigli per pianificare la visita."
   },
   "ac": {
-    "metaTitle": "Cosa fare a {city} — Tour, biglietti e attività",
+    "metaTitle": "Cosa fare a {city} | Tour, biglietti e attività",
     "metaDesc": "Tour popolari, biglietti per le attrazioni e attività a {city}, {country}. Consigli per prenotare in anticipo, più voli e alloggi.",
     "kicker": "Cosa fare · {country}",
     "h1": "Cosa fare a {city}",
@@ -617,7 +617,7 @@
     "heroTitle": "Things to do in {city}"
   },
   "svc": {
-    "metaTitle": "Servizi di viaggio — eSIM, transfer aeroportuali, risarcimento voli",
+    "metaTitle": "Servizi di viaggio | eSIM, transfer aeroportuali, risarcimento voli",
     "metaDesc": "Extra utili per il tuo viaggio: dati mobili all'estero, ritiro in aeroporto e risarcimento per ritardo del volo.",
     "h1": "Servizi di viaggio",
     "lead": "Pratici extra che accompagnano una prenotazione di volo.",
@@ -636,7 +636,7 @@
     "crumb": "Servizi"
   },
   "esim": {
-    "metaTitle": "eSIM da viaggio — Dati mobili all'estero senza costi di roaming",
+    "metaTitle": "eSIM da viaggio | Dati mobili all'estero senza costi di roaming",
     "metaDesc": "Come funziona una eSIM da viaggio, a chi è adatta e cosa controllare prima di acquistare. Confrontala con roaming e SIM locali.",
     "eyebrow": "eSIM da viaggio",
     "title": "Dati mobili all'estero, senza bollette di roaming",
@@ -664,7 +664,7 @@
     "a4": "Allora una eSIM non funzionerà. Controlla le impostazioni del telefono o il sito del produttore, oppure valuta una SIM locale o un hotspot tascabile."
   },
   "tr": {
-    "metaTitle": "Transfer aeroportuali — Prenota un ritiro prima di partire",
+    "metaTitle": "Transfer aeroportuali | Prenota un ritiro prima di partire",
     "metaDesc": "Transfer aeroportuali prenotati in anticipo: come funzionano, quando battono taxi e mezzi pubblici e cosa controllare prima di prenotare.",
     "eyebrow": "Transfer aeroportuali",
     "title": "Un autista ti aspetta all'atterraggio",
@@ -692,7 +692,7 @@
     "a4": "Paghi il fornitore al momento della prenotazione. TicketsJet non riscuote pagamenti né aggiunge commissioni."
   },
   "comp": {
-    "metaTitle": "Risarcimento per ritardo e cancellazione del volo — Verifica la tua richiesta",
+    "metaTitle": "Risarcimento per ritardo e cancellazione del volo | Verifica la tua richiesta",
     "metaDesc": "Il tuo volo è stato in ritardo o cancellato? Scopri come funzionano le norme UE sul risarcimento e come verificare se puoi fare richiesta.",
     "eyebrow": "Risarcimento voli",
     "title": "Volo in ritardo o cancellato? Verifica se puoi fare richiesta",
@@ -720,7 +720,7 @@
     "a4": "No. Rimandiamo a un servizio di recupero di terze parti. TicketsJet non è parte della tua richiesta e non fornisce consulenza legale."
   },
   "cars": {
-    "metaTitle": "Confronto noleggio auto — Confronta cauzione, assicurazione e cancellazione",
+    "metaTitle": "Confronto noleggio auto | Confronta cauzione, assicurazione e cancellazione",
     "metaDesc": "Cerca auto a noleggio di aziende locali e internazionali. Filtra per cauzione, assicurazione, auto nuove e cancellazione gratuita, tutto su TicketsJet.",
     "kicker": "Auto",
     "h1": "Auto a noleggio a confronto",
@@ -775,7 +775,7 @@
     "heroTitle": "Find the best car rental deals"
   },
   "exp": {
-    "metaTitle": "Esplora voli economici su una mappa dei prezzi — Scopri dove volare",
+    "metaTitle": "Esplora voli economici su una mappa dei prezzi | Scopri dove volare",
     "metaDesc": "Parti dal budget, non dalla destinazione. Guarda i prezzi dei voli più bassi dalla tua città verso destinazioni di tutto il mondo su una mappa interattiva.",
     "kicker": "Esplora",
     "h1": "Dove può portarti il tuo budget?",
@@ -855,7 +855,7 @@
     "legendExpensive": "Expensive"
   },
   "blog": {
-    "metaTitle": "Guide e consigli di viaggio — Il blog di TicketsJet",
+    "metaTitle": "Guide e consigli di viaggio | Il blog di TicketsJet",
     "metaDesc": "Guide pratiche per trovare voli economici, prenotare alloggi in modo più intelligente e noleggiare auto senza sorprese.",
     "kicker": "Blog",
     "h1": "Viaggia meglio, spendi meno",
@@ -879,7 +879,7 @@
     "q3": "Dove dovrei prenotare un volo adesso?",
     "a3": "Guarda la bacheca delle tariffe nella nostra home page oppure lancia una ricerca «Ovunque» dal tuo aeroporto per vedere le offerte economiche attuali in Europa, Stati Uniti e Asia.",
     "q4": "Prenoto il volo con TicketsJet?",
-    "a4": "No — prenoti direttamente con la compagnia o l'agenzia sulla loro piattaforma. TicketsJet agisce esclusivamente come motore di ricerca che ti mostra le opzioni aggregate.",
+    "a4": "No. Prenoti direttamente con la compagnia o l'agenzia sulla loro piattaforma. TicketsJet agisce esclusivamente come motore di ricerca che ti mostra le opzioni aggregate.",
     "q5": "TicketsJet offre anche hotel?",
     "a5": "Ci concentriamo su voli e noleggio auto. Per gli hotel, la nostra ricerca alloggi apre Booking.com in una nuova scheda, dove confronti e prenoti. TicketsJet non confronta ancora i prezzi degli hotel.",
     "q6": "E il noleggio auto?",
@@ -919,9 +919,9 @@
     "h2a": "Chi siamo",
     "p1": "TicketsJet («noi») gestisce ticketsjet.com, un motore di ricerca per il confronto di viaggi. Non elaboriamo prenotazioni o pagamenti: avvengono direttamente con i fornitori presso cui prenoti.",
     "h2b": "Dati che raccogliamo",
-    "l1": "<b>Dati di ricerca</b> — tratte, date e destinazioni che cerchi, usati per mostrare i risultati.",
-    "l2": "<b>Dati di utilizzo</b> — analisi anonime come pagine visitate e tipo di dispositivo, usate per migliorare il sito.",
-    "l3": "<b>Cookie</b> — usati per il funzionamento del sito, l'analisi e la pubblicità (incluso Google AdSense) e il tracciamento di affiliazione da parte dei nostri partner di viaggio.",
+    "l1": "<b>Dati di ricerca</b>. Tratte, date e destinazioni che cerchi, usati per mostrare i risultati.",
+    "l2": "<b>Dati di utilizzo</b>. Analisi anonime come pagine visitate e tipo di dispositivo, usate per migliorare il sito.",
+    "l3": "<b>Cookie</b>. Usati per il funzionamento del sito, l'analisi e la pubblicità (incluso Google AdSense) e il tracciamento di affiliazione da parte dei nostri partner di viaggio.",
     "h2c": "Cosa non raccogliamo mai",
     "p2": "Non vediamo né conserviamo mai i tuoi dati di pagamento, le informazioni del passaporto o i registri delle prenotazioni. Sono gestiti interamente dalla compagnia aerea, dall'hotel o dal noleggiatore con cui prenoti.",
     "h2d": "Terze parti",
@@ -956,7 +956,7 @@
     "h1": "Informativa sull'affiliazione",
     "p1": "TicketsJet è un servizio di confronto gratuito. Per mantenerlo gratuito, partecipiamo a programmi di affiliazione con compagnie aeree, agenzie di viaggio online, piattaforme di prenotazione alberghiera e società di noleggio auto.",
     "h2": "Cosa significa in pratica",
-    "p2": "Quando clicchi su un link di TicketsJet e completi una prenotazione sul sito di un fornitore, quel fornitore può pagarci una commissione. La commissione proviene dal budget di marketing del fornitore — <b>non viene mai aggiunta al tuo prezzo</b>. Paghi esattamente quanto pagheresti rivolgendoti direttamente al fornitore.",
+    "p2": "Quando clicchi su un link di TicketsJet e completi una prenotazione sul sito di un fornitore, quel fornitore può pagarci una commissione. La commissione proviene dal budget di marketing del fornitore, <b>non viene mai aggiunta al tuo prezzo</b>. Paghi esattamente quanto pagheresti rivolgendoti direttamente al fornitore.",
     "h3": "La nostra indipendenza editoriale",
     "p3": "Le commissioni non influenzano l'ordine o il contenuto dei risultati di ricerca, guidati da prezzo e pertinenza. Le nostre guide e raccomandazioni riflettono ciò che crediamo davvero utile ai viaggiatori, a prescindere dai rapporti commerciali.",
     "h4": "Riconoscere i link di affiliazione",
@@ -991,7 +991,7 @@
       "p1": "La politica carburante è la prima cosa da controllare. «Pieno-pieno» (ritiri pieno, restituisci pieno) è quasi sempre l'offerta più equa. Le politiche «pieno-vuoto» addebitano il carburante a tariffe maggiorate e non rimborsano nulla di ciò che non usi.",
       "p2": "Sull'assicurazione: la tariffa base di solito include la copertura danni da collisione (CDW) con franchigia alta. L'assicurazione sulla franchigia di terzi acquistata online in anticipo è in genere molto più economica della stessa copertura venduta al banco.",
       "p3": "Porta una carta di credito intestata al conducente principale. La maggior parte dei banchi la richiede per la cauzione; le carte di debito vengono spesso rifiutate o comportano l'acquisto forzato di un'assicurazione.",
-      "p4": "Fotografa l'auto — ogni pannello, ruote, parabrezza e indicatore del carburante — al ritiro e alla riconsegna. Richiede novanta secondi ed è la migliore protezione contro le contestazioni sui danni."
+      "p4": "Fotografa l'auto. Ogni pannello, ruote, parabrezza e indicatore del carburante. Al ritiro e alla riconsegna. Richiede novanta secondi ed è la migliore protezione contro le contestazioni sui danni."
     }
   }
 }

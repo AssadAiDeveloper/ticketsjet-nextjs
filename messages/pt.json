@@ -44,7 +44,7 @@
     "terms": "Termos de serviço",
     "affiliate": "Divulgação de afiliados",
     "tagline": "Compare e reserve voos baratos de qualquer lugar para qualquer lugar.",
-    "notSeller": "O TicketsJet é um motor de pesquisa, não um vendedor. Alguns links são de afiliados —",
+    "notSeller": "O TicketsJet é um motor de pesquisa, não um vendedor. Alguns links são de afiliados, ",
     "learnMore": "saber mais",
     "geoNames": "City names: GeoNames, CC BY 4.0"
   },
@@ -96,7 +96,7 @@
     "faqTitle": "Reservar com o TicketsJet",
     "faqSub": "Tudo o que precisa de saber antes de pesquisar.",
     "faq1q": "Como funciona o TicketsJet?",
-    "faq1a": "Pesquisamos companhias aéreas e agências de viagens para encontrar as melhores opções de voo. Não cobramos taxas de reserva — reserva diretamente com o fornecedor, ao preço dele.",
+    "faq1a": "Pesquisamos companhias aéreas e agências de viagens para encontrar as melhores opções de voo. Não cobramos taxas de reserva. Reserva diretamente com o fornecedor, ao preço dele.",
     "faq2q": "Como encontro o voo mais barato?",
     "faq2a": "Pesquise com datas flexíveis e experimente o buscador de viagens ou o mapa de preços para explorar os destinos mais baratos. Partir a meio da semana e reservar com 3–8 semanas de antecedência costuma dar as melhores tarifas em rotas curtas.",
     "faq3q": "Reservo o voo no TicketsJet?",
@@ -106,7 +106,7 @@
     "faq5q": "E o aluguer de carros?",
     "faq5a": "Comparamos as principais empresas de aluguer para preços competitivos, cancelamento gratuito e políticas de combustível justas «cheio-cheio».",
     "faq6q": "O que acontece depois de reservar?",
-    "faq6a": "O e-mail de confirmação chega diretamente da companhia aérea ou do fornecedor com quem reservou. Para alterações ou apoio, contacte-os diretamente — são eles que têm a sua reserva.",
+    "faq6a": "O e-mail de confirmação chega diretamente da companhia aérea ou do fornecedor com quem reservou. Para alterações ou apoio, contacte-os diretamente. São eles que têm a sua reserva.",
     "bannerTitle": "Explore the price map",
     "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
     "bannerCta": "Open the price map"
@@ -115,7 +115,7 @@
     "from": "desde",
     "trending": "Em alta",
     "title": "Viagens populares a partir de {city}",
-    "sub": "As tarifas de ida e volta mais baixas encontradas recentemente. Os preços mudam com frequência — a pesquisa mostra o preço de hoje.",
+    "sub": "As tarifas de ida e volta mais baixas encontradas recentemente. Os preços mudam com frequência. A pesquisa mostra o preço de hoje.",
     "seeMap": "Ver todos os destinos no mapa"
   },
   "tabs": {
@@ -148,7 +148,7 @@
     "removeFlight": "Remover voo {n}",
     "addFlight": "+ Adicionar outro voo",
     "swap": "Trocar partida e chegada",
-    "departReturn": "Ida — Volta",
+    "departReturn": "Ida - Volta",
     "depart": "Ida",
     "addDates": "Adicionar datas",
     "addDate": "Adicionar data",
@@ -185,7 +185,7 @@
   "stays": {
     "destination": "Destino",
     "city": "Cidade",
-    "checkInOut": "Entrada — Saída",
+    "checkInOut": "Entrada - Saída",
     "checkOutWord": "Saída",
     "guestsRooms": "Hóspedes e quartos",
     "guestsLabel": "{n, plural, one {# hóspede} other {# hóspedes}} · {r, plural, one {# quarto} other {# quartos}}",
@@ -196,7 +196,7 @@
     "note": "Os resultados abrem no Booking.com num novo separador, onde conclui a reserva.",
     "errDest": "Escolha um destino na lista.",
     "errDates": "Escolha as datas de check-in e check-out.",
-    "metaTitle": "Hotéis e alojamento — Pesquise no Booking.com",
+    "metaTitle": "Hotéis e alojamento | Pesquise no Booking.com",
     "metaDesc": "Encontre onde ficar na sua viagem. Escolha uma cidade e datas e continue para o Booking.com para comparar quartos e reservar.",
     "kicker": "Alojamento",
     "h1": "Encontre onde ficar",
@@ -264,11 +264,11 @@
     "placeholderTo": "Cidade ou país"
   },
   "flights": {
-    "metaTitle": "Voos baratos — Compare companhias numa só pesquisa",
+    "metaTitle": "Voos baratos | Compare companhias numa só pesquisa",
     "metaDesc": "Compare voos baratos entre companhias aéreas e agências de viagens. Datas flexíveis, mapa Explorar e sem taxas de reserva adicionadas por nós.",
     "kicker": "Voos",
     "h1": "Compare voos baratos de muitas companhias",
-    "sub": "Uma só pesquisa em companhias e agências. Reserve diretamente com o fornecedor — o TicketsJet nunca acrescenta taxas.",
+    "sub": "Uma só pesquisa em companhias e agências. Reserve diretamente com o fornecedor. O TicketsJet nunca acrescenta taxas.",
     "breadcrumb": "Caminho de navegação",
     "home": "Início",
     "v1t": "Compare muitos fornecedores",
@@ -293,7 +293,7 @@
     "faq1q": "Quando é mais barato reservar um voo?",
     "faq1a": "Em rotas de curta distância, as melhores tarifas costumam surgir 3–8 semanas antes da partida. Em longa distância, aposte em 2–5 meses antes. Terça e quarta são sistematicamente os dias mais baratos para voar.",
     "faq2q": "Posso pesquisar com datas flexíveis?",
-    "faq2a": "Sim — a faixa de datas próximas por baixo da pesquisa mostra tarifas em redor do dia de partida, e o buscador de viagens compara um mês inteiro.",
+    "faq2a": "Sim. A faixa de datas próximas por baixo da pesquisa mostra tarifas em redor do dia de partida, e o buscador de viagens compara um mês inteiro.",
     "faq3q": "Os preços são finais?",
     "faq3a": "Os preços apresentados vêm de companhias aéreas e agências. O preço final é confirmado no site do fornecedor durante o pagamento, antes de pagar.",
     "faq4q": "Posso reservar bilhetes flexíveis ou reembolsáveis?",
@@ -328,7 +328,7 @@
     "learnMore": "Saber mais"
   },
   "tfp": {
-    "metaTitle": "Buscador de viagens — Voos mais baratos para uma cidade ou país",
+    "metaTitle": "Buscador de viagens | Voos mais baratos para uma cidade ou país",
     "metaDesc": "Escolha de onde parte e para onde vai, um mês ou datas exatas, e veja as tarifas mais baixas encontradas. Depois compare hotéis para as mesmas datas.",
     "kicker": "Buscador de viagens",
     "h1": "Para onde quer ir e quando?",
@@ -356,7 +356,7 @@
   },
   "meta": {
     "tagline": "Compare voos. Sem taxas extras.",
-    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. O TicketsJet compara companhias aéreas, agências de viagens e empresas de aluguer de carros para o ajudar a encontrar boas ofertas de viagem. Sem taxas de reserva — reserva diretamente com o fornecedor."
+    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. O TicketsJet compara companhias aéreas, agências de viagens e empresas de aluguer de carros para o ajudar a encontrar boas ofertas de viagem. Sem taxas de reserva. Reserva diretamente com o fornecedor."
   },
   "notice": {
     "untranslated": "Esta página ainda não está disponível no seu idioma e é apresentada em inglês."
@@ -408,7 +408,7 @@
     },
     "nyc": {
       "name": "Nova Iorque",
-      "blurb": "Os voos servem JFK, Newark e LaGuardia — compare os três numa só pesquisa."
+      "blurb": "Os voos servem JFK, Newark e LaGuardia. Compare os três numa só pesquisa."
     },
     "bkk": {
       "name": "Banguecoque",
@@ -475,7 +475,7 @@
     "a2": "A tarifa recente mais baixa parte a {date}. As partidas a meio da semana fora das férias escolares costumam ser mais baratas, e as datas flexíveis ajudam mais.",
     "a2none": "As partidas a meio da semana fora das férias escolares costumam ser mais baratas, e as datas flexíveis ajudam mais.",
     "q3": "Há voos diretos de {from} para {to}?",
-    "a3yes": "Sim — algumas das tarifas recentes que encontrámos eram diretas. Use a coluna de escalas para comparar.",
+    "a3yes": "Sim. Algumas das tarifas recentes que encontrámos eram diretas. Use a coluna de escalas para comparar.",
     "a3no": "As tarifas baixas recentes que encontrámos incluem uma escala. Podem existir voos diretos a um preço mais alto; pesquise para comparar.",
     "a3unk": "Depende das datas. Pesquise para ver lado a lado as opções diretas e com uma escala.",
     "q4": "Acrescentam taxas?",
@@ -547,14 +547,14 @@
     }
   },
   "dpi": {
-    "metaTitle": "Planeie uma viagem — Guias de destinos",
+    "metaTitle": "Planeie uma viagem | Guias de destinos",
     "metaDesc": "Uma página por destino: voos, onde ficar, o que fazer e o essencial para viajar, tudo num só lugar.",
     "kicker": "Planeie uma viagem",
     "h1": "Escolha um destino e planeie toda a viagem",
     "lead": "Voos, hotéis, o que fazer e o essencial para viajar de cada cidade, reunidos numa só página."
   },
   "dp": {
-    "metaTitle": "Planeie uma viagem a {city} — Voos, hotéis e o que fazer",
+    "metaTitle": "Planeie uma viagem a {city} | Voos, hotéis e o que fazer",
     "metaDesc": "Tudo para uma viagem a {city}, {country}: preços de voos, onde ficar, tours e bilhetes, e o essencial para viajar num só lugar.",
     "kicker": "Planeie uma viagem · {country}",
     "h1": "Planeie a sua viagem a {city}",
@@ -589,14 +589,14 @@
     "heroTitle": "Cheap flights to {city}"
   },
   "aci": {
-    "metaTitle": "O que fazer — Tours, bilhetes e atividades por cidade",
+    "metaTitle": "O que fazer | Tours, bilhetes e atividades por cidade",
     "metaDesc": "Encontre tours populares, bilhetes de atrações e atividades nas principais cidades, com dicas para reservar com antecedência.",
     "kicker": "Atividades",
     "h1": "O que fazer",
     "lead": "Escolha uma cidade para ver tours e bilhetes populares, além de dicas para planear a visita."
   },
   "ac": {
-    "metaTitle": "O que fazer em {city} — Tours, bilhetes e atividades",
+    "metaTitle": "O que fazer em {city} | Tours, bilhetes e atividades",
     "metaDesc": "Tours populares, bilhetes de atrações e atividades em {city}, {country}. Dicas para reservar com antecedência, além de voos e alojamento.",
     "kicker": "O que fazer · {country}",
     "h1": "O que fazer em {city}",
@@ -617,7 +617,7 @@
     "heroTitle": "Things to do in {city}"
   },
   "svc": {
-    "metaTitle": "Serviços de viagem — eSIM, transfers do aeroporto, compensação de voos",
+    "metaTitle": "Serviços de viagem | eSIM, transfers do aeroporto, compensação de voos",
     "metaDesc": "Extras úteis para a sua viagem: dados móveis no estrangeiro, recolha no aeroporto e compensação por atraso de voo.",
     "h1": "Serviços de viagem",
     "lead": "Extras práticos que acompanham uma reserva de voo.",
@@ -628,7 +628,7 @@
     "compT": "Compensação de voos",
     "compD": "Verifique se um atraso ou cancelamento lhe dá direito a uma indemnização.",
     "how": "Como funciona",
-    "disclosure": "Abre o site do fornecedor. Ligação de afiliado — não lhe custa nada a mais.",
+    "disclosure": "Abre o site do fornecedor. Ligação de afiliado. Não lhe custa nada a mais.",
     "lookingFlights": "Procura voos?",
     "searchFlights": "Pesquisar voos",
     "or": "ou explore",
@@ -636,11 +636,11 @@
     "crumb": "Serviços"
   },
   "esim": {
-    "metaTitle": "eSIM de viagem — Dados móveis no estrangeiro sem roaming",
+    "metaTitle": "eSIM de viagem | Dados móveis no estrangeiro sem roaming",
     "metaDesc": "Como funciona uma eSIM de viagem, a quem se adequa e o que verificar antes de comprar. Compare-a com o roaming e os cartões SIM locais.",
     "eyebrow": "eSIM de viagem",
     "title": "Dados móveis no estrangeiro, sem faturas de roaming",
-    "intro": "Uma eSIM de viagem é um plano de dados que instala no telemóvel antes de voar. Aterra já com ligação — sem filas para comprar um SIM no aeroporto, sem surpresas de roaming.",
+    "intro": "Uma eSIM de viagem é um plano de dados que instala no telemóvel antes de voar. Aterra já com ligação. Sem filas para comprar um SIM no aeroporto, sem surpresas de roaming.",
     "cta": "Ver planos de eSIM",
     "s1t": "Verifique o telemóvel",
     "s1d": "O telemóvel tem de suportar eSIM e estar desbloqueado. A maioria dos telemóveis dos últimos anos suporta.",
@@ -664,7 +664,7 @@
     "a4": "Então uma eSIM não funcionará. Verifique as definições do telemóvel ou o site do fabricante, ou considere um SIM local ou um router Wi-Fi portátil."
   },
   "tr": {
-    "metaTitle": "Transfers do aeroporto — Reserve uma recolha antes de voar",
+    "metaTitle": "Transfers do aeroporto | Reserve uma recolha antes de voar",
     "metaDesc": "Transfers do aeroporto reservados com antecedência: como funcionam, quando superam o táxi e os transportes públicos, e o que verificar antes de reservar.",
     "eyebrow": "Transfers do aeroporto",
     "title": "Um motorista à sua espera quando aterra",
@@ -692,7 +692,7 @@
     "a4": "Paga ao fornecedor no momento da reserva. O TicketsJet não recebe pagamentos nem acrescenta taxas."
   },
   "comp": {
-    "metaTitle": "Compensação por atraso e cancelamento de voo — Verifique a sua reclamação",
+    "metaTitle": "Compensação por atraso e cancelamento de voo | Verifique a sua reclamação",
     "metaDesc": "O seu voo atrasou ou foi cancelado? Saiba como funcionam as regras de compensação da UE e como verificar se pode reclamar.",
     "eyebrow": "Compensação de voos",
     "title": "Voo atrasado ou cancelado? Verifique se pode reclamar",
@@ -720,8 +720,8 @@
     "a4": "Não. Ligamos a um serviço de reclamações de terceiros. O TicketsJet não é parte da sua reclamação nem presta aconselhamento jurídico."
   },
   "cars": {
-    "metaTitle": "Comparador de aluguer de carros — Compare caução, seguro e cancelamento",
-    "metaDesc": "Pesquise carros de aluguer de empresas locais e internacionais. Filtre por caução, seguro, carros novos e cancelamento gratuito — tudo no TicketsJet.",
+    "metaTitle": "Comparador de aluguer de carros | Compare caução, seguro e cancelamento",
+    "metaDesc": "Pesquise carros de aluguer de empresas locais e internacionais. Filtre por caução, seguro, carros novos e cancelamento gratuito. Tudo no TicketsJet.",
     "kicker": "Carros",
     "h1": "Carros de aluguer, comparados",
     "lead": "Pesquise carros de empresas de aluguer locais e internacionais e filtre por caução, seguro e cancelamento gratuito.",
@@ -731,9 +731,9 @@
     "guideLink": "O guia de aluguer de carros sem surpresas",
     "faqTitle": "Perguntas frequentes sobre aluguer de carros",
     "q1": "O que significa cheio-cheio?",
-    "a1": "Levanta o carro com o depósito cheio e devolve-o cheio. Costuma ser a política de combustível mais justa — só paga preços de bomba pelo combustível que realmente usa.",
+    "a1": "Levanta o carro com o depósito cheio e devolve-o cheio. Costuma ser a política de combustível mais justa. Só paga preços de bomba pelo combustível que realmente usa.",
     "q2": "Preciso de cartão de crédito?",
-    "a2": "Muitos balcões de aluguer exigem um cartão de crédito em nome do condutor principal para a caução. Algumas ofertas estão marcadas como não exigindo — use o filtro na pesquisa acima.",
+    "a2": "Muitos balcões de aluguer exigem um cartão de crédito em nome do condutor principal para a caução. Algumas ofertas estão marcadas como não exigindo. Use o filtro na pesquisa acima.",
     "q3": "Devo comprar seguro adicional?",
     "a3": "As tarifas base costumam incluir uma isenção de danos com franquia elevada. Compare o que cada oferta inclui e considere opções de seguro total se quiser uma franquia menor.",
     "q4": "Posso cancelar gratuitamente?",
@@ -775,7 +775,7 @@
     "heroTitle": "Find the best car rental deals"
   },
   "exp": {
-    "metaTitle": "Explore voos baratos num mapa de preços — Descubra para onde voar",
+    "metaTitle": "Explore voos baratos num mapa de preços | Descubra para onde voar",
     "metaDesc": "Comece pelo orçamento, não pelo destino. Veja os preços de voo mais baixos da sua cidade para destinos de todo o mundo num mapa interativo.",
     "kicker": "Explorar",
     "h1": "Para onde o leva o seu orçamento?",
@@ -855,7 +855,7 @@
     "legendExpensive": "Expensive"
   },
   "blog": {
-    "metaTitle": "Guias e dicas de viagem — O blogue TicketsJet",
+    "metaTitle": "Guias e dicas de viagem | O blogue TicketsJet",
     "metaDesc": "Guias práticos para encontrar voos baratos, reservar alojamento de forma mais inteligente e alugar carros sem surpresas.",
     "kicker": "Blogue",
     "h1": "Viaje de forma mais inteligente, gaste menos",
@@ -871,21 +871,21 @@
     "metaDesc": "Respostas a perguntas comuns sobre pesquisar e reservar voos e aluguer de carros com o TicketsJet.",
     "kicker": "Centro de ajuda",
     "h1": "Como podemos ajudar?",
-    "booked": "Já reservou? A sua reserva está com a companhia aérea ou o fornecedor com quem reservou — contacte-os diretamente para alterações, cancelamentos ou reembolsos.",
+    "booked": "Já reservou? A sua reserva está com a companhia aérea ou o fornecedor com quem reservou. Contacte-os diretamente para alterações, cancelamentos ou reembolsos.",
     "q1": "Como funciona o TicketsJet?",
-    "a1": "Pesquisamos companhias aéreas e agências de viagens para encontrar as melhores opções de voo. Não cobramos taxas de reserva — reserva diretamente com o fornecedor.",
+    "a1": "Pesquisamos companhias aéreas e agências de viagens para encontrar as melhores opções de voo. Não cobramos taxas de reserva. Reserva diretamente com o fornecedor.",
     "q2": "Como encontro o voo mais barato com o TicketsJet?",
     "a2": "Experimente pesquisar «Qualquer lugar» para explorar os destinos mais baratos, use o calendário de datas flexíveis e compare as partidas a meio da semana, que costumam ser as mais baratas.",
     "q3": "Para onde devo reservar um voo agora?",
     "a3": "Consulte o painel de tarifas na nossa página inicial ou faça uma pesquisa «Qualquer lugar» a partir do seu aeroporto para ver as ofertas económicas atuais na Europa, nos EUA e na Ásia.",
     "q4": "Reservo o voo no TicketsJet?",
-    "a4": "Não — reserva diretamente com a companhia aérea ou a agência na plataforma deles. O TicketsJet atua estritamente como motor de pesquisa que lhe mostra as opções agregadas.",
+    "a4": "Não. Reserva diretamente com a companhia aérea ou a agência na plataforma deles. O TicketsJet atua estritamente como motor de pesquisa que lhe mostra as opções agregadas.",
     "q5": "O TicketsJet também tem hotéis?",
     "a5": "O nosso foco são voos e aluguer de carros. Para hotéis, a pesquisa de alojamento abre o Booking.com num novo separador, onde compara e reserva. O TicketsJet ainda não compara preços de hotéis.",
     "q6": "E o aluguer de carros?",
     "a6": "O TicketsJet compara as principais empresas de aluguer de carros para lhe oferecer preços competitivos, opções de cancelamento gratuito e políticas de combustível claras.",
     "q7": "O que acontece depois de reservar o voo?",
-    "a7": "Receberá um e-mail de confirmação diretamente do fornecedor ou da companhia onde comprou. Contacte-os diretamente para qualquer questão de apoio — são eles que têm a sua reserva.",
+    "a7": "Receberá um e-mail de confirmação diretamente do fornecedor ou da companhia onde comprou. Contacte-os diretamente para qualquer questão de apoio. São eles que têm a sua reserva.",
     "q8": "Posso reservar um bilhete de avião flexível?",
     "a8": "Sim. Muitas companhias oferecem bilhetes que permitem alterar a data sem custos. Procure o filtro de flexíveis durante a pesquisa.",
     "q9": "O TicketsJet cobra taxas?",
@@ -899,7 +899,7 @@
     "kicker": "Sobre",
     "h1": "Um motor de pesquisa que trabalha para os viajantes",
     "p1": "O TicketsJet é um motor de pesquisa de viagens independente. Comparamos voos de muitas companhias aéreas e agências, e aluguer de carros das principais empresas, com mais ferramentas de viagem a caminho.",
-    "h2": "O que fazemos — e o que não fazemos",
+    "h2": "O que fazemos. E o que não fazemos",
     "p2": "Mostramos-lhe o mercado lado a lado e enviamo-o diretamente ao fornecedor para reservar ao preço exato dele. Nunca acrescentamos taxas de reserva, nunca aumentamos os preços e nunca tratamos do seu pagamento. A sua reserva fica sempre com a companhia aérea ou a empresa de aluguer com quem reserva.",
     "h3": "Como ganhamos dinheiro",
     "p3": "Quando reserva através de ligações do TicketsJet, o fornecedor pode pagar-nos uma comissão. Isto não lhe custa nada a mais e nunca afeta os preços que vê. Leia a nossa <a>divulgação de afiliados</a> para ver o panorama completo.",
@@ -917,11 +917,11 @@
     "metaDesc": "Como o TicketsJet recolhe, utiliza e protege os seus dados.",
     "h1": "Política de privacidade",
     "h2a": "Quem somos",
-    "p1": "O TicketsJet («nós») gere o ticketsjet.com, um motor de pesquisa de comparação de viagens. Não processamos reservas nem pagamentos — estes são feitos diretamente com os fornecedores com quem reserva.",
+    "p1": "O TicketsJet («nós») gere o ticketsjet.com, um motor de pesquisa de comparação de viagens. Não processamos reservas nem pagamentos. Estes são feitos diretamente com os fornecedores com quem reserva.",
     "h2b": "Dados que recolhemos",
-    "l1": "<b>Dados de pesquisa</b> — rotas, datas e destinos que pesquisa, usados para mostrar resultados.",
-    "l2": "<b>Dados de utilização</b> — análises anónimas, como páginas visitadas e tipo de dispositivo, usadas para melhorar o site.",
-    "l3": "<b>Cookies</b> — usados para o funcionamento do site, análise e publicidade (incluindo o Google AdSense) e acompanhamento de afiliados pelos nossos parceiros de viagens.",
+    "l1": "<b>Dados de pesquisa</b>. Rotas, datas e destinos que pesquisa, usados para mostrar resultados.",
+    "l2": "<b>Dados de utilização</b>. Análises anónimas, como páginas visitadas e tipo de dispositivo, usadas para melhorar o site.",
+    "l3": "<b>Cookies</b>. Usados para o funcionamento do site, análise e publicidade (incluindo o Google AdSense) e acompanhamento de afiliados pelos nossos parceiros de viagens.",
     "h2c": "O que nunca recolhemos",
     "p2": "Nunca vemos nem guardamos os seus dados de pagamento, informações do passaporte ou registos de reservas. Estes são tratados inteiramente pela companhia aérea, hotel ou fornecedor de aluguer com quem reserva.",
     "h2d": "Terceiros",
@@ -956,7 +956,7 @@
     "h1": "Divulgação de afiliados",
     "p1": "O TicketsJet é um serviço de comparação gratuito. Para o manter gratuito, participamos em programas de afiliados com companhias aéreas, agências de viagens online, plataformas de reserva de hotéis e empresas de aluguer de carros.",
     "h2": "O que isto significa na prática",
-    "p2": "Quando clica numa ligação do TicketsJet e conclui uma reserva no site de um fornecedor, esse fornecedor pode pagar-nos uma comissão. Essa comissão sai do orçamento de marketing do fornecedor — <b>nunca é acrescentada ao seu preço</b>. Paga exatamente o que pagaria indo diretamente ao fornecedor.",
+    "p2": "Quando clica numa ligação do TicketsJet e conclui uma reserva no site de um fornecedor, esse fornecedor pode pagar-nos uma comissão. Essa comissão sai do orçamento de marketing do fornecedor, <b>nunca é acrescentada ao seu preço</b>. Paga exatamente o que pagaria indo diretamente ao fornecedor.",
     "h3": "A nossa independência editorial",
     "p3": "As comissões não influenciam a ordem nem o conteúdo dos resultados de pesquisa, que são determinados por preço e relevância. Os nossos guias e recomendações refletem o que realmente acreditamos ajudar os viajantes, independentemente das relações comerciais.",
     "h4": "Identificar ligações de afiliado",
@@ -975,14 +975,14 @@
       "p1": "A maior alavanca no preço dos voos é a flexibilidade. Se puder deslocar a partida mesmo dois ou três dias, a pesquisa em vista de calendário costuma revelar tarifas 20–40% mais baixas do que as datas originais. As partidas a meio da semana (terça e quarta) continuam a ser sistematicamente mais baratas do que sexta e domingo.",
       "p2": "Segundo: pesquise por região, não por cidade. Pesquisar «Qualquer lugar» ou um país inteiro deixa os dados de tarifas dizerem-lhe onde estão as ofertas, em vez de forçar uma rota e pagar o que custar. Muitas das melhores viagens começam com um preço, não com um destino.",
       "p3": "Terceiro: reserve na altura certa. Nos voos de curta distância, as melhores tarifas costumam surgir 3–8 semanas antes da partida; nos de longa distância, 2–5 meses. As ofertas de última hora são, na sua maioria, um mito nas rotas populares.",
-      "p4": "Por fim, compare sempre entre fornecedores. O TicketsJet pesquisa muitas companhias aéreas e agências ao mesmo tempo e nunca acrescenta taxas de reserva — reserva diretamente com o fornecedor, ao preço dele."
+      "p4": "Por fim, compare sempre entre fornecedores. O TicketsJet pesquisa muitas companhias aéreas e agências ao mesmo tempo e nunca acrescenta taxas de reserva. Reserva diretamente com o fornecedor, ao preço dele."
     },
     "hotel-booking-mistakes": {
       "title": "7 erros na reserva de hotéis que lhe custam dinheiro",
-      "desc": "Armadilhas do cancelamento gratuito, taxas de resort e o truque do mapa que a maioria dos viajantes ignora — eis como reservar alojamento de forma mais inteligente.",
+      "desc": "Armadilhas do cancelamento gratuito, taxas de resort e o truque do mapa que a maioria dos viajantes ignora. Eis como reservar alojamento de forma mais inteligente.",
       "p1": "Erro um: reservar ao primeiro preço que vê. As tarifas de hotel variam muito entre plataformas para exatamente o mesmo quarto. Uma pesquisa comparativa entre fornecedores encontra regularmente diferenças de 10–25% por noite.",
       "p2": "Erro dois: ignorar o preço total. Taxas de resort, taxas municipais e custos de limpeza podem acrescentar 15–30% à tarifa anunciada. Compare sempre o preço final no pagamento, não o preço-isco por noite.",
-      "p3": "Erro três: reservar não reembolsável demasiado cedo. Se os seus planos tiverem alguma hipótese de mudar, uma tarifa com cancelamento gratuito uns euros mais cara é quase sempre a melhor aposta — pode reservar de novo se os preços baixarem.",
+      "p3": "Erro três: reservar não reembolsável demasiado cedo. Se os seus planos tiverem alguma hipótese de mudar, uma tarifa com cancelamento gratuito uns euros mais cara é quase sempre a melhor aposta. Pode reservar de novo se os preços baixarem.",
       "p4": "Use a vista de mapa. Os hotéis a uma paragem de metro do núcleo turístico são muitas vezes 30–40% mais baratos por um quarto de padrão idêntico, e o trajeto costuma demorar poucos minutos."
     },
     "car-rental-guide": {
@@ -991,7 +991,7 @@
       "p1": "A política de combustível é a primeira coisa a verificar. «Cheio-cheio» (levanta cheio, devolve cheio) é quase sempre o negócio mais justo. As políticas «cheio-vazio» cobram o combustível a taxas premium e não reembolsam nada do que não usa.",
       "p2": "Quanto ao seguro: a tarifa base costuma incluir a isenção de danos por colisão (CDW) com franquia elevada. O seguro de franquia de terceiros comprado online com antecedência é normalmente muito mais barato do que a mesma cobertura vendida ao balcão.",
       "p3": "Tenha um cartão de crédito em nome do condutor principal. A maioria dos balcões exige-o para a caução; os cartões de débito são frequentemente recusados ou levam à compra forçada de seguro.",
-      "p4": "Fotografe o carro — cada painel, rodas, para-brisas e indicador de combustível — na recolha e na devolução. Demora noventa segundos e é a melhor proteção contra disputas de danos."
+      "p4": "Fotografe o carro. Cada painel, rodas, para-brisas e indicador de combustível. Na recolha e na devolução. Demora noventa segundos e é a melhor proteção contra disputas de danos."
     }
   }
 }

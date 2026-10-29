@@ -23,7 +23,7 @@
     "stays": "Noclegi"
   },
   "footer": {
-    "about": "Porównuj loty i wynajem samochodów u wielu dostawców. Żadnych opłat za rezerwację — nigdy. Zawsze rezerwujesz bezpośrednio u dostawcy.",
+    "about": "Porównuj loty i wynajem samochodów u wielu dostawców. Żadnych opłat za rezerwację. Nigdy. Zawsze rezerwujesz bezpośrednio u dostawcy.",
     "search": "Szukaj",
     "cheapFlights": "Tanie loty",
     "explore": "Odkrywaj na mapie",
@@ -44,7 +44,7 @@
     "terms": "Regulamin",
     "affiliate": "Informacja o linkach afiliacyjnych",
     "tagline": "Porównuj i rezerwuj tanie loty z dowolnego miejsca do dowolnego miejsca.",
-    "notSeller": "TicketsJet to wyszukiwarka, a nie sprzedawca. Niektóre linki są afiliacyjne —",
+    "notSeller": "TicketsJet to wyszukiwarka, a nie sprzedawca. Niektóre linki są afiliacyjne, ",
     "learnMore": "dowiedz się więcej",
     "geoNames": "City names: GeoNames, CC BY 4.0"
   },
@@ -83,7 +83,7 @@
     "exploreText": "Wybierz miasto wylotu i zobacz najtańsze loty do celów na całym świecie na jednej mapie.",
     "exploreCta": "Otwórz mapę cen",
     "carsKicker": "Wynajem samochodów",
-    "carsTitle": "Wolność na czterech kołach — bez niespodzianek",
+    "carsTitle": "Wolność na czterech kołach - bez niespodzianek",
     "carsText": "Szukaj samochodów lokalnych i międzynarodowych wypożyczalni i filtruj według kaucji, ubezpieczenia, nowych aut i bezpłatnej rezygnacji.",
     "carsCta": "Szukaj samochodów do wynajęcia",
     "cf1": "Filtr: bez kaucji lub z niską kaucją",
@@ -96,7 +96,7 @@
     "faqTitle": "Rezerwacja z TicketsJet",
     "faqSub": "Wszystko, co warto wiedzieć przed wyszukiwaniem.",
     "faq1q": "Jak działa TicketsJet?",
-    "faq1a": "Przeszukujemy linie lotnicze i biura podróży, aby znaleźć najlepsze opcje lotów. Nie pobieramy opłat za rezerwację — rezerwujesz bezpośrednio u dostawcy, po jego cenie.",
+    "faq1a": "Przeszukujemy linie lotnicze i biura podróży, aby znaleźć najlepsze opcje lotów. Nie pobieramy opłat za rezerwację. Rezerwujesz bezpośrednio u dostawcy, po jego cenie.",
     "faq2q": "Jak znaleźć najtańszy lot?",
     "faq2a": "Szukaj z elastycznymi datami i skorzystaj z wyszukiwarki podróży lub mapy cen, aby odkryć najtańsze kierunki. Loty w środku tygodnia i rezerwacja 3–8 tygodni wcześniej zwykle dają najlepsze ceny na krótkich trasach.",
     "faq3q": "Czy rezerwuję lot w TicketsJet?",
@@ -106,7 +106,7 @@
     "faq5q": "A co z wynajmem samochodów?",
     "faq5a": "Porównujemy czołowe wypożyczalnie, by znaleźć konkurencyjne ceny, bezpłatną rezygnację i uczciwą politykę paliwową „pełny–pełny”.",
     "faq6q": "Co dzieje się po rezerwacji?",
-    "faq6a": "E-mail z potwierdzeniem otrzymasz bezpośrednio od linii lotniczej lub dostawcy, u którego rezerwowałeś. W sprawie zmian lub pomocy skontaktuj się z nimi — to oni mają Twoją rezerwację.",
+    "faq6a": "E-mail z potwierdzeniem otrzymasz bezpośrednio od linii lotniczej lub dostawcy, u którego rezerwowałeś. W sprawie zmian lub pomocy skontaktuj się z nimi. To oni mają Twoją rezerwację.",
     "bannerTitle": "Explore the price map",
     "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
     "bannerCta": "Open the price map"
@@ -115,7 +115,7 @@
     "from": "od",
     "trending": "Na topie",
     "title": "Popularne podróże z {city}",
-    "sub": "Najniższe ceny w obie strony znalezione ostatnio. Ceny często się zmieniają — wyszukiwarka pokaże dzisiejszą.",
+    "sub": "Najniższe ceny w obie strony znalezione ostatnio. Ceny często się zmieniają. Wyszukiwarka pokaże dzisiejszą.",
     "seeMap": "Zobacz wszystkie cele na mapie"
   },
   "tabs": {
@@ -148,7 +148,7 @@
     "removeFlight": "Usuń lot {n}",
     "addFlight": "+ Dodaj kolejny lot",
     "swap": "Zamień wylot i przylot",
-    "departReturn": "Wylot — Powrót",
+    "departReturn": "Wylot - Powrót",
     "depart": "Wylot",
     "addDates": "Dodaj daty",
     "addDate": "Dodaj datę",
@@ -185,7 +185,7 @@
   "stays": {
     "destination": "Cel podróży",
     "city": "Miasto",
-    "checkInOut": "Zameldowanie — Wymeldowanie",
+    "checkInOut": "Zameldowanie - Wymeldowanie",
     "checkOutWord": "Wymeldowanie",
     "guestsRooms": "Goście i pokoje",
     "guestsLabel": "{n, plural, one {# gość} few {# gości} many {# gości} other {# gości}} · {r, plural, one {# pokój} few {# pokoje} many {# pokoi} other {# pokoju}}",
@@ -196,7 +196,7 @@
     "note": "Wyniki otwierają się w Booking.com w nowej karcie, gdzie sfinalizujesz rezerwację.",
     "errDest": "Wybierz cel z listy.",
     "errDates": "Wybierz daty zameldowania i wymeldowania.",
-    "metaTitle": "Hotele i noclegi — szukaj w Booking.com",
+    "metaTitle": "Hotele i noclegi | szukaj w Booking.com",
     "metaDesc": "Znajdź nocleg na swoją podróż. Wybierz miasto i daty, a następnie przejdź do Booking.com, aby porównać pokoje i zarezerwować.",
     "kicker": "Noclegi",
     "h1": "Znajdź nocleg",
@@ -204,7 +204,7 @@
     "popular": "Popularne kierunki hotelowe",
     "hotelsIn": "Hotele w {city}",
     "searchBooking": "Szukaj w Booking.com →",
-    "faqTitle": "FAQ — noclegi",
+    "faqTitle": "FAQ - noclegi",
     "q1": "Czy porównujecie ceny hoteli?",
     "a1": "Jeszcze nie. Nasza wyszukiwarka noclegów przenosi Cię do Booking.com z wypełnionym miastem, datami i gośćmi. Tam porównujesz i rezerwujesz.",
     "q2": "Czy bezpłatne anulowanie jest warte wyższej ceny?",
@@ -264,11 +264,11 @@
     "placeholderTo": "Miasto lub kraj"
   },
   "flights": {
-    "metaTitle": "Tanie loty — porównaj linie w jednym wyszukiwaniu",
+    "metaTitle": "Tanie loty | porównaj linie w jednym wyszukiwaniu",
     "metaDesc": "Porównuj tanie loty w liniach lotniczych i biurach podróży. Elastyczne daty, mapa Odkrywaj i brak dodawanych przez nas opłat za rezerwację.",
     "kicker": "Loty",
     "h1": "Porównuj tanie loty wielu linii lotniczych",
-    "sub": "Jedno wyszukiwanie w liniach lotniczych i biurach. Rezerwuj bezpośrednio u dostawcy — TicketsJet nigdy nie dolicza opłat.",
+    "sub": "Jedno wyszukiwanie w liniach lotniczych i biurach. Rezerwuj bezpośrednio u dostawcy. TicketsJet nigdy nie dolicza opłat.",
     "breadcrumb": "Ścieżka nawigacji",
     "home": "Strona główna",
     "v1t": "Porównaj wielu dostawców",
@@ -289,11 +289,11 @@
     "tip3d": "3–8 tygodni wcześniej na krótkich trasach, 2–5 miesięcy na długich. Okazje last minute na popularnych trasach zdarzają się rzadko.",
     "playbook": "Chcesz pełny poradnik? Przeczytaj nasz przewodnik:",
     "playbookLink": "Jak znaleźć tanie loty w 2026",
-    "faqTitle": "FAQ — wyszukiwanie lotów",
+    "faqTitle": "FAQ - wyszukiwanie lotów",
     "faq1q": "Kiedy najtaniej zarezerwować lot?",
     "faq1a": "Na krótkich trasach najlepsze ceny pojawiają się zwykle 3–8 tygodni przed wylotem. Na długich celuj w 2–5 miesięcy wcześniej. Wtorek i środa to konsekwentnie najtańsze dni na loty.",
     "faq2q": "Czy mogę szukać z elastycznymi datami?",
-    "faq2a": "Tak — pasek pobliskich dat pod wyszukiwarką pokazuje ceny wokół dnia wylotu, a wyszukiwarka podróży porównuje cały miesiąc.",
+    "faq2a": "Tak. Pasek pobliskich dat pod wyszukiwarką pokazuje ceny wokół dnia wylotu, a wyszukiwarka podróży porównuje cały miesiąc.",
     "faq3q": "Czy ceny są ostateczne?",
     "faq3a": "Wyświetlane ceny pochodzą od linii lotniczych i biur podróży. Ostateczna cena jest potwierdzana na stronie dostawcy podczas płatności, przed zapłatą.",
     "faq4q": "Czy mogę zarezerwować elastyczne lub zwrotne bilety?",
@@ -328,7 +328,7 @@
     "learnMore": "Dowiedz się więcej"
   },
   "tfp": {
-    "metaTitle": "Wyszukiwarka podróży — najtańsze loty do miasta lub kraju",
+    "metaTitle": "Wyszukiwarka podróży | najtańsze loty do miasta lub kraju",
     "metaDesc": "Wybierz, skąd i dokąd lecisz, miesiąc lub dokładne daty i zobacz najniższe znalezione ceny. Potem porównaj hotele na te same daty.",
     "kicker": "Wyszukiwarka podróży",
     "h1": "Dokąd chcesz jechać i kiedy?",
@@ -356,7 +356,7 @@
   },
   "meta": {
     "tagline": "Porównaj loty. Bez dodatkowych opłat.",
-    "description": "TicketsJet porównuje linie lotnicze, biura podróży i wypożyczalnie samochodów, aby pomóc Ci znaleźć dobre oferty. Bez opłat za rezerwację — rezerwujesz bezpośrednio u dostawcy."
+    "description": "TicketsJet porównuje linie lotnicze, biura podróży i wypożyczalnie samochodów, aby pomóc Ci znaleźć dobre oferty. Bez opłat za rezerwację. Rezerwujesz bezpośrednio u dostawcy."
   },
   "notice": {
     "untranslated": "Ta strona nie jest jeszcze dostępna w Twoim języku i jest wyświetlana po angielsku."
@@ -408,7 +408,7 @@
     },
     "nyc": {
       "name": "Nowy Jork",
-      "blurb": "Loty obsługują JFK, Newark i LaGuardię — porównaj wszystkie trzy w jednym wyszukiwaniu."
+      "blurb": "Loty obsługują JFK, Newark i LaGuardię. Porównaj wszystkie trzy w jednym wyszukiwaniu."
     },
     "bkk": {
       "name": "Bangkok",
@@ -475,7 +475,7 @@
     "a2": "Najniższa ostatnia cena dotyczy wylotu {date}. Loty w środku tygodnia poza feriami są zwykle tańsze, a elastyczne daty pomagają najbardziej.",
     "a2none": "Loty w środku tygodnia poza feriami są zwykle tańsze, a elastyczne daty pomagają najbardziej.",
     "q3": "Czy są loty bezpośrednie z {from} do {to}?",
-    "a3yes": "Tak — część ostatnich znalezionych cen dotyczyła lotów bezpośrednich. Porównaj w kolumnie przesiadek.",
+    "a3yes": "Tak. Część ostatnich znalezionych cen dotyczyła lotów bezpośrednich. Porównaj w kolumnie przesiadek.",
     "a3no": "Ostatnie znalezione niskie ceny obejmują przesiadkę. Loty bezpośrednie mogą istnieć w wyższej cenie; wyszukaj, aby porównać.",
     "a3unk": "To zależy od dat. Wyszukaj, aby zobaczyć obok siebie loty bezpośrednie i z jedną przesiadką.",
     "q4": "Czy dodajecie opłaty?",
@@ -547,14 +547,14 @@
     }
   },
   "dpi": {
-    "metaTitle": "Zaplanuj podróż — przewodniki po miejscach",
+    "metaTitle": "Zaplanuj podróż | przewodniki po miejscach",
     "metaDesc": "Jedna strona na cel: loty, nocleg, atrakcje i podróżne niezbędniki w jednym miejscu.",
     "kicker": "Zaplanuj podróż",
     "h1": "Wybierz cel i zaplanuj całą podróż",
     "lead": "Loty, hotele, atrakcje i podróżne niezbędniki dla każdego miasta, zebrane na jednej stronie."
   },
   "dp": {
-    "metaTitle": "Zaplanuj podróż do {city} — loty, hotele i atrakcje",
+    "metaTitle": "Zaplanuj podróż do {city} | loty, hotele i atrakcje",
     "metaDesc": "Wszystko na podróż do {city}, {country}: ceny lotów, nocleg, wycieczki i bilety oraz podróżne niezbędniki w jednym miejscu.",
     "kicker": "Zaplanuj podróż · {country}",
     "h1": "Zaplanuj podróż do {city}",
@@ -589,14 +589,14 @@
     "heroTitle": "Cheap flights to {city}"
   },
   "aci": {
-    "metaTitle": "Co robić — wycieczki, bilety i atrakcje według miast",
+    "metaTitle": "Co robić | wycieczki, bilety i atrakcje według miast",
     "metaDesc": "Znajdź popularne wycieczki, bilety do atrakcji i aktywności w czołowych miastach, z wskazówkami dotyczącymi rezerwacji z wyprzedzeniem.",
     "kicker": "Atrakcje",
     "h1": "Co robić",
     "lead": "Wybierz miasto, aby zobaczyć popularne wycieczki i bilety oraz wskazówki do planowania wizyty."
   },
   "ac": {
-    "metaTitle": "Co robić w {city} — wycieczki, bilety i atrakcje",
+    "metaTitle": "Co robić w {city} | wycieczki, bilety i atrakcje",
     "metaDesc": "Popularne wycieczki, bilety do atrakcji i aktywności w {city}, {country}. Wskazówki dotyczące rezerwacji z wyprzedzeniem oraz loty i noclegi.",
     "kicker": "Co robić · {country}",
     "h1": "Co robić w {city}",
@@ -617,7 +617,7 @@
     "heroTitle": "Things to do in {city}"
   },
   "svc": {
-    "metaTitle": "Usługi podróżne — eSIM, transfery lotniskowe, odszkodowanie za lot",
+    "metaTitle": "Usługi podróżne | eSIM, transfery lotniskowe, odszkodowanie za lot",
     "metaDesc": "Przydatne dodatki do podróży: internet mobilny za granicą, odbiór z lotniska i odszkodowanie za opóźnienie lotu.",
     "h1": "Usługi podróżne",
     "lead": "Przydatne dodatki do rezerwacji lotu.",
@@ -628,7 +628,7 @@
     "compT": "Odszkodowanie za lot",
     "compD": "Sprawdź, czy opóźnienie lub odwołanie uprawnia Cię do wypłaty.",
     "how": "Jak to działa",
-    "disclosure": "Otwiera stronę dostawcy. Link partnerski — nie kosztuje Cię nic extra.",
+    "disclosure": "Otwiera stronę dostawcy. Link partnerski. Nie kosztuje Cię nic extra.",
     "lookingFlights": "Szukasz lotów?",
     "searchFlights": "Szukaj lotów",
     "or": "lub przeglądaj",
@@ -636,11 +636,11 @@
     "crumb": "Usługi"
   },
   "esim": {
-    "metaTitle": "eSIM na podróż — internet mobilny za granicą bez roamingu",
+    "metaTitle": "eSIM na podróż | internet mobilny za granicą bez roamingu",
     "metaDesc": "Jak działa eSIM na podróż, dla kogo jest i co sprawdzić przed zakupem. Porównanie z roamingiem i lokalnymi kartami SIM.",
     "eyebrow": "eSIM na podróż",
     "title": "Internet mobilny za granicą, bez rachunków za roaming",
-    "intro": "eSIM na podróż to pakiet danych instalowany w telefonie przed lotem. Lądujesz z połączeniem — bez kolejki po kartę SIM na lotnisku i bez niespodzianek z roamingiem.",
+    "intro": "eSIM na podróż to pakiet danych instalowany w telefonie przed lotem. Lądujesz z połączeniem. Bez kolejki po kartę SIM na lotnisku i bez niespodzianek z roamingiem.",
     "cta": "Zobacz plany eSIM",
     "s1t": "Sprawdź telefon",
     "s1d": "Telefon musi obsługiwać eSIM i nie mieć blokady sieci. Większość telefonów z ostatnich lat to spełnia.",
@@ -664,7 +664,7 @@
     "a4": "Wtedy eSIM nie zadziała. Sprawdź ustawienia telefonu lub stronę producenta albo rozważ lokalną kartę SIM lub kieszonkowy router Wi-Fi."
   },
   "tr": {
-    "metaTitle": "Transfery lotniskowe — zarezerwuj odbiór przed lotem",
+    "metaTitle": "Transfery lotniskowe | zarezerwuj odbiór przed lotem",
     "metaDesc": "Transfery lotniskowe rezerwowane z wyprzedzeniem: jak działają, kiedy wygrywają z taksówką i komunikacją miejską oraz co sprawdzić przed rezerwacją.",
     "eyebrow": "Transfery lotniskowe",
     "title": "Kierowca czeka, gdy lądujesz",
@@ -692,7 +692,7 @@
     "a4": "Płacisz dostawcy przy rezerwacji. TicketsJet nie przyjmuje płatności ani nie dodaje opłat."
   },
   "comp": {
-    "metaTitle": "Odszkodowanie za opóźnienie i odwołanie lotu — sprawdź swoje roszczenie",
+    "metaTitle": "Odszkodowanie za opóźnienie i odwołanie lotu | sprawdź swoje roszczenie",
     "metaDesc": "Lot opóźniony lub odwołany? Dowiedz się, jak działają unijne przepisy o odszkodowaniach i jak sprawdzić, czy możesz dochodzić roszczenia.",
     "eyebrow": "Odszkodowanie za lot",
     "title": "Lot opóźniony lub odwołany? Sprawdź, czy możesz dochodzić roszczenia",
@@ -720,20 +720,20 @@
     "a4": "Nie. Odsyłamy do zewnętrznej firmy odszkodowawczej. TicketsJet nie jest stroną Twojego roszczenia i nie udziela porad prawnych."
   },
   "cars": {
-    "metaTitle": "Porównywarka wynajmu samochodów — kaucja, ubezpieczenie i rezygnacja",
-    "metaDesc": "Szukaj samochodów do wynajęcia od lokalnych i międzynarodowych firm. Filtruj według kaucji, ubezpieczenia, nowych aut i bezpłatnej rezygnacji — wszystko w TicketsJet.",
+    "metaTitle": "Porównywarka wynajmu samochodów | kaucja, ubezpieczenie i rezygnacja",
+    "metaDesc": "Szukaj samochodów do wynajęcia od lokalnych i międzynarodowych firm. Filtruj według kaucji, ubezpieczenia, nowych aut i bezpłatnej rezygnacji. Wszystko w TicketsJet.",
     "kicker": "Samochody",
-    "h1": "Samochody do wynajęcia — porównanie",
+    "h1": "Samochody do wynajęcia. Porównanie",
     "lead": "Szukaj samochodów lokalnych i międzynarodowych wypożyczalni i filtruj według kaucji, ubezpieczenia i bezpłatnej rezygnacji.",
     "moreTitle": "Porównaj więcej ofert wynajmu",
     "moreText": "Chcesz kolejnego punktu odniesienia? Poszukaj poniżej w drugiej grupie wypożyczalni.",
     "guideLead": "Pierwszy raz wynajmujesz za granicą? Przeczytaj nasz przewodnik:",
     "guideLink": "Przewodnik po wynajmie samochodów bez niespodzianek",
-    "faqTitle": "FAQ — wynajem samochodów",
+    "faqTitle": "FAQ - wynajem samochodów",
     "q1": "Co oznacza „pełny–pełny”?",
-    "a1": "Odbierasz auto z pełnym bakiem i oddajesz z pełnym. Zwykle to najuczciwsza polityka paliwowa — płacisz cenę ze stacji tylko za paliwo, które faktycznie zużyłeś.",
+    "a1": "Odbierasz auto z pełnym bakiem i oddajesz z pełnym. Zwykle to najuczciwsza polityka paliwowa. Płacisz cenę ze stacji tylko za paliwo, które faktycznie zużyłeś.",
     "q2": "Czy potrzebuję karty kredytowej?",
-    "a2": "Wiele punktów wynajmu wymaga karty kredytowej na nazwisko głównego kierowcy na poczet kaucji. Niektóre oferty są oznaczone jako niewymagające jej — użyj filtra w wyszukiwarce powyżej.",
+    "a2": "Wiele punktów wynajmu wymaga karty kredytowej na nazwisko głównego kierowcy na poczet kaucji. Niektóre oferty są oznaczone jako niewymagające jej. Użyj filtra w wyszukiwarce powyżej.",
     "q3": "Czy powinienem dokupić dodatkowe ubezpieczenie?",
     "a3": "Podstawowe stawki zwykle obejmują ochronę od szkód z wysokim udziałem własnym. Porównaj, co zawiera każda oferta, i rozważ pełne ubezpieczenie, jeśli chcesz niższy udział własny.",
     "q4": "Czy mogę anulować bezpłatnie?",
@@ -775,7 +775,7 @@
     "heroTitle": "Find the best car rental deals"
   },
   "exp": {
-    "metaTitle": "Odkrywaj tanie loty na mapie cen — znajdź, dokąd lecieć",
+    "metaTitle": "Odkrywaj tanie loty na mapie cen | znajdź, dokąd lecieć",
     "metaDesc": "Zacznij od budżetu, a nie od celu podróży. Zobacz najniższe ceny lotów z Twojego miasta do celów na całym świecie na jednej interaktywnej mapie.",
     "kicker": "Odkrywaj",
     "h1": "Dokąd zabierze Cię Twój budżet?",
@@ -790,7 +790,7 @@
     "c3d": "Wiesz już, dokąd jedziesz? Skorzystaj z pełnej wyszukiwarki lotów z dokładnymi datami i filtrami.",
     "ready": "Gotowy, by szukać dokładnych dat?",
     "open": "Otwórz wyszukiwarkę lotów",
-    "faqTitle": "FAQ — mapa cen",
+    "faqTitle": "FAQ - mapa cen",
     "q1": "Jak działa mapa cen?",
     "a1": "Wybierz miasto wylotu, a mapa pokaże najniższe ostatnie ceny do celów na całym świecie. Przybliż i kliknij cenę, aby zobaczyć daty i otworzyć ofertę.",
     "q2": "Czy te ceny są na żywo?",
@@ -855,7 +855,7 @@
     "legendExpensive": "Expensive"
   },
   "blog": {
-    "metaTitle": "Poradniki i wskazówki podróżne — blog TicketsJet",
+    "metaTitle": "Poradniki i wskazówki podróżne | blog TicketsJet",
     "metaDesc": "Praktyczne poradniki, jak znaleźć tanie loty, mądrzej rezerwować noclegi i wynajmować samochody bez niespodzianek.",
     "kicker": "Blog",
     "h1": "Podróżuj mądrzej, wydawaj mniej",
@@ -871,25 +871,25 @@
     "metaDesc": "Odpowiedzi na najczęstsze pytania o wyszukiwanie i rezerwację lotów oraz wynajmu samochodów z TicketsJet.",
     "kicker": "Centrum pomocy",
     "h1": "W czym możemy pomóc?",
-    "booked": "Już zarezerwowałeś? Twoja rezerwacja jest u linii lotniczej lub dostawcy, u którego rezerwowałeś — w sprawie zmian, anulowania lub zwrotów skontaktuj się z nimi bezpośrednio.",
+    "booked": "Już zarezerwowałeś? Twoja rezerwacja jest u linii lotniczej lub dostawcy, u którego rezerwowałeś. W sprawie zmian, anulowania lub zwrotów skontaktuj się z nimi bezpośrednio.",
     "q1": "Jak działa TicketsJet?",
-    "a1": "Przeszukujemy linie lotnicze i biura podróży, aby znaleźć najlepsze opcje lotów. Nie pobieramy opłat za rezerwację — rezerwujesz bezpośrednio u dostawcy.",
+    "a1": "Przeszukujemy linie lotnicze i biura podróży, aby znaleźć najlepsze opcje lotów. Nie pobieramy opłat za rezerwację. Rezerwujesz bezpośrednio u dostawcy.",
     "q2": "Jak znaleźć najtańszy lot w TicketsJet?",
     "a2": "Spróbuj wyszukać „Gdziekolwiek”, aby odkryć najtańsze kierunki, skorzystaj z kalendarza elastycznych dat i porównaj loty w środku tygodnia, które zwykle są najtańsze.",
     "q3": "Dokąd powinienem teraz zarezerwować lot?",
     "a3": "Sprawdź tablicę cen na naszej stronie głównej lub uruchom wyszukiwanie „Gdziekolwiek” z lotniska macierzystego, aby zobaczyć aktualne okazje w Europie, USA i Azji.",
     "q4": "Czy rezerwuję lot w TicketsJet?",
-    "a4": "Nie — rezerwujesz bezpośrednio u linii lotniczej lub biura podróży na ich platformie. TicketsJet działa wyłącznie jako wyszukiwarka pokazująca zagregowane opcje.",
+    "a4": "Nie. Rezerwujesz bezpośrednio u linii lotniczej lub biura podróży na ich platformie. TicketsJet działa wyłącznie jako wyszukiwarka pokazująca zagregowane opcje.",
     "q5": "Czy TicketsJet obsługuje też hotele?",
     "a5": "Skupiamy się na lotach i wynajmie samochodów. W przypadku hoteli nasza wyszukiwarka noclegów otwiera Booking.com w nowej karcie, gdzie porównujesz i rezerwujesz. TicketsJet nie porównuje jeszcze cen hoteli.",
     "q6": "A co z wynajmem samochodów?",
     "a6": "TicketsJet porównuje czołowe wypożyczalnie samochodów, aby zapewnić konkurencyjne ceny, bezpłatną rezygnację i jasne zasady paliwowe.",
     "q7": "Co dzieje się po rezerwacji lotu?",
-    "a7": "Otrzymasz e-mail z potwierdzeniem bezpośrednio od dostawcy lub linii lotniczej, u których kupiłeś bilet. W sprawach pomocy skontaktuj się z nimi — to oni mają Twoją rezerwację.",
+    "a7": "Otrzymasz e-mail z potwierdzeniem bezpośrednio od dostawcy lub linii lotniczej, u których kupiłeś bilet. W sprawach pomocy skontaktuj się z nimi. To oni mają Twoją rezerwację.",
     "q8": "Czy mogę zarezerwować elastyczny bilet lotniczy?",
     "a8": "Tak. Wiele linii oferuje bilety umożliwiające bezpłatną zmianę daty. Szukaj filtra elastycznych biletów podczas wyszukiwania.",
     "q9": "Czy TicketsJet pobiera opłaty?",
-    "a9": "Nigdy. Nasza usługa jest dla podróżnych bezpłatna. Otrzymujemy prowizję od dostawców, gdy rezerwujesz przez nasze linki — bez dodatkowych kosztów dla Ciebie.",
+    "a9": "Nigdy. Nasza usługa jest dla podróżnych bezpłatna. Otrzymujemy prowizję od dostawców, gdy rezerwujesz przez nasze linki. Bez dodatkowych kosztów dla Ciebie.",
     "q10": "Czy TicketsJet obsługuje moją płatność?",
     "a10": "Nie. Wszystkie płatności odbywają się bezpośrednio na bezpiecznej platformie dostawcy. Nigdy nie widzimy ani nie przechowujemy Twoich danych płatniczych."
   },
@@ -899,14 +899,14 @@
     "kicker": "O nas",
     "h1": "Wyszukiwarka, która pracuje dla podróżnych",
     "p1": "TicketsJet to niezależna wyszukiwarka podróży. Porównujemy loty wielu linii lotniczych i biur podróży oraz wynajem samochodów u czołowych wypożyczalni, a kolejne narzędzia podróżne są w drodze.",
-    "h2": "Co robimy — a czego nie robimy",
+    "h2": "Co robimy. A czego nie robimy",
     "p2": "Pokazujemy rynek obok siebie i kierujemy Cię prosto do dostawcy, by zarezerwować po jego dokładnej cenie. Nigdy nie dodajemy opłat za rezerwację, nie podnosimy cen i nie obsługujemy Twojej płatności. Twoja rezerwacja zawsze pozostaje u linii lotniczej lub wypożyczalni, u której rezerwujesz.",
     "h3": "Jak zarabiamy",
     "p3": "Gdy rezerwujesz przez linki w TicketsJet, dostawca może wypłacić nam prowizję. Nie kosztuje Cię to nic extra i nigdy nie wpływa na widoczne ceny. Przeczytaj nasze <a>ujawnienie programów partnerskich</a>, aby poznać pełny obraz.",
     "h4": "Nasza obietnica",
     "l1": "Ceny pochodzą z linii lotniczych i biur podróży",
     "l2": "Bez dodawanych przez nas opłat za rezerwację ani marży",
-    "l3": "Jasne, uczciwe wskazówki — nawet gdy nic nam to nie daje",
+    "l3": "Jasne, uczciwe wskazówki. Nawet gdy nic nam to nie daje",
     "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
     "creditsH": "Credits",
     "photoCredits": "Photo credits",
@@ -917,11 +917,11 @@
     "metaDesc": "Jak TicketsJet zbiera, wykorzystuje i chroni Twoje dane.",
     "h1": "Polityka prywatności",
     "h2a": "Kim jesteśmy",
-    "p1": "TicketsJet („my”) prowadzi ticketsjet.com, wyszukiwarkę porównującą oferty podróży. Nie przetwarzamy rezerwacji ani płatności — odbywają się one bezpośrednio u dostawców, u których rezerwujesz.",
+    "p1": "TicketsJet („my”) prowadzi ticketsjet.com, wyszukiwarkę porównującą oferty podróży. Nie przetwarzamy rezerwacji ani płatności. Odbywają się one bezpośrednio u dostawców, u których rezerwujesz.",
     "h2b": "Jakie dane zbieramy",
-    "l1": "<b>Dane wyszukiwania</b> — trasy, daty i cele, których szukasz, używane do wyświetlania wyników.",
-    "l2": "<b>Dane o użytkowaniu</b> — anonimowa analityka, np. odwiedzone strony i typ urządzenia, używana do ulepszania serwisu.",
-    "l3": "<b>Pliki cookie</b> — używane do działania serwisu, analityki i reklam (w tym Google AdSense) oraz śledzenia partnerskiego przez naszych partnerów podróżnych.",
+    "l1": "<b>Dane wyszukiwania</b>. Trasy, daty i cele, których szukasz, używane do wyświetlania wyników.",
+    "l2": "<b>Dane o użytkowaniu</b>. Anonimowa analityka, np. odwiedzone strony i typ urządzenia, używana do ulepszania serwisu.",
+    "l3": "<b>Pliki cookie</b>. Używane do działania serwisu, analityki i reklam (w tym Google AdSense) oraz śledzenia partnerskiego przez naszych partnerów podróżnych.",
     "h2c": "Czego nigdy nie zbieramy",
     "p2": "Nigdy nie widzimy ani nie przechowujemy Twoich danych płatniczych, danych paszportowych ani zapisów rezerwacji. Obsługuje je w całości linia lotnicza, hotel lub wypożyczalnia, u których rezerwujesz.",
     "h2d": "Strony trzecie",
@@ -956,7 +956,7 @@
     "h1": "Ujawnienie programów partnerskich",
     "p1": "TicketsJet to bezpłatna usługa porównywania. Aby pozostała bezpłatna, uczestniczymy w programach partnerskich linii lotniczych, internetowych biur podróży, platform rezerwacji hoteli i wypożyczalni samochodów.",
     "h2": "Co to oznacza w praktyce",
-    "p2": "Gdy klikniesz link w TicketsJet i sfinalizujesz rezerwację na stronie dostawcy, dostawca ten może wypłacić nam prowizję. Pochodzi ona z budżetu marketingowego dostawcy — <b>nigdy nie jest doliczana do Twojej ceny</b>. Płacisz dokładnie tyle, ile zapłaciłbyś, idąc bezpośrednio do dostawcy.",
+    "p2": "Gdy klikniesz link w TicketsJet i sfinalizujesz rezerwację na stronie dostawcy, dostawca ten może wypłacić nam prowizję. Pochodzi ona z budżetu marketingowego dostawcy, <b>nigdy nie jest doliczana do Twojej ceny</b>. Płacisz dokładnie tyle, ile zapłaciłbyś, idąc bezpośrednio do dostawcy.",
     "h3": "Nasza niezależność redakcyjna",
     "p3": "Prowizje nie wpływają na kolejność ani treść wyników wyszukiwania, które zależą od ceny i trafności. Nasze poradniki i rekomendacje odzwierciedlają to, co naprawdę uważamy za pomocne dla podróżnych, niezależnie od relacji handlowych.",
     "h4": "Jak rozpoznać linki partnerskie",
@@ -971,18 +971,18 @@
   "post": {
     "how-to-find-cheap-flights": {
       "title": "Jak znaleźć tanie loty w 2026: 9 taktyk, które naprawdę działają",
-      "desc": "Od wyszukiwania z elastycznymi datami po kierunki „Gdziekolwiek” — sprawdzone sposoby na obniżenie ceny biletów bez rezygnowania z tego, co ważne.",
+      "desc": "Od wyszukiwania z elastycznymi datami po kierunki „Gdziekolwiek”. Sprawdzone sposoby na obniżenie ceny biletów bez rezygnowania z tego, co ważne.",
       "p1": "Największym czynnikiem ceny biletu jest elastyczność. Jeśli możesz przesunąć wylot choćby o dwa-trzy dni, wyszukiwanie w widoku kalendarza często pokazuje ceny o 20–40% niższe niż w pierwotnych terminach. Loty w środku tygodnia (wtorek i środa) są konsekwentnie tańsze niż w piątek i niedzielę.",
       "p2": "Po drugie: szukaj według regionu, nie miasta. Wyszukiwanie „Gdziekolwiek” lub całego kraju pozwala danym o cenach wskazać, gdzie są okazje, zamiast narzucać trasę i płacić, ile każą. Wiele najlepszych podróży zaczyna się od ceny, a nie od celu.",
-      "p3": "Po trzecie: rezerwuj w najlepszym momencie. Na krótkich trasach najlepsze ceny zwykle pojawiają się 3–8 tygodni przed wylotem, na długich — 2–5 miesięcy. Oferty last minute na popularnych trasach to w większości mit.",
-      "p4": "Na koniec zawsze porównuj różnych dostawców. TicketsJet przeszukuje wiele linii lotniczych i biur jednocześnie i nigdy nie dodaje opłat za rezerwację — rezerwujesz bezpośrednio u dostawcy, po jego cenie."
+      "p3": "Po trzecie: rezerwuj w najlepszym momencie. Na krótkich trasach najlepsze ceny zwykle pojawiają się 3–8 tygodni przed wylotem, na długich, 2–5 miesięcy. Oferty last minute na popularnych trasach to w większości mit.",
+      "p4": "Na koniec zawsze porównuj różnych dostawców. TicketsJet przeszukuje wiele linii lotniczych i biur jednocześnie i nigdy nie dodaje opłat za rezerwację. Rezerwujesz bezpośrednio u dostawcy, po jego cenie."
     },
     "hotel-booking-mistakes": {
       "title": "7 błędów przy rezerwacji hoteli, które kosztują Cię pieniądze",
-      "desc": "Pułapki bezpłatnego anulowania, opłaty kurortowe i trik z mapą, który pomija większość podróżnych — oto jak mądrzej rezerwować noclegi.",
+      "desc": "Pułapki bezpłatnego anulowania, opłaty kurortowe i trik z mapą, który pomija większość podróżnych. Oto jak mądrzej rezerwować noclegi.",
       "p1": "Błąd pierwszy: rezerwacja po pierwszej zobaczonej cenie. Stawki hotelowe za dokładnie ten sam pokój znacznie różnią się między platformami. Porównanie u różnych dostawców regularnie znajduje różnice rzędu 10–25% za noc.",
       "p2": "Błąd drugi: ignorowanie ceny całkowitej. Opłaty kurortowe, podatki miejskie i opłaty za sprzątanie mogą dodać 15–30% do ceny reklamowej. Zawsze porównuj ostateczną cenę przy płatności, a nie wabik za noc.",
-      "p3": "Błąd trzeci: zbyt wczesna rezerwacja bez możliwości zwrotu. Jeśli Twoje plany mają choćby cień szansy na zmianę, stawka z bezpłatnym anulowaniem o kilka euro droższa jest prawie zawsze lepszym wyborem — możesz zarezerwować ponownie, gdy ceny spadną.",
+      "p3": "Błąd trzeci: zbyt wczesna rezerwacja bez możliwości zwrotu. Jeśli Twoje plany mają choćby cień szansy na zmianę, stawka z bezpłatnym anulowaniem o kilka euro droższa jest prawie zawsze lepszym wyborem. Możesz zarezerwować ponownie, gdy ceny spadną.",
       "p4": "Korzystaj z widoku mapy. Hotele położone jedną stację metra od turystycznego centrum są często o 30–40% tańsze przy identycznym standardzie pokoju, a dojazd zwykle zajmuje kilka minut."
     },
     "car-rental-guide": {
@@ -991,7 +991,7 @@
       "p1": "Polityka paliwowa to pierwsza rzecz do sprawdzenia. „Pełny–pełny” (odbierasz pełny, oddajesz pełny) to prawie zawsze najuczciwsza opcja. Polityki „pełny–pusty” liczą paliwo po zawyżonych stawkach i nie zwracają niczego za niewykorzystane.",
       "p2": "Odnośnie do ubezpieczenia: stawka podstawowa zwykle obejmuje ochronę od szkód kolizyjnych (CDW) z wysokim udziałem własnym. Ubezpieczenie udziału własnego od osoby trzeciej kupione online z wyprzedzeniem jest zwykle znacznie tańsze niż to samo pokrycie sprzedawane przy okienku.",
       "p3": "Miej kartę kredytową na nazwisko głównego kierowcy. Większość punktów wynajmu wymaga jej na poczet kaucji; karty debetowe są często odrzucane lub wymuszają zakup ubezpieczenia.",
-      "p4": "Sfotografuj samochód — każdy element nadwozia, koła, szybę czołową i wskaźnik paliwa — przy odbiorze i zwrocie. Zajmuje to dziewięćdziesiąt sekund i jest najlepszą ochroną przed sporami o szkody."
+      "p4": "Sfotografuj samochód. Każdy element nadwozia, koła, szybę czołową i wskaźnik paliwa. Przy odbiorze i zwrocie. Zajmuje to dziewięćdziesiąt sekund i jest najlepszą ochroną przed sporami o szkody."
     }
   }
 }

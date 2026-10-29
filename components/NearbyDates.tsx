@@ -34,7 +34,7 @@ export default async function NearbyDates({ origin, dest, depart }: { origin: st
               <span className="block text-sm font-semibold">
                 {dayMonth(d, locale)}
               </span>
-              <span className={`mt-1 block text-sm font-bold ${f && f.p === lo ? "text-signal" : ""}`}>{f ? <Price usd={f.p} /> : "—"}</span>
+              <span className={`mt-1 block text-sm font-bold ${f && f.p === lo ? "text-signal" : ""}`}>{f ? <Price usd={f.p} /> : "-"}</span>
             </>
           );
           const base = "block min-w-[88px] rounded-xl border px-3 py-2 text-center transition";

@@ -17,7 +17,7 @@ export const DESTS: Record<string, Place> = {
   ruh: { code: "RUH", name: "Riyadh", country: "Saudi Arabia", blurb: "The capital's King Khalid airport is well connected to Europe, Asia and the Gulf." },
   jed: { code: "JED", name: "Jeddah", country: "Saudi Arabia", blurb: "Gateway to Makkah and the Red Sea coast, with busy seasonal demand." },
   cmn: { code: "CMN", name: "Casablanca", country: "Morocco", blurb: "Morocco's main hub, with many direct flights from Europe." },
-  nyc: { code: "NYC", name: "New York", country: "United States", blurb: "Flights serve JFK, Newark and LaGuardia — compare all three in one search." },
+  nyc: { code: "NYC", name: "New York", country: "United States", blurb: "Flights serve JFK, Newark and LaGuardia. Compare all three in one search." },
   bkk: { code: "BKK", name: "Bangkok", country: "Thailand", blurb: "A common first stop for travel across Southeast Asia." },
   mnl: { code: "MNL", name: "Manila", country: "Philippines", blurb: "Long-haul routes usually include one stop; compare duration as well as price." },
   ams: { code: "AMS", name: "Amsterdam", country: "Netherlands", blurb: "Schiphol is one of Europe's largest hubs, with excellent connections." },

@@ -23,7 +23,7 @@
     "stays": "Stays"
   },
   "footer": {
-    "about": "Compare flights and car rentals from many providers. No booking fees — ever. You always book directly with the provider.",
+    "about": "Compare flights and car rentals from many providers. No booking fees. Ever. You always book directly with the provider.",
     "search": "Search",
     "cheapFlights": "Cheap flights",
     "explore": "Explore on the map",
@@ -44,7 +44,7 @@
     "terms": "Terms of service",
     "affiliate": "Affiliate disclosure",
     "tagline": "Compare and book cheap flights from anywhere, to everywhere.",
-    "notSeller": "TicketsJet is a search engine, not a seller. Some links are affiliate links —",
+    "notSeller": "TicketsJet is a search engine, not a seller. Some links are affiliate links, ",
     "learnMore": "learn more",
     "geoNames": "City names: GeoNames, CC BY 4.0"
   },
@@ -96,7 +96,7 @@
     "faqTitle": "Booking with TicketsJet",
     "faqSub": "Everything you need to know before you search.",
     "faq1q": "How does TicketsJet work?",
-    "faq1a": "We search airlines and travel agents to find the best flight options. We don't charge booking fees — you book directly with the provider at their price.",
+    "faq1a": "We search airlines and travel agents to find the best flight options. We don't charge booking fees. You book directly with the provider at their price.",
     "faq2q": "How can I find the cheapest flight?",
     "faq2a": "Search flexible dates and try the trip finder or the price map to explore the lowest-cost destinations. Mid-week departures and booking 3–8 weeks ahead usually surface the best fares on short-haul routes.",
     "faq3q": "Do I book my flight with TicketsJet?",
@@ -106,7 +106,7 @@
     "faq5q": "What about car rentals?",
     "faq5a": "We compare leading rental companies for competitive prices, free cancellation options and fair full-to-full fuel policies.",
     "faq6q": "What happens after I book?",
-    "faq6a": "Your confirmation email comes directly from the airline or provider you booked with. For changes or support, contact them directly — they hold your reservation.",
+    "faq6a": "Your confirmation email comes directly from the airline or provider you booked with. For changes or support, contact them directly. They hold your reservation.",
     "bannerTitle": "Explore the price map",
     "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
     "bannerCta": "Open the price map"
@@ -115,7 +115,7 @@
     "from": "from",
     "trending": "Trending",
     "title": "Popular trips from {city}",
-    "sub": "Lowest return fares found recently. Prices change often — the search shows today's price.",
+    "sub": "Lowest return fares found recently. Prices change often. The search shows today's price.",
     "seeMap": "See every destination on the map"
   },
   "tabs": {
@@ -148,7 +148,7 @@
     "removeFlight": "Remove flight {n}",
     "addFlight": "+ Add another flight",
     "swap": "Swap departure and arrival",
-    "departReturn": "Depart — Return",
+    "departReturn": "Depart - Return",
     "depart": "Depart",
     "addDates": "Add dates",
     "addDate": "Add date",
@@ -185,7 +185,7 @@
   "stays": {
     "destination": "Destination",
     "city": "City",
-    "checkInOut": "Check-in — Check-out",
+    "checkInOut": "Check-in - Check-out",
     "checkOutWord": "Check-out",
     "guestsRooms": "Guests & rooms",
     "guestsLabel": "{n, plural, one {# guest} other {# guests}} · {r, plural, one {# room} other {# rooms}}",
@@ -196,7 +196,7 @@
     "note": "Results open on Booking.com in a new tab, where you complete the booking.",
     "errDest": "Choose a destination from the list.",
     "errDates": "Pick your check-in and check-out dates.",
-    "metaTitle": "Hotels & Stays — Search on Booking.com",
+    "metaTitle": "Hotels & Stays | Search on Booking.com",
     "metaDesc": "Find a place to stay for your trip. Pick a city and dates and continue to Booking.com to compare rooms and book.",
     "kicker": "Stays",
     "h1": "Find a place to stay",
@@ -264,11 +264,11 @@
     "placeholderTo": "City or country"
   },
   "flights": {
-    "metaTitle": "Cheap Flights — Compare Airlines in One Search",
+    "metaTitle": "Cheap Flights | Compare Airlines in One Search",
     "metaDesc": "Compare cheap flights across airlines and travel agents. Flexible dates, an Explore map and no booking fees added by us.",
     "kicker": "Flights",
     "h1": "Compare cheap flights across many airlines",
-    "sub": "One search across airlines and agencies. Book directly with the provider — TicketsJet never adds fees.",
+    "sub": "One search across airlines and agencies. Book directly with the provider. TicketsJet never adds fees.",
     "breadcrumb": "Breadcrumb",
     "home": "Home",
     "v1t": "Compare many providers",
@@ -293,7 +293,7 @@
     "faq1q": "When is the cheapest time to book a flight?",
     "faq1a": "For short-haul routes, the best fares usually appear 3–8 weeks before departure. For long-haul, aim for 2–5 months out. Tuesday and Wednesday departures are consistently the cheapest days to fly.",
     "faq2q": "Can I search flexible dates?",
-    "faq2a": "Yes — the strip of nearby dates under your search shows fares around your departure day, and the trip finder compares a whole month.",
+    "faq2a": "Yes. The strip of nearby dates under your search shows fares around your departure day, and the trip finder compares a whole month.",
     "faq3q": "Are the prices final?",
     "faq3a": "Prices shown come from airlines and agencies. The final price is confirmed on the provider's own site during checkout, before you pay.",
     "faq4q": "Can I book flexible or refundable tickets?",
@@ -328,7 +328,7 @@
     "learnMore": "Learn more"
   },
   "tfp": {
-    "metaTitle": "Trip Finder — Cheapest Flights to a City or Country",
+    "metaTitle": "Trip Finder | Cheapest Flights to a City or Country",
     "metaDesc": "Pick where you're flying from and where to, choose a month or exact dates, and see the lowest fares found. Then compare hotels for the same dates.",
     "kicker": "Trip finder",
     "h1": "Where do you want to go, and when?",
@@ -356,7 +356,7 @@
   },
   "meta": {
     "tagline": "Compare flights. Skip the markup.",
-    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. TicketsJet compares airlines, travel agencies and car rental companies to help you find good travel deals. No booking fees — you book directly with the provider."
+    "description": "TicketsJet compares flights, airlines, travel agencies and car rentals. TicketsJet compares airlines, travel agencies and car rental companies to help you find good travel deals. No booking fees. You book directly with the provider."
   },
   "notice": {
     "untranslated": "This page isn't available in your language yet and is shown in English."
@@ -408,7 +408,7 @@
     },
     "nyc": {
       "name": "New York",
-      "blurb": "Flights serve JFK, Newark and LaGuardia — compare all three in one search."
+      "blurb": "Flights serve JFK, Newark and LaGuardia. Compare all three in one search."
     },
     "bkk": {
       "name": "Bangkok",
@@ -475,7 +475,7 @@
     "a2": "The lowest recent fare departs on {date}. Mid-week departures outside school holidays are usually cheaper, and flexible dates help most.",
     "a2none": "Mid-week departures outside school holidays are usually cheaper, and flexible dates help most.",
     "q3": "Are there direct flights from {from} to {to}?",
-    "a3yes": "Yes — some of the recent fares we found were direct. Use the stops column to compare.",
+    "a3yes": "Yes. Some of the recent fares we found were direct. Use the stops column to compare.",
     "a3no": "The recent low fares we found include a stop. Direct flights may still exist at a higher price; search to compare.",
     "a3unk": "This depends on the dates. Search to see direct and one-stop options side by side.",
     "q4": "Do you add fees?",
@@ -547,14 +547,14 @@
     }
   },
   "dpi": {
-    "metaTitle": "Plan a Trip — Destination Guides",
+    "metaTitle": "Plan a Trip | Destination Guides",
     "metaDesc": "One page per destination: flights, a place to stay, things to do and travel essentials, all in one place.",
     "kicker": "Plan a trip",
     "h1": "Pick a destination, plan the whole trip",
     "lead": "Flights, hotels, things to do and travel essentials for each city, gathered on one page."
   },
   "dp": {
-    "metaTitle": "Plan a Trip to {city} — Flights, Hotels & Things to Do",
+    "metaTitle": "Plan a Trip to {city} | Flights, Hotels & Things to Do",
     "metaDesc": "Everything for a trip to {city}, {country}: flight prices, where to stay, tours and tickets, and travel essentials in one place.",
     "kicker": "Plan a trip · {country}",
     "h1": "Plan your trip to {city}",
@@ -589,14 +589,14 @@
     "heroTitle": "Cheap flights to {city}"
   },
   "aci": {
-    "metaTitle": "Things to Do — Tours, Tickets & Activities by City",
+    "metaTitle": "Things to Do | Tours, Tickets & Activities by City",
     "metaDesc": "Find popular tours, attraction tickets and activities in top travel cities, with tips for booking ahead.",
     "kicker": "Activities",
     "h1": "Things to do",
     "lead": "Pick a city to see popular tours and tickets, plus tips for planning your visit."
   },
   "ac": {
-    "metaTitle": "Things to Do in {city} — Tours, Tickets & Activities",
+    "metaTitle": "Things to Do in {city} | Tours, Tickets & Activities",
     "metaDesc": "Popular tours, attraction tickets and activities in {city}, {country}. Tips for booking ahead, plus flights and stays.",
     "kicker": "Things to do · {country}",
     "h1": "Things to do in {city}",
@@ -617,7 +617,7 @@
     "heroTitle": "Things to do in {city}"
   },
   "svc": {
-    "metaTitle": "Travel Services — eSIM, Airport Transfers, Flight Compensation",
+    "metaTitle": "Travel Services | eSIM, Airport Transfers, Flight Compensation",
     "metaDesc": "Useful extras for your trip: mobile data abroad, airport pickups and flight delay compensation.",
     "h1": "Travel services",
     "lead": "Handy extras that go with a flight booking.",
@@ -628,7 +628,7 @@
     "compT": "Flight compensation",
     "compD": "Check if a delay or cancellation entitles you to a payout.",
     "how": "How it works",
-    "disclosure": "Opens the provider's site. Affiliate link — it costs you nothing extra.",
+    "disclosure": "Opens the provider's site. Affiliate link. It costs you nothing extra.",
     "lookingFlights": "Looking for flights?",
     "searchFlights": "Search flights",
     "or": "or browse",
@@ -636,11 +636,11 @@
     "crumb": "Services"
   },
   "esim": {
-    "metaTitle": "Travel eSIM — Mobile Data Abroad Without Roaming Fees",
+    "metaTitle": "Travel eSIM | Mobile Data Abroad Without Roaming Fees",
     "metaDesc": "How a travel eSIM works, who it suits, and what to check before you buy. Compare it with roaming and local SIM cards.",
     "eyebrow": "Travel eSIM",
     "title": "Mobile data abroad, without roaming bills",
-    "intro": "A travel eSIM is a data plan you install on your phone before you fly. You land connected — no airport SIM queue, no surprise roaming charges.",
+    "intro": "A travel eSIM is a data plan you install on your phone before you fly. You land connected. No airport SIM queue, no surprise roaming charges.",
     "cta": "See eSIM plans",
     "s1t": "Check your phone",
     "s1d": "Your phone must support eSIM and be network-unlocked. Most phones from the last few years do.",
@@ -664,7 +664,7 @@
     "a4": "Then an eSIM won't work. Check your phone settings or the manufacturer's site, or consider a local SIM or pocket Wi-Fi instead."
   },
   "tr": {
-    "metaTitle": "Airport Transfers — Book a Pickup Before You Fly",
+    "metaTitle": "Airport Transfers | Book a Pickup Before You Fly",
     "metaDesc": "Pre-booked airport transfers: how they work, when they beat taxis and public transport, and what to check before you book.",
     "eyebrow": "Airport transfers",
     "title": "A driver waiting when you land",
@@ -692,7 +692,7 @@
     "a4": "You pay the provider when you book. TicketsJet doesn't take payments or add fees."
   },
   "comp": {
-    "metaTitle": "Flight Delay & Cancellation Compensation — Check Your Claim",
+    "metaTitle": "Flight Delay & Cancellation Compensation | Check Your Claim",
     "metaDesc": "Were you delayed or cancelled? Learn how EU flight compensation rules work and how to check whether you can claim.",
     "eyebrow": "Flight compensation",
     "title": "Delayed or cancelled flight? Check if you can claim",
@@ -731,9 +731,9 @@
     "guideLink": "The no-surprises car rental guide",
     "faqTitle": "Car rental FAQ",
     "q1": "What does full-to-full mean?",
-    "a1": "You collect the car with a full tank and return it full. It's usually the fairest fuel policy — you only pay pump prices for the fuel you actually use.",
+    "a1": "You collect the car with a full tank and return it full. It's usually the fairest fuel policy. You only pay pump prices for the fuel you actually use.",
     "q2": "Do I need a credit card?",
-    "a2": "Many rental desks require a credit card in the main driver's name for the security deposit. Some offers are marked as not requiring one — use the filter in the search above.",
+    "a2": "Many rental desks require a credit card in the main driver's name for the security deposit. Some offers are marked as not requiring one. Use the filter in the search above.",
     "q3": "Should I buy extra insurance?",
     "a3": "Basic rates usually include a damage waiver with a high excess. Compare what each offer includes, and consider full-insurance options if you want a lower excess.",
     "q4": "Can I cancel for free?",
@@ -775,7 +775,7 @@
     "heroTitle": "Find the best car rental deals"
   },
   "exp": {
-    "metaTitle": "Explore Cheap Flights on a Price Map — Find Where to Fly",
+    "metaTitle": "Explore Cheap Flights on a Price Map | Find Where to Fly",
     "metaDesc": "Start from your budget, not the destination. See the cheapest flight prices from your city to destinations around the world on one interactive map.",
     "kicker": "Explore",
     "h1": "Where can your budget take you?",
@@ -855,7 +855,7 @@
     "legendExpensive": "Expensive"
   },
   "blog": {
-    "metaTitle": "Travel Guides & Tips — The TicketsJet Blog",
+    "metaTitle": "Travel Guides & Tips | The TicketsJet Blog",
     "metaDesc": "Practical guides on finding cheap flights, booking smarter stays and renting cars without surprises.",
     "kicker": "Blog",
     "h1": "Travel smarter, spend less",
@@ -871,25 +871,25 @@
     "metaDesc": "Answers to common questions about searching and booking flights and car rentals with TicketsJet.",
     "kicker": "Help centre",
     "h1": "How can we help?",
-    "booked": "Booked already? Your reservation is held by the airline or provider you booked with — contact them directly for changes, cancellations or refunds.",
+    "booked": "Booked already? Your reservation is held by the airline or provider you booked with. Contact them directly for changes, cancellations or refunds.",
     "q1": "How does TicketsJet work?",
-    "a1": "We search airlines and travel agents to find the best flight options. We don't charge booking fees — you book directly with the provider.",
+    "a1": "We search airlines and travel agents to find the best flight options. We don't charge booking fees. You book directly with the provider.",
     "q2": "How can I find the cheapest flight using TicketsJet?",
     "a2": "Try searching 'Everywhere' to explore lowest-cost destinations, use the flexible-date calendar, and compare mid-week departures which are usually cheapest.",
     "q3": "Where should I book a flight to right now?",
     "a3": "Check the fare board on our homepage or run an 'Everywhere' search from your home airport to see the current budget deals across Europe, the US and Asia.",
     "q4": "Do I book my flight with TicketsJet?",
-    "a4": "No — you book directly with the airline or travel agent on their platform. TicketsJet acts strictly as a search engine showing you the aggregated choices.",
+    "a4": "No. You book directly with the airline or travel agent on their platform. TicketsJet acts strictly as a search engine showing you the aggregated choices.",
     "q5": "Does TicketsJet do hotels too?",
     "a5": "Flights and car rentals are our focus. For hotels, our Stays search opens Booking.com in a new tab, where you compare and book. TicketsJet doesn't compare hotel prices yet.",
     "q6": "What about car rentals?",
     "a6": "TicketsJet compares leading car rental companies to bring you competitive prices, free-cancellation options and clear fuel policies.",
     "q7": "What happens after I've booked my flight?",
-    "a7": "You will receive a confirmation email directly from the vendor or airline you purchased from. Reach out to them directly for any support questions — they hold your reservation.",
+    "a7": "You will receive a confirmation email directly from the vendor or airline you purchased from. Reach out to them directly for any support questions. They hold your reservation.",
     "q8": "Can I book a flexible flight ticket?",
     "a8": "Yes. Many airlines provide tickets that allow date changes without fees. Look for the flexible filter during your search.",
     "q9": "Does TicketsJet charge any fees?",
-    "a9": "Never. Our service is free for travellers. We earn a commission from providers when you book through our links — at no extra cost to you.",
+    "a9": "Never. Our service is free for travellers. We earn a commission from providers when you book through our links. At no extra cost to you.",
     "q10": "Is my payment handled by TicketsJet?",
     "a10": "No. All payments are made directly on the provider's secure platform. We never see or store your payment details."
   },
@@ -899,14 +899,14 @@
     "kicker": "About",
     "h1": "A search engine that works for travellers",
     "p1": "TicketsJet is an independent travel search engine. We compare flights across many airlines and travel agents, and car rentals across leading rental companies, with more travel tools on the way.",
-    "h2": "What we do — and what we don't",
+    "h2": "What we do. And what we don't",
     "p2": "We show you the market, side by side, and send you directly to the provider to book at their exact price. We never add booking fees, never mark up prices and never handle your payment. Your reservation always lives with the airline or rental company you book with.",
     "h3": "How we make money",
     "p3": "When you book through links on TicketsJet, the provider may pay us a commission. This costs you nothing extra and never affects the prices you see. Read our <a>affiliate disclosure</a> for the full picture.",
     "h4": "Our promise",
     "l1": "Prices sourced from airlines and travel agencies",
     "l2": "No booking fees or markups added by us",
-    "l3": "Clear, honest guidance — even when it earns us nothing",
+    "l3": "Clear, honest guidance. Even when it earns us nothing",
     "credits": "City names in some languages come from GeoNames (geonames.org), licensed under <a>CC BY 4.0</a>.",
     "creditsH": "Credits",
     "photoCredits": "Photo credits",
@@ -917,11 +917,11 @@
     "metaDesc": "How TicketsJet collects, uses and protects your data.",
     "h1": "Privacy policy",
     "h2a": "Who we are",
-    "p1": "TicketsJet (\"we\") operates ticketsjet.com, a travel comparison search engine. We do not process bookings or payments — those happen directly with the providers you book with.",
+    "p1": "TicketsJet (\"we\") operates ticketsjet.com, a travel comparison search engine. We do not process bookings or payments. Those happen directly with the providers you book with.",
     "h2b": "Data we collect",
-    "l1": "<b>Search data</b> — routes, dates and destinations you search, used to display results.",
-    "l2": "<b>Usage data</b> — anonymous analytics such as pages visited and device type, used to improve the site.",
-    "l3": "<b>Cookies</b> — used for site functionality, analytics and advertising (including Google AdSense) and affiliate tracking by our travel partners.",
+    "l1": "<b>Search data</b>. Routes, dates and destinations you search, used to display results.",
+    "l2": "<b>Usage data</b>. Anonymous analytics such as pages visited and device type, used to improve the site.",
+    "l3": "<b>Cookies</b>. Used for site functionality, analytics and advertising (including Google AdSense) and affiliate tracking by our travel partners.",
     "h2c": "What we never collect",
     "p2": "We never see or store your payment details, passport information or booking records. These are handled entirely by the airline, hotel or rental provider you book with.",
     "h2d": "Third parties",
@@ -956,7 +956,7 @@
     "h1": "Affiliate disclosure",
     "p1": "TicketsJet is a free comparison service. To keep it free, we participate in affiliate programs with airlines, online travel agencies, hotel booking platforms and car rental companies.",
     "h2": "What this means in practice",
-    "p2": "When you click a link on TicketsJet and complete a booking on a provider's site, that provider may pay us a commission. This commission comes out of the provider's marketing budget — <b>it is never added to your price</b>. You pay exactly what you would pay going to the provider directly.",
+    "p2": "When you click a link on TicketsJet and complete a booking on a provider's site, that provider may pay us a commission. This commission comes out of the provider's marketing budget, <b>it is never added to your price</b>. You pay exactly what you would pay going to the provider directly.",
     "h3": "Our editorial independence",
     "p3": "Commissions do not influence the order or content of search results, which are driven by price and relevance. Our guides and recommendations reflect what we genuinely believe helps travellers, regardless of commercial relationships.",
     "h4": "Identifying affiliate links",
@@ -971,27 +971,27 @@
   "post": {
     "how-to-find-cheap-flights": {
       "title": "How to Find Cheap Flights in 2026: 9 Tactics That Actually Work",
-      "desc": "From flexible-date search to 'Everywhere' destinations, these are the proven ways to cut your airfare — without cutting corners.",
+      "desc": "From flexible-date search to 'Everywhere' destinations, these are the proven ways to cut your airfare. Without cutting corners.",
       "p1": "The single biggest lever on airfare is flexibility. If you can shift your departure by even two or three days, calendar-view search will often surface fares 20–40% lower than your original dates. Mid-week departures (Tuesday and Wednesday) remain consistently cheaper than Friday and Sunday.",
       "p2": "Second: search by region, not by city. Searching 'Everywhere' or a whole country lets the fare data tell you where the deals are, instead of forcing a route and paying whatever it costs. Many of the best trips start with a price, not a destination.",
       "p3": "Third: book the sweet spot. For short-haul flights, the best fares typically appear 3–8 weeks before departure; for long-haul, 2–5 months. Last-minute deals are mostly a myth on popular routes.",
-      "p4": "Finally, always compare across providers. TicketsJet searches many airlines and agencies at once and never adds booking fees — you book directly with the provider at their price."
+      "p4": "Finally, always compare across providers. TicketsJet searches many airlines and agencies at once and never adds booking fees. You book directly with the provider at their price."
     },
     "hotel-booking-mistakes": {
       "title": "7 Hotel Booking Mistakes That Cost You Money",
-      "desc": "Free cancellation traps, resort fees, and the map trick most travellers miss — here's how to book smarter stays.",
+      "desc": "Free cancellation traps, resort fees, and the map trick most travellers miss. Here's how to book smarter stays.",
       "p1": "Mistake one: booking on the first price you see. Hotel rates vary widely between platforms for the exact same room. A comparison search across providers routinely finds differences of 10–25% per night.",
       "p2": "Mistake two: ignoring the total price. Resort fees, city taxes and cleaning charges can add 15–30% to the headline rate. Always compare the final checkout price, not the nightly teaser.",
-      "p3": "Mistake three: booking non-refundable too early. If your plans have any chance of changing, a free-cancellation rate a few euros higher is almost always the better bet — you can rebook if prices drop.",
+      "p3": "Mistake three: booking non-refundable too early. If your plans have any chance of changing, a free-cancellation rate a few euros higher is almost always the better bet. You can rebook if prices drop.",
       "p4": "Use the map view. Hotels one metro stop outside the tourist core are often 30–40% cheaper for an identical standard of room, and the commute is usually minutes."
     },
     "car-rental-guide": {
       "title": "The No-Surprises Car Rental Guide: Insurance, Fuel and Deposits Explained",
       "desc": "What full-to-full really means, when extra insurance is worth it, and how to avoid the counter upsell.",
-      "p1": "Fuel policy is the first thing to check. 'Full-to-full' — pick up full, return full — is almost always the fairest deal. 'Full-to-empty' policies charge premium fuel rates and refund nothing for what you don't use.",
+      "p1": "Fuel policy is the first thing to check. 'Full-to-full'. Pick up full, return full. Is almost always the fairest deal. 'Full-to-empty' policies charge premium fuel rates and refund nothing for what you don't use.",
       "p2": "On insurance: the basic rate usually includes Collision Damage Waiver with a high excess (deductible). Third-party excess insurance bought online in advance is typically far cheaper than the same cover sold at the rental counter.",
       "p3": "Hold a credit card in the main driver's name. Most rental desks require one for the security deposit; debit cards are frequently refused or trigger forced insurance purchases.",
-      "p4": "Photograph the car — every panel, wheels, windscreen and fuel gauge — at pickup and at return. It takes ninety seconds and it is the single best protection against damage disputes."
+      "p4": "Photograph the car. Every panel, wheels, windscreen and fuel gauge. At pickup and at return. It takes ninety seconds and it is the single best protection against damage disputes."
     }
   }
 }

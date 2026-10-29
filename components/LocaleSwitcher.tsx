@@ -122,7 +122,7 @@ export default function LocaleSwitcher() {
               </div>
               <div className="relative mt-2">
                 <div className="relative"><button id={id + "-c"} type="button" onClick={() => { setCurOpen((o) => !o); setLangOpen(false); }} aria-haspopup="listbox" aria-expanded={curOpen} className={field + " text-start"}>
-                  <span>{cur}{cname(cur) ? " — " + cname(cur) : ""}</span>
+                  <span>{cur}{cname(cur) ? " - " + cname(cur) : ""}</span>
                 </button>
                 {chevron}</div>
                 {curOpen && (
@@ -130,7 +130,7 @@ export default function LocaleSwitcher() {
                     {[...POPULAR, ...CURRENCIES.filter((c) => !(POPULAR as readonly string[]).includes(c))].map((c) => (
                       <li key={c} role="option" aria-selected={c === cur}>
                         <button type="button" onClick={() => { setCur(c as Currency); setCurOpen(false); }} className={"flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2 text-start text-sm " + (c === cur ? "bg-amber/20 font-semibold" : "hover:bg-cloud")}>
-                          <span>{c}{cname(c) ? " — " + cname(c) : ""}</span>
+                          <span>{c}{cname(c) ? " - " + cname(c) : ""}</span>
                           {c === cur && <span aria-hidden>✓</span>}
                         </button>
                       </li>

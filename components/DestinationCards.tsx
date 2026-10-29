@@ -46,7 +46,7 @@ export default async function DestinationCards({ origin, items }: { origin: { co
             <li key={d.code} className="relative">
               <Link
                 href={d.href}
-                title={`${d.name}, ${d.country} — from ${d.price} USD${dateLabel}`}
+                title={`${d.name}, ${d.country} - from ${d.price} USD${dateLabel}`}
                 aria-label={`${d.name}, ${d.country}. ${routeLabel}${dateLabel}. From ${d.price} dollars.`}
                 className={`group relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-2xl p-5 text-white shadow-md transition hover:-translate-y-1 hover:shadow-xl ${hasPhoto ? "" : `bg-gradient-to-br ${GRADS[i % GRADS.length]}`}`}
                 style={!hasPhoto && PHOTOS[d.code] ? { backgroundImage: `linear-gradient(to top, rgba(11,27,43,.85), rgba(11,27,43,.1)), url(${PHOTOS[d.code]})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined}

@@ -148,7 +148,7 @@
     "removeFlight": "Flug {n} entfernen",
     "addFlight": "+ Weiteren Flug hinzufügen",
     "swap": "Abflug und Ankunft tauschen",
-    "departReturn": "Hinflug — Rückflug",
+    "departReturn": "Hinflug - Rückflug",
     "depart": "Hinflug",
     "addDates": "Daten hinzufügen",
     "addDate": "Datum hinzufügen",
@@ -185,7 +185,7 @@
   "stays": {
     "destination": "Reiseziel",
     "city": "Stadt",
-    "checkInOut": "Anreise — Abreise",
+    "checkInOut": "Anreise - Abreise",
     "checkOutWord": "Abreise",
     "guestsRooms": "Gäste & Zimmer",
     "guestsLabel": "{n, plural, one {# Gast} other {# Gäste}} · {r, plural, one {# Zimmer} other {# Zimmer}}",

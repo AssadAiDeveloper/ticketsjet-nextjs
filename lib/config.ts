@@ -8,7 +8,7 @@ export const SITE = {
   url: "https://ticketsjet.com",
   tagline: "Cheap flights, compared in one search.",
   description:
-    "TicketsJet compares airlines, travel agencies and car rental companies to help you find good travel deals. No booking fees — you book directly with the provider.",
+    "TicketsJet compares airlines, travel agencies and car rental companies to help you find good travel deals. No booking fees. You book directly with the provider.",
 };
 
 // --- Partner credentials (من لوحة الشريك: ID 271745) ---

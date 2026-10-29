@@ -44,7 +44,7 @@
     "terms": "Condiciones del servicio",
     "affiliate": "Divulgación de afiliados",
     "tagline": "Compara y reserva vuelos baratos desde cualquier lugar, a cualquier lugar.",
-    "notSeller": "TicketsJet es un buscador, no un vendedor. Algunos enlaces son de afiliados —",
+    "notSeller": "TicketsJet es un buscador, no un vendedor. Algunos enlaces son de afiliados, ",
     "learnMore": "más información",
     "geoNames": "City names: GeoNames, CC BY 4.0"
   },
@@ -148,7 +148,7 @@
     "removeFlight": "Quitar vuelo {n}",
     "addFlight": "+ Añadir otro vuelo",
     "swap": "Intercambiar salida y llegada",
-    "departReturn": "Ida — Vuelta",
+    "departReturn": "Ida - Vuelta",
     "depart": "Ida",
     "addDates": "Añadir fechas",
     "addDate": "Añadir fecha",
@@ -185,7 +185,7 @@
   "stays": {
     "destination": "Destino",
     "city": "Ciudad",
-    "checkInOut": "Entrada — Salida",
+    "checkInOut": "Entrada - Salida",
     "checkOutWord": "Salida",
     "guestsRooms": "Huéspedes y habitaciones",
     "guestsLabel": "{n, plural, one {# huésped} other {# huéspedes}} · {r, plural, one {# habitación} other {# habitaciones}}",
@@ -196,7 +196,7 @@
     "note": "Los resultados se abren en Booking.com en una pestaña nueva, donde completas la reserva.",
     "errDest": "Elige un destino de la lista.",
     "errDates": "Elige las fechas de entrada y salida.",
-    "metaTitle": "Hoteles y alojamiento — Busca en Booking.com",
+    "metaTitle": "Hoteles y alojamiento | Busca en Booking.com",
     "metaDesc": "Encuentra dónde alojarte en tu viaje. Elige una ciudad y fechas y continúa a Booking.com para comparar habitaciones y reservar.",
     "kicker": "Alojamiento",
     "h1": "Encuentra dónde alojarte",
@@ -264,7 +264,7 @@
     "placeholderTo": "Ciudad o país"
   },
   "flights": {
-    "metaTitle": "Vuelos baratos — Compara aerolíneas en una búsqueda",
+    "metaTitle": "Vuelos baratos | Compara aerolíneas en una búsqueda",
     "metaDesc": "Compara vuelos baratos entre aerolíneas y agencias de viajes. Fechas flexibles, mapa Explorar y sin comisiones de reserva añadidas por nosotros.",
     "kicker": "Vuelos",
     "h1": "Compara vuelos baratos de muchas aerolíneas",
@@ -328,7 +328,7 @@
     "learnMore": "Más información"
   },
   "tfp": {
-    "metaTitle": "Buscador de viajes — Vuelos más baratos a una ciudad o país",
+    "metaTitle": "Buscador de viajes | Vuelos más baratos a una ciudad o país",
     "metaDesc": "Elige de dónde sales y a dónde vas, escoge un mes o fechas exactas y consulta las tarifas más bajas encontradas. Después compara hoteles para las mismas fechas.",
     "kicker": "Buscador de viajes",
     "h1": "¿A dónde quieres ir y cuándo?",
@@ -547,14 +547,14 @@
     }
   },
   "dpi": {
-    "metaTitle": "Planifica un viaje — Guías de destinos",
+    "metaTitle": "Planifica un viaje | Guías de destinos",
     "metaDesc": "Una página por destino: vuelos, dónde alojarte, qué hacer y lo esencial para viajar, todo en un solo lugar.",
     "kicker": "Planifica un viaje",
     "h1": "Elige un destino y planifica todo el viaje",
     "lead": "Vuelos, hoteles, qué hacer y lo esencial para viajar de cada ciudad, reunido en una sola página."
   },
   "dp": {
-    "metaTitle": "Planifica un viaje a {city} — Vuelos, hoteles y qué hacer",
+    "metaTitle": "Planifica un viaje a {city} | Vuelos, hoteles y qué hacer",
     "metaDesc": "Todo para un viaje a {city}, {country}: precios de vuelos, dónde alojarte, tours y entradas, y lo esencial para viajar en un solo lugar.",
     "kicker": "Planifica un viaje · {country}",
     "h1": "Planifica tu viaje a {city}",
@@ -589,14 +589,14 @@
     "heroTitle": "Cheap flights to {city}"
   },
   "aci": {
-    "metaTitle": "Qué hacer — Tours, entradas y actividades por ciudad",
+    "metaTitle": "Qué hacer | Tours, entradas y actividades por ciudad",
     "metaDesc": "Encuentra tours populares, entradas a atracciones y actividades en las principales ciudades, con consejos para reservar con antelación.",
     "kicker": "Actividades",
     "h1": "Qué hacer",
     "lead": "Elige una ciudad para ver tours y entradas populares, además de consejos para planificar tu visita."
   },
   "ac": {
-    "metaTitle": "Qué hacer en {city} — Tours, entradas y actividades",
+    "metaTitle": "Qué hacer en {city} | Tours, entradas y actividades",
     "metaDesc": "Tours populares, entradas a atracciones y actividades en {city}, {country}. Consejos para reservar con antelación, además de vuelos y alojamiento.",
     "kicker": "Qué hacer · {country}",
     "h1": "Qué hacer en {city}",
@@ -617,7 +617,7 @@
     "heroTitle": "Things to do in {city}"
   },
   "svc": {
-    "metaTitle": "Servicios de viaje — eSIM, traslados al aeropuerto, compensación de vuelos",
+    "metaTitle": "Servicios de viaje | eSIM, traslados al aeropuerto, compensación de vuelos",
     "metaDesc": "Extras útiles para tu viaje: datos móviles en el extranjero, recogida en el aeropuerto y compensación por retraso de vuelo.",
     "h1": "Servicios de viaje",
     "lead": "Extras prácticos que acompañan a una reserva de vuelo.",
@@ -636,7 +636,7 @@
     "crumb": "Servicios"
   },
   "esim": {
-    "metaTitle": "eSIM de viaje — Datos móviles en el extranjero sin roaming",
+    "metaTitle": "eSIM de viaje | Datos móviles en el extranjero sin roaming",
     "metaDesc": "Cómo funciona una eSIM de viaje, a quién le conviene y qué revisar antes de comprar. Compárala con el roaming y las SIM locales.",
     "eyebrow": "eSIM de viaje",
     "title": "Datos móviles en el extranjero, sin facturas de roaming",
@@ -664,7 +664,7 @@
     "a4": "Entonces una eSIM no funcionará. Revisa los ajustes del móvil o la web del fabricante, o plantéate una SIM local o un Wi-Fi portátil."
   },
   "tr": {
-    "metaTitle": "Traslados al aeropuerto — Reserva una recogida antes de volar",
+    "metaTitle": "Traslados al aeropuerto | Reserva una recogida antes de volar",
     "metaDesc": "Traslados al aeropuerto reservados con antelación: cómo funcionan, cuándo superan al taxi y al transporte público, y qué revisar antes de reservar.",
     "eyebrow": "Traslados al aeropuerto",
     "title": "Un conductor te espera al aterrizar",
@@ -692,7 +692,7 @@
     "a4": "Pagas al proveedor al reservar. TicketsJet no cobra pagos ni añade comisiones."
   },
   "comp": {
-    "metaTitle": "Compensación por retraso y cancelación de vuelos — Comprueba tu reclamación",
+    "metaTitle": "Compensación por retraso y cancelación de vuelos | Comprueba tu reclamación",
     "metaDesc": "¿Tu vuelo se retrasó o se canceló? Descubre cómo funcionan las normas de compensación de la UE y cómo comprobar si puedes reclamar.",
     "eyebrow": "Compensación de vuelos",
     "title": "¿Vuelo retrasado o cancelado? Comprueba si puedes reclamar",
@@ -720,7 +720,7 @@
     "a4": "No. Enlazamos con un servicio de reclamaciones de terceros. TicketsJet no es parte de tu reclamación ni ofrece asesoramiento legal."
   },
   "cars": {
-    "metaTitle": "Comparador de alquiler de coches — Compara fianza, seguro y cancelación",
+    "metaTitle": "Comparador de alquiler de coches | Compara fianza, seguro y cancelación",
     "metaDesc": "Busca coches de alquiler de empresas locales e internacionales. Filtra por fianza, seguro, coches nuevos y cancelación gratuita, todo en TicketsJet.",
     "kicker": "Coches",
     "h1": "Coches de alquiler, comparados",
@@ -775,7 +775,7 @@
     "heroTitle": "Find the best car rental deals"
   },
   "exp": {
-    "metaTitle": "Explora vuelos baratos en un mapa de precios — Descubre a dónde volar",
+    "metaTitle": "Explora vuelos baratos en un mapa de precios | Descubre a dónde volar",
     "metaDesc": "Empieza por tu presupuesto, no por el destino. Consulta los precios de vuelo más baratos desde tu ciudad a destinos de todo el mundo en un mapa interactivo.",
     "kicker": "Explorar",
     "h1": "¿A dónde te lleva tu presupuesto?",
@@ -855,7 +855,7 @@
     "legendExpensive": "Expensive"
   },
   "blog": {
-    "metaTitle": "Guías y consejos de viaje — El blog de TicketsJet",
+    "metaTitle": "Guías y consejos de viaje | El blog de TicketsJet",
     "metaDesc": "Guías prácticas para encontrar vuelos baratos, reservar mejor el alojamiento y alquilar coches sin sorpresas.",
     "kicker": "Blog",
     "h1": "Viaja con más cabeza, gasta menos",
@@ -991,7 +991,7 @@
       "p1": "La política de combustible es lo primero que hay que revisar. «Lleno a lleno» (recoges lleno, devuelves lleno) es casi siempre el trato más justo. Las políticas «lleno a vacío» cobran el combustible a tarifa premium y no devuelven nada de lo que no usas.",
       "p2": "Sobre el seguro: la tarifa básica suele incluir la exención por colisión (CDW) con una franquicia alta. El seguro de franquicia de terceros contratado online con antelación suele ser mucho más barato que la misma cobertura vendida en el mostrador.",
       "p3": "Ten una tarjeta de crédito a nombre del conductor principal. La mayoría de los mostradores la exigen para la fianza; las tarjetas de débito se rechazan con frecuencia o provocan la compra de seguros obligatorios.",
-      "p4": "Fotografía el coche —cada panel, las ruedas, el parabrisas y el indicador de combustible— al recogerlo y al devolverlo. Lleva noventa segundos y es la mejor protección contra disputas por daños."
+      "p4": "Fotografía el coche. Cada panel, las ruedas, el parabrisas y el indicador de combustible. Al recogerlo y al devolverlo. Lleva noventa segundos y es la mejor protección contra disputas por daños."
     }
   }
 }
