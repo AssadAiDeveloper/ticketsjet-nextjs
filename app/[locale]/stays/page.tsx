@@ -37,7 +37,7 @@ export default async function StaysPage({ params }: { params: Promise<{ locale: 
   return (
     <>
       <PageHero title={t("heroTitle")} photoKey="stays">
-        <div className="boarding-pass mt-6 max-w-3xl px-5 py-6 sm:px-7">
+        <div className="boarding-pass mt-6 px-5 py-6 sm:px-7">
           <StaysForm />
         </div>
       </PageHero>
