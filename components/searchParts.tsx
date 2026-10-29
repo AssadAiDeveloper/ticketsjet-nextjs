@@ -7,7 +7,7 @@ import { pickerDate } from "@/lib/format";
 export type City = { code: string; name: string; country: string; kind?: "country" | "everywhere" };
 
 /** Autocomplete city field backed by /api/cities */
-export function CityField({ label, value, onPick, placeholder, withCountries, compact, allowEverywhere }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string; withCountries?: boolean; compact?: boolean; allowEverywhere?: boolean }) {
+export function CityField({ label, value, onPick, placeholder, withCountries, compact, allowEverywhere, onTyped, hideCode }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string; withCountries?: boolean; compact?: boolean; allowEverywhere?: boolean; onTyped?: (s: string) => void; hideCode?: boolean }) {
   const t = useTranslations("form");
   const locale = useLocale();
   const [text, setText] = useState("");
@@ -30,10 +30,11 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
     <div className="relative">
       <label className="block font-mono text-[10px] uppercase tracking-widest text-slate">{label}</label>
       <input
-        value={value ? (value.kind === "everywhere" ? `\u{1F30D} ${value.name}` : value.kind === "country" ? `${value.name} - ${t("anyCity")}` : `${value.name} (${value.code})`) : text}
+        value={value ? (value.kind === "everywhere" ? `\u{1F30D} ${value.name}` : value.kind === "country" ? `${value.name} - ${t("anyCity")}` : hideCode ? value.name : `${value.name} (${value.code})`) : text}
         onChange={(e) => {
           onPick(null);
           setText(e.target.value);
+          onTyped?.(e.target.value);
           setOpen(true);
         }}
         onFocus={(e) => {
