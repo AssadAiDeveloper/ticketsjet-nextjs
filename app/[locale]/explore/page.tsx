@@ -52,9 +52,6 @@ export default async function ExplorePage({ params, searchParams }: { params: Pr
         <div className="boarding-pass p-2 sm:p-3">
           <PriceMap names={names} initialOrigin={origin} />
         </div>
-        <p className="mt-3 text-xs text-slate">
-          {t("note")}
-        </p>
       </section>
 
       <AdSlot slot="7777777777" className="mt-10" />
