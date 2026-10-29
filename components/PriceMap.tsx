@@ -23,17 +23,8 @@ function flightsHref(origin: string, p: Point, prefix: string) {
   return `${prefix}/flights?${q.toString()}#results`;
 }
 
+import { regionOf } from "@/lib/regions";
 const REGIONS = ["europe", "asia", "africa", "northamerica", "southamerica", "oceania", "middleeast"] as const;
-function regionOf(lat: number, lng: number): string {
-  if (lat > 35 && lng > -30 && lng < 60) return "europe";
-  if (lat > 10 && lng >= 30 && lng < 60) return "middleeast";
-  if (lat > 0 && lng >= 60 && lng < 180) return "asia";
-  if (lat >= -35 && lat <= 35 && lng >= -20 && lng <= 55) return "africa";
-  if (lat > 0 && lng < -30) return "northamerica";
-  if (lat < 0 && lng < -30) return "southamerica";
-  if (lat < 0 && lng >= 100) return "oceania";
-  return "other";
-}
 
 function niceStep(v: number) {
   if (v <= 0) return 50;

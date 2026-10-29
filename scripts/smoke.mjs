@@ -39,7 +39,7 @@ console.log("");
 const paths = ["/", "/flights", "/stays", "/cars", "/explore", "/blog", "/help", "/privacy-policy", "/destinations", "/cheap-flights", "/activities", "/services", "/about-us", "/terms-and-conditions", "/affiliate-disclosure", "/trip-finder"];
 const viewports = [{w:375,h:800},{w:1280,h:800}];
 
-const IGNORE_HOSTS = ["travelpayouts","google-analytics","googletagmanager","doubleclick","adservice","facebook","hotjar","sentry","avsplow","fonts.googleapis.com","fonts.gstatic.com","economybookings.com","targetcircle.com"];
+const IGNORE_HOSTS = ["travelpayouts","google-analytics","googletagmanager","doubleclick","adservice","facebook","hotjar","sentry","avsplow","fonts.googleapis.com","fonts.gstatic.com","economybookings.com","targetcircle.com","wway.io"];
 
 const browser = await chromium.launch();
 const failures = [];
