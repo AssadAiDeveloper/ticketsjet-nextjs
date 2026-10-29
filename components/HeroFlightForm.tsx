@@ -327,7 +327,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
       ) : (
         <div className="grid gap-2 md:grid-cols-[1fr_auto] md:items-stretch">
           <div className="grid rounded-xl border border-mist bg-white transition focus-within:border-amber md:grid-cols-[2fr_1.35fr_minmax(11rem,1fr)] [&_input]:mt-0 [&_input]:rounded-none [&_input]:border-0 [&_input]:bg-transparent [&_input]:px-0 [&_input]:py-1 [&_button[aria-haspopup=dialog]]:mt-0 [&_button[aria-haspopup=dialog]]:rounded-none [&_button[aria-haspopup=dialog]]:border-0 [&_button[aria-haspopup=dialog]]:bg-transparent [&_button[aria-haspopup=dialog]]:px-0 [&_button[aria-haspopup=dialog]]:py-1 [&>div:nth-child(n+2)]:border-t [&>div:nth-child(n+2)]:border-mist [&>div:nth-child(n+2)]:px-3 [&>div:nth-child(n+2)]:py-2.5 md:[&>div:nth-child(n+2)]:border-s md:[&>div:nth-child(n+2)]:border-t-0">
-          <div className="relative grid sm:grid-cols-2 [&>div]:px-3 [&>div]:py-2.5 sm:[&>div:nth-child(2)]:border-s [&>div:nth-child(2)]:border-t [&>div:nth-child(2)]:border-mist sm:[&>div:nth-child(2)]:border-t-0">
+          <div className="relative grid sm:grid-cols-2 [&>div]:px-3 sm:[&>div:nth-child(2)]:ps-7 sm:[&>div:nth-child(1)]:pe-7 [&>div]:py-2.5 sm:[&>div:nth-child(2)]:border-s [&>div:nth-child(2)]:border-t [&>div:nth-child(2)]:border-mist sm:[&>div:nth-child(2)]:border-t-0">
             <CityField label={t("from")} value={from} onPick={setFrom} placeholder={t("cityPlaceholder")} />
             <CityField label={t("to")} value={to} onPick={setTo} placeholder={t("cityPlaceholder")} allowEverywhere />
             <button
