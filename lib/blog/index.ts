@@ -7,8 +7,12 @@ import { meta as m3 } from "../../content/posts/car-rental-guide/meta";
 import { meta as m4 } from "../../content/posts/flight-delay-compensation-eu261/meta";
 import { meta as m5 } from "../../content/posts/esim-vs-local-sim-vs-roaming/meta";
 import { meta as m6 } from "../../content/posts/schiphol-airport-guide/meta";
+import { meta as m7 } from "../../content/posts/baggage-fees-cabin-bag-guide/meta";
+import { meta as m8 } from "../../content/posts/train-vs-flight-europe/meta";
+import { meta as m9 } from "../../content/posts/multi-city-open-jaw-flights/meta";
+import { meta as m10 } from "../../content/posts/first-hour-after-landing/meta";
 
-export const POST_SLUGS = ["how-to-find-cheap-flights", "hotel-booking-mistakes", "car-rental-guide", "flight-delay-compensation-eu261", "esim-vs-local-sim-vs-roaming", "schiphol-airport-guide"] as const;
+export const POST_SLUGS = ["how-to-find-cheap-flights", "hotel-booking-mistakes", "car-rental-guide", "flight-delay-compensation-eu261", "esim-vs-local-sim-vs-roaming", "schiphol-airport-guide", "baggage-fees-cabin-bag-guide", "train-vs-flight-europe", "multi-city-open-jaw-flights", "first-hour-after-landing"] as const;
 
 const METAS: Record<string, PostMeta> = {
   "how-to-find-cheap-flights": m1,
@@ -17,6 +21,10 @@ const METAS: Record<string, PostMeta> = {
   "flight-delay-compensation-eu261": m4,
   "esim-vs-local-sim-vs-roaming": m5,
   "schiphol-airport-guide": m6,
+  "baggage-fees-cabin-bag-guide": m7,
+  "train-vs-flight-europe": m8,
+  "multi-city-open-jaw-flights": m9,
+  "first-hour-after-landing": m10,
 };
 
 // Content registry: slug -> locale -> PostContent
@@ -32,6 +40,14 @@ import { content as c5_en } from "../../content/posts/esim-vs-local-sim-vs-roami
 
 import { content as c6_en } from "../../content/posts/schiphol-airport-guide/en";
 
+import { content as c7_en } from "../../content/posts/baggage-fees-cabin-bag-guide/en";
+
+import { content as c8_en } from "../../content/posts/train-vs-flight-europe/en";
+
+import { content as c9_en } from "../../content/posts/multi-city-open-jaw-flights/en";
+
+import { content as c10_en } from "../../content/posts/first-hour-after-landing/en";
+
 const CONTENT: Record<string, Record<string, PostContent>> = {
   "how-to-find-cheap-flights": { en: c1_en },
   "hotel-booking-mistakes": { en: c2_en },
@@ -39,6 +55,10 @@ const CONTENT: Record<string, Record<string, PostContent>> = {
   "flight-delay-compensation-eu261": { en: c4_en },
   "esim-vs-local-sim-vs-roaming": { en: c5_en },
   "schiphol-airport-guide": { en: c6_en },
+  "baggage-fees-cabin-bag-guide": { en: c7_en },
+  "train-vs-flight-europe": { en: c8_en },
+  "multi-city-open-jaw-flights": { en: c9_en },
+  "first-hour-after-landing": { en: c10_en },
 };
 
 export function allPosts() {
