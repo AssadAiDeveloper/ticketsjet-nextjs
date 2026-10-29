@@ -325,8 +325,9 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
           </div>
         </div>
       ) : (
-        <div className="grid gap-1.5 md:grid-cols-[2fr_1.35fr_minmax(11rem,1fr)_auto] md:items-end">
-          <div className="relative grid gap-1.5 sm:grid-cols-2 sm:gap-x-0 sm:[&>div:nth-child(1)_input]:rounded-e-none sm:[&>div:nth-child(1)_input]:pe-6 sm:[&>div:nth-child(2)_input]:rounded-s-none sm:[&>div:nth-child(2)]:-ms-px sm:[&>div:nth-child(2)_input]:ps-6">
+        <div className="grid gap-2 md:grid-cols-[1fr_auto] md:items-stretch">
+          <div className="grid rounded-xl border border-mist bg-white transition focus-within:border-amber md:grid-cols-[2fr_1.35fr_minmax(11rem,1fr)] [&_input]:mt-0 [&_input]:rounded-none [&_input]:border-0 [&_input]:bg-transparent [&_input]:px-0 [&_input]:py-1 [&_button[aria-haspopup=dialog]]:mt-0 [&_button[aria-haspopup=dialog]]:rounded-none [&_button[aria-haspopup=dialog]]:border-0 [&_button[aria-haspopup=dialog]]:bg-transparent [&_button[aria-haspopup=dialog]]:px-0 [&_button[aria-haspopup=dialog]]:py-1 [&>div:nth-child(n+2)]:border-t [&>div:nth-child(n+2)]:border-mist [&>div:nth-child(n+2)]:px-3 [&>div:nth-child(n+2)]:py-2.5 md:[&>div:nth-child(n+2)]:border-s md:[&>div:nth-child(n+2)]:border-t-0">
+          <div className="relative grid sm:grid-cols-2 [&>div]:px-3 [&>div]:py-2.5 sm:[&>div:nth-child(2)]:border-s [&>div:nth-child(2)]:border-t [&>div:nth-child(2)]:border-mist sm:[&>div:nth-child(2)]:border-t-0">
             <CityField label={t("from")} value={from} onPick={setFrom} placeholder={t("cityPlaceholder")} />
             <CityField label={t("to")} value={to} onPick={setTo} placeholder={t("cityPlaceholder")} allowEverywhere />
             <button
@@ -336,7 +337,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
                 setTo(from);
               }}
               aria-label={t("swap")}
-              className="absolute end-2 top-[calc(50%+10px)] group z-10 grid h-8 w-8 -translate-y-1/2 place-items-center sm:end-auto sm:start-1/2 sm:-translate-x-1/2 sm:rtl:translate-x-1/2 rounded-full border border-mist bg-white text-ink shadow-sm ring-4 ring-white transition hover:border-amber hover:bg-amber"
+              className="absolute end-3 top-1/2 group z-10 grid h-8 w-8 -translate-y-1/2 place-items-center sm:end-auto sm:start-1/2 sm:-translate-x-1/2 sm:rtl:translate-x-1/2 rounded-full border border-mist bg-white text-ink shadow-sm ring-4 ring-white transition hover:border-amber hover:bg-amber"
             >
               <svg className="transition-transform duration-300 group-hover:rotate-180" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7" /></svg>
             </button>
@@ -383,6 +384,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
           </div>
 
           {paxField}
+          </div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-1 py-1 md:hidden"><label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink"><input type="checkbox" checked={direct} onChange={(e) => setDirect(e.target.checked)} className="h-4 w-4 accent-[#FFB703]" />{t("direct")}</label><label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink"><input type="checkbox" checked={bags} onChange={(e) => setBags(e.target.checked)} className="h-4 w-4 accent-[#FFB703]" />{t("bags")}</label></div>
           {submitBtn}
         </div>
