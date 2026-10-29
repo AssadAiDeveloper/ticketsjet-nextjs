@@ -370,7 +370,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
         <div className="relative">
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-from">{t("from")}</label>
           <input id="pm-from" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={`${originLabel} (${origin})`} autoComplete="off"
-            className="mt-1 w-full lg:w-44 rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber" />
+            className="mt-1 w-full lg:w-36 rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber" />
           {suggest.length > 0 && (
             <ul className="absolute z-[1000] mt-1 w-56 overflow-hidden rounded-lg border border-mist bg-white shadow-lg">
               {suggest.map((c) => (
@@ -386,20 +386,20 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-dest">{t("destinationSearch")}</label>
           <div className="mt-1 flex gap-1">
             <input id="pm-dest" value={destQuery} onChange={(e) => setDestQuery(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { const q = destQuery.toLowerCase(); const m = (data?.points || []).find((p) => (p.name || "").toLowerCase().includes(q) || (names[p.code] || "").toLowerCase().includes(q)); if (m && mapRef.current) { mapRef.current.setView([m.lat, m.lng], 6); const mk = (window as any).__m; } } }} placeholder={t("destinationPlaceholder")} autoComplete="off"
-              className="min-w-0 flex-1 lg:w-40 lg:flex-none rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber" />
+              className="min-w-0 flex-1 lg:w-32 lg:flex-none rounded-lg border border-mist bg-white px-3 py-2 text-sm text-ink outline-none focus:border-amber" />
           </div>
         </div>
         <div>
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-min">{priceCurrency}</label>
           <div className="mt-2 flex items-center gap-2" dir="ltr">
-            <input id="pm-min" type="text" inputMode="numeric" autoComplete="off" value={minTxt} onChange={(e) => setMinTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[0] * rate))} aria-label={`${priceCurrency} min`} className="min-w-0 flex-1 lg:w-24 lg:flex-none rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
+            <input id="pm-min" type="text" inputMode="numeric" autoComplete="off" value={minTxt} onChange={(e) => setMinTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[0] * rate))} aria-label={`${priceCurrency} min`} className="min-w-0 flex-1 lg:w-20 lg:flex-none rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
             <span className="text-slate">-</span>
-            <input id="pm-max" type="text" inputMode="numeric" autoComplete="off" value={maxTxt} onChange={(e) => setMaxTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[1] * rate))} aria-label={`${priceCurrency} max`} className="min-w-0 flex-1 lg:w-24 lg:flex-none rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
+            <input id="pm-max" type="text" inputMode="numeric" autoComplete="off" value={maxTxt} onChange={(e) => setMaxTxt(e.target.value.replace(/[^\d]/g, ""))} placeholder={String(Math.round(range[1] * rate))} aria-label={`${priceCurrency} max`} className="min-w-0 flex-1 lg:w-20 lg:flex-none rounded-lg border border-slate/30 bg-white px-3 py-2 text-sm" />
           </div>
         </div>
         <div className="relative">
           <label className="block font-mono text-[11px] uppercase tracking-widest text-slate" htmlFor="pm-when">{t("when")}</label>
-          <button id="pm-when" type="button" onClick={() => { setDOpen((o) => !o); setSOpen(false); }} aria-expanded={dOpen} className="mt-1 flex w-full items-center justify-between gap-2 rounded-lg border border-mist bg-white px-3 py-2 text-start text-sm text-ink outline-none focus:border-amber lg:w-44">
+          <button id="pm-when" type="button" onClick={() => { setDOpen((o) => !o); setSOpen(false); }} aria-expanded={dOpen} className="mt-1 flex w-full items-center justify-between gap-2 rounded-lg border border-mist bg-white px-3 py-2 text-start text-sm text-ink outline-none focus:border-amber lg:w-36">
             <span className="truncate">{dLabel}</span>
             <span aria-hidden className="text-slate">▾</span>
           </button>
@@ -459,7 +459,7 @@ export default function PriceMap({ names = {}, initialOrigin }: { names?: Record
         </div>
         <div className="flex items-center gap-2">
           <div className="relative w-full lg:w-auto">
-            <button type="button" onClick={() => { setSOpen((o) => !o); setDOpen(false); }} aria-expanded={sOpen} className="mt-1 flex w-full items-center justify-between gap-2 rounded-lg border border-mist bg-white px-3 py-2 text-start text-sm text-ink outline-none focus:border-amber lg:w-40">
+            <button type="button" onClick={() => { setSOpen((o) => !o); setDOpen(false); }} aria-expanded={sOpen} className="mt-1 flex w-full items-center justify-between gap-2 rounded-lg border border-mist bg-white px-3 py-2 text-start text-sm text-ink outline-none focus:border-amber lg:w-36">
               <span className="truncate">{sortOpts.find((o) => o[0] === sort)?.[1]}</span>
               <span aria-hidden className="text-slate">▾</span>
             </button>
