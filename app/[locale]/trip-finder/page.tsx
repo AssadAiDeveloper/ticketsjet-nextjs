@@ -78,7 +78,7 @@ export default async function TripFinderPage({ params, searchParams }: { params:
     <>
       <PageHero title={t("heroTitle")} photoKey="trip-finder" />
 
-      <div className="relative z-10 mx-auto -mt-10 max-w-6xl px-4 pb-14">
+      <div className="relative z-30 mx-auto -mt-10 max-w-6xl px-4 pb-14">
         <TripForm key={parsed ? JSON.stringify(parsed.q) : "new"} initial={initial} />
 
         {parsed && (
