@@ -10,6 +10,7 @@ import { CurrencyProvider } from "@/components/CurrencyProvider";
 import HtmlLang from "@/components/HtmlLang";
 import AdSenseLoader from "@/components/AdSenseLoader";
 import CookieConsent from "@/components/CookieConsent";
+import PartnerRedirect from "@/components/PartnerRedirect";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE } from "@/lib/config";
@@ -77,6 +78,7 @@ export default async function RootLayout({ children, params }: { children: React
             <main><UntranslatedGuard>{children}</UntranslatedGuard></main>
             <Footer />
             <CookieConsent />
+            <PartnerRedirect />
           </CurrencyProvider>
         </NextIntlClientProvider>
       </body>
