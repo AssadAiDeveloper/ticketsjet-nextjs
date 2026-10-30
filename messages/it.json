@@ -47,7 +47,8 @@
     "notSeller": "TicketsJet è un motore di ricerca, non un venditore. Alcuni link sono link di affiliazione, ",
     "learnMore": "scopri di più",
     "geoNames": "City names: GeoNames, CC BY 4.0",
-    "contact": "Contact"
+    "contact": "Contact",
+    "eu261": "Flight compensation calculator"
   },
   "cookie": {
     "aria": "Preferenze sui cookie",
@@ -111,7 +112,10 @@
     "bannerTitle": "Explore the price map",
     "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
     "bannerCta": "Open the price map",
-    "allGuides": "All guides"
+    "allGuides": "All guides",
+    "eu261Title": "Was your flight delayed or cancelled?",
+    "eu261Text": "Find out in a minute if you could claim up to 600 euros per passenger under EU261.",
+    "eu261Cta": "Check my flight"
   },
   "dest": {
     "from": "da",

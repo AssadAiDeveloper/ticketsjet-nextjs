@@ -47,7 +47,8 @@
     "notSeller": "TicketsJet is een zoekmachine, geen verkoper. Sommige links zijn affiliatelinks, ",
     "learnMore": "meer informatie",
     "geoNames": "City names: GeoNames, CC BY 4.0",
-    "contact": "Contact"
+    "contact": "Contact",
+    "eu261": "Vluchtcompensatie-calculator"
   },
   "cookie": {
     "aria": "Cookievoorkeuren",
@@ -111,7 +112,10 @@
     "bannerTitle": "Explore the price map",
     "bannerSub": "See the cheapest fares to destinations around the world, on one map.",
     "bannerCta": "Open the price map",
-    "allGuides": "Alle gidsen"
+    "allGuides": "Alle gidsen",
+    "eu261Title": "Is je vlucht vertraagd of geannuleerd?",
+    "eu261Text": "Ontdek in een minuut of je tot 600 euro per passagier kunt claimen onder EU261.",
+    "eu261Cta": "Controleer mijn vlucht"
   },
   "dest": {
     "from": "vanaf",
