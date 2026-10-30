@@ -9,5 +9,5 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <ServicePage ns="comp" path="/services/flight-compensation" slot="7777777777" ctaHref={goHref("airhelp")} />;
+  return <ServicePage ns="comp" path="/services/flight-compensation" slot="7777777777" ctaHref={goHref("airhelp")} qualifyHref="/eu261-calculator" />;
 }

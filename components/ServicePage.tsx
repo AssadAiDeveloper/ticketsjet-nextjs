@@ -16,7 +16,7 @@ export async function serviceMetadata(locale: string, ns: Ns, path: string): Pro
 }
 
 /** Server component: every string comes from messages[ns] (eyebrow, title, intro, cta, s1-3, h/p 1-3, q/a 1-4). */
-export default async function ServicePage({ ns, ctaHref, path, slot }: { ns: Ns; ctaHref: string; path: string; slot: string }) {
+export default async function ServicePage({ ns, ctaHref, path, slot, qualifyHref }: { ns: Ns; ctaHref: string; path: string; slot: string; qualifyHref?: string }) {
   const locale = await getLocale();
   const t = await getTranslations(ns);
   const c = await getTranslations("svc");
@@ -53,6 +53,11 @@ export default async function ServicePage({ ns, ctaHref, path, slot }: { ns: Ns;
             {t("cta")}
           </a>
           <p className="mt-3 text-xs text-white/50">{c("disclosure")}</p>
+          {qualifyHref && (
+            <p className="mt-4 text-sm">
+              <a href={qualifyHref} className="font-semibold text-amber underline">Check if you qualify</a>
+            </p>
+          )}
         </div>
       </section>
 

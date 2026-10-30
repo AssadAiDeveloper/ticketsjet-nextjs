@@ -11,7 +11,7 @@ declare global {
 }
 
 /**
- * خانة إعلان AdSense — لا تعرض شيئًا حتى يتم ضبط NEXT_PUBLIC_ADSENSE_CLIENT.
+ * خانة إعلان AdSense - لا تعرض شيئًا حتى يتم ضبط NEXT_PUBLIC_ADSENSE_CLIENT.
  * slot: معرّف الوحدة الإعلانية من لوحة AdSense.
  */
 export default function AdSlot({ slot, className = "" }: { slot: string; className?: string }) {

@@ -52,7 +52,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const arrow = isRtl(locale) ? "←" : "→";
   return (
     <>
-      {/* ============ HERO — night flight ============ */}
+      {/* ============ HERO - night flight ============ */}
       <section className="relative bg-ink pb-4 pt-8 sm:pb-8 sm:pt-12">
         {/* flight-path arcs */}
         <div className="pointer-events-none absolute inset-0 -z-0 overflow-hidden" aria-hidden="true">

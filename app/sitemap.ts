@@ -20,7 +20,7 @@ function entry(p: string, freq: "daily" | "weekly" | "monthly", priority: number
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = UPDATED;
-  const pages = ["", "/flights", "/explore", "/cheap-flights", "/services", "/activities", "/destinations", "/trip-finder", "/services/esim", "/services/airport-transfers", "/services/flight-compensation", "/cars", "/blog", "/help", "/about-us", "/privacy-policy", "/terms-and-conditions", "/affiliate-disclosure", "/contact"];
+  const pages = ["", "/flights", "/explore", "/cheap-flights", "/services", "/activities", "/destinations", "/trip-finder", "/services/esim", "/services/airport-transfers", "/services/flight-compensation", "/cars", "/blog", "/help", "/about-us", "/privacy-policy", "/terms-and-conditions", "/affiliate-disclosure", "/contact", "/eu261-calculator"];
   return [
     ...pages.flatMap((p) => entry(p, p === "" ? "daily" : "weekly", p === "" ? 1 : 0.8, now)),
     ...ROUTES.flatMap(([o, d]) => entry(`/cheap-flights/${slug(o, d)}`, "daily", 0.7, now)),

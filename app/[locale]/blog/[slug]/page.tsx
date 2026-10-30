@@ -154,6 +154,11 @@ export default async function PostPage({ params }: Props) {
           {t("affiliateLine")}{" "}
           <Link href="/affiliate-disclosure" className="font-semibold text-amber-deep underline">{t("affiliateLink")}</Link>
         </p>
+        {slug === "flight-delay-compensation-eu261" && (
+          <p className="mt-4 text-sm">
+            <Link href="/eu261-calculator" className="font-semibold text-amber-deep underline">Check if you qualify with our EU261 calculator</Link>
+          </p>
+        )}
         {relatedSlugs.length > 0 && (
           <section className="mt-10">
             <h2 className="font-display text-2xl font-bold text-ink">{t("relatedTitle")}</h2>

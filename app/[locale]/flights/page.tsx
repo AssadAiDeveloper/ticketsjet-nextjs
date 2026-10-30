@@ -105,7 +105,7 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
         </div>
       </section>
 
-      {/* نتائج البحث تظهر هنا — في نفس الصفحة */}
+      {/* نتائج البحث تظهر هنا - في نفس الصفحة */}
       <section className="mx-auto max-w-6xl px-4">
         {trip && trip.back && <NearbyDates origin={trip.origin} dest={trip.dest} depart={trip.depart} />}
         <WlResults />
