@@ -5,6 +5,8 @@ import CookieSettingsButton from "@/components/CookieSettingsButton";
 // Replace each url with the real TicketsJet profile link.
 const SOCIAL: { name: string; url: string; path: string; stroke?: boolean }[] = [
   { name: "Facebook", url: "https://www.facebook.com/profile.php?id=61565939300853", path: "M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z" },
+  { name: "Instagram", url: "https://www.instagram.com/ticketsjet/", stroke: true, path: "M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3zm4.5 5.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.2-1.6h.01" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/company/ticketsjet/", path: "M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-7.9c0-1.88-.03-4.3-2.62-4.3-2.63 0-3.03 2.05-3.03 4.16V23h-4V8z" },
 ];
 
 const year = new Date().getFullYear();
