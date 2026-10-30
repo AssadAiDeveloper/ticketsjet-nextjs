@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import HelpCenter from "@/components/HelpCenter";
 import { helpContent } from "@/lib/help";
 import { alternatesFor } from "@/lib/i18nPages";
+import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -14,6 +15,7 @@ export default async function HelpPage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("help");
+  const th = await getTranslations("home");
   const content = helpContent(locale);
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -32,6 +34,9 @@ export default async function HelpPage({ params }: { params: Promise<{ locale: s
       <section className="mx-auto max-w-3xl px-4 py-14">
         <HelpCenter content={content} />
         <p className="mt-8 text-sm text-slate">{t("booked")}</p>
+        <p className="mt-4 text-sm">
+          <Link href="/eu261-calculator" className="font-semibold text-amber-deep underline">{th("eu261Title")}</Link>
+        </p>
       </section>
     </>
   );

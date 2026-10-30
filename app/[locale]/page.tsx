@@ -182,6 +182,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
+      <section className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
+        <div className="rounded-2xl bg-ink p-6 sm:p-8">
+          <h2 className="font-display text-xl font-bold text-white sm:text-2xl">{t("eu261Title")}</h2>
+          <p className="mt-2 text-sm text-white/70">{t("eu261Text")}</p>
+          <Link href="/eu261-calculator" className="mt-5 inline-block rounded-xl bg-amber px-6 py-3 text-sm font-bold text-ink hover:bg-amber-deep">
+            {t("eu261Cta")}
+          </Link>
+        </div>
+      </section>
+
       {/* ============ FAQ ============ */}
       <section className="border-t border-mist bg-white">
         <div className="mx-auto max-w-3xl px-4 py-10 sm:py-14">

@@ -19,6 +19,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("blog");
+  const th = await getTranslations("home");
   const posts = allPosts();
   const items = posts.map((p) => ({ meta: p, content: getPostContent(p.slug, locale).content }));
   const prefix = locale === "en" ? "" : `/${locale}`;
@@ -43,6 +44,11 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
             {t("lead")}
           </p>
         </div>
+      </section>
+      <section className="mx-auto max-w-6xl px-4 pb-6">
+        <p className="text-sm text-slate">
+          <Link href="/eu261-calculator" className="font-semibold text-amber-deep underline">{th("eu261Title")}</Link>
+        </p>
       </section>
       <section className="mx-auto max-w-6xl px-4 py-14">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
