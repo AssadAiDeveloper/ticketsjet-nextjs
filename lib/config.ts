@@ -9,7 +9,7 @@ export const SITE = {
   email: "info@ticketsjet.com",
   tagline: "Cheap flights, compared in one search.",
   description:
-    "TicketsJet compares airlines, travel agencies and car rental companies to help you find good travel deals. No booking fees. You book directly with the provider.",
+    "TicketsJet compares cheap flights and car rentals from many airlines, agencies and providers. No booking fees. You book directly with the provider.",
 };
 
 // Bump this when the site content changes meaningfully (used as lastModified for static pages in sitemap).

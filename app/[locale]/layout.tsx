@@ -37,20 +37,28 @@ const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: SITE.name,
+  alternateName: "TicketsJet Flights",
   url: SITE.url,
   email: SITE.email,
   logo: `${SITE.url}/icon.svg`,
   description: SITE.description,
+  slogan: "Compare cheap flights and car rentals",
+  knowsAbout: ["cheap flights", "flight comparison", "car rental", "flight delay compensation"],
   sameAs: ["https://www.facebook.com/profile.php?id=61565939300853", "https://www.instagram.com/ticketsjet/", "https://www.linkedin.com/company/ticketsjet/"],
   contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: SITE.email },
 };
 
-const siteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE.name,
-  url: SITE.url,
-};
+function siteJsonLd(locale: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.name,
+    alternateName: ["TicketsJet Flights", "TicketsJet.com"],
+    url: SITE.url,
+    description: SITE.description,
+    inLanguage: locale,
+  };
+}
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -71,7 +79,7 @@ export default async function RootLayout({ children, params }: { children: React
           rel="stylesheet"
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd(locale)) }} />
       </head>
       <body suppressHydrationWarning>
         <HtmlLang locale={locale} />
