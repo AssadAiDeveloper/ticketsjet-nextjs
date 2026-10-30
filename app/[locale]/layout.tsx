@@ -41,6 +41,7 @@ const orgJsonLd = {
   email: SITE.email,
   logo: `${SITE.url}/icon.svg`,
   description: SITE.description,
+  sameAs: ["https://www.facebook.com/profile.php?id=61565939300853"],
   contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: SITE.email },
 };
 
