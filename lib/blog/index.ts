@@ -35,8 +35,12 @@ import { content as c1_ar } from "../../content/posts/how-to-find-cheap-flights/
 import { content as c1_nl } from "../../content/posts/how-to-find-cheap-flights/nl";
 
 import { content as c2_en } from "../../content/posts/hotel-booking-mistakes/en";
+import { content as c2_ar } from "../../content/posts/hotel-booking-mistakes/ar";
+import { content as c2_nl } from "../../content/posts/hotel-booking-mistakes/nl";
 
 import { content as c3_en } from "../../content/posts/car-rental-guide/en";
+import { content as c3_ar } from "../../content/posts/car-rental-guide/ar";
+import { content as c3_nl } from "../../content/posts/car-rental-guide/nl";
 
 import { content as c4_en } from "../../content/posts/flight-delay-compensation-eu261/en";
 import { content as c4_ar } from "../../content/posts/flight-delay-compensation-eu261/ar";
@@ -47,28 +51,36 @@ import { content as c5_ar } from "../../content/posts/esim-vs-local-sim-vs-roami
 import { content as c5_nl } from "../../content/posts/esim-vs-local-sim-vs-roaming/nl";
 
 import { content as c6_en } from "../../content/posts/schiphol-airport-guide/en";
+import { content as c6_ar } from "../../content/posts/schiphol-airport-guide/ar";
+import { content as c6_nl } from "../../content/posts/schiphol-airport-guide/nl";
 
 import { content as c7_en } from "../../content/posts/baggage-fees-cabin-bag-guide/en";
 import { content as c7_ar } from "../../content/posts/baggage-fees-cabin-bag-guide/ar";
 import { content as c7_nl } from "../../content/posts/baggage-fees-cabin-bag-guide/nl";
 
 import { content as c8_en } from "../../content/posts/train-vs-flight-europe/en";
+import { content as c8_ar } from "../../content/posts/train-vs-flight-europe/ar";
+import { content as c8_nl } from "../../content/posts/train-vs-flight-europe/nl";
 
 import { content as c9_en } from "../../content/posts/multi-city-open-jaw-flights/en";
+import { content as c9_ar } from "../../content/posts/multi-city-open-jaw-flights/ar";
+import { content as c9_nl } from "../../content/posts/multi-city-open-jaw-flights/nl";
 
 import { content as c10_en } from "../../content/posts/first-hour-after-landing/en";
+import { content as c10_ar } from "../../content/posts/first-hour-after-landing/ar";
+import { content as c10_nl } from "../../content/posts/first-hour-after-landing/nl";
 
 const CONTENT: Record<string, Record<string, PostContent>> = {
   "how-to-find-cheap-flights": { en: c1_en, ar: c1_ar, nl: c1_nl },
-  "hotel-booking-mistakes": { en: c2_en },
-  "car-rental-guide": { en: c3_en },
+  "hotel-booking-mistakes": { en: c2_en, ar: c2_ar, nl: c2_nl },
+  "car-rental-guide": { en: c3_en, ar: c3_ar, nl: c3_nl },
   "flight-delay-compensation-eu261": { en: c4_en, ar: c4_ar, nl: c4_nl },
   "esim-vs-local-sim-vs-roaming": { en: c5_en, ar: c5_ar, nl: c5_nl },
-  "schiphol-airport-guide": { en: c6_en },
+  "schiphol-airport-guide": { en: c6_en, ar: c6_ar, nl: c6_nl },
   "baggage-fees-cabin-bag-guide": { en: c7_en, ar: c7_ar, nl: c7_nl },
-  "train-vs-flight-europe": { en: c8_en },
-  "multi-city-open-jaw-flights": { en: c9_en },
-  "first-hour-after-landing": { en: c10_en },
+  "train-vs-flight-europe": { en: c8_en, ar: c8_ar, nl: c8_nl },
+  "multi-city-open-jaw-flights": { en: c9_en, ar: c9_ar, nl: c9_nl },
+  "first-hour-after-landing": { en: c10_en, ar: c10_ar, nl: c10_nl },
 };
 
 export function allPosts() {
