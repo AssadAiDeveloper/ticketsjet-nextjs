@@ -14,6 +14,14 @@ const legacyRedirects = [
   { source: "/cruise", destination: "/" },
   { source: "/bike-bookings", destination: "/" },
   { source: "/author/webmaster", destination: "/" },
+  { source: "/a-beginners-guide-to-solo-travel", destination: "/blog" },
+  { source: "/a-beginners-guide-to-solo-travel/", destination: "/blog" },
+  { source: "/how-to-travel-on-a-budget-without-missing-the-best-experiences", destination: "/blog" },
+  { source: "/how-to-travel-on-a-budget-without-missing-the-best-experiences/", destination: "/blog" },
+  { source: "/store", destination: "/" },
+  { source: "/store/", destination: "/" },
+  { source: "/category/uncategorized", destination: "/blog" },
+  { source: "/category/uncategorized/", destination: "/blog" },
 ];
 
 const nextConfig: NextConfig = {
