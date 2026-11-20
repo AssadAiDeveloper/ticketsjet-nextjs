@@ -5,7 +5,8 @@ import { ACTIVITY_CITIES } from "@/lib/activities";
 import { LOCALES } from "@/i18n/routing";
 import { INDEXED_LOCALES } from "@/lib/seo";
 import { isTranslated } from "@/lib/i18nPages";
-import { allPosts, localesForPost, getPostMeta } from "@/lib/blog";
+import { allPosts, localesForPost } from "@/lib/blog";
+import { getRouteFares } from "@/lib/routeFares";
 
 const UPDATED = new Date(SITE_UPDATED);
 
@@ -18,12 +19,13 @@ function entry(p: string, freq: "daily" | "weekly" | "monthly", priority: number
   return INDEXED_LOCALES.map((l) => ({ url: `${SITE.url}${loc(l, p)}`, lastModified, changeFrequency: freq, priority, alternates: { languages } }));
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = UPDATED;
   const pages = ["", "/flights", "/explore", "/cheap-flights", "/services", "/activities", "/destinations", "/trip-finder", "/services/esim", "/services/airport-transfers", "/services/flight-compensation", "/cars", "/blog", "/help", "/about-us", "/privacy-policy", "/terms-and-conditions", "/affiliate-disclosure", "/contact", "/eu261-calculator"];
+  const fareFlags = await Promise.all(ROUTES.map(async ([o, d]) => Boolean(await getRouteFares(o, d))));
   return [
     ...pages.flatMap((p) => entry(p, p === "" ? "daily" : "weekly", p === "" ? 1 : 0.8, now)),
-    ...ROUTES.flatMap(([o, d]) => entry(`/cheap-flights/${slug(o, d)}`, "daily", 0.7, now)),
+    ...ROUTES.flatMap(([o, d], i) => (fareFlags[i] ? entry(`/cheap-flights/${slug(o, d)}`, "daily", 0.7, now) : [])),
     ...ACTIVITY_CITIES.flatMap((c) => entry(`/activities/${c.slug}`, "weekly", 0.7, now)),
     ...ACTIVITY_CITIES.flatMap((c) => entry(`/destinations/${c.slug}`, "weekly", 0.7, now)),
     ...allPosts().flatMap((post) => {

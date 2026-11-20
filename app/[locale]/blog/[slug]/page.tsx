@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { getPostMeta, getPostContent, localesForPost } from "@/lib/blog";
@@ -117,16 +118,14 @@ export default async function PostPage({ params }: Props) {
         <p className="mt-4 text-lg text-slate">{description}</p>
         {photo && photo.url && (
           <figure className="my-6">
-            <img
-              src={`${photo.url}?w=960&q=70&auto=format&fit=crop`}
-              srcSet={[640, 960, 1280].map((w) => `${photo.url}?w=${w}&q=70&auto=format&fit=crop ${w}w`).join(", ")}
-              sizes="(min-width: 768px) 768px, 100vw"
+            <Image
+              src={`${photo.url}?w=1600&q=80&auto=format&fit=crop`}
               alt={photo.alt || title}
               width={photo.width || 1600}
               height={photo.height || 900}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
+              sizes="(min-width: 768px) 768px, 50vw"
+              priority
+              quality={70}
               className="w-full rounded-2xl"
               style={{ backgroundColor: photo.color || undefined }}
             />

@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -14,6 +15,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE } from "@/lib/config";
 import "../globals.css";
+
+const fontDisplay = Bricolage_Grotesque({ subsets: ["latin"], display: "swap", variable: "--font-display-next" });
+const fontBody = Inter({ subsets: ["latin"], display: "swap", variable: "--font-body-next" });
+const fontMono = IBM_Plex_Mono({ subsets: ["latin"], display: "swap", weight: ["400", "500", "600"], variable: "--font-mono-next" });
+const fontArabic = IBM_Plex_Sans_Arabic({ subsets: ["arabic"], display: "swap", weight: ["400", "500", "600", "700"], variable: "--font-arabic-next" });
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -69,14 +75,8 @@ export default async function RootLayout({ children, params }: { children: React
   setRequestLocale(locale);
   const messages = await getMessages();
   return (
-    <html lang={locale} dir={locale === "ar" || locale === "fa" || locale === "he" ? "rtl" : "ltr"}>
+    <html lang={locale} dir={locale === "ar" || locale === "fa" || locale === "he" ? "rtl" : "ltr"} className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable} ${fontArabic.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd(locale)) }} />
       </head>

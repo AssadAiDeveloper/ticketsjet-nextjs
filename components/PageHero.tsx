@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Photo } from "@/components/DestPhoto";
 import heroPhotos from "../data/hero-photos.json";
 
@@ -11,27 +12,17 @@ export default function PageHero({
   children?: React.ReactNode;
 }) {
   const p = (photoKey ? (heroPhotos as any)[photoKey] : null) as (Photo & { author?: string; authorUrl?: string; photoUrl?: string }) | null;
-  const widths = [640, 960, 1280];
-  const buildSrc = (src: string, w: number) => {
-    const sep = src.includes("?") ? "&" : "?";
-    return `${src}${sep}w=${w}&q=70&auto=format&fit=crop&crop=entropy`;
-  };
-  const srcSet = p ? widths.map((w) => `${buildSrc(p.url, w)} ${w}w`).join(", ") : "";
-  const src = p ? buildSrc(p.url, 960) : "";
   return (
     <section className="relative z-20 isolate overflow-x-clip bg-ink">
       {p && (
-        <img
-          src={src}
-          srcSet={srcSet}
-          sizes="100vw"
+        <Image
+          src={`${p.url}?w=1600&q=80&auto=format&fit=crop&crop=entropy`}
           alt={p.alt || ""}
-          width={p.width || 1600}
-          height={p.height || 900}
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
+          fill
+          priority
+          sizes="(min-width: 768px) 100vw, 50vw"
+          quality={70}
+          className="object-cover"
           style={{ backgroundColor: p.color || undefined, objectPosition: "center 35%" }}
         />
       )}

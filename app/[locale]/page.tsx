@@ -166,7 +166,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <Link key={slug} href={`/blog/${slug}`} className="group flex flex-col rounded-2xl border border-mist bg-white p-6 transition hover:border-amber hover:shadow-lg">
               {photo && photo.url && (
                 <div className="mb-4 aspect-[16/9] w-full overflow-hidden rounded-xl bg-cloud">
-                  <img src={`${photo.url}?w=400&q=60&auto=format&fit=crop`} alt={photo.alt || c.title} className="h-full w-full object-cover" loading="lazy" />
+                  <img src={`${photo.url}?w=400&q=60&auto=format&fit=crop`} alt={photo.alt || c.title} width={400} height={225} className="h-full w-full object-cover" loading="lazy" decoding="async" />
                 </div>
               )}
               <p className="font-mono text-[11px] uppercase tracking-widest text-slate">{tb("minutes", { n: meta.minutes })}</p>
