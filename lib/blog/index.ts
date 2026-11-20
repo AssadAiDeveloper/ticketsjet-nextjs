@@ -11,8 +11,12 @@ import { meta as m7 } from "../../content/posts/baggage-fees-cabin-bag-guide/met
 import { meta as m8 } from "../../content/posts/train-vs-flight-europe/meta";
 import { meta as m9 } from "../../content/posts/multi-city-open-jaw-flights/meta";
 import { meta as m10 } from "../../content/posts/first-hour-after-landing/meta";
+import { meta as m11 } from "../../content/posts/eu261-flight-delay-compensation/meta";
+import { meta as m12 } from "../../content/posts/cancelled-flight-rights-europe/meta";
+import { meta as m13 } from "../../content/posts/denied-boarding-overbooking-rights/meta";
+import { meta as m14 } from "../../content/posts/lost-delayed-damaged-luggage-what-to-do/meta";
 
-export const POST_SLUGS = ["how-to-find-cheap-flights", "hotel-booking-mistakes", "car-rental-guide", "flight-delay-compensation-eu261", "esim-vs-local-sim-vs-roaming", "schiphol-airport-guide", "baggage-fees-cabin-bag-guide", "train-vs-flight-europe", "multi-city-open-jaw-flights", "first-hour-after-landing"] as const;
+export const POST_SLUGS = ["how-to-find-cheap-flights", "hotel-booking-mistakes", "car-rental-guide", "flight-delay-compensation-eu261", "esim-vs-local-sim-vs-roaming", "schiphol-airport-guide", "baggage-fees-cabin-bag-guide", "train-vs-flight-europe", "multi-city-open-jaw-flights", "first-hour-after-landing", "eu261-flight-delay-compensation", "cancelled-flight-rights-europe", "denied-boarding-overbooking-rights", "lost-delayed-damaged-luggage-what-to-do"] as const;
 
 export const HOME_SLUGS = ["how-to-find-cheap-flights", "baggage-fees-cabin-bag-guide", "flight-delay-compensation-eu261"] as const;
 
@@ -27,6 +31,10 @@ const METAS: Record<string, PostMeta> = {
   "train-vs-flight-europe": m8,
   "multi-city-open-jaw-flights": m9,
   "first-hour-after-landing": m10,
+  "eu261-flight-delay-compensation": m11,
+  "cancelled-flight-rights-europe": m12,
+  "denied-boarding-overbooking-rights": m13,
+  "lost-delayed-damaged-luggage-what-to-do": m14,
 };
 
 // Content registry: slug -> locale -> PostContent
@@ -70,6 +78,22 @@ import { content as c10_en } from "../../content/posts/first-hour-after-landing/
 import { content as c10_ar } from "../../content/posts/first-hour-after-landing/ar";
 import { content as c10_nl } from "../../content/posts/first-hour-after-landing/nl";
 
+import { content as c11_en } from "../../content/posts/eu261-flight-delay-compensation/en";
+import { content as c11_ar } from "../../content/posts/eu261-flight-delay-compensation/ar";
+import { content as c11_nl } from "../../content/posts/eu261-flight-delay-compensation/nl";
+
+import { content as c12_en } from "../../content/posts/cancelled-flight-rights-europe/en";
+import { content as c12_ar } from "../../content/posts/cancelled-flight-rights-europe/ar";
+import { content as c12_nl } from "../../content/posts/cancelled-flight-rights-europe/nl";
+
+import { content as c13_en } from "../../content/posts/denied-boarding-overbooking-rights/en";
+import { content as c13_ar } from "../../content/posts/denied-boarding-overbooking-rights/ar";
+import { content as c13_nl } from "../../content/posts/denied-boarding-overbooking-rights/nl";
+
+import { content as c14_en } from "../../content/posts/lost-delayed-damaged-luggage-what-to-do/en";
+import { content as c14_ar } from "../../content/posts/lost-delayed-damaged-luggage-what-to-do/ar";
+import { content as c14_nl } from "../../content/posts/lost-delayed-damaged-luggage-what-to-do/nl";
+
 const CONTENT: Record<string, Record<string, PostContent>> = {
   "how-to-find-cheap-flights": { en: c1_en, ar: c1_ar, nl: c1_nl },
   "hotel-booking-mistakes": { en: c2_en, ar: c2_ar, nl: c2_nl },
@@ -81,6 +105,10 @@ const CONTENT: Record<string, Record<string, PostContent>> = {
   "train-vs-flight-europe": { en: c8_en, ar: c8_ar, nl: c8_nl },
   "multi-city-open-jaw-flights": { en: c9_en, ar: c9_ar, nl: c9_nl },
   "first-hour-after-landing": { en: c10_en, ar: c10_ar, nl: c10_nl },
+  "eu261-flight-delay-compensation": { en: c11_en, ar: c11_ar, nl: c11_nl },
+  "cancelled-flight-rights-europe": { en: c12_en, ar: c12_ar, nl: c12_nl },
+  "denied-boarding-overbooking-rights": { en: c13_en, ar: c13_ar, nl: c13_nl },
+  "lost-delayed-damaged-luggage-what-to-do": { en: c14_en, ar: c14_ar, nl: c14_nl },
 };
 
 export function allPosts() {

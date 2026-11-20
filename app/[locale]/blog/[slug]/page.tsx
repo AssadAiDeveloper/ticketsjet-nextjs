@@ -59,6 +59,12 @@ export default async function PostPage({ params }: Props) {
   const description = content.description;
   const prefix = locale === "en" ? "" : `/${locale}`;
   const canonicalPrefix = actualLocale === "en" ? "" : `/${actualLocale}`;
+  const isEu261Article = ["flight-delay-compensation-eu261", "eu261-flight-delay-compensation", "cancelled-flight-rights-europe", "denied-boarding-overbooking-rights"].includes(slug);
+  const calcLinks = locale === "nl"
+    ? { top: "Bereken of je recht hebt op vergoeding met onze EU261-rekenmachine", bottom: "Check direct je mogelijke vergoeding met onze EU261-rekenmachine" }
+    : locale === "ar"
+      ? { top: "احسب ما إذا كان لك حق في تعويض باستخدام حاسبة EU261", bottom: "تحقق من تعويضك المحتمل باستخدام حاسبة EU261" }
+      : { top: "Check if you qualify with our EU261 calculator", bottom: "Check your possible compensation with our EU261 calculator" };
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -135,6 +141,11 @@ export default async function PostPage({ params }: Props) {
             )}
           </figure>
         )}
+        {isEu261Article && (
+          <p className="my-6 rounded-2xl border border-amber/30 bg-amber/10 p-4 text-sm">
+            <Link href="/eu261-calculator" className="font-semibold text-amber-deep underline">{calcLinks.top}</Link>
+          </p>
+        )}
         <PostBody blocks={content.blocks} />
         {content.faq && content.faq.length > 0 && (
           <section className="mt-10">
@@ -154,9 +165,9 @@ export default async function PostPage({ params }: Props) {
           {t("affiliateLine")}{" "}
           <Link href="/affiliate-disclosure" className="font-semibold text-amber-deep underline">{t("affiliateLink")}</Link>
         </p>
-        {slug === "flight-delay-compensation-eu261" && (
+        {isEu261Article && (
           <p className="mt-4 text-sm">
-            <Link href="/eu261-calculator" className="font-semibold text-amber-deep underline">Check if you qualify with our EU261 calculator</Link>
+            <Link href="/eu261-calculator" className="font-semibold text-amber-deep underline">{calcLinks.bottom}</Link>
           </p>
         )}
         {relatedSlugs.length > 0 && (
