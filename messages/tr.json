@@ -586,7 +586,7 @@
     "q3": "TicketsJet bu hizmetleri satıyor mu?",
     "a3": "Hayır. Tarihleri seçip ödeme yaptığınız sağlayıcılara bağlantı veririz. Ödeme almaz, ücret eklemeyiz.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}"
+    "heroTitle": "{city} için ucuz uçuşlar"
   },
   "aci": {
     "metaTitle": "Yapılacaklar | Şehre Göre Turlar, Biletler ve Etkinlikler",
@@ -614,7 +614,7 @@
     "a2": "Turlar ve biletler, tarih seçip ödeme yaptığınız sağlayıcının sitesinde açılır. TicketsJet ödeme almaz ve ücret eklemez.",
     "q3": "İptal edebilir miyim?",
     "a3": "İptal koşulları etkinliğe göre değişir ve ödemeden önce her ilanda gösterilir. Planlarınız değişebilirse bunlara göz atın.",
-    "heroTitle": "Things to do in {city}"
+    "heroTitle": "{city}'de yapılacaklar"
   },
   "svc": {
     "metaTitle": "Seyahat Hizmetleri | eSIM, Havalimanı Transferi, Uçuş Tazminatı",

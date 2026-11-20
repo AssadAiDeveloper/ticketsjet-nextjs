@@ -586,7 +586,7 @@
     "q3": "¿TicketsJet vende estos servicios?",
     "a3": "No. Enlazamos con los proveedores, donde eliges las fechas y pagas. No cobramos pagos ni añadimos comisiones.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}"
+    "heroTitle": "Vuelos baratos a {city}"
   },
   "aci": {
     "metaTitle": "Qué hacer | Tours, entradas y actividades por ciudad",
@@ -614,7 +614,7 @@
     "a2": "Los tours y entradas se abren en la web del proveedor, donde eliges fecha y pagas. TicketsJet no cobra pagos ni añade comisiones.",
     "q3": "¿Puedo cancelar?",
     "a3": "Las condiciones de cancelación varían según la actividad y se muestran en cada oferta antes de pagar. Revísalas si tus planes pueden cambiar.",
-    "heroTitle": "Things to do in {city}"
+    "heroTitle": "Qué hacer en {city}"
   },
   "svc": {
     "metaTitle": "Servicios de viaje | eSIM, traslados al aeropuerto, compensación de vuelos",

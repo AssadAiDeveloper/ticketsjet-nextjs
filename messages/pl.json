@@ -586,7 +586,7 @@
     "q3": "Czy TicketsJet sprzedaje te usługi?",
     "a3": "Nie. Odsyłamy do dostawców, u których wybierasz daty i płacisz. Nie przyjmujemy płatności ani nie dodajemy opłat.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}"
+    "heroTitle": "Tanie loty do {city}"
   },
   "aci": {
     "metaTitle": "Co robić | wycieczki, bilety i atrakcje według miast",
@@ -614,7 +614,7 @@
     "a2": "Wycieczki i bilety otwierają się na stronie dostawcy, gdzie wybierasz datę i płacisz. TicketsJet nie przyjmuje płatności ani nie dodaje opłat.",
     "q3": "Czy mogę anulować?",
     "a3": "Warunki anulowania różnią się w zależności od atrakcji i są pokazane przy każdej ofercie przed płatnością. Sprawdź je, jeśli Twoje plany mogą się zmienić.",
-    "heroTitle": "Things to do in {city}"
+    "heroTitle": "Co robić w {city}"
   },
   "svc": {
     "metaTitle": "Usługi podróżne | eSIM, transfery lotniskowe, odszkodowanie za lot",

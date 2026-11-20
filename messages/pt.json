@@ -586,7 +586,7 @@
     "q3": "O TicketsJet vende estes serviços?",
     "a3": "Não. Ligamos aos fornecedores, onde escolhe as datas e paga. Não recebemos pagamentos nem acrescentamos taxas.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}"
+    "heroTitle": "Voos baratos para {city}"
   },
   "aci": {
     "metaTitle": "O que fazer | Tours, bilhetes e atividades por cidade",
@@ -614,7 +614,7 @@
     "a2": "Os tours e bilhetes abrem no site do fornecedor, onde escolhe a data e paga. O TicketsJet não recebe pagamentos nem acrescenta taxas.",
     "q3": "Posso cancelar?",
     "a3": "As condições de cancelamento variam consoante a atividade e são apresentadas em cada oferta antes de pagar. Verifique-as se os seus planos puderem mudar.",
-    "heroTitle": "Things to do in {city}"
+    "heroTitle": "O que fazer em {city}"
   },
   "svc": {
     "metaTitle": "Serviços de viagem | eSIM, transfers do aeroporto, compensação de voos",

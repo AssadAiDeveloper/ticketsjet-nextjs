@@ -586,7 +586,7 @@
     "q3": "TicketsJet vend-il ces services ?",
     "a3": "Non. Nous renvoyons vers les fournisseurs, où vous choisissez les dates et payez. Nous n'encaissons aucun paiement et n'ajoutons aucuns frais.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}"
+    "heroTitle": "Vols pas chers vers {city}"
   },
   "aci": {
     "metaTitle": "À faire | Visites, billets et activités par ville",
@@ -614,7 +614,7 @@
     "a2": "Les visites et billets s'ouvrent sur le site du fournisseur, où vous choisissez une date et payez. TicketsJet n'encaisse aucun paiement et n'ajoute aucuns frais.",
     "q3": "Puis-je annuler ?",
     "a3": "Les conditions d'annulation varient selon l'activité et sont indiquées sur chaque offre avant le paiement. Consultez-les si vos plans peuvent changer.",
-    "heroTitle": "Things to do in {city}"
+    "heroTitle": "À faire à {city}"
   },
   "svc": {
     "metaTitle": "Services de voyage | eSIM, transferts aéroport, indemnisation de vol",

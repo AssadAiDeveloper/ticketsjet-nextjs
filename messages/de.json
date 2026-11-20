@@ -586,7 +586,7 @@
     "q3": "Verkauft TicketsJet diese Leistungen?",
     "a3": "Nein. Wir verlinken zu den Anbietern, bei denen du Daten wählst und bezahlst. Wir nehmen keine Zahlungen entgegen und erheben keine Gebühren.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}"
+    "heroTitle": "Günstige Flüge nach {city}"
   },
   "aci": {
     "metaTitle": "Aktivitäten – Touren, Tickets & Erlebnisse nach Stadt",
@@ -614,7 +614,7 @@
     "a2": "Touren und Tickets öffnen sich auf der Website des Anbieters, wo du ein Datum wählst und bezahlst. TicketsJet nimmt keine Zahlungen entgegen und erhebt keine Gebühren.",
     "q3": "Kann ich stornieren?",
     "a3": "Stornobedingungen unterscheiden sich je nach Aktivität und werden vor der Zahlung bei jedem Angebot angezeigt. Prüfe sie, wenn sich deine Pläne ändern könnten.",
-    "heroTitle": "Things to do in {city}"
+    "heroTitle": "Aktivitäten in {city}"
   },
   "svc": {
     "metaTitle": "Reiseleistungen – eSIM, Flughafentransfers, Fluggastentschädigung",

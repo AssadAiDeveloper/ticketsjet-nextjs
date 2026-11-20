@@ -586,7 +586,7 @@
     "q3": "Verkoopt TicketsJet deze diensten?",
     "a3": "Nee. We verwijzen naar de aanbieders, waar je data kiest en betaalt. We nemen geen betalingen aan en rekenen geen kosten.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}"
+    "heroTitle": "Goedkope vluchten naar {city}"
   },
   "aci": {
     "metaTitle": "Doen & zien | tours, tickets en activiteiten per stad",
@@ -614,7 +614,7 @@
     "a2": "Tours en tickets openen op de site van de aanbieder, waar je een datum kiest en betaalt. TicketsJet neemt geen betalingen aan en rekent geen kosten.",
     "q3": "Kan ik annuleren?",
     "a3": "Annuleringsvoorwaarden verschillen per activiteit en staan bij elk aanbod voordat je betaalt. Controleer ze als je plannen kunnen veranderen.",
-    "heroTitle": "Things to do in {city}"
+    "heroTitle": "Dingen te doen in {city}"
   },
   "svc": {
     "metaTitle": "Reisdiensten | eSIM, vliegveldtransfers, vluchtcompensatie",
