@@ -20,7 +20,8 @@ export default function AdSlot({ slot, className = "" }: { slot: string; classNa
     if (!ADSENSE_CLIENT || /^(\d)\1{9}$/.test(slot) || pushed.current) return;
     pushed.current = true;
     try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      const queue = window.adsbygoogle || (window.adsbygoogle = []);
+      queue.push({});
     } catch {
       /* adsense not ready */
     }
@@ -31,7 +32,7 @@ export default function AdSlot({ slot, className = "" }: { slot: string; classNa
   if (!ADSENSE_CLIENT || isPlaceholder) return null;
 
   return (
-    <div className={`mx-auto w-full max-w-5xl px-4 ${className}`}>
+    <div className={`mx-auto min-h-[250px] w-full max-w-5xl px-4 ${className}`}>
       <ins
         className="adsbygoogle block"
         style={{ display: "block" }}
