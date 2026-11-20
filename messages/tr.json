@@ -483,6 +483,30 @@
     "stops": "{n, plural, one {# aktarma} other {# aktarma}}",
     "fromTo": "{from} – {to}"
   },
+  "routeGuide": {
+    "title": "{from} - {to} rota bilgileri",
+    "intro": "Yukarıdaki güncel fiyat listesinden ayrı, bu şehir çiftiyla ilgili kısa bir bilgilendirme.",
+    "distance": "{from} ve {to} şehir merkezleri kuş uçuşu yaklaşık {distance} uzaklıkta. Aktarmaları ve havalimanındaki zamanı bu mesafeye göre planlayın.",
+    "durationHours": "Bu rotadaki aktarmasız bir uçuş genellikle kapıdan kapıya yaklaşık {hours} saat sürer.",
+    "durationMinutes": "Bu rotadaki aktarmasız bir uçuş genellikle kapıdan kapıya yaklaşık {hours} saat {minutes} dakika sürer.",
+    "airlines": "{from} ve {to} arasında sıkça hizmet veren havayolları şunlardır: {airlines}. Son fiyat verileri işletmeci adını belirtmediği için ödeme yapmadan önce sonuç sayfasındaki havayolunu veya acenteyi kontrol edin.",
+    "months": "Bu rotada en düşük ücretler genellikle {months} aylarında görülür. Bunu bir başlangıç noktası olarak görün ve gerçekten seyahat edebileceğiniz tarihler için yukarıdaki takvimi kullanın.",
+    "tip1": "İpucu 1",
+    "tip2": "İpucu 2",
+    "tip3": "İpucu 3",
+    "durationShortHours": "{hours} saat",
+    "durationShortMinutes": "{hours} saat {minutes} dakika",
+    "tips": {
+      "airports": "{fromAirport} ve {toAirport} şehir merkezine ne kadar uzak, kontrol edin. Kısa bir uçuş bile iki uçtan birinde uzun bir aktarma anlamına gelebilir.",
+      "nonstop": "Bu rotada aktarmasız bir uçuş yaklaşık {duration} sürer. Daha ucuz bir aktarmalı seçenek görürseniz karşılaştırmadan önce aktarma süresini ekleyin.",
+      "bags": "Taşımak istediğiniz bagajla birlikte toplam fiyatı karşılaştırın. Bu şehir çiftinde düşük ücretli biletler kabin bagajı ve kayıtlı bagaj için ayrı ücret isteyebilir.",
+      "months": "Tarihleriniz esnekse önce {months} aylarına bakın, ardından kesin günler için yukarıdaki takvimi kullanın.",
+      "arrival": "{toAirport} varış saatini kontrol edin. Gece geç saatte iniş, ilk ulaşımı ve otel girişini zahmetli hale getirebilir.",
+      "selfTransfer": "İki ayrı bilet seçerseniz aktarma için geniş bir zaman bırakın. Ayrı biletlerle kaçırılan aktarma, tek rezervasyon kadar korunmaz.",
+      "nearby": "Rezervasyon öncesinde yakın tarihleri karşılaştırın. Aynı rotada bile bir günlük kayma, havalimanı değiştirmekten daha fazla fiyat farkı yaratabilir.",
+      "localTransport": "İnmeden önce {toAirport} çıkışlı yerel ulaşımı öğrenin. Tek yolcu için ulaşım kartı taksiden daha ucuz olabilir."
+    }
+  },
   "routes": {
     "metaTitle": "Rotaya Göre Ucuz Uçuşlar",
     "metaDesc": "Popüler uçuş rotalarına göz atın; her biri için son düşük fiyatları ve en ucuz tarihleri görün.",
@@ -586,7 +610,8 @@
     "q3": "TicketsJet bu hizmetleri satıyor mu?",
     "a3": "Hayır. Tarihleri seçip ödeme yaptığınız sağlayıcılara bağlantı veririz. Ödeme almaz, ücret eklemeyiz.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "{city} için ucuz uçuşlar"
+    "heroTitle": "{city} için ucuz uçuşlar",
+    "guideTitle": "{city} için yerel rehber"
   },
   "aci": {
     "metaTitle": "Yapılacaklar | Şehre Göre Turlar, Biletler ve Etkinlikler",

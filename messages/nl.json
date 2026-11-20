@@ -483,6 +483,30 @@
     "stops": "{n, plural, one {# overstap} other {# overstappen}}",
     "fromTo": "{from} naar {to}"
   },
+  "routeGuide": {
+    "title": "Routegegevens voor {from} naar {to}",
+    "intro": "Een korte briefing over deze stadskoppeling, los van de live prijslijst hierboven.",
+    "distance": "De centra van {from} en {to} liggen ongeveer {distance} uit elkaar in een rechte lijn. Plan transfers en tijd op de luchthaven op die afstand af.",
+    "durationHours": "Een directe vlucht op deze route duurt meestal ongeveer {hours} uur, van poort tot poort.",
+    "durationMinutes": "Een directe vlucht op deze route duurt meestal ongeveer {hours} uur en {minutes} minuten, van poort tot poort.",
+    "airlines": "Maatschappijen die {from} en {to} vaak bedienen zijn onder meer {airlines}. De recente prijsgegevens noemen de vervoerder niet, dus controleer de airline of het bureau op de resultatenpagina voordat je betaalt.",
+    "months": "Voor deze route verschijnen de laagste tarieven meestal in {months}. Zie dat als een startpunt en gebruik de kalender hierboven voor data waarop je echt kunt reizen.",
+    "tip1": "Tip 1",
+    "tip2": "Tip 2",
+    "tip3": "Tip 3",
+    "durationShortHours": "{hours} uur",
+    "durationShortMinutes": "{hours} uur en {minutes} minuten",
+    "tips": {
+      "airports": "Controleer hoe ver {fromAirport} en {toAirport} van het centrum liggen. Een korte vlucht kan nog steeds een lange overstap aan één kant betekenen.",
+      "nonstop": "Een directe vlucht op deze route duurt ongeveer {duration}. Als je een goedkopere vlucht met overstap ziet, tel de overstaptijd dan mee voordat je vergelijkt.",
+      "bags": "Vergelijk de totale prijs met de bagage die je wilt meenemen. Goedkope tarieven op deze verbinding kunnen apart rekenen voor handbagage en ruimbagage.",
+      "months": "Als je data flexibel zijn, bekijk dan eerst {months} en gebruik daarna de kalender hierboven voor exacte dagen.",
+      "arrival": "Controleer het aankomsttijdstip in {toAirport}. Een late aankomst kan de eerste overstap en de check-in bij het hotel minder handig maken.",
+      "selfTransfer": "Als je twee aparte tickets kiest, neem dan ruime overstaptijd. Een gemiste overstap met aparte tickets is niet beschermd zoals bij één boeking.",
+      "nearby": "Vergelijk data vlak bij elkaar voordat je boekt. Ook op dezelfde route kan één dag verschil meer uitmaken dan een ander vliegveld.",
+      "localTransport": "Bedenk vooraf hoe je vanaf {toAirport} verder reist. Een vervoerskaart kan voor één reiziger goedkoper zijn dan een taxi."
+    }
+  },
   "routes": {
     "metaTitle": "Goedkope vluchten per route",
     "metaDesc": "Bekijk populaire vluchtroutes met recente lage tarieven en de goedkoopste data per route.",
@@ -586,7 +610,8 @@
     "q3": "Verkoopt TicketsJet deze diensten?",
     "a3": "Nee. We verwijzen naar de aanbieders, waar je data kiest en betaalt. We nemen geen betalingen aan en rekenen geen kosten.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Goedkope vluchten naar {city}"
+    "heroTitle": "Goedkope vluchten naar {city}",
+    "guideTitle": "Reisgids voor {city}"
   },
   "aci": {
     "metaTitle": "Doen & zien | tours, tickets en activiteiten per stad",

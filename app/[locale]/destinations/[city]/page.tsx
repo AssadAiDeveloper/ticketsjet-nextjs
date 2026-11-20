@@ -15,6 +15,8 @@ import { getRouteFares } from "@/lib/routeFares";
 import { searchCode } from "@/lib/fares";
 import DestPhoto from "@/components/DestPhoto";
 import { allPhotos } from "@/lib/destinationPhotos";
+import PostBody from "@/components/PostBody";
+import { getDestinationContent } from "@/lib/destinations";
 
 export const revalidate = 21600;
 export const dynamicParams = false;
@@ -57,6 +59,8 @@ export default async function DestinationPage({ params }: Props) {
     ? `/flights?flightSearch=${searchCode(main[0].toUpperCase(), { code: c.iata, depart: best.depart, back: best.back })}`
     : "/flights";
   const P = best ? <Price usd={best.price} /> : null;
+  const guide = getDestinationContent(c.slug, locale);
+  const guideRtl = guide.locale === "ar" || guide.locale === "fa" || guide.locale === "he";
 
   const faq = [
     { q: t("q1", { city: name }), a: t("a1") },
@@ -112,6 +116,15 @@ export default async function DestinationPage({ params }: Props) {
             </Link>
           </div>
         </div>
+
+        {(guide.content.blocks?.length ?? 0) > 0 && (
+          <section className="mt-12 max-w-3xl" lang={guide.locale} dir={guideRtl ? "rtl" : "ltr"}>
+            <h2 className="font-display text-2xl font-bold text-ink">{t("guideTitle", { city: name })}</h2>
+            <div className="mt-4">
+              <PostBody blocks={guide.content.blocks} />
+            </div>
+          </section>
+        )}
 
         <section className="mt-12 rounded-2xl border border-mist bg-white p-6">
           <h2 className="font-display text-2xl font-bold text-ink">{t("s2t")}</h2>

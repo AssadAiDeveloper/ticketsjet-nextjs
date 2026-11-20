@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tp = await getTranslations({ locale, namespace: "place" });
   const k = c.iata.toLowerCase();
   const v = { city: tp(`${k}.name`), country: countryName(DEST_CC[k], locale) };
-  return { title: t("metaTitle", v), description: t("metaDesc", v), alternates: alternatesFor(locale, `/activities/${c.slug}`) };
+  return { title: t("metaTitle", v), description: t("metaDesc", v), alternates: alternatesFor(locale, `/activities/${c.slug}`), robots: { index: false, follow: true } };
 }
 
 export default async function ActivityCityPage({ params }: Props) {

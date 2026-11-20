@@ -483,6 +483,30 @@
     "stops": "{n, plural, one {# Stopp} other {# Stopps}}",
     "fromTo": "{from} nach {to}"
   },
+  "routeGuide": {
+    "title": "Routendaten für {from} nach {to}",
+    "intro": "Eine kurze Information zu dieser Stadtverbindung, getrennt von der aktuellen Preisliste oben.",
+    "distance": "Die Zentren von {from} und {to} liegen in gerader Linie etwa {distance} auseinander. Plane Umstiege und Zeit am Flughafen entsprechend ein.",
+    "durationHours": "Ein Direktflug auf dieser Strecke dauert normalerweise etwa {hours} Stunden von Tor zu Tor.",
+    "durationMinutes": "Ein Direktflug auf dieser Strecke dauert normalerweise etwa {hours} Stunden und {minutes} Minuten von Tor zu Tor.",
+    "airlines": "Zu den Airlines, die {from} und {to} häufig bedienen, gehören {airlines}. Die aktuellen Preisdaten nennen den Betreiber nicht, daher prüfe die Airline oder Agentur auf den Suchergebnissen vor der Zahlung.",
+    "months": "Auf dieser Strecke treten die niedrigsten Preise meist in {months} auf. Sieh das als Ausgangspunkt und nutze den Kalender oben für Daten, an denen du wirklich reisen kannst.",
+    "tip1": "Tipp 1",
+    "tip2": "Tipp 2",
+    "tip3": "Tipp 3",
+    "durationShortHours": "{hours} Stunden",
+    "durationShortMinutes": "{hours} Stunden und {minutes} Minuten",
+    "tips": {
+      "airports": "Prüfe, wie weit {fromAirport} und {toAirport} vom Stadtzentrum entfernt sind. Ein kurzer Flug kann trotzdem an einem Ende einen langen Transfer bedeuten.",
+      "nonstop": "Ein Direktflug auf dieser Strecke dauert etwa {duration}. Wenn du einen günstigeren Flug mit Stopp siehst, rechne die Umstiegszeit vor dem Vergleich mit ein.",
+      "bags": "Vergleiche den Gesamtpreis mit dem Gepäck, das du mitnehmen möchtest. Günstige Tarife auf dieser Verbindung können für Handgepäck und aufgegebenes Gepäck getrennt berechnen.",
+      "months": "Wenn deine Daten flexibel sind, prüfe zuerst {months} und nutze danach den Kalender oben für genaue Tage.",
+      "arrival": "Prüfe die Ankunftszeit in {toAirport}. Eine späte Landung kann den ersten Transfer und den Check-in im Hotel weniger angenehm machen.",
+      "selfTransfer": "Wenn du zwei getrennte Tickets wählst, plane großzügig Umstiegszeit ein. Ein verpasster Selbstumstieg ist nicht so geschützt wie eine einzige Buchung.",
+      "nearby": "Vergleiche benachbarte Daten, bevor du buchst. Auch auf derselben Strecke kann ein Tag Unterschied mehr ausmachen als ein anderer Flughafen.",
+      "localTransport": "Kläre vor der Landung, wie du von {toAirport} weiterkommst. Eine Verkehrskarte kann für eine Person günstiger sein als ein Taxi."
+    }
+  },
   "routes": {
     "metaTitle": "Günstige Flüge nach Strecke",
     "metaDesc": "Entdecke beliebte Flugstrecken und sieh aktuelle Tiefstpreise und die günstigsten Daten für jede.",
@@ -586,7 +610,8 @@
     "q3": "Verkauft TicketsJet diese Leistungen?",
     "a3": "Nein. Wir verlinken zu den Anbietern, bei denen du Daten wählst und bezahlst. Wir nehmen keine Zahlungen entgegen und erheben keine Gebühren.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Günstige Flüge nach {city}"
+    "heroTitle": "Günstige Flüge nach {city}",
+    "guideTitle": "Reiseführer für {city}"
   },
   "aci": {
     "metaTitle": "Aktivitäten – Touren, Tickets & Erlebnisse nach Stadt",

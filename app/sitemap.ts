@@ -26,7 +26,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...pages.flatMap((p) => entry(p, p === "" ? "daily" : "weekly", p === "" ? 1 : 0.8, now)),
     ...ROUTES.flatMap(([o, d], i) => (fareFlags[i] ? entry(`/cheap-flights/${slug(o, d)}`, "daily", 0.7, now) : [])),
-    ...ACTIVITY_CITIES.flatMap((c) => entry(`/activities/${c.slug}`, "weekly", 0.7, now)),
     ...ACTIVITY_CITIES.flatMap((c) => entry(`/destinations/${c.slug}`, "weekly", 0.7, now)),
     ...allPosts().flatMap((post) => {
       const locs = localesForPost(post.slug);

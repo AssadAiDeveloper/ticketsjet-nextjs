@@ -483,6 +483,30 @@
     "stops": "{n, plural, one {# stop} other {# stops}}",
     "fromTo": "{from} to {to}"
   },
+  "routeGuide": {
+    "title": "Route facts for {from} to {to}",
+    "intro": "A short briefing on this city pair, separate from the live fare list above.",
+    "distance": "The centres of {from} and {to} are about {distance} apart in a straight line, so plan transfers and airport time around that distance.",
+    "durationHours": "A nonstop flight on this route usually takes about {hours} hours, gate to gate.",
+    "durationMinutes": "A nonstop flight on this route usually takes about {hours} hours and {minutes} minutes, gate to gate.",
+    "airlines": "Operators that commonly serve {from} and {to} include {airlines}. The recent fare feed does not name the operator, so check the airline or agency on the results page before you pay.",
+    "months": "For this route, the lowest fares tend to appear in {months}. Treat that as a starting point and use the calendar above for the dates you can actually travel.",
+    "tip1": "Tip 1",
+    "tip2": "Tip 2",
+    "tip3": "Tip 3",
+    "durationShortHours": "{hours} hours",
+    "durationShortMinutes": "{hours} hours and {minutes} minutes",
+    "tips": {
+      "airports": "Check how far {fromAirport} and {toAirport} sit from the city centre. A short flight can still mean a long transfer at one end.",
+      "nonstop": "A nonstop flight on this route takes about {duration}. If you see a cheaper one-stop option, add the connection time before you compare.",
+      "bags": "Compare the total price with the bag you plan to carry. Low-cost fares on this city pair can charge separately for a cabin bag and a checked bag.",
+      "months": "If your dates are flexible, check {months} first, then use the calendar above for exact days.",
+      "arrival": "Check the arrival time at {toAirport}. A late landing can make the first transfer and hotel check-in less convenient.",
+      "selfTransfer": "If you choose two separate tickets, leave a generous connection window. A missed self-transfer is not protected like a single booking.",
+      "nearby": "Compare nearby dates before you book. Even on the same route, a one-day shift can change the fare more than changing airports.",
+      "localTransport": "Work out the local transport from {toAirport} before you land. A transit card can be cheaper than a taxi for one traveller."
+    }
+  },
   "routes": {
     "metaTitle": "Cheap Flights by Route",
     "metaDesc": "Browse popular flight routes and see recent low fares and the cheapest dates for each.",
@@ -586,7 +610,8 @@
     "q3": "Does TicketsJet sell these services?",
     "a3": "No. We link to the providers, where you choose dates and pay. We don't take payments or add fees.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Cheap flights to {city}"
+    "heroTitle": "Cheap flights to {city}",
+    "guideTitle": "Local guide to {city}"
   },
   "aci": {
     "metaTitle": "Things to Do | Tours, Tickets & Activities by City",

@@ -483,6 +483,30 @@
     "stops": "{n, plural, one {# escale} other {# escales}}",
     "fromTo": "{from} vers {to}"
   },
+  "routeGuide": {
+    "title": "Informations sur la route de {from} vers {to}",
+    "intro": "Une courte présentation de cette liaison entre villes, en dehors de la liste de prix actualisée ci-dessus.",
+    "distance": "Les centres de {from} et {to} sont à environ {distance} à vol d'oiseau. Prévoyez les correspondances et le temps à l'aéroport en fonction de cette distance.",
+    "durationHours": "Un vol direct sur cette route dure généralement environ {hours} heures, de porte à porte.",
+    "durationMinutes": "Un vol direct sur cette route dure généralement environ {hours} heures et {minutes} minutes, de porte à porte.",
+    "airlines": "Les compagnies qui desservent souvent {from} et {to} incluent {airlines}. Les données de prix récentes ne nomment pas le transporteur, donc vérifiez la compagnie ou l'agence sur la page de résultats avant de payer.",
+    "months": "Sur cette route, les tarifs les plus bas apparaissent le plus souvent en {months}. Considérez cela comme un point de départ et utilisez le calendrier ci-dessus pour les dates où vous pouvez réellement voyager.",
+    "tip1": "Conseil 1",
+    "tip2": "Conseil 2",
+    "tip3": "Conseil 3",
+    "durationShortHours": "{hours} heures",
+    "durationShortMinutes": "{hours} heures et {minutes} minutes",
+    "tips": {
+      "airports": "Vérifiez la distance entre le centre-ville et {fromAirport} ainsi que {toAirport}. Un vol court peut encore impliquer un long transfert à une extrémité.",
+      "nonstop": "Un vol direct sur cette route dure environ {duration}. Si vous voyez une option avec escale moins chère, ajoutez le temps de correspondance avant de comparer.",
+      "bags": "Comparez le prix total avec le bagage que vous prévoyez d'emporter. Les tarifs bas sur cette liaison peuvent facturer séparément un bagage cabine et un bagage en soute.",
+      "months": "Si vos dates sont flexibles, commencez par {months}, puis utilisez le calendrier ci-dessus pour choisir des jours précis.",
+      "arrival": "Vérifiez l'heure d'arrivée à {toAirport}. Une arrivée tardive peut rendre le premier transfert et l'enregistrement à l'hôtel moins pratiques.",
+      "selfTransfer": "Si vous achetez deux billets séparés, prévoyez une correspondance large. Une correspondance manquée avec deux billets n'est pas protégée comme un seul dossier.",
+      "nearby": "Comparez les dates proches avant de réserver. Sur une même route, décaler d'un jour peut changer le prix plus que changer d'aéroport.",
+      "localTransport": "Renseignez-vous sur les transports depuis {toAirport} avant d'atterrir. Un titre de transport peut coûter moins cher qu'un taxi pour une personne."
+    }
+  },
   "routes": {
     "metaTitle": "Vols pas chers par itinéraire",
     "metaDesc": "Parcourez les itinéraires populaires et consultez les tarifs bas récents et les dates les moins chères pour chacun.",
@@ -586,7 +610,8 @@
     "q3": "TicketsJet vend-il ces services ?",
     "a3": "Non. Nous renvoyons vers les fournisseurs, où vous choisissez les dates et payez. Nous n'encaissons aucun paiement et n'ajoutons aucuns frais.",
     "noFares": "No recent fares found for this route.",
-    "heroTitle": "Vols pas chers vers {city}"
+    "heroTitle": "Vols pas chers vers {city}",
+    "guideTitle": "Guide local de {city}"
   },
   "aci": {
     "metaTitle": "À faire | Visites, billets et activités par ville",

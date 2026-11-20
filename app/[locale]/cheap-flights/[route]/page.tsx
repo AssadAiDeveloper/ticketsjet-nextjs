@@ -16,6 +16,18 @@ import { fullDate, countryName } from "@/lib/format";
 import { DEST_CC, fillTokens, usdText } from "@/lib/richPrice";
 import DestPhoto from "@/components/DestPhoto";
 import { allPhotos } from "@/lib/destinationPhotos";
+import { getRouteGuide, type RouteTipKey } from "@/lib/routeGuides";
+
+const TIP_MESSAGES: Record<RouteTipKey, string> = {
+  airports: "tips.airports",
+  nonstop: "tips.nonstop",
+  bags: "tips.bags",
+  months: "tips.months",
+  arrival: "tips.arrival",
+  selfTransfer: "tips.selfTransfer",
+  nearby: "tips.nearby",
+  localTransport: "tips.localTransport",
+};
 
 export const revalidate = 21600;
 export const dynamicParams = false;
@@ -85,6 +97,28 @@ export default async function RoutePage({ params }: Props) {
   const hi = fares ? Math.max(...fares.map((f) => f.price)) : 0;
   const tok = (k: string) => `§${k}§`;
   const P = (n: number) => <Price usd={n} />;
+  const trg = await getTranslations("routeGuide");
+  const guide = getRouteGuide(r.o, r.d);
+  const nf = new Intl.NumberFormat(locale);
+  const hours = guide ? Math.floor(guide.durationMinutes / 60) : 0;
+  const minutes = guide ? guide.durationMinutes % 60 : 0;
+  const durationLabel = guide
+    ? minutes === 0
+      ? trg("durationShortHours", { hours: nf.format(hours) })
+      : trg("durationShortMinutes", { hours: nf.format(hours), minutes: nf.format(minutes) })
+    : "";
+  const durationSentence = guide
+    ? minutes === 0
+      ? trg("durationHours", { hours: nf.format(hours) })
+      : trg("durationMinutes", { hours: nf.format(hours), minutes: nf.format(minutes) })
+    : "";
+  const listFmt = new Intl.ListFormat(locale, { style: "long", type: "conjunction" });
+  const monthFmt = new Intl.DateTimeFormat(locale, { month: "long", timeZone: "UTC" });
+  const monthsLabel = guide
+    ? listFmt.format(guide.months.map((m) => monthFmt.format(new Date(Date.UTC(2024, m - 1, 1)))))
+    : "";
+  const operatorsLabel = guide ? listFmt.format(guide.operators) : "";
+  const tipValues = { fromAirport: from, toAirport: toName, duration: durationLabel, months: monthsLabel };
 
   const a1 = cheapest ? t("a1", { price: tok("price") }) : t("a1none");
   const a2 = cheapest ? t("a2", { date: fullDate(cheapest.depart, locale) }) : t("a2none");
@@ -191,6 +225,27 @@ export default async function RoutePage({ params }: Props) {
           </p>
           <p className="mt-3 leading-relaxed text-slate">{t("cache")}</p>
         </section>
+
+        {guide && (
+          <section className="mt-12 max-w-3xl">
+            <h2 className="font-display text-2xl font-bold text-ink">{trg("title", { from, to: toName })}</h2>
+            <p className="mt-2 text-sm text-slate">{trg("intro")}</p>
+            <div className="mt-5 space-y-3 leading-relaxed text-slate">
+              <p>{trg("distance", { from, to: toName, distance: `${nf.format(guide.distanceKm)} km` })}</p>
+              <p>{durationSentence}</p>
+              <p>{trg("airlines", { from, to: toName, airlines: operatorsLabel })}</p>
+              <p>{trg("months", { months: monthsLabel })}</p>
+            </div>
+            <ul className="mt-5 list-disc space-y-2 ps-5 text-slate">
+              {guide.tips.map((tip) => (
+                <li key={tip}>
+                  <span className="font-semibold text-ink">{trg(TIP_MESSAGES[tip])} </span>
+                  {trg(TIP_MESSAGES[tip], tipValues)}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {ACTIVITY_CITIES.some((a) => a.iata === dest.code) && (
           <section className="mt-10 max-w-3xl">
