@@ -6,6 +6,7 @@
     "dev": "next dev",
     "prebuild": "node scripts/check-i18n.mjs",
     "build": "next build",
+    "postbuild": "node scripts/check-rendered-text.mjs",
     "start": "next start"
   },
   "dependencies": {
