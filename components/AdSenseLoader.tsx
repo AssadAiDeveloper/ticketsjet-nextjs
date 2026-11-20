@@ -2,12 +2,9 @@
 
 import Script from "next/script";
 import { ADSENSE_CLIENT } from "@/lib/config";
-import { useConsent } from "@/lib/consent";
 
-/** Loads the AdSense script only after the visitor has accepted advertising cookies. */
+/** Loads the AdSense script. Google's consent message handles advertising choices. */
 export default function AdSenseLoader() {
-  const consent = useConsent();
-  if (!ADSENSE_CLIENT || consent !== "granted") return null;
   return (
     <Script
       id="adsense"

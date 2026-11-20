@@ -51,12 +51,6 @@
     "eu261": "Flight compensation calculator"
   },
   "cookie": {
-    "aria": "Preferencias de cookies",
-    "title": "Cookies en TicketsJet",
-    "body": "Usamos cookies esenciales para que el sitio funcione. Con tu permiso, también cargamos cookies publicitarias. Nuestros socios de viaje pueden instalar sus propias cookies cuando buscas o reservas.",
-    "privacy": "Política de privacidad",
-    "acceptAll": "Aceptar todas",
-    "onlyEssential": "Solo esenciales",
     "settings": "Ajustes de cookies"
   },
   "common": {
@@ -939,7 +933,7 @@
     "h2c": "Lo que nunca recopilamos",
     "p2": "Nunca vemos ni almacenamos tus datos de pago, la información de tu pasaporte ni tus registros de reserva. Los gestiona por completo la aerolínea, el hotel o el proveedor de alquiler con el que reservas.",
     "h2d": "Terceros",
-    "p3": "Nuestras herramientas de búsqueda y enlaces externos se ofrecen junto con socios de viajes que pueden establecer cookies para atribuir reservas. La publicidad de este sitio puede ser servida por Google AdSense, que usa cookies para mostrar anuncios relevantes. Puedes gestionar la personalización de anuncios en tu configuración de Google y las cookies en la configuración de tu navegador.",
+    "p3": "Nuestras herramientas de búsqueda y enlaces externos se ofrecen junto con socios de viajes que pueden establecer cookies para atribuir reservas. La publicidad de este sitio puede ser servida por Google AdSense, que usa cookies para mostrar anuncios relevantes. El consentimiento para los anuncios se gestiona mediante el mensaje de consentimiento. Puedes volver a abrirlo en cualquier momento desde Ajustes de cookies.",
     "h2e": "Tus derechos",
     "p4": "Conforme al RGPD y normativas similares, puedes solicitar el acceso o la eliminación de los datos personales que conservemos. Contáctanos a través de los datos de este sitio web y responderemos en 30 días.",
     "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",

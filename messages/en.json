@@ -51,12 +51,6 @@
     "eu261": "Flight compensation calculator"
   },
   "cookie": {
-    "aria": "Cookie preferences",
-    "title": "Cookies on TicketsJet",
-    "body": "We use essential cookies to make the site work. With your OK we also load advertising cookies. Our travel partners may set their own cookies when you search or book.",
-    "privacy": "Privacy policy",
-    "acceptAll": "Accept all",
-    "onlyEssential": "Only essential",
     "settings": "Cookie settings"
   },
   "common": {
@@ -939,7 +933,7 @@
     "h2c": "What we never collect",
     "p2": "We never see or store your payment details, passport information or booking records. These are handled entirely by the airline, hotel or rental provider you book with.",
     "h2d": "Third parties",
-    "p3": "Our search tools and outbound links are provided together with travel partners who may set cookies to attribute bookings. Advertising on this site may be served by Google AdSense, which uses cookies to show relevant ads. You can manage ad personalisation in your Google settings and cookies in your browser settings.",
+    "p3": "Our search tools and outbound links are provided together with travel partners who may set cookies to attribute bookings. Advertising on this site may be served by Google AdSense, which uses cookies to show relevant ads. Consent for advertising is managed through the consent message. You can reopen it at any time with Cookie settings.",
     "h2e": "Your rights",
     "p4": "Under the GDPR and similar regulations, you may request access to or deletion of any personal data we hold. Contact us via the details on this website and we will respond within 30 days.",
     "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",

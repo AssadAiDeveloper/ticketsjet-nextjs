@@ -9,7 +9,6 @@ import { LOCALES, isLocale } from "@/i18n/routing";
 import { CurrencyProvider } from "@/components/CurrencyProvider";
 import HtmlLang from "@/components/HtmlLang";
 import AdSenseLoader from "@/components/AdSenseLoader";
-import CookieConsent from "@/components/CookieConsent";
 import PartnerRedirect from "@/components/PartnerRedirect";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -89,7 +88,6 @@ export default async function RootLayout({ children, params }: { children: React
             <Header />
             <main><UntranslatedGuard>{children}</UntranslatedGuard></main>
             <Footer />
-            <CookieConsent />
             <PartnerRedirect />
           </CurrencyProvider>
         </NextIntlClientProvider>

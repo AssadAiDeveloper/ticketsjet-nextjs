@@ -51,12 +51,6 @@
     "eu261": "Vluchtcompensatie-calculator"
   },
   "cookie": {
-    "aria": "Cookievoorkeuren",
-    "title": "Cookies op TicketsJet",
-    "body": "We gebruiken essentiële cookies om de site te laten werken. Met jouw toestemming laden we ook advertentiecookies. Onze reispartners kunnen eigen cookies plaatsen wanneer je zoekt of boekt.",
-    "privacy": "Privacybeleid",
-    "acceptAll": "Alles accepteren",
-    "onlyEssential": "Alleen essentieel",
     "settings": "Cookie-instellingen"
   },
   "common": {
@@ -939,7 +933,7 @@
     "h2c": "Wat we nooit verzamelen",
     "p2": "We zien of bewaren nooit je betaalgegevens, paspoortgegevens of boekingsgegevens. Die worden volledig verwerkt door de airline, het hotel of de verhuurder bij wie je boekt.",
     "h2d": "Derden",
-    "p3": "Onze zoekhulpmiddelen en uitgaande links worden aangeboden samen met reispartners die cookies kunnen plaatsen om boekingen toe te wijzen. Advertenties op deze site kunnen worden getoond door Google AdSense, dat cookies gebruikt om relevante advertenties te tonen. Je kunt advertentiepersonalisatie beheren in je Google-instellingen en cookies in je browserinstellingen.",
+    "p3": "Onze zoekhulpmiddelen en uitgaande links worden aangeboden samen met reispartners die cookies kunnen plaatsen om boekingen toe te wijzen. Advertenties op deze site kunnen worden getoond door Google AdSense, dat cookies gebruikt om relevante advertenties te tonen. Toestemming voor advertenties wordt beheerd via het toestemmingsbericht. Je kunt het op elk moment opnieuw openen met Cookie-instellingen.",
     "h2e": "Je rechten",
     "p4": "Op grond van de AVG en vergelijkbare regelgeving kun je inzage in of verwijdering van persoonsgegevens vragen die wij bewaren. Neem contact met ons op via de gegevens op deze website en we reageren binnen 30 dagen.",
     "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",

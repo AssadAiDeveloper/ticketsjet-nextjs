@@ -51,12 +51,6 @@
     "eu261": "Flight compensation calculator"
   },
   "cookie": {
-    "aria": "Préférences relatives aux cookies",
-    "title": "Cookies sur TicketsJet",
-    "body": "Nous utilisons des cookies essentiels pour faire fonctionner le site. Avec votre accord, nous chargeons aussi des cookies publicitaires. Nos partenaires de voyage peuvent déposer leurs propres cookies lorsque vous recherchez ou réservez.",
-    "privacy": "Politique de confidentialité",
-    "acceptAll": "Tout accepter",
-    "onlyEssential": "Essentiels uniquement",
     "settings": "Paramètres des cookies"
   },
   "common": {
@@ -939,7 +933,7 @@
     "h2c": "Ce que nous ne collectons jamais",
     "p2": "Nous ne voyons ni ne stockons jamais vos données de paiement, vos informations de passeport ni vos dossiers de réservation. Ils sont entièrement gérés par la compagnie aérienne, l'hôtel ou le loueur auprès duquel vous réservez.",
     "h2d": "Tiers",
-    "p3": "Nos outils de recherche et nos liens sortants sont fournis avec des partenaires de voyage qui peuvent déposer des cookies pour attribuer les réservations. La publicité sur ce site peut être diffusée par Google AdSense, qui utilise des cookies pour afficher des annonces pertinentes. Vous pouvez gérer la personnalisation des annonces dans vos paramètres Google et les cookies dans les paramètres de votre navigateur.",
+    "p3": "Nos outils de recherche et nos liens sortants sont fournis avec des partenaires de voyage qui peuvent déposer des cookies pour attribuer les réservations. La publicité sur ce site peut être diffusée par Google AdSense, qui utilise des cookies pour afficher des annonces pertinentes. Le consentement aux publicités est géré via le message de consentement. Vous pouvez le rouvrir à tout moment avec Paramètres des cookies.",
     "h2e": "Vos droits",
     "p4": "En vertu du RGPD et de réglementations similaires, vous pouvez demander l'accès ou la suppression de toute donnée personnelle que nous détenons. Contactez-nous via les coordonnées de ce site et nous répondrons sous 30 jours.",
     "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",

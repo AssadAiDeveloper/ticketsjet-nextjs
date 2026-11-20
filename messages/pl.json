@@ -51,12 +51,6 @@
     "eu261": "Flight compensation calculator"
   },
   "cookie": {
-    "aria": "Preferencje plików cookie",
-    "title": "Pliki cookie w TicketsJet",
-    "body": "Używamy niezbędnych plików cookie, aby serwis działał. Za Twoją zgodą ładujemy też reklamowe pliki cookie. Nasi partnerzy turystyczni mogą ustawiać własne pliki cookie podczas wyszukiwania lub rezerwacji.",
-    "privacy": "Polityka prywatności",
-    "acceptAll": "Zaakceptuj wszystkie",
-    "onlyEssential": "Tylko niezbędne",
     "settings": "Ustawienia plików cookie"
   },
   "common": {
@@ -939,7 +933,7 @@
     "h2c": "Czego nigdy nie zbieramy",
     "p2": "Nigdy nie widzimy ani nie przechowujemy Twoich danych płatniczych, danych paszportowych ani zapisów rezerwacji. Obsługuje je w całości linia lotnicza, hotel lub wypożyczalnia, u których rezerwujesz.",
     "h2d": "Strony trzecie",
-    "p3": "Nasze narzędzia wyszukiwania i linki wychodzące są udostępniane wraz z partnerami podróżnymi, którzy mogą ustawiać pliki cookie w celu przypisywania rezerwacji. Reklamy w tym serwisie mogą być wyświetlane przez Google AdSense, który używa plików cookie do pokazywania odpowiednich reklam. Personalizacją reklam możesz zarządzać w ustawieniach Google, a plikami cookie w ustawieniach przeglądarki.",
+    "p3": "Nasze narzędzia wyszukiwania i linki wychodzące są udostępniane wraz z partnerami podróżnymi, którzy mogą ustawiać pliki cookie w celu przypisywania rezerwacji. Reklamy w tym serwisie mogą być wyświetlane przez Google AdSense, który używa plików cookie do pokazywania odpowiednich reklam. Zgoda na reklamy jest zarządzana przez komunikat o zgodzie. Możesz go ponownie otworzyć w każdej chwili za pomocą Ustawienia plików cookie.",
     "h2e": "Twoje prawa",
     "p4": "Zgodnie z RODO i podobnymi przepisami możesz zażądać dostępu do danych osobowych, które przechowujemy, lub ich usunięcia. Skontaktuj się z nami za pomocą danych na tej stronie, a odpowiemy w ciągu 30 dni.",
     "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",

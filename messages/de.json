@@ -51,12 +51,6 @@
     "eu261": "Flight compensation calculator"
   },
   "cookie": {
-    "aria": "Cookie-Einstellungen",
-    "title": "Cookies bei TicketsJet",
-    "body": "Wir verwenden notwendige Cookies, damit die Website funktioniert. Mit deiner Zustimmung laden wir auch Werbe-Cookies. Unsere Reisepartner können eigene Cookies setzen, wenn du suchst oder buchst.",
-    "privacy": "Datenschutzerklärung",
-    "acceptAll": "Alle akzeptieren",
-    "onlyEssential": "Nur notwendige",
     "settings": "Cookie-Einstellungen"
   },
   "common": {
@@ -939,7 +933,7 @@
     "h2c": "Was wir nie erheben",
     "p2": "Wir sehen oder speichern nie deine Zahlungsdaten, Passinformationen oder Buchungsunterlagen. Diese werden vollständig von der Airline, dem Hotel oder dem Vermieter verwaltet, bei dem du buchst.",
     "h2d": "Dritte",
-    "p3": "Unsere Suchwerkzeuge und ausgehenden Links werden zusammen mit Reisepartnern bereitgestellt, die Cookies setzen können, um Buchungen zuzuordnen. Werbung auf dieser Website kann von Google AdSense ausgeliefert werden, das Cookies nutzt, um relevante Anzeigen zu zeigen. Die Anzeigenpersonalisierung kannst du in deinen Google-Einstellungen und Cookies in deinen Browsereinstellungen verwalten.",
+    "p3": "Unsere Suchwerkzeuge und ausgehenden Links werden zusammen mit Reisepartnern bereitgestellt, die Cookies setzen können, um Buchungen zuzuordnen. Werbung auf dieser Website kann von Google AdSense ausgeliefert werden, das Cookies nutzt, um relevante Anzeigen zu zeigen. Die Einwilligung für Werbung wird über die Einwilligungsnachricht verwaltet. Du kannst sie jederzeit über Cookie-Einstellungen erneut öffnen.",
     "h2e": "Deine Rechte",
     "p4": "Nach der DSGVO und ähnlichen Vorschriften kannst du Auskunft über oder Löschung der von uns gespeicherten personenbezogenen Daten verlangen. Kontaktiere uns über die Angaben auf dieser Website, wir antworten innerhalb von 30 Tagen.",
     "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",

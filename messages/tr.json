@@ -51,12 +51,6 @@
     "eu261": "Flight compensation calculator"
   },
   "cookie": {
-    "aria": "Çerez tercihleri",
-    "title": "TicketsJet'te çerezler",
-    "body": "Sitenin çalışması için temel çerezler kullanıyoruz. Onayınızla reklam çerezlerini de yüklüyoruz. Seyahat ortaklarımız, arama yaptığınızda veya rezervasyon yaptığınızda kendi çerezlerini yerleştirebilir.",
-    "privacy": "Gizlilik politikası",
-    "acceptAll": "Tümünü kabul et",
-    "onlyEssential": "Yalnızca gerekli olanlar",
     "settings": "Çerez ayarları"
   },
   "common": {
@@ -939,7 +933,7 @@
     "h2c": "Asla toplamadıklarımız",
     "p2": "Ödeme bilgilerinizi, pasaport bilgilerinizi veya rezervasyon kayıtlarınızı asla görmeyiz veya saklamayız. Bunlar tamamen rezervasyon yaptığınız havayolu, otel veya kiralama sağlayıcısı tarafından işlenir.",
     "h2d": "Üçüncü taraflar",
-    "p3": "Arama araçlarımız ve dış bağlantılarımız, rezervasyonları ilişkilendirmek için çerez yerleştirebilen seyahat ortaklarıyla birlikte sağlanır. Bu sitedeki reklamlar, ilgili reklamları göstermek için çerez kullanan Google AdSense tarafından sunulabilir. Reklam kişiselleştirmesini Google ayarlarınızdan, çerezleri tarayıcı ayarlarınızdan yönetebilirsiniz.",
+    "p3": "Arama araçlarımız ve dış bağlantılarımız, rezervasyonları ilişkilendirmek için çerez yerleştirebilen seyahat ortaklarıyla birlikte sağlanır. Bu sitedeki reklamlar, ilgili reklamları göstermek için çerez kullanan Google AdSense tarafından sunulabilir. Reklamlar için onay, onay mesajı aracılığıyla yönetilir. Çerez ayarları üzerinden istediğiniz zaman yeniden açabilirsiniz.",
     "h2e": "Haklarınız",
     "p4": "GDPR ve benzeri düzenlemeler uyarınca, elimizdeki kişisel verilere erişim veya silinmesini talep edebilirsiniz. Bu web sitesindeki bilgiler üzerinden bize ulaşın, 30 gün içinde yanıt vereceğiz.",
     "unsplash": "We display destination photos served by Unsplash (images.unsplash.com); loading them shares your IP address with Unsplash.",
