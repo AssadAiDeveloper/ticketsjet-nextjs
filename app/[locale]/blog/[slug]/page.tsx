@@ -125,6 +125,8 @@ export default async function PostPage({ params }: Props) {
               height={photo.height || 900}
               sizes="(min-width: 768px) 768px, 50vw"
               priority
+              fetchPriority="high"
+              decoding="sync"
               quality={70}
               className="w-full rounded-2xl"
               style={{ backgroundColor: photo.color || undefined }}

@@ -20,6 +20,8 @@ export default function PageHero({
           alt={p.alt || ""}
           fill
           priority
+          fetchPriority="high"
+          decoding="sync"
           sizes="(min-width: 768px) 100vw, 50vw"
           quality={70}
           className="object-cover"
