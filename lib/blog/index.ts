@@ -15,8 +15,12 @@ import { meta as m11 } from "../../content/posts/eu261-flight-delay-compensation
 import { meta as m12 } from "../../content/posts/cancelled-flight-rights-europe/meta";
 import { meta as m13 } from "../../content/posts/denied-boarding-overbooking-rights/meta";
 import { meta as m14 } from "../../content/posts/lost-delayed-damaged-luggage-what-to-do/meta";
+import { meta as m15 } from "../../content/posts/eindhoven-airport-guide/meta";
+import { meta as m16 } from "../../content/posts/rotterdam-the-hague-airport-guide/meta";
+import { meta as m17 } from "../../content/posts/brussels-airport-from-the-netherlands/meta";
+import { meta as m18 } from "../../content/posts/cabin-baggage-rules-avoid-fees/meta";
 
-export const POST_SLUGS = ["how-to-find-cheap-flights", "hotel-booking-mistakes", "car-rental-guide", "flight-delay-compensation-eu261", "esim-vs-local-sim-vs-roaming", "schiphol-airport-guide", "baggage-fees-cabin-bag-guide", "train-vs-flight-europe", "multi-city-open-jaw-flights", "first-hour-after-landing", "eu261-flight-delay-compensation", "cancelled-flight-rights-europe", "denied-boarding-overbooking-rights", "lost-delayed-damaged-luggage-what-to-do"] as const;
+export const POST_SLUGS = ["how-to-find-cheap-flights", "hotel-booking-mistakes", "car-rental-guide", "flight-delay-compensation-eu261", "esim-vs-local-sim-vs-roaming", "schiphol-airport-guide", "baggage-fees-cabin-bag-guide", "train-vs-flight-europe", "multi-city-open-jaw-flights", "first-hour-after-landing", "eu261-flight-delay-compensation", "cancelled-flight-rights-europe", "denied-boarding-overbooking-rights", "lost-delayed-damaged-luggage-what-to-do", "eindhoven-airport-guide", "rotterdam-the-hague-airport-guide", "brussels-airport-from-the-netherlands", "cabin-baggage-rules-avoid-fees"] as const;
 
 export const HOME_SLUGS = ["how-to-find-cheap-flights", "baggage-fees-cabin-bag-guide", "flight-delay-compensation-eu261"] as const;
 
@@ -35,6 +39,10 @@ const METAS: Record<string, PostMeta> = {
   "cancelled-flight-rights-europe": m12,
   "denied-boarding-overbooking-rights": m13,
   "lost-delayed-damaged-luggage-what-to-do": m14,
+  "eindhoven-airport-guide": m15,
+  "rotterdam-the-hague-airport-guide": m16,
+  "brussels-airport-from-the-netherlands": m17,
+  "cabin-baggage-rules-avoid-fees": m18,
 };
 
 // Content registry: slug -> locale -> PostContent
@@ -94,6 +102,22 @@ import { content as c14_en } from "../../content/posts/lost-delayed-damaged-lugg
 import { content as c14_ar } from "../../content/posts/lost-delayed-damaged-luggage-what-to-do/ar";
 import { content as c14_nl } from "../../content/posts/lost-delayed-damaged-luggage-what-to-do/nl";
 
+import { content as c15_en } from "../../content/posts/eindhoven-airport-guide/en";
+import { content as c15_ar } from "../../content/posts/eindhoven-airport-guide/ar";
+import { content as c15_nl } from "../../content/posts/eindhoven-airport-guide/nl";
+
+import { content as c16_en } from "../../content/posts/rotterdam-the-hague-airport-guide/en";
+import { content as c16_ar } from "../../content/posts/rotterdam-the-hague-airport-guide/ar";
+import { content as c16_nl } from "../../content/posts/rotterdam-the-hague-airport-guide/nl";
+
+import { content as c17_en } from "../../content/posts/brussels-airport-from-the-netherlands/en";
+import { content as c17_ar } from "../../content/posts/brussels-airport-from-the-netherlands/ar";
+import { content as c17_nl } from "../../content/posts/brussels-airport-from-the-netherlands/nl";
+
+import { content as c18_en } from "../../content/posts/cabin-baggage-rules-avoid-fees/en";
+import { content as c18_ar } from "../../content/posts/cabin-baggage-rules-avoid-fees/ar";
+import { content as c18_nl } from "../../content/posts/cabin-baggage-rules-avoid-fees/nl";
+
 const CONTENT: Record<string, Record<string, PostContent>> = {
   "how-to-find-cheap-flights": { en: c1_en, ar: c1_ar, nl: c1_nl },
   "hotel-booking-mistakes": { en: c2_en, ar: c2_ar, nl: c2_nl },
@@ -109,6 +133,10 @@ const CONTENT: Record<string, Record<string, PostContent>> = {
   "cancelled-flight-rights-europe": { en: c12_en, ar: c12_ar, nl: c12_nl },
   "denied-boarding-overbooking-rights": { en: c13_en, ar: c13_ar, nl: c13_nl },
   "lost-delayed-damaged-luggage-what-to-do": { en: c14_en, ar: c14_ar, nl: c14_nl },
+  "eindhoven-airport-guide": { en: c15_en, ar: c15_ar, nl: c15_nl },
+  "rotterdam-the-hague-airport-guide": { en: c16_en, ar: c16_ar, nl: c16_nl },
+  "brussels-airport-from-the-netherlands": { en: c17_en, ar: c17_ar, nl: c17_nl },
+  "cabin-baggage-rules-avoid-fees": { en: c18_en, ar: c18_ar, nl: c18_nl },
 };
 
 export function allPosts() {
