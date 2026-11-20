@@ -31,6 +31,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <li>{t.rich("l2", { b: (c) => <strong>{c}</strong> })}</li>
           <li>{t.rich("l3", { b: (c) => <strong>{c}</strong> })}</li>
         </ul>
+        <p>{t("analytics")}</p>
         <h2>{t("h2c")}</h2>
         <p>{t("p2")}</p>
         <h2>{t("h2d")}</h2>

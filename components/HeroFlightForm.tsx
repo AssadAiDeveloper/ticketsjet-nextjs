@@ -242,7 +242,7 @@ export default function HeroFlightForm({ initial }: { initial?: Initial } = {}) 
   );
 
   return (
-    <form onSubmit={submit} noValidate>
+    <form onSubmit={submit} noValidate data-analytics-search="flights">
       <div className="mb-3 flex flex-wrap items-center gap-x-5 gap-y-2">
       <div className="relative inline-block" ref={tripMenu.ref}>
         <button

@@ -930,6 +930,7 @@
     "l1": "<b>Search data</b>. Routes, dates and destinations you search, used to display results.",
     "l2": "<b>Usage data</b>. Anonymous analytics such as pages visited and device type, used to improve the site.",
     "l3": "<b>Cookies</b>. Used for site functionality, analytics and advertising (including Google AdSense) and affiliate tracking by our travel partners.",
+    "analytics": "We use privacy-friendly, cookieless analytics to count visits and clicks. No personal data is collected.",
     "h2c": "What we never collect",
     "p2": "We never see or store your payment details, passport information or booking records. These are handled entirely by the airline, hotel or rental provider you book with.",
     "h2d": "Third parties",

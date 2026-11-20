@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 import { evaluate } from "@/lib/eu261/calc";
 import type { Band, Cause, Coverage, DelayBand, Eu261Content, Inputs, Notice, Situation } from "@/lib/eu261/types";
 
@@ -57,6 +58,7 @@ export default function Eu261Calculator({ content, locale, claimHref }: { conten
         onSubmit={(e) => {
           e.preventDefault();
           setDone(true);
+          track("eu261_calculated");
           setTimeout(() => document.getElementById("eu261-result")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
         }}
         className="rounded-2xl border border-mist bg-white p-5 sm:p-7"

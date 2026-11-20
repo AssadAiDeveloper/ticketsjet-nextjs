@@ -37,7 +37,7 @@ export default function StaysForm() {
   }
 
   return (
-    <form onSubmit={submit} noValidate>
+    <form onSubmit={submit} noValidate data-analytics-search="stays">
       <div className="grid gap-3 md:grid-cols-[1.4fr_1.4fr_1fr_auto] md:items-end">
         <CityField label={t("destination")} value={to} onPick={setTo} onTyped={setTyped} hideCode placeholder={t("city")} />
 

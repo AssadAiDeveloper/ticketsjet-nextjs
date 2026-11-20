@@ -930,6 +930,7 @@
     "l1": "<b>Arama verileri</b>. Sonuçları göstermek için kullanılan, aradığınız rotalar, tarihler ve varış noktaları.",
     "l2": "<b>Kullanım verileri</b>. Siteyi geliştirmek için kullanılan, ziyaret edilen sayfalar ve cihaz türü gibi anonim analizler.",
     "l3": "<b>Çerezler</b>. Site işlevselliği, analiz ve reklamcılık (Google AdSense dahil) ile seyahat ortaklarımızın ortaklık takibi için kullanılır.",
+    "analytics": "Ziyaretleri ve tıklamaları saymak için gizliliğe saygılı, çerezsiz analizler kullanıyoruz. Kişisel veri toplanmaz.",
     "h2c": "Asla toplamadıklarımız",
     "p2": "Ödeme bilgilerinizi, pasaport bilgilerinizi veya rezervasyon kayıtlarınızı asla görmeyiz veya saklamayız. Bunlar tamamen rezervasyon yaptığınız havayolu, otel veya kiralama sağlayıcısı tarafından işlenir.",
     "h2d": "Üçüncü taraflar",

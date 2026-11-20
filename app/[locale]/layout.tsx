@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
@@ -13,6 +14,7 @@ import AdSenseLoader from "@/components/AdSenseLoader";
 import PartnerRedirect from "@/components/PartnerRedirect";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AnalyticsEvents from "@/components/AnalyticsEvents";
 import { SITE } from "@/lib/config";
 import "../globals.css";
 
@@ -81,6 +83,8 @@ export default async function RootLayout({ children, params }: { children: React
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd(locale)) }} />
       </head>
       <body suppressHydrationWarning>
+        <Analytics />
+        <AnalyticsEvents />
         <HtmlLang locale={locale} />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <CurrencyProvider>
