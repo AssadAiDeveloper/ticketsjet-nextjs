@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { pickerDate } from "@/lib/format";
 
 export type City = { code: string; name: string; country: string; kind?: "country" | "everywhere" };
-type CountryGroup = { code: string; name: string; cities: City[]; afterExact?: number };
+type CountryGroup = { code: string; name: string; cities: City[] };
 type Option = { key: string; label: string; code: string; country: string; pick: City; kind: "everywhere" | "group" | "groupCity" | "city" };
 
 /** Autocomplete city field backed by /api/cities */
@@ -49,14 +49,12 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
     if (allowEverywhere) {
       out.push({ key: "everywhere", label: t("everywhere"), code: "", country: "", pick: everywhereCity, kind: "everywhere" });
     }
-    const exact = group?.afterExact ?? 0;
     const cityOption = (c: City, key: string, kind: Option["kind"]): Option => ({ key, label: c.name, code: c.code, country: c.country, pick: c, kind });
-    list.slice(0, exact).forEach((c, i) => out.push(cityOption(c, `exact-${i}`, "city")));
     if (group && group.cities.length) {
       out.push({ key: `group-${group.code}`, label: group.name, code: group.code, country: "", pick: group.cities[0], kind: "group" });
       group.cities.forEach((c, i) => out.push(cityOption(c, `group-${group.code}-${i}`, "groupCity")));
     }
-    list.slice(exact).forEach((c, i) => out.push(cityOption(c, `city-${i}`, "city")));
+    list.forEach((c, i) => out.push(cityOption(c, `city-${i}`, "city")));
     return out;
   }, [allowEverywhere, everywhereCity, group, list, t]);
 

@@ -27,7 +27,8 @@ export async function GET(req: Request) {
       .slice(0, 6)
       .map(({ code, name, country }) => ({ code, name: localizeCity(code, locale, name), country }));
 
-    let countryGroup: { code: string; name: string; cities: Array<{ code: string; name: string; country: string }>; afterExact: number } | undefined;
+    let cities = base;
+    let countryGroup: { code: string; name: string; cities: Array<{ code: string; name: string; country: string }> } | undefined;
     const withCountries = url.searchParams.get("countries") === "1";
     if (!withCountries) {
       const hit = findCountry(raw, locale);
@@ -39,18 +40,15 @@ export async function GET(req: Request) {
           .slice(0, 6)
           .map(({ code, name, country }) => ({ code, name: localizeCity(code, locale, name), country }));
         if (main.length) {
-          const exact = (c: { code: string; name: string }) => {
-            const original = byCode.get(c.code);
-            return names(original ?? c).some((n) => n === q) || c.code.toLowerCase() === q;
-          };
-          let afterExact = 0;
-          while (afterExact < base.length && exact(base[afterExact])) afterExact++;
-          countryGroup = { code: hit.code, name: hit.name, cities: main, afterExact };
+          // With a country match, keep only same-country prefix matches. Code-only
+          // and substring matches such as POS for Spain or UAE for Mount Aue are dropped.
+          const sameCountryStarts = all.filter((c) => c.country === hit.code && names(c).some((n) => n.startsWith(q)));
+          sameCountryStarts.sort((a, b) => rank(a) - rank(b));
+          cities = sameCountryStarts.slice(0, 6).map(({ code, name, country }) => ({ code, name: localizeCity(code, locale, name), country }));
+          countryGroup = { code: hit.code, name: hit.name, cities: main };
         }
       }
     }
-
-    let cities = base;
     if (withCountries) {
       const en = new Intl.DisplayNames(["en"], { type: "region" });
       const loc = new Intl.DisplayNames([intlTag(locale)], { type: "region" });

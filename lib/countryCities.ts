@@ -66,7 +66,7 @@ export const COUNTRY_CITIES: Record<string, string[]> = {
 const ALIASES: Record<string, string[]> = {
   AE: ["uae", "u a e", "vae", "emirates"],
   DE: ["deutschland"],
-  GB: ["uk", "great britain", "england"],
+  GB: ["uk", "britain", "great britain", "england"],
   KR: ["korea"],
   NL: ["holland"],
   TR: ["turkey", "turkiye"],
