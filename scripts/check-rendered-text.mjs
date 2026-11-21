@@ -34,8 +34,9 @@ function visibleText(html) {
 
 const routeDir = `${path.sep}cheap-flights${path.sep}`;
 const destinationDir = `${path.sep}destinations${path.sep}`;
-const files = walk(appDir).filter(
-  (file) => file.endsWith(".html") && (file.includes(routeDir) || file.includes(destinationDir)),
+const allHtmlFiles = walk(appDir).filter((file) => file.endsWith(".html"));
+const files = allHtmlFiles.filter(
+  (file) => file.includes(routeDir) || file.includes(destinationDir),
 );
 
 if (!files.length) {
@@ -56,7 +57,23 @@ for (const file of files) {
   }
 }
 
+for (const file of allHtmlFiles) {
+  const html = readFileSync(file, "utf8");
+  for (const match of html.matchAll(/<link\b[^>]*\brel\s*=\s*["'][^"']*icon[^"']*["'][^>]*>/gi)) {
+    const href = match[0].match(/\bhref\s*=\s*["']([^"']*)["']/i)?.[1];
+    if (href && /^data:/i.test(href)) {
+      failed = true;
+      console.error(`check-rendered-text: data URI icon in ${path.relative(process.cwd(), file)}`);
+    }
+  }
+  if (/C6613F/i.test(html)) {
+    failed = true;
+    console.error(`check-rendered-text: legacy icon colour in ${path.relative(process.cwd(), file)}`);
+  }
+}
+
 console.log(`check-rendered-text: ${files.length} route and destination pages checked`);
+console.log(`check-rendered-text: ${allHtmlFiles.length} HTML files checked for data URI icons`);
 if (failed) {
   console.error("check-rendered-text: FAILED");
   process.exit(1);
