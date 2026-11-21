@@ -13,6 +13,7 @@ import NearbyDates from "@/components/NearbyDates";
 import TripExtras from "@/components/TripExtras";
 import { parseSearchCode } from "@/lib/searchCode";
 import { getCities } from "@/lib/places";
+import { cityName as locCity } from "@/lib/cityName";
 import DealsGrid from "@/components/DealsGrid";
 import { getDeals } from "@/lib/deals";
 import { allPhotos } from "@/lib/destinationPhotos";
@@ -21,20 +22,12 @@ import { ROUTES, DESTS, originName, slug } from "@/lib/routes";
 
 type SP = Promise<{ flightSearch?: string; direct?: string; bags?: string }>;
 
-async function cityObj(code: string) {
+async function cityObj(code: string, locale: string) {
   try {
     const c = (await getCities()).find((x) => x.code === code);
-    if (c) return { code: c.code, name: c.name, country: c.country };
+    if (c) return { code: c.code, name: locCity(c.code, locale, c.name), country: c.country };
   } catch {}
-  return { code, name: code, country: "" };
-}
-
-async function cityName(code: string) {
-  try {
-    return (await getCities()).find((c) => c.code === code)?.name ?? null;
-  } catch {
-    return null;
-  }
+  return { code, name: locCity(code, locale, code), country: "" };
 }
 
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: SP }): Promise<Metadata> {
@@ -61,17 +54,21 @@ export default async function FlightsPage({ params, searchParams }: { params: Pr
   const { flightSearch, direct, bags } = await searchParams;
   const trip = parseSearchCode(flightSearch);
   const searching = Boolean(flightSearch);
-  const destName = trip ? await cityName(trip.dest) : null;
+  let destEnglish: string | undefined;
+  if (trip) {
+    try { destEnglish = (await getCities()).find((c) => c.code === trip.dest)?.name; } catch {}
+  }
+  const destName = trip ? locCity(trip.dest, locale, destEnglish ?? trip.dest) : null;
   const deals = searching ? null : await getDeals(locale);
   // Prefill the search box from the URL so the visitor can tweak and search again.
   const initial: Initial | undefined = trip
     ? {
         trip: trip.legs ? "multi" : trip.back ? "round" : "oneway",
-        from: await cityObj(trip.origin),
-        to: trip.legs ? undefined : await cityObj(trip.dest),
+        from: await cityObj(trip.origin, locale),
+        to: trip.legs ? undefined : await cityObj(trip.dest, locale),
         depart: trip.depart,
         back: trip.back,
-        legs: trip.legs ? await Promise.all(trip.legs.map(async (l) => ({ to: await cityObj(l.dest), date: l.date }))) : undefined,
+        legs: trip.legs ? await Promise.all(trip.legs.map(async (l) => ({ to: await cityObj(l.dest, locale), date: l.date }))) : undefined,
         adults: trip.adults,
         children: trip.children,
         infants: trip.infants,
