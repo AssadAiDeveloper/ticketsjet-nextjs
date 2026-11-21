@@ -1,30 +1,101 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { pickerDate } from "@/lib/format";
 
 export type City = { code: string; name: string; country: string; kind?: "country" | "everywhere" };
+type CountryGroup = { code: string; name: string; cities: City[]; afterExact?: number };
+type Option = { key: string; label: string; code: string; country: string; pick: City; kind: "everywhere" | "group" | "groupCity" | "city" };
 
 /** Autocomplete city field backed by /api/cities */
 export function CityField({ label, value, onPick, placeholder, withCountries, compact, allowEverywhere, onTyped, hideCode }: { label: string; value: City | null; onPick: (c: City | null) => void; placeholder: string; withCountries?: boolean; compact?: boolean; allowEverywhere?: boolean; onTyped?: (s: string) => void; hideCode?: boolean }) {
   const t = useTranslations("form");
   const locale = useLocale();
+  const uid = useId();
   const [text, setText] = useState("");
   const [list, setList] = useState<City[]>([]);
+  const [group, setGroup] = useState<CountryGroup | null>(null);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState(-1);
   const everywhereCity: City = { code: "", name: t("everywhere"), country: "", kind: "everywhere" };
 
   useEffect(() => {
-    if (value || text.trim().length < 2) return setList([]);
-    const t = setTimeout(() => {
-      fetch(`/api/cities?q=${encodeURIComponent(text.trim())}${withCountries ? "&countries=1" : ""}&locale=${locale}`)
+    if (value || text.trim().length < 2) {
+      setList([]);
+      setGroup(null);
+      setActive(-1);
+      return;
+    }
+    const timer = setTimeout(() => {
+      fetch(`/api/cities?v=2&q=${encodeURIComponent(text.trim())}${withCountries ? "&countries=1" : ""}&locale=${locale}`)
         .then((r) => r.json())
-        .then((j: { cities: City[] }) => setList(j.cities))
-        .catch(() => setList([]));
+        .then((j: { cities: City[]; country?: CountryGroup }) => {
+          setList(j.cities ?? []);
+          setGroup(withCountries ? null : (j.country ?? null));
+          setActive(-1);
+        })
+        .catch(() => {
+          setList([]);
+          setGroup(null);
+          setActive(-1);
+        });
     }, 180);
-    return () => clearTimeout(t);
+    return () => clearTimeout(timer);
   }, [text, value, withCountries, locale]);
+
+  const options = useMemo<Option[]>(() => {
+    const out: Option[] = [];
+    if (allowEverywhere) {
+      out.push({ key: "everywhere", label: t("everywhere"), code: "", country: "", pick: everywhereCity, kind: "everywhere" });
+    }
+    const exact = group?.afterExact ?? 0;
+    const cityOption = (c: City, key: string, kind: Option["kind"]): Option => ({ key, label: c.name, code: c.code, country: c.country, pick: c, kind });
+    list.slice(0, exact).forEach((c, i) => out.push(cityOption(c, `exact-${i}`, "city")));
+    if (group && group.cities.length) {
+      out.push({ key: `group-${group.code}`, label: group.name, code: group.code, country: "", pick: group.cities[0], kind: "group" });
+      group.cities.forEach((c, i) => out.push(cityOption(c, `group-${group.code}-${i}`, "groupCity")));
+    }
+    list.slice(exact).forEach((c, i) => out.push(cityOption(c, `city-${i}`, "city")));
+    return out;
+  }, [allowEverywhere, everywhereCity, group, list, t]);
+
+  useEffect(() => {
+    if (active >= options.length) setActive(-1);
+  }, [active, options.length]);
+
+  const choose = (o: Option) => {
+    onPick(o.pick);
+    setText("");
+    setList([]);
+    setGroup(null);
+    setActive(-1);
+    setOpen(false);
+  };
+
+  const onKeyDown = (e: ReactKeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Escape") {
+      setOpen(false);
+      setActive(-1);
+      return;
+    }
+    if (options.length === 0) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setOpen(true);
+      setActive((i) => (i + 1) % options.length);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setOpen(true);
+      setActive((i) => (i <= 0 ? options.length - 1 : i - 1));
+    } else if (e.key === "Enter" && open && active >= 0) {
+      e.preventDefault();
+      choose(options[active]);
+    }
+  };
+
+  const show = open && (allowEverywhere || options.length > 0);
+  const listId = `${uid}-listbox`;
 
   return (
     <div className="relative">
@@ -35,54 +106,57 @@ export function CityField({ label, value, onPick, placeholder, withCountries, co
           onPick(null);
           setText(e.target.value);
           onTyped?.(e.target.value);
+          setActive(-1);
           setOpen(true);
         }}
         onFocus={(e) => {
           setOpen(true);
           if (value) e.currentTarget.select();
         }}
-        onBlur={() => setTimeout(() => setOpen(false), 150)}
+        onBlur={() => {
+          setTimeout(() => {
+            setOpen(false);
+            setActive(-1);
+          }, 150);
+        }}
+        onKeyDown={onKeyDown}
+        role="combobox"
+        aria-expanded={show}
+        aria-controls={listId}
+        aria-autocomplete="list"
+        aria-activedescendant={show && active >= 0 ? `${uid}-opt-${active}` : undefined}
         placeholder={placeholder}
         autoComplete="off"
         className={`${compact ? "mt-0.5 rounded-lg py-2" : "mt-1 rounded-xl py-3"} w-full border border-mist bg-white px-3 text-sm font-medium text-ink outline-none transition focus:border-amber`}
       />
-      {open && (allowEverywhere || (!value && list.length > 0)) && (
-        <ul className="absolute z-50 mt-1 w-full overflow-hidden rounded-xl border border-mist bg-white shadow-xl">
-          {allowEverywhere && (
-            <li>
+      {show && (
+        <ul id={listId} role="listbox" aria-label={label} className="absolute z-50 mt-1 max-h-72 w-full overflow-hidden overflow-y-auto rounded-xl border border-mist bg-white shadow-xl">
+          {options.map((o, i) => (
+            <li
+              key={o.key}
+              id={`${uid}-opt-${i}`}
+              role="option"
+              aria-selected={i === active}
+              onMouseEnter={() => setActive(i)}
+            >
               <button
                 type="button"
-                data-everywhere
                 onMouseDown={(e) => e.preventDefault()}
-                onClick={() => {
-                  onPick(everywhereCity);
-                  setText("");
-                  setOpen(false);
-                }}
-                aria-label={t("everywhere")}
-                className="flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-sm hover:bg-cloud"
+                onClick={() => choose(o)}
+                className={`flex w-full min-w-0 items-center justify-between gap-2 px-3 py-1.5 text-left text-sm hover:bg-cloud ${i === active ? "bg-cloud" : ""} ${o.kind === "group" ? "bg-cloud/70" : ""} ${o.kind === "groupCity" ? "ps-7" : ""}`}
               >
-                <span className="flex items-center gap-2 text-ink">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" /></svg>
-                  <bdi>{t("everywhere")}</bdi>
+                <span className="flex min-w-0 items-center gap-2 text-ink">
+                  {o.kind === "everywhere" && (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" /></svg>
+                  )}
+                  <bdi className={`truncate ${o.kind === "group" ? "font-semibold" : ""}`}>{o.label}</bdi>
+                  {o.code && <span dir="ltr" className="shrink-0 font-mono text-xs text-slate">({o.code})</span>}
                 </span>
-              </button>
-            </li>
-          )}
-          {list.map((c) => (
-            <li key={c.code}>
-              <button
-                type="button"
-                onMouseDown={(e) => e.preventDefault()}
-                onClick={() => {
-                  onPick(c);
-                  setText("");
-                  setOpen(false);
-                }}
-                className="flex w-full items-center justify-between px-3 py-1.5 text-left text-sm hover:bg-cloud"
-              >
-                <span className="text-ink"><bdi>{c.name}</bdi> <span dir="ltr" className="text-slate">({c.code})</span></span>
-                <span className="font-mono text-xs text-slate">{c.kind === "country" ? t("country") : (c.country || c.code)}</span>
+                {o.kind !== "everywhere" && (
+                  <span className="shrink-0 font-mono text-xs text-slate">
+                    {o.kind === "group" || o.pick.kind === "country" ? t("country") : (o.country || o.code)}
+                  </span>
+                )}
               </button>
             </li>
           ))}

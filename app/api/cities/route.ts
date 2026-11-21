@@ -4,6 +4,7 @@ import { cityName as localizeCity, norm } from "@/lib/cityName";
 import { isLocale } from "@/i18n/routing";
 import { intlTag } from "@/lib/format";
 import { getPhoto } from "@/lib/destinationPhotos";
+import { findCountry } from "@/lib/countryCities";
 
 // GET /api/cities?q=ams&locale=ar ? up to 6 matching cities, matched by English or localized name and returned in the visitor's language
 export async function GET(req: Request) {
@@ -22,10 +23,35 @@ export async function GET(req: Request) {
     const rank = (c: { code: string; name: string }) => (getPhoto(c.code) ? (names(c).includes(q) ? 0 : 1) : names(c).includes(q) ? 2 : c.code.toLowerCase() === q ? 3 : 4);
     starts.sort((a, b) => rank(a) - rank(b));
     rest.sort((a, b) => rank(a) - rank(b));
-    let cities: Array<{ code: string; name: string; country: string; kind?: "country" }> = [...starts, ...rest]
+    const base: Array<{ code: string; name: string; country: string; kind?: "country" }> = [...starts, ...rest]
       .slice(0, 6)
       .map(({ code, name, country }) => ({ code, name: localizeCity(code, locale, name), country }));
-    if (url.searchParams.get("countries") === "1") {
+
+    let countryGroup: { code: string; name: string; cities: Array<{ code: string; name: string; country: string }>; afterExact: number } | undefined;
+    const withCountries = url.searchParams.get("countries") === "1";
+    if (!withCountries) {
+      const hit = findCountry(raw, locale);
+      if (hit) {
+        const byCode = new Map(all.map((c) => [c.code, c]));
+        const main = hit.codes
+          .map((code) => byCode.get(code))
+          .filter((c): c is NonNullable<typeof c> => !!c && c.country === hit.code)
+          .slice(0, 6)
+          .map(({ code, name, country }) => ({ code, name: localizeCity(code, locale, name), country }));
+        if (main.length) {
+          const exact = (c: { code: string; name: string }) => {
+            const original = byCode.get(c.code);
+            return names(original ?? c).some((n) => n === q) || c.code.toLowerCase() === q;
+          };
+          let afterExact = 0;
+          while (afterExact < base.length && exact(base[afterExact])) afterExact++;
+          countryGroup = { code: hit.code, name: hit.name, cities: main, afterExact };
+        }
+      }
+    }
+
+    let cities = base;
+    if (withCountries) {
       const en = new Intl.DisplayNames(["en"], { type: "region" });
       const loc = new Intl.DisplayNames([intlTag(locale)], { type: "region" });
       const codes = [...new Set(all.map((c) => c.country).filter((c) => /^[A-Z]{2}$/.test(c)))];
@@ -36,7 +62,7 @@ export async function GET(req: Request) {
         .map((c) => ({ code: c.code, name: c.name, country: c.code, kind: "country" as const }));
       cities = [...hit, ...cities].slice(0, 7);
     }
-    return NextResponse.json({ cities }, { headers: { "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800" } });
+    return NextResponse.json({ cities, country: countryGroup }, { headers: { "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800" } });
   } catch {
     return NextResponse.json({ cities: [] }, { status: 502 });
   }
